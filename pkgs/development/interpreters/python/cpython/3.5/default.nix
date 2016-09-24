@@ -21,10 +21,14 @@ assert readline != null -> ncurses != null;
 with stdenv.lib;
 
 let
-  majorVersion = "3.5";
-  pythonVersion = majorVersion;
-  version = "${majorVersion}.2";
-  fullVersion = "${version}";
+
+  common = import ../common.nix {
+    version = "3.5.2";
+    pythonVersion = "3.5";
+    pythonPackages = python35Packages;
+  };
+  inherit (common);
+in stdenv.mkDerivation (common // {
 
   buildInputs = filter (p: p != null) [
     zlib
@@ -40,13 +44,6 @@ let
     libX11
     xproto
   ] ++ optionals stdenv.isDarwin [ CF configd ];
-in
-stdenv.mkDerivation {
-  name = "python3-${fullVersion}";
-  pythonVersion = majorVersion;
-  inherit majorVersion version;
-
-  inherit buildInputs;
 
   src = fetchurl {
     url = "http://www.python.org/ftp/python/${version}/Python-${fullVersion}.tar.xz";
@@ -81,28 +78,28 @@ stdenv.mkDerivation {
   postInstall = ''
     # needed for some packages, especially packages that backport functionality
     # to 2.x from 3.x
-    for item in $out/lib/python${majorVersion}/test/*; do
+    for item in $out/lib/python${pythonVersion}/test/*; do
       if [[ "$item" != */test_support.py* ]]; then
         rm -rf "$item"
       else
         echo $item
       fi
     done
-    touch $out/lib/python${majorVersion}/test/__init__.py
+    touch $out/lib/python${pythonVersion}/test/__init__.py
 
-    ln -s "$out/include/python${majorVersion}m" "$out/include/python${majorVersion}"
-    paxmark E $out/bin/python${majorVersion}
+    ln -s "$out/include/python${pythonVersion}m" "$out/include/python${pythonVersion}"
+    paxmark E $out/bin/python${pythonVersion}
   '';
 
   postFixup = ''
     # Get rid of retained dependencies on -dev packages, and remove
     # some $TMPDIR references to improve binary reproducibility.
-    for i in $out/lib//python${majorVersion}/_sysconfigdata.py $out/lib/python${majorVersion}/config-${majorVersion}m/Makefile; do
+    for i in $out/lib//python${pythonVersion}/_sysconfigdata.py $out/lib/python${pythonVersion}/config-${pythonVersion}m/Makefile; do
       sed -i $i -e "s|-I/nix/store/[^ ']*||g" -e "s|-L/nix/store/[^ ']*||g" -e "s|$TMPDIR|/no-such-path|g"
     done
 
     # FIXME: should regenerate this.
-    rm $out/lib/python${majorVersion}/__pycache__/_sysconfigdata.cpython*
+    rm $out/lib/python${pythonVersion}/__pycache__/_sysconfigdata.cpython*
   '';
 
   passthru = rec {
@@ -112,8 +109,8 @@ stdenv.mkDerivation {
     readlineSupport = readline != null;
     opensslSupport = openssl != null;
     tkSupport = (tk != null) && (tcl != null) && (libX11 != null) && (xproto != null);
-    libPrefix = "python${majorVersion}";
-    executable = "python${majorVersion}m";
+    libPrefix = "python${pythonVersion}";
+    executable = "python${pythonVersion}m";
     buildEnv = callPackage ../../wrapper.nix { python = self; };
     withPackages = import ../../with-packages.nix { inherit buildEnv; pythonPackages = python35Packages; };
     isPy3 = true;
@@ -122,23 +119,4 @@ stdenv.mkDerivation {
     sitePackages = "lib/${libPrefix}/site-packages";
     interpreter = "${self}/bin/${executable}";
   };
-
-  enableParallelBuilding = true;
-
-  meta = {
-    homepage = http://python.org;
-    description = "A high-level dynamically-typed programming language";
-    longDescription = ''
-      Python is a remarkably powerful dynamic programming language that
-      is used in a wide variety of application domains. Some of its key
-      distinguishing features include: clear, readable syntax; strong
-      introspection capabilities; intuitive object orientation; natural
-      expression of procedural code; full modularity, supporting
-      hierarchical packages; exception-based error handling; and very
-      high level dynamic data types.
-    '';
-    license = licenses.psfl;
-    platforms = with platforms; linux ++ darwin;
-    maintainers = with maintainers; [ chaoflow domenkozar cstrahan ];
-  };
-}
+})
