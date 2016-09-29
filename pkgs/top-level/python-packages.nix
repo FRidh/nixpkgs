@@ -8229,6 +8229,7 @@ in modules // {
 
     patches = [
       ../development/python-modules/pypoppler-0.39.0.patch
+      ../development/python-modules/pypoppler-poppler.c.patch
     ];
 
     meta = {
