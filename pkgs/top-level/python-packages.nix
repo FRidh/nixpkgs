@@ -7,7 +7,7 @@
 with pkgs.lib;
 
 let
-  packages = makeOverridable ( self:
+  packages = ( self:
 
 let
   pythonAtLeast = versionAtLeast python.pythonVersion;
