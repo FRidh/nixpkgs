@@ -47,6 +47,6 @@ stdenv.mkDerivation rec {
     license = stdenv.lib.licenses.gpl3;
 
     platforms = stdenv.lib.platforms.unix;
-    maintainers = [ stdenv.lib.maintainers.qknight ];
+    maintainers = with stdenv.lib.maintainers; [ qknight ryantm ];
   };
 }
