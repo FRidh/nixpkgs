@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, makeWrapper, ncurses, python, perl, textual-window-manager, libnewt,
+{ stdenv, fetchurl, makeWrapper, ncurses, python, perl, textual-window-manager, newt,
   gettext, vim, bc}:
 
 stdenv.mkDerivation rec {
@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
 
   doCheck = true;
 
-  buildInputs = [ perl python makeWrapper ];
+  buildInputs = [ perl python makeWrapper newt vim bc gettext];
 
   propagatedBuildInputs = [ textual-window-manager ];
 
@@ -25,7 +25,7 @@ stdenv.mkDerivation rec {
   '';
 
   postInstall = ''
-    wrapProgram $out/bin/byobu-config --prefix PYTHONPATH ":" "${libnewt}/${python.sitePackages}"
+    wrapProgram $out/bin/byobu-config --set PYTHONPATH "${newt}/${python.sitePackages}"
     wrapProgram $out/bin/byobu-status-detail --prefix PATH ":" "${vim}/bin/"
     wrapProgram $out/bin/byobu-ulevel --prefix PATH ":" "${bc}/bin/"
   '';
