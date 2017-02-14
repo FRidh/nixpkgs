@@ -11539,8 +11539,6 @@ with pkgs;
 
   libsemanage = callPackage ../os-specific/linux/libsemanage { };
 
-  libnewt = callPackage ../development/libraries/libnewt { };
-
   libraw = callPackage ../development/libraries/libraw { };
 
   libraw1394 = callPackage ../development/libraries/libraw1394 { };
