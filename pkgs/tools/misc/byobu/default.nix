@@ -1,7 +1,9 @@
 { stdenv, fetchurl, makeWrapper, ncurses, python, perl, textual-window-manager, newt,
   gettext, vim, bc}:
 
-stdenv.mkDerivation rec {
+let
+  pythonEnv = python.withPackages(ps: [ps.snack]);
+in stdenv.mkDerivation rec {
   version = "5.115";
   name = "byobu-" + version;
 
@@ -12,7 +14,7 @@ stdenv.mkDerivation rec {
 
   doCheck = true;
 
-  buildInputs = [ perl python makeWrapper newt vim bc gettext];
+  buildInputs = [ perl pythonEnv makeWrapper newt vim bc gettext];
 
   propagatedBuildInputs = [ textual-window-manager ];
 
@@ -25,7 +27,6 @@ stdenv.mkDerivation rec {
   '';
 
   postInstall = ''
-    wrapProgram $out/bin/byobu-config --set PYTHONPATH "${newt}/${python.sitePackages}"
     wrapProgram $out/bin/byobu-status-detail --prefix PATH ":" "${vim}/bin/"
     wrapProgram $out/bin/byobu-ulevel --prefix PATH ":" "${bc}/bin/"
   '';
