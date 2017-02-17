@@ -13811,6 +13811,8 @@ in {
   libxslt = if isPy3k then throw "libxslt not supported for interpreter ${python.executable}" else
     (pkgs.libxslt.override{pythonSupport=true; python2=python; inherit (self) libxml2;}).py;
 
+
+
   limnoria = buildPythonPackage rec {
     name = "limnoria-${version}";
     version = "2016.05.06";
@@ -15558,6 +15560,8 @@ in {
       license = licenses.gpl3;
     };
   };
+
+  snack = (pkgs.newt.override{pythonSupport=true; python=python;}).py;
 
   sleekxmpp = buildPythonPackage rec {
     name = "sleekxmpp-${version}";

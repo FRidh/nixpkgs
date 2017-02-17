@@ -1,4 +1,6 @@
-{ fetchurl, stdenv, slang, popt, python }:
+{ lib, fetchurl, stdenv, slang, popt
+, python ? null, pythonSupport ? true
+}:
 
 stdenv.mkDerivation rec {
   name = "newt-0.52.19";
@@ -26,6 +28,14 @@ stdenv.mkDerivation rec {
   crossAttrs = {
     makeFlags = "CROSS_COMPILE=${stdenv.cross.config}-";
   };
+
+  outputs = [ "out" ]
+   ++ lib.optional pythonSupport "py";
+
+  # Separate output for snack
+  postFixup = lib.optionalString pythonSupport ''
+   moveToOutput ${python.sitePackages} "$py"
+  '';
 
   meta = with stdenv.lib; {
     homepage = https://fedorahosted.org/newt/;
