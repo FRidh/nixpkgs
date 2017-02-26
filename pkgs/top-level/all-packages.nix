@@ -17293,6 +17293,8 @@ with pkgs;
     flex = flex_2_5_35;
   };
 
+  sympathy = callPackage ../applications/science/math/sympathy { };
+
   msieve = callPackage ../applications/science/math/msieve { };
 
   weka = callPackage ../applications/science/math/weka { };
