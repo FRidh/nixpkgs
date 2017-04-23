@@ -5426,6 +5426,9 @@ with pkgs;
     llvm = llvm_39;
   });
 
+  juliaLang = callPackage ../development/compilers/julia/julia-lang.nix { };
+  juliaPackages = callPackage ../development/compilers/julia/packages/packages.nix { };
+
   kotlin = callPackage ../development/compilers/kotlin { };
 
   lazarus = callPackage ../development/compilers/fpc/lazarus.nix {
