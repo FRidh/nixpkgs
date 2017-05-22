@@ -141,6 +141,9 @@ in stdenv.mkDerivation {
       sed -i $i -e "s|-I/nix/store/[^ ']*||g" -e "s|-L/nix/store/[^ ']*||g" -e "s|$TMPDIR|/no-such-path|g"
     done
 
+    # Include a sitecustomize.py file
+    cp ${../../sitecustomize.py} $out/${sitePackages}/sitecustomize.py
+
     # Determinism: rebuild all bytecode
     # We exclude lib2to3 because that's Python 2 code which fails
     # We rebuild three times, once for each optimization level
