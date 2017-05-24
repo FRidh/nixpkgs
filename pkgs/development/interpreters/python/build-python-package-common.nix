@@ -21,7 +21,7 @@ attrs // {
     runHook preInstall
 
     mkdir -p "$out/${python.sitePackages}"
-    export PYTHONPATH="$out/${python.sitePackages}:$PYTHONPATH"
+    export NIX_PYTHONPATH="$out/${python.sitePackages}:$NIX_PYTHONPATH"
 
     pushd dist
     ${bootstrapped-pip}/bin/pip install *.whl --no-index --prefix=$out --no-cache ${toString installFlags} --build tmpbuild
