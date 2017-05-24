@@ -14,7 +14,7 @@ buildPythonPath() {
     # for how this is used). Build up the program_PATH and program_PYTHONPATH
     # variables.
     declare -A pythonPathsSeen=()
-    program_PYTHONPATH=
+    program_NIX_PYTHONPATH=
     program_PATH=
     pythonPathsSeen["@python@"]=1
     addToSearchPath program_PATH @python@/bin
@@ -63,7 +63,7 @@ wrapPythonProgramsIn() {
                     echo "wrapping \`$f'..."
                     patchPythonScript "$f"
                     # wrapProgram creates the executable shell script described
-                    # above. The script will set PYTHONPATH and PATH variables.!
+                    # above. The script will set NIX_PYTHONPATH and PATH variables.!
                     # (see pkgs/build-support/setup-hooks/make-wrapper.sh)
                     local -a wrap_args=("$f"
                                     --prefix PATH ':' "$program_PATH"
@@ -81,7 +81,7 @@ wrapPythonProgramsIn() {
     fi
 }
 
-# Adds the lib and bin directories to the PYTHONPATH and PATH variables,
+# Adds the lib and bin directories to the NIX_PYTHONPATH and PATH variables,
 # respectively. Recurses on any paths declared in
 # `propagated-native-build-inputs`, while avoiding duplicating paths by
 # flagging the directories it has visited in `pythonPathsSeen`.
@@ -92,7 +92,7 @@ _addToPythonPath() {
     pythonPathsSeen[$dir]=1
     # addToSearchPath is defined in stdenv/generic/setup.sh. It will have
     # the effect of calling `export program_X=$dir/...:$program_X`.
-    addToSearchPath program_PYTHONPATH $dir/lib/@libPrefix@/site-packages
+    addToSearchPath program_NIX_PYTHONPATH $dir/lib/@libPrefix@/site-packages
     addToSearchPath program_PATH $dir/bin
 
     # Inspect the propagated inputs (if they exist) and recur on them.

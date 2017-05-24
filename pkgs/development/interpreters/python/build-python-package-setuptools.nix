@@ -47,7 +47,7 @@ in attrs // {
     if test -e setup.py; then
       tmp_path=$(mktemp -d)
       export PATH="$tmp_path/bin:$PATH"
-      export PYTHONPATH="$tmp_path/${python.sitePackages}:$PYTHONPATH"
+      export NIX_PYTHONPATH="$tmp_path/${python.sitePackages}:$NIX_PYTHONPATH"
       mkdir -p $tmp_path/${python.sitePackages}
       ${bootstrapped-pip}/bin/pip install -e . --prefix $tmp_path >&2
     fi

@@ -36,7 +36,7 @@ makeSetupHook {
           import site
           import functools
           sys.argv[0] = '"'$(readlink -f "$f")'"'
-          functools.reduce(lambda k, p: site.addsitedir(p, k), ['"$([ -n "$program_PYTHONPATH" ] && (echo "'$program_PYTHONPATH'" | sed "s|:|','|g") || true)"'], site._init_pathinfo())
+          functools.reduce(lambda k, p: site.addsitedir(p, k), ['"$([ -n "$program_NIX_PYTHONPATH" ] && (echo "'$program_NIX_PYTHONPATH'" | sed "s|:|','|g") || true)"'], site._init_pathinfo())
         '';
 
       in ''
