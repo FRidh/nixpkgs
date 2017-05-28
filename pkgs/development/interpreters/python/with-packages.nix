@@ -1,3 +1,3 @@
-{ buildEnv, pythonPackages }:
+{ devEnv, pythonPackages }:
 
-f: let packages = f pythonPackages; in buildEnv.override { extraLibs = packages; }
+f: let packages = f pythonPackages; in devEnv { libraries = packages; }

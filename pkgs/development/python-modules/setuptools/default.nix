@@ -1,4 +1,4 @@
-{ stdenv, lib, fetchurl, python, wrapPython }:
+{ stdenv, lib, fetchurl, python }:
 
 stdenv.mkDerivation rec {
   pname = "setuptools";
@@ -12,14 +12,13 @@ stdenv.mkDerivation rec {
     sha256 = "f865709919903e3399343c0b3c42f95e9aeddc41e38cfb334fb2bb5dfa384857";
   };
 
-  buildInputs = [ python wrapPython ];
+  buildInputs = [ python ];
   doCheck = false;  # requires pytest
   installPhase = ''
       dst=$out/${python.sitePackages}
       mkdir -p $dst
       export PYTHONPATH="$dst:$PYTHONPATH"
       ${python.interpreter} setup.py install --prefix=$out
-      wrapPythonPrograms
   '';
 
   pythonPath = [];

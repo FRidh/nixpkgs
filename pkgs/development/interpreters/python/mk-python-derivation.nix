@@ -2,7 +2,6 @@
 
 { lib
 , python
-, wrapPython
 , setuptools
 , unzip
 , ensureNewerSourcesHook
@@ -37,8 +36,9 @@
 # generated binaries.
 , makeWrapperArgs ? []
 
-# Skip wrapping of python programs altogether
-, dontWrapPythonPrograms ? false
+# Packages whose /bin should be added to PATH
+# when creating an environment.
+, extraPaths ? []
 
 , meta ? {}
 
@@ -60,7 +60,7 @@ python.stdenv.mkDerivation (builtins.removeAttrs attrs ["disabled" "checkInputs"
 
   inherit pythonPath;
 
-  buildInputs = [ wrapPython ] ++ buildInputs ++ pythonPath
+  buildInputs = buildInputs ++ pythonPath
     ++ [ (ensureNewerSourcesHook { year = "1980"; }) ]
     ++ (lib.optional (lib.hasSuffix "zip" attrs.src.name or "") unzip)
     ++ lib.optionals doCheck checkInputs;
@@ -72,9 +72,7 @@ python.stdenv.mkDerivation (builtins.removeAttrs attrs ["disabled" "checkInputs"
   doCheck = false;
   doInstallCheck = doCheck;
 
-  postFixup = lib.optionalString (!dontWrapPythonPrograms) ''
-    wrapPythonPrograms
-  '' + lib.optionalString catchConflicts ''
+  postFixup = lib.optionalString catchConflicts ''
     # Check if we have two packages with the same name in the closure and fail.
     # If this happens, something went wrong with the dependencies specs.
     # Intentionally kept in a subdirectory, see catch_conflicts/README.md.
