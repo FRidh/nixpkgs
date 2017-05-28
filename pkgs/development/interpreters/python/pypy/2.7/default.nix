@@ -132,9 +132,10 @@ in stdenv.mkDerivation rec {
       inherit zlibSupport libPrefix sitePackages;
       executable = "pypy";
       isPypy = true;
-      buildEnv = callPackage ../../wrapper.nix { python = self; };
+      buildEnv = callPackage ../../wrapper.nix { python = self; }; # 2017-06-01: Deprecated in favor of devEnv
+      devEnv = callPackage ../../dev-env.nix { python = self;  };
+      withPackages = import ../../with-packages.nix { inherit devEnv pythonPackages;};
       interpreter = "${self}/bin/${executable}";
-      withPackages = import ../../with-packages.nix { inherit buildEnv pythonPackages;};
       pkgs = pythonPackages;
     };
 

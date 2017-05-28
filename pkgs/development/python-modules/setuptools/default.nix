@@ -1,9 +1,4 @@
-{ stdenv
-, fetchPypi
-, python
-, wrapPython
-, unzip
-}:
+{ stdenv, lib, fetchurl, python }:
 
 # Should use buildPythonPackage here somehow
 stdenv.mkDerivation rec {
@@ -17,14 +12,14 @@ stdenv.mkDerivation rec {
     sha256 = "2758b0270fe8ceec42f336ee5b411e60dc8579febc27bb3ba9b794dc7f0239ae";
   };
 
-  buildInputs = [ python wrapPython unzip ];
+  buildInputs = [ python ];
+
   doCheck = false;  # requires pytest
   installPhase = ''
       dst=$out/${python.sitePackages}
       mkdir -p $dst
       export PYTHONPATH="$dst:$PYTHONPATH"
       ${python.interpreter} setup.py install --prefix=$out
-      wrapPythonPrograms
   '';
 
   pythonPath = [];

@@ -204,8 +204,9 @@ in stdenv.mkDerivation {
     in rec {
       inherit libPrefix sitePackages x11Support hasDistutilsCxxPatch;
       executable = libPrefix;
-      buildEnv = callPackage ../../wrapper.nix { python = self; };
-      withPackages = import ../../with-packages.nix { inherit buildEnv pythonPackages;};
+      buildEnv = callPackage ../../wrapper.nix { python = self; }; # 2017-06-01: Deprecated in favor of devEnv
+      devEnv = callPackage ../../dev-env.nix { python = self;  };
+      withPackages = import ../../with-packages.nix { inherit devEnv pythonPackages;};
       pkgs = pythonPackages;
       isPy2 = true;
       isPy27 = true;

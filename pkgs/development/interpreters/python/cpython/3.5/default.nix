@@ -157,8 +157,9 @@ in stdenv.mkDerivation {
   in rec {
     inherit libPrefix sitePackages x11Support;
     executable = "${libPrefix}m";
-    buildEnv = callPackage ../../wrapper.nix { python = self; };
-    withPackages = import ../../with-packages.nix { inherit buildEnv pythonPackages;};
+    buildEnv = callPackage ../../wrapper.nix { python = self; }; # 2017-06-01: Deprecated in favor of devEnv
+    devEnv = callPackage ../../dev-env.nix { python = self;  };
+    withPackages = import ../../with-packages.nix { inherit devEnv pythonPackages;};
     pkgs = pythonPackages;
     isPy3 = true;
     isPy35 = true;

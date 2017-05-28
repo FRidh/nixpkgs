@@ -5,7 +5,6 @@
 
 { lib
 , python
-, wrapPython
 , setuptools
 , unzip
 , ensureNewerSourcesHook
@@ -21,7 +20,7 @@ let
   wheel-specific = import ./build-python-package-wheel.nix { };
   common = import ./build-python-package-common.nix { inherit python bootstrapped-pip; };
   mkPythonDerivation = import ./mk-python-derivation.nix {
-    inherit lib python wrapPython setuptools unzip ensureNewerSourcesHook providesPythonModule namePrefix;
+    inherit lib python setuptools unzip ensureNewerSourcesHook providesPythonModule namePrefix;
   };
 in
 

@@ -57,12 +57,10 @@ let
     providesPythonModule = true;
   }));
 
-  buildPythonApplication = makeOverridablePythonPackage ( makeOverridable (callPackage ../development/interpreters/python/build-python-package.nix {
-    inherit bootstrapped-pip;
-    flit = self.flit;
-    namePrefix = "";
-    providesPythonModule = false;
-  }));
+  # Build a Python application derivation given a Python package.
+  asPythonApplication =  callPackage ../development/interpreters/python/as-python-application.nix { };
+  # Build a Python application.
+  buildPythonApplication = args: asPythonApplication (buildPythonPackage args);
 
   graphiteVersion = "1.0.2";
 
@@ -92,12 +90,12 @@ let
 
 in {
 
-  inherit python bootstrapped-pip pythonAtLeast pythonOlder isPy26 isPy27 isPy33 isPy34 isPy35 isPy36 isPyPy isPy3k buildPythonPackage buildPythonApplication;
+  inherit python bootstrapped-pip pythonAtLeast pythonOlder isPy26 isPy27 isPy33 isPy34 isPy35 isPy36 isPyPy isPy3k buildPythonPackage buildPythonApplication asPythonApplication;
   inherit fetchPypi callPackage;
 
   # helpers
 
-  wrapPython = callPackage ../development/interpreters/python/wrap-python.nix {inherit python; inherit (pkgs) makeSetupHook makeWrapper; };
+  inherit providesPythonModule findDerivationsProvidingModules;
 
   # specials
 
