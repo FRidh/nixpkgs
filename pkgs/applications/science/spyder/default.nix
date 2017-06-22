@@ -1,25 +1,36 @@
-{ stdenv, fetchurl, unzip, buildPythonApplication, makeDesktopItem
+{ stdenv, unzip, buildPythonApplication, makeDesktopItem, fetchPypi
 # mandatory
-, pyside
-# recommended
-, pyflakes ? null, rope ? null, sphinx ? null, numpy ? null, scipy ? null, matplotlib ? null
-# optional
-, ipython ? null, pylint ? null, pep8 ? null
+, rope
+, jedi
+, pyflakes
+, pygments
+, qtconsole
+, nbconvert
+, sphinx
+, pep8
+, pylint
+, psutil
+, qtawesome
+, qtpy
+, pickleshare
+, pyzmq
+, chardet
+, numpydoc
 }:
 
 buildPythonApplication rec {
-  name = "spyder-${version}";
-  version = "2.3.8";
-  namePrefix = "";
+  pname = "spyder";
+  name = "${pname}-${version}";
+  version = "3.1.4";
 
-  src = fetchurl {
-    url = "mirror://pypi/s/spyder/${name}.zip";
-    sha256 = "99fdae2cea325c0f2842c77bd67dd22db19fef3d9c0dde1545b1a2650eae517e";
+  src = fetchPypi {
+    inherit pname version;
+    sha256 = "d0cabd441761d5c439977cba4eb15b72da5874fc7f0d3523ab991670c503f073";
   };
 
-  # NOTE: sphinx makes the build fail with: ValueError: ZIP does not support timestamps before 1980
   propagatedBuildInputs =
-    [ pyside pyflakes rope  numpy scipy matplotlib ipython pylint pep8 ];
+    [ rope jedi pyflakes pygments qtconsole nbconvert sphinx pep8
+    pylint psutil qtawesome qtpy pickleshare pyzmq chardet numpydoc ];
 
   # There is no test for spyder
   doCheck = false;
