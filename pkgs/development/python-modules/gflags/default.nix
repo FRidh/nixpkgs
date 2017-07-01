@@ -15,9 +15,7 @@ buildPythonPackage rec {
   propagatedBuildInputs = [ six ];
 
   checkPhase = ''
-    # clashes with our pythhon wrapper (which is in argv0)
-    # AssertionError: 'gflags._helpers_test' != 'nix_run_setup.py'
-    py.test -k 'not testGetCallingModule'
+    py.test
   '';
 
   meta = {

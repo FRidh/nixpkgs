@@ -37,9 +37,6 @@ buildPythonPackage rec {
     sha256 = "1h87n0jcsi6mgjx1pws6g1lmcn8jwabwxj8hq334jvziaq0plyym";
   };
 
-  # do not run checks on nix_run_setup.py
-  patches = [ ./setup.patch ];
-
   # testing based on project's tox.ini
   checkPhase = ''
     pytest --doctest-modules natsort

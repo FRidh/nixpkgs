@@ -16,7 +16,7 @@ buildPythonPackage rec {
   propagatedBuildInputs = [ django six ];
 
   checkPhase = ''
-    ${python.interpreter} nix_run_setup.py test --addopts="--ignore build"
+    ${python.interpreter} setup.py test --addopts="--ignore build"
   '';
 
   meta = with stdenv.lib; {
