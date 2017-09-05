@@ -2,11 +2,13 @@
 , lib
 , fetchPypi
 , mock
-, pytest_27
+, pytest
+, pytestrunner
 , sh
 , coverage
 , docopt
 , requests
+, urllib3
 , git
 }:
 
@@ -24,7 +26,8 @@ buildPythonPackage rec {
   buildInputs = [
     mock
     sh
-    pytest_27
+    pytest
+    pytestrunner
     git
   ];
 
@@ -39,6 +42,7 @@ buildPythonPackage rec {
     coverage
     docopt
     requests
+    urllib3
   ];
 
   meta = {
