@@ -1,9 +1,9 @@
-{ fetchurl, stdenv, python2Packages, makeWrapper, lib
+{ fetchurl, stdenv, python2, makeWrapper, lib
 , xpdf, mesa, SDL, freeglut }:
 
 let
-  inherit (python2Packages) python pyopengl pygame setuptools pillow;
   version = "0.11.1";
+  pythonEnv = python2.withPackages(ps: with ps; [ pyopengl pygame pillow ]);
 in stdenv.mkDerivation {
     # This project was formerly known as KeyJNote.
     # See http://keyj.s2000.ws/?p=77 for details.
@@ -17,34 +17,19 @@ in stdenv.mkDerivation {
 
     # Note: We need to have `setuptools' in the path to be able to use
     # PyOpenGL.
-    buildInputs = [ makeWrapper xpdf pillow pyopengl pygame ];
-
-    configurePhase = ''
-      sed -i "impressive.py" \
-          -e 's|^#!/usr/bin/env.*$|#!${python}/bin/python|g'
-    '';
+    buildInputs = [ makeWrapper xpdf pythonEnv ];
 
     installPhase = ''
       mkdir -p "$out/bin" "$out/share/doc/impressive"
       mv impressive.py "$out/bin/impressive"
       mv * "$out/share/doc/impressive"
 
-      # XXX: We have to reiterate PyOpenGL's dependencies here.
-      #
-      # `setuptools' must be in the Python path as it's used by
-      # PyOpenGL.
-      #
       # We set $LIBRARY_PATH (no `LD_'!) so that ctypes can find
       # `libGL.so', which it does by running `gcc', which in turn
       # honors $LIBRARY_PATH.  See
       # http://python.net/crew/theller/ctypes/reference.html#id1 .
       wrapProgram "$out/bin/impressive" \
          --prefix PATH ":" "${xpdf}/bin" \
-         --prefix PYTHONPATH ":" \
-                  ${lib.concatStringsSep ":"
-                     (map (path:
-                            path + "/lib/${python.libPrefix}/site-packages")
-                          [ pillow pyopengl pygame setuptools ])} \
          --prefix LIBRARY_PATH ":" "${lib.makeLibraryPath [ mesa freeglut SDL ]}"
     '';
 
