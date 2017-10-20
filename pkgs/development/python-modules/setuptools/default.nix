@@ -1,4 +1,4 @@
-{ stdenv, lib, fetchurl, python }:
+{ stdenv, lib, fetchPypi, python }:
 
 # Should use buildPythonPackage here somehow
 stdenv.mkDerivation rec {
