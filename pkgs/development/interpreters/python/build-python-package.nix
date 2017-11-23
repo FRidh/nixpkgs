@@ -6,15 +6,15 @@
 { lib
 , python
 , mkPythonDerivation
-, bootstrapped-pip
+, pip
 , flit
 }:
 
 let
-  setuptools-specific = import ./build-python-package-setuptools.nix { inherit lib python bootstrapped-pip; };
+  setuptools-specific = import ./build-python-package-setuptools.nix { inherit lib python pip; };
   flit-specific = import ./build-python-package-flit.nix { inherit python flit; };
   wheel-specific = import ./build-python-package-wheel.nix { };
-  common = import ./build-python-package-common.nix { inherit python bootstrapped-pip; };
+  common = import ./build-python-package-common.nix { inherit python pip; };
 in
 
 {
