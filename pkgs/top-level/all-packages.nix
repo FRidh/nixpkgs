@@ -19753,6 +19753,8 @@ with pkgs;
 
   nix-serve = callPackage ../tools/package-management/nix-serve { };
 
+  nix-setup = callPackage ../tools/package-management/nix-setup { };
+
   nixos-artwork = callPackage ../data/misc/nixos-artwork { };
   nixos-icons = callPackage ../data/misc/nixos-artwork/icons.nix { };
 

@@ -1,0 +1,76 @@
+#!@stdenv.shell@
+
+# This shell script provides helper functions for setting up a Nix multi-user installation.
+# These functions are supposed to be run by root.
+
+create_builders() {
+# Post-installation. Create build users and group.
+
+  # Create group
+  if ! getent group "@groupname@" >/dev/null; then
+    groupadd -r "@groupname@"
+  fi
+
+  # Create users
+  for i in $(seq @nbuilders@); do
+    if ! getent passwd "@username@$i" >/dev/null; then
+      useradd -r -g "@groupname@" -G "@groupname@" -d /var/empty \
+        -s /sbin/nologin \
+        -c "Nix build user $i" "@username@$i"
+    fi
+  done
+}
+
+create_store() {
+# Post-installation. Create store and state.
+
+  # Create the store
+  mkdir -p -m 1777 "@stateDir@/profiles/per-user"
+  mkdir -p -m 1777 "@stateDir@/gcroots/per-user"
+  mkdir -p "@stateDir@/channel-cache"
+  if [ ! -d "@storeDir@" ]; then
+    mkdir -p -m 1775 "@storeDir@"
+    chgrp "@groupname@" "@storeDir@"
+    @nix@/bin/nix-store --init
+  fi
+}
+
+# setup_default_profile {
+# # Setup the default Nix profile.
+#
+#   @nix@/bin/nix-env -iA nix -iA cacert
+#
+# }
+
+setup_configuration {
+# Setup a basic nix.conf file
+
+  cat <<EOF > "@confDir@/nix.conf"
+build-users-group = @groupname@
+max-jobs = @nbuilders@
+sandbox = false
+EOF
+}
+
+remove_builders() {
+
+  # Remove users
+  for i in $(seq @nbuilders@); do
+    if getent passwd "@username@$i" >/dev/null; then
+      userdel "@username@$i"
+    fi
+  done
+
+  # Remove group
+  if getent group "@groupname@" >/dev/null && [ -z "$(getent group "@groupname@" | cut -d ':' -f 4)" ]; then
+    groupdel "@groupname@"
+  fi
+
+}
+
+remove_store() {
+
+  rm -rf "@stateDir@"
+  rm -rf "@storeDir@"
+
+}
