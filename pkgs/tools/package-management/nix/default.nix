@@ -123,7 +123,7 @@ let
       outputsToInstall = [ "out" "man" ];
     };
 
-    passthru = { inherit fromGit; };
+    passthru = { inherit fromGit stateDir storeDir confDir; };
   };
 
   perl-bindings = { nix }: stdenv.mkDerivation {
