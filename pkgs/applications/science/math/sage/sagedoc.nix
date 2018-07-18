@@ -1,28 +1,12 @@
-{ pkgs
-, stdenv
+{ stdenv
+, cddlib
+, maxima-ecl
+, tachyon
+, jmol
 , sage-src
 , env-locations
 , sage-with-env
-, sagelib
 , python2
-, psutil
-, future
-, sphinx
-, sagenb
-, maxima-ecl
-, networkx
-, scipy
-, sympy
-, matplotlib
-, pillow
-, ipykernel
-, jupyter_client
-, tachyon
-, jmol
-, ipywidgets
-, typing
-, cddlib
-, pybrial
 }:
 
 stdenv.mkDerivation rec {
@@ -33,13 +17,17 @@ stdenv.mkDerivation rec {
   # Building the documentation has many dependencies, because all documented
   # modules are imported and because matplotlib is used to produce plots.
   buildInputs = [
+    cddlib
+    jmol
+    maxima-ecl
+    tachyon
+  ] ++ (with python2.pkgs; [
     sagelib
     python2
     psutil
     future
     sphinx
     sagenb
-    maxima-ecl
     networkx
     scipy
     sympy
@@ -47,13 +35,10 @@ stdenv.mkDerivation rec {
     pillow
     ipykernel
     jupyter_client
-    tachyon
-    jmol
     ipywidgets
     typing
-    cddlib
     pybrial
-  ];
+  ]);
 
   unpackPhase = ''
     export SAGE_DOC_OVERRIDE="$PWD/share/doc/sage"

@@ -3,7 +3,7 @@
 , sage
 , sage-src
 , sagedoc
-, withDoc
+, withDoc ? false
 }:
 
 stdenv.mkDerivation rec {
