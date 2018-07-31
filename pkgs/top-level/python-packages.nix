@@ -6,21 +6,16 @@
 #
 # For more details, please see the Python section in the Nixpkgs manual.
 
-{ pkgs
-, stdenv
-, python
-, overrides ? (self: super: {})
-}:
+self:
 
-with pkgs.lib;
+with self;
 
 let
-  packages = ( self:
+  inherit (self) python lib pkgs;
 
-let
   inherit (python.passthru) isPy27 isPy33 isPy34 isPy35 isPy36 isPy37 isPy38 isPy3k isPyPy pythonAtLeast pythonOlder;
 
-  callPackage = pkgs.newScope self;
+  callPackage = lib.callPackageWith self;
 
   namePrefix = python.libPrefix + "-";
 
@@ -31,23 +26,23 @@ let
   makeOverridablePythonPackage = f: origArgs:
     let
       ff = f origArgs;
-      overrideWith = newArgs: origArgs // (if pkgs.lib.isFunction newArgs then newArgs origArgs else newArgs);
+      overrideWith = newArgs: origArgs // (if lib.isFunction newArgs then newArgs origArgs else newArgs);
     in
       if builtins.isAttrs ff then (ff // {
-        overridePythonAttrs = newArgs: makeOverridablePythonPackage f (overrideWith newArgs);
+        overridePythonAttrs = newArgs: lib.makeOverridablePythonPackage f (overrideWith newArgs);
       })
       else if builtins.isFunction ff then {
-        overridePythonAttrs = newArgs: makeOverridablePythonPackage f (overrideWith newArgs);
+        overridePythonAttrs = newArgs: lib.makeOverridablePythonPackage f (overrideWith newArgs);
         __functor = self: ff;
       }
       else ff;
 
-  buildPythonPackage = makeOverridablePythonPackage ( makeOverridable (callPackage ../development/interpreters/python/mk-python-derivation.nix {
+  buildPythonPackage = makeOverridablePythonPackage ( lib.makeOverridable (callPackage ../development/interpreters/python/mk-python-derivation.nix {
     inherit namePrefix;     # We want Python libraries to be named like e.g. "python3.6-${name}"
     inherit toPythonModule; # Libraries provide modules
   }));
 
-  buildPythonApplication = makeOverridablePythonPackage ( makeOverridable (callPackage ../development/interpreters/python/mk-python-derivation.nix {
+  buildPythonApplication = makeOverridablePythonPackage ( lib.makeOverridable (callPackage ../development/interpreters/python/mk-python-derivation.nix {
     namePrefix = "";        # Python applications should not have any prefix
     toPythonModule = x: x;  # Application does not provide modules.
   }));
@@ -62,15 +57,15 @@ let
 
   # Get list of required Python modules given a list of derivations.
   requiredPythonModules = drvs: let
-    modules = filter hasPythonModule drvs;
-  in unique ([python] ++ modules ++ concatLists (catAttrs "requiredPythonModules" modules));
+    modules = lib.filter hasPythonModule drvs;
+  in lib.unique ([python] ++ modules ++ lib.concatLists (lib.catAttrs "requiredPythonModules" modules));
 
   # Create a PYTHONPATH from a list of derivations. This function recurses into the items to find derivations
   # providing Python modules.
-  makePythonPath = drvs: stdenv.lib.makeSearchPath python.sitePackages (requiredPythonModules drvs);
+  makePythonPath = drvs: lib.makeSearchPath python.sitePackages (requiredPythonModules drvs);
 
   removePythonPrefix = name:
-    removePrefix namePrefix name;
+    lib.removePrefix namePrefix name;
 
   # Convert derivation to a Python module.
   toPythonModule = drv:
@@ -101,7 +96,7 @@ let
 in {
 
   inherit (python.passthru) isPy27 isPy33 isPy34 isPy35 isPy36 isPy37 isPy3k isPyPy pythonAtLeast pythonOlder;
-  inherit python bootstrapped-pip buildPythonPackage buildPythonApplication;
+  inherit bootstrapped-pip buildPythonPackage buildPythonApplication;
   inherit fetchPypi callPackage;
   inherit hasPythonModule requiredPythonModules makePythonPath disabledIf;
   inherit toPythonModule toPythonApplication;
@@ -115,7 +110,7 @@ in {
   wrapPython = callPackage ../development/interpreters/python/wrap-python.nix {inherit python; inherit (pkgs) makeSetupHook makeWrapper; };
 
   # Dont take pythonPackages from "global" pkgs scope to avoid mixing python versions
-  pythonPackages = self;
+#   pythonPackages = self;
 
   # specials
 
@@ -6268,6 +6263,4 @@ in {
   runway-python = callPackage ../development/python-modules/runway-python { };
 
   pyprof2calltree = callPackage ../development/python-modules/pyprof2calltree { };
-});
-
-in fix' (extends overrides packages)
+}

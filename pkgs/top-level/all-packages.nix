@@ -8848,7 +8848,15 @@ in
   inherit (pythonInterpreters) python27 python35 python36 python37 python38 python3Minimal pypy27 pypy36;
 
   # Python package sets.
-  python27Packages = lib.hiPrioSet (recurseIntoAttrs python27.pkgs);
+  pythonPackagesSet = import ./python-packages.nix;
+
+  python27Packages = let
+    scope = pkgs // { python = python27; pythonPackages = python27Packages;} // python27Packages;
+    ps = lib.traceVal (pythonPackagesSet scope);
+#   in lib.mapAttrs (n: v: if v?overrideWithScope then v.overrideWithScope scope else v) (ps);
+  in ps;
+
+#   python27Packages = lib.hiPrioSet (recurseIntoAttrs python27.pkgs);
   python35Packages = python35.pkgs;
   python36Packages = python36.pkgs;
   python37Packages = recurseIntoAttrs python37.pkgs;
