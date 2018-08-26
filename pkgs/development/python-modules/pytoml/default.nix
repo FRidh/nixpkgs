@@ -19,6 +19,8 @@ buildPythonPackage rec {
     sha256 = "1ip71yqxnyi4jhw5x1q7a0za61ndhpfh0vbx08jfv0w4ayng6rgv";
   };
 
+  cythonize = true;
+
   meta = with stdenv.lib; {
     description = "A TOML parser/writer for Python";
     homepage    = https://github.com/avakar/pytoml;

@@ -57,6 +57,7 @@ let
     # We want Python libraries to be named like e.g. "python3.6-${name}"
     inherit namePrefix;
     inherit toPythonModule;
+    cython = self.cython;
   }));
 
   buildPythonApplication = makeOverridablePythonPackage ( makeOverridable (callPackage ../development/interpreters/python/build-python-package.nix {

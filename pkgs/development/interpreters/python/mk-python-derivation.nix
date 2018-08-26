@@ -10,6 +10,7 @@
 # Whether the derivation provides a Python module or not.
 , toPythonModule
 , namePrefix
+, cython
 }:
 
 { name ? "${attrs.pname}-${attrs.version}"
@@ -50,6 +51,9 @@
 # However, some packages do provide executables with extensions, and thus bytecode is generated.
 , removeBinBytecode ? true
 
+# Compile Python code to native using Cython
+, cythonize ? false
+
 , meta ? {}
 
 , passthru ? {}
@@ -76,6 +80,7 @@ toPythonModule (python.stdenv.mkDerivation (builtins.removeAttrs attrs [
   buildInputs = [ wrapPython ]
     ++ lib.optional (lib.hasSuffix "zip" (attrs.src.name or "")) unzip
     ++ lib.optional catchConflicts setuptools # If we no longer propagate setuptools
+    ++ lib.optional cythonize cython
     ++ buildInputs
     ++ pythonPath;
 
@@ -99,6 +104,8 @@ toPythonModule (python.stdenv.mkDerivation (builtins.removeAttrs attrs [
     # If this happens, something went wrong with the dependencies specs.
     # Intentionally kept in a subdirectory, see catch_conflicts/README.md.
     ${python.interpreter} ${./catch_conflicts}/catch_conflicts.py
+  '' + lib.optionalString cythonize ''
+    cythonize -ik $out/${python.sitePackages}/**/*.py
   '' + attrs.postFixup or '''';
 
   meta = {

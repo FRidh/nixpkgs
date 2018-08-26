@@ -12,6 +12,7 @@
 , namePrefix
 , bootstrapped-pip
 , flit
+, cython
 }:
 
 let
@@ -20,7 +21,7 @@ let
   wheel-specific = import ./build-python-package-wheel.nix { };
   common = import ./build-python-package-common.nix { inherit python bootstrapped-pip; };
   mkPythonDerivation = import ./mk-python-derivation.nix {
-    inherit lib config python wrapPython setuptools unzip ensureNewerSourcesForZipFilesHook toPythonModule namePrefix;
+    inherit cython lib config python wrapPython setuptools unzip ensureNewerSourcesForZipFilesHook toPythonModule namePrefix;
   };
 in
 
