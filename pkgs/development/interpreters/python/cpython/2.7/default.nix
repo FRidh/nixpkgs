@@ -192,102 +192,76 @@ let
   # external dependencies.
 
 in stdenv.mkDerivation ({
-    name = "python-${version}";
-    pythonVersion = majorVersion;
+  name = "python-${version}";
+  pythonVersion = majorVersion;
 
-    inherit majorVersion version src patches buildInputs nativeBuildInputs
-            preConfigure configureFlags;
+  inherit majorVersion version src patches buildInputs nativeBuildInputs preConfigure configureFlags;
 
-    LDFLAGS = stdenv.lib.optionalString (!stdenv.isDarwin) "-lgcc_s";
-    inherit (mkPaths buildInputs) C_INCLUDE_PATH LIBRARY_PATH;
+  LDFLAGS = stdenv.lib.optionalString (!stdenv.isDarwin) "-lgcc_s";
+  inherit (mkPaths buildInputs) C_INCLUDE_PATH LIBRARY_PATH;
 
-    NIX_CFLAGS_COMPILE = optionalString stdenv.isDarwin "-msse2"
-      + optionalString stdenv.hostPlatform.isMusl " -DTHREAD_STACK_SIZE=0x100000";
-    DETERMINISTIC_BUILD = 1;
+  NIX_CFLAGS_COMPILE = optionalString stdenv.isDarwin "-msse2"
+    + optionalString stdenv.hostPlatform.isMusl " -DTHREAD_STACK_SIZE=0x100000";
+  DETERMINISTIC_BUILD = 1;
 
-    setupHook = python-setup-hook sitePackages;
+  setupHook = python-setup-hook sitePackages;
 
-    postPatch = optionalString (x11Support && (tix != null)) ''
-          substituteInPlace "Lib/lib-tk/Tix.py" --replace "os.environ.get('TIX_LIBRARY')" "os.environ.get('TIX_LIBRARY') or '${tix}/lib'"
+  postPatch = optionalString (x11Support && (tix != null)) ''
+    substituteInPlace "Lib/lib-tk/Tix.py" --replace "os.environ.get('TIX_LIBRARY')" "os.environ.get('TIX_LIBRARY') or '${tix}/lib'"
+  '';
+
+  postInstall = with common.postInstall; concatStrings ([
+    removeTests
+    manyLinux
+    ''
+      rm "$out"/lib/python*/plat-*/regen # refers to glibc.dev
+    ''
+    determinismRemoveWindowsInstallers
+    determinismRemoveRetainedDependencies
+    determinismRebuildByteCode
+  ] + optional (stdenv.hostPlatform == stdenv.buildPlatform) determinismRebuildByteCode)
+    + optional stdenv.hostPlatform.isCygwin
+    ''
+      cp libpython2.7.dll.a $out/lib
     '';
 
-    postInstall =
-      ''
-        # needed for some packages, especially packages that backport
-        # functionality to 2.x from 3.x
-        for item in $out/lib/python${majorVersion}/test/*; do
-          if [[ "$item" != */test_support.py*
-             && "$item" != */test/support
-             && "$item" != */test/regrtest.py* ]]; then
-            rm -rf "$item"
-          else
-            echo $item
-          fi
-        done
-        touch $out/lib/python${majorVersion}/test/__init__.py
-        ln -s $out/lib/python${majorVersion}/pdb.py $out/bin/pdb
-        ln -s $out/lib/python${majorVersion}/pdb.py $out/bin/pdb${majorVersion}
-        ln -s $out/share/man/man1/{python2.7.1.gz,python.1.gz}
-
-        paxmark E $out/bin/python${majorVersion}
-
-        # Python on Nix is not manylinux1 compatible. https://github.com/NixOS/nixpkgs/issues/18484
-        echo "manylinux1_compatible=False" >> $out/lib/${libPrefix}/_manylinux.py
-
-        rm "$out"/lib/python*/plat-*/regen # refers to glibc.dev
-
-        # Determinism: Windows installers were not deterministic.
-        # We're also not interested in building Windows installers.
-        find "$out" -name 'wininst*.exe' | xargs -r rm -f
-      '' + optionalString (stdenv.hostPlatform == stdenv.buildPlatform)
-      ''
-        # Determinism: rebuild all bytecode
-        # We exclude lib2to3 because that's Python 2 code which fails
-        # We rebuild three times, once for each optimization level
-        find $out -name "*.py" | $out/bin/python -m compileall -q -f -x "lib2to3" -i -
-        find $out -name "*.py" | $out/bin/python -O -m compileall -q -f -x "lib2to3" -i -
-        find $out -name "*.py" | $out/bin/python -OO -m compileall -q -f -x "lib2to3" -i -
-      '' + optionalString stdenv.hostPlatform.isCygwin ''
-        cp libpython2.7.dll.a $out/lib
-      '';
-
-    passthru = let
-      pythonPackages = callPackage ../../../../../top-level/python-packages.nix {
-        python = self;
-        overrides = packageOverrides;
-      };
-    in rec {
-      inherit libPrefix sitePackages x11Support hasDistutilsCxxPatch ucsEncoding;
-      executable = libPrefix;
-      buildEnv = callPackage ../../wrapper.nix { python = self; inherit (pythonPackages) requiredPythonModules; };
-      withPackages = import ../../with-packages.nix { inherit buildEnv pythonPackages;};
-      pkgs = pythonPackages;
-      isPy2 = true;
-      isPy27 = true;
-      interpreter = "${self}/bin/${executable}";
+  passthru = let
+    pythonPackages = callPackage ../../../../../top-level/python-packages.nix {
+      python = self;
+      overrides = packageOverrides;
     };
+  in rec {
+    inherit libPrefix sitePackages x11Support hasDistutilsCxxPatch ucsEncoding;
+    executable = libPrefix;
+    buildEnv = callPackage ../../wrapper.nix { python = self; inherit (pythonPackages) requiredPythonModules; };
+    withPackages = import ../../with-packages.nix { inherit buildEnv pythonPackages;};
+    pkgs = pythonPackages;
+    isPy2 = true;
+    isPy27 = true;
+    interpreter = "${self}/bin/${executable}";
+  };
 
-    enableParallelBuilding = true;
+  enableParallelBuilding = true;
 
-    doCheck = false; # expensive, and fails
+  doCheck = false; # expensive, and fails
 
-    meta = {
-      homepage = http://python.org;
-      description = "A high-level dynamically-typed programming language";
-      longDescription = ''
-        Python is a remarkably powerful dynamic programming language that
-        is used in a wide variety of application domains. Some of its key
-        distinguishing features include: clear, readable syntax; strong
-        introspection capabilities; intuitive object orientation; natural
-        expression of procedural code; full modularity, supporting
-        hierarchical packages; exception-based error handling; and very
-        high level dynamic data types.
-      '';
-      license = stdenv.lib.licenses.psfl;
-      platforms = stdenv.lib.platforms.all;
-      maintainers = with stdenv.lib.maintainers; [ fridh ];
-      # Higher priority than Python 3.x so that `/bin/python` points to `/bin/python2`
-      # in case both 2 and 3 are installed.
-      priority = -100;
-    };
-  } // crossCompileEnv)
+  meta = {
+    homepage = http://python.org;
+    description = "A high-level dynamically-typed programming language";
+    longDescription = ''
+      Python is a remarkably powerful dynamic programming language that
+      is used in a wide variety of application domains. Some of its key
+      distinguishing features include: clear, readable syntax; strong
+      introspection capabilities; intuitive object orientation; natural
+      expression of procedural code; full modularity, supporting
+      hierarchical packages; exception-based error handling; and very
+      high level dynamic data types.
+    '';
+    license = stdenv.lib.licenses.psfl;
+    platforms = stdenv.lib.platforms.all;
+    maintainers = with stdenv.lib.maintainers; [ fridh ];
+    # Higher priority than Python 3.x so that `/bin/python` points to `/bin/python2`
+    # in case both 2 and 3 are installed.
+    priority = -100;
+  };
+} // crossCompileEnv)
