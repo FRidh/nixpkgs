@@ -1,10 +1,13 @@
-{ stdenv, fetchurl, pkgconfig, glib, freetype, cairo, libintl
+{ stdenv, fetchFromGitHub, pkgconfig, glib, freetype, cairo, libintl
 , icu, graphite2, harfbuzz # The icu variant uses and propagates the non-icu one.
 , ApplicationServices, CoreText
 , withCoreText ? false
 , withIcu ? false # recommended by upstream as default, but most don't needed and it's big
 , withGraphite2 ? true # it is small and major distros do include it
 , python
+, ragel
+, autoreconfHook
+, gtk-doc
 }:
 
 let
@@ -15,9 +18,11 @@ in
 stdenv.mkDerivation {
   name = "harfbuzz${optionalString withIcu "-icu"}-${version}";
 
-  src = fetchurl {
-    url = "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-${version}.tar.bz2";
-    sha256 = "11a3kq3m6mgyjymgrmacr3h562qmmy2f6rc6wcj21mwv31j0avrk";
+  src = fetchFromGitHub {
+    owner = "harfbuzz";
+    repo = "harfbuzz";
+    rev = version;
+    sha256 = "0hd9a9b2lgiw9cd8hrdjq8qq9crbrx3jrkyjv7qhw9klbcpvdpl7";
   };
 
   postPatch = ''
@@ -39,7 +44,7 @@ stdenv.mkDerivation {
   ]
     ++ stdenv.lib.optional withCoreText "--with-coretext=yes";
 
-  nativeBuildInputs = [ pkgconfig libintl ];
+  nativeBuildInputs = [ pkgconfig libintl ragel autoreconfHook gtk-doc ];
 
   buildInputs = [ glib freetype cairo ] # recommended by upstream
     ++ stdenv.lib.optionals withCoreText [ ApplicationServices CoreText ];
