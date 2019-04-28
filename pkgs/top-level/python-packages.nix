@@ -3172,6 +3172,8 @@ in {
 
   manuel = callPackage ../development/python-modules/manuel { };
 
+  manylinux1 = callPackage ../development/python-modules/manylinux1 { };
+
   mapsplotlib = callPackage ../development/python-modules/mapsplotlib { };
 
   markdown = callPackage ../development/python-modules/markdown { };
