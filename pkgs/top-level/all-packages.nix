@@ -56,6 +56,7 @@ in
   # For convenience, allow callers to get the path to Nixpkgs.
   path = ../..;
 
+  wrapper-binary = callPackage ../build-support/wrapper-binary { };
 
   ### Helper functions.
   inherit lib config overlays;
