@@ -15,7 +15,7 @@ pythonPackages.buildPythonApplication rec {
     mock
   ];
 
-  propagatedBuildInputs = with pythonPackages; [
+  pythonPath = with pythonPackages; [
     requests ruamel_yaml appdirs
     sleekxmpp dns
     emoji

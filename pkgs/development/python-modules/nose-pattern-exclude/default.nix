@@ -4,7 +4,7 @@ buildPythonPackage rec {
   pname = "nose-pattern-exclude";
   version = "0.1.3";
 
-  propagatedBuildInputs = [ nose ];
+  pythonPath = [ nose ];
 
   src = fetchPypi {
     inherit pname version;

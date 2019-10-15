@@ -14,7 +14,7 @@ python2Packages.buildPythonApplication rec {
 
   doCheck = false;
 
-  propagatedBuildInputs = []
+  pythonPath = []
   ++ stdenv.lib.optionals withSFTP [ python2Packages.paramiko ];
 
   patches = [

@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "d758163a22d22c39b9eaae049749a5cd503f341231a02ed95af480b1145e81f2";
   };
 
-  propagatedBuildInputs = [ translationstring iso8601 enum34 ];
+  pythonPath = [ translationstring iso8601 enum34 ];
 
   meta = with lib; {
     description = "A simple schema-based serialization and deserialization library";

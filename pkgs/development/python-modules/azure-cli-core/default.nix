@@ -40,7 +40,7 @@ buildPythonPackage rec {
     sha256 = "01pqdh16l2c9a6b1az9galmm1szvhg7fyf9shq872wanw1xx88dj";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     adal
     argcomplete
     azure-cli-telemetry

@@ -17,7 +17,7 @@ buildPythonPackage {
   };
 
   checkInputs = [ nose ];
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   checkPhase = "LC_ALL=C nosetests";
 

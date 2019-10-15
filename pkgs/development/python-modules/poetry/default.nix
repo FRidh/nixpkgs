@@ -50,7 +50,7 @@ in buildPythonPackage rec {
 
   format = "pyproject";
 
-  propagatedBuildInputs = [
+  pythonPath = [
     cleo6
     requests
     cachy

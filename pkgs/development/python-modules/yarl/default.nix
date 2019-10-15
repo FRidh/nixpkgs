@@ -17,7 +17,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest pytestrunner ];
-  propagatedBuildInputs = [ multidict idna ];
+  pythonPath = [ multidict idna ];
 
   meta = with stdenv.lib; {
     description = "Yet another URL library";

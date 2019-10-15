@@ -30,7 +30,7 @@ buildPythonPackage rec {
     fplll
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     cython
     cysignals
     numpy

@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "1h4hcpx1vqrcddpcznyxy14zzvy2yanlkz0117w5n869w8djq595";
   };
 
-  propagatedBuildInputs = [ numpy ];
+  pythonPath = [ numpy ];
   # Checks try to write to $HOME, which does not work with nix
   doCheck = false;
   meta = {

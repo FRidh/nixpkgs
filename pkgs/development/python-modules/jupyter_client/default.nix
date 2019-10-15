@@ -19,7 +19,7 @@ buildPythonPackage rec {
     sha256 = "102qgc7isfxwq0zsj6m9apcyj2hk8c8c4fz7656lxlpmvxgazs4q";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     traitlets
     jupyter_core
     pyzmq

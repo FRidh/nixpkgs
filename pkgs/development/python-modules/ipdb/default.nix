@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "0mzfv2sa8qabqzh2vqgwhavb15gsmcgqn6i3jgq6b5q9i9wxsgs7";
   };
 
-  propagatedBuildInputs = [ ipython ];
+  pythonPath = [ ipython ];
 
   preCheck = ''
     export HOME=$(mktemp -d)

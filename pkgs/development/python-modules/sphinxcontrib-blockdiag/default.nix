@@ -18,7 +18,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ mock sphinx-testing ];
-  propagatedBuildInputs = [ sphinx blockdiag ];
+  pythonPath = [ sphinx blockdiag ];
 
   # Seems to look for files in the wrong dir
   doCheck = false;

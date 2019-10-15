@@ -33,7 +33,7 @@ buildPythonPackage rec {
   buildInputs = [ cmake ]
     ++ stdenv.lib.optional stdenv.isDarwin llvmPackages.openmp;
 
-  propagatedBuildInputs = [
+  pythonPath = [
     numpy
     matplotlib
     networkx

@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "5827ec6cf8233e0f29f51025addd713ca010061204fdea77484a2934690a0559";
   };
 
-  propagatedBuildInputs = [ pbr python_mimeparse extras unittest2 ];
+  pythonPath = [ pbr python_mimeparse extras unittest2 ];
   buildInputs = [ traceback2 ];
 
   # testscenarios has a circular dependency on testtools

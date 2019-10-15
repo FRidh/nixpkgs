@@ -8,7 +8,7 @@ with python3Packages; buildPythonApplication rec {
       sha256 = "04anak82p4v9w0lgfs55s7diywxil6amq8c8bhli143ca8l2fcdq";
     };
 
-    propagatedBuildInputs = [ virtualenv virtualenv-clone setuptools ];
+    pythonPath = [ virtualenv virtualenv-clone setuptools ];
 
     LC_ALL = "en_US.UTF-8";
 

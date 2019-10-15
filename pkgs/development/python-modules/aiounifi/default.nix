@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "0594nb8mpfhnnk9jadbdnbn9v7p4sh3430kcgfyhsh7ayw2mpb9m";
   };
 
-  propagatedBuildInputs = [ aiohttp ];
+  pythonPath = [ aiohttp ];
 
   # upstream has no tests
   doCheck = false;

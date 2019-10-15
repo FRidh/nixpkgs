@@ -14,7 +14,7 @@ buildPythonApplication rec {
     sha256 = "0vhwaqkx4njarm0wy8zg2hvzr2yl92y8gnwipcn7p59sazw4whfl";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pymysql configobj sqlparse prompt_toolkit pygments click pycrypto cli-helpers
   ];
 

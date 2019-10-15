@@ -26,7 +26,7 @@ buildPythonApplication rec {
 
   nativeBuildInputs = [ pkgconfig ];
 
-  propagatedBuildInputs = [ parted ];
+  pythonPath = [ parted ];
 
   checkPhase = ''
     patchShebangs Makefile

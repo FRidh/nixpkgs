@@ -18,7 +18,7 @@
     substituteInPlace pyproject.toml --replace "fido2 == 0.7.0" "fido2 >= 0.7.0"
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     click
     ecdsa
     fido2

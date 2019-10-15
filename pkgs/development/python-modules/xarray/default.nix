@@ -18,7 +18,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [numpy pandas];
+  pythonPath = [numpy pandas];
 
   checkPhase = ''
     pytest $out/${python.sitePackages}

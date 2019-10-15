@@ -17,7 +17,7 @@ with python3.pkgs; buildPythonApplication rec {
     sha256 = "06skn3van7zd93348fc6axllx71ckkc7h2zljqlvwa339vca608c";
   }) ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     atomicwrites
     click
     click-log

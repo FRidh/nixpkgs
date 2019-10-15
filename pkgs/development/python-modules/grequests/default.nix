@@ -17,7 +17,7 @@ buildPythonPackage rec {
   # No tests in archive
   doCheck = false;
 
-  propagatedBuildInputs = [ requests gevent ];
+  pythonPath = [ requests gevent ];
 
   meta = with stdenv.lib; {
     description = "Asynchronous HTTP requests";

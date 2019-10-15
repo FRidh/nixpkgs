@@ -24,7 +24,7 @@ buildPythonPackage {
 
   disabled = pythonOlder "3.5";
 
-  propagatedBuildInputs = [
+  pythonPath = [
     cairocffi
     cairosvg
     cffi

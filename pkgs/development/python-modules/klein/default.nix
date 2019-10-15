@@ -19,7 +19,7 @@ buildPythonPackage rec {
     })
   ];
 
-  propagatedBuildInputs = [ six twisted werkzeug incremental ];
+  pythonPath = [ six twisted werkzeug incremental ];
 
   checkInputs = [ mock twisted ];
 

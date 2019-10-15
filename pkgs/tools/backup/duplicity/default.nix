@@ -41,7 +41,7 @@ python2Packages.buildPythonApplication rec {
   ];
 
   buildInputs = [ librsync makeWrapper python2Packages.wrapPython ];
-  propagatedBuildInputs = [ backblaze-b2 ] ++ (with python2Packages; [
+  pythonPath = [ backblaze-b2 ] ++ (with python2Packages; [
     boto cffi cryptography ecdsa enum idna pygobject3 fasteners
     ipaddress lockfile paramiko pyasn1 pycrypto six
   ]);

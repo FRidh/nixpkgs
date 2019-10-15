@@ -33,7 +33,7 @@ in buildPythonApplication {
     ffmpeg
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     gtk3 pygobject3 gdk-pixbuf dbus-python ffmpeg mplayer dvdauthor vcdimager cdrkit urllib3
   ];
 

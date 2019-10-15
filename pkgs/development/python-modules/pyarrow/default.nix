@@ -12,7 +12,7 @@ buildPythonPackage rec {
   sourceRoot = "apache-arrow-${version}/python";
 
   nativeBuildInputs = [ cmake cython pkgconfig setuptools_scm ];
-  propagatedBuildInputs = [ numpy six ] ++ lib.optionals (!isPy3k) [ futures ];
+  pythonPath = [ numpy six ] ++ lib.optionals (!isPy3k) [ futures ];
   checkInputs = [ hypothesis pandas pytest ];
 
   PYARROW_BUILD_TYPE = "release";

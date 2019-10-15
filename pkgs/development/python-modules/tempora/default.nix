@@ -13,7 +13,7 @@ buildPythonPackage rec {
 
   buildInputs = [ setuptools_scm ];
 
-  propagatedBuildInputs = [ six pytz jaraco_functools ];
+  pythonPath = [ six pytz jaraco_functools ];
 
   checkInputs = [ pytest freezegun backports_unittest-mock ];
 

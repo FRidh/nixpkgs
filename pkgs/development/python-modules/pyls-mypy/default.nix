@@ -22,7 +22,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest mock pytestcov coverage ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     mypy python-language-server future configparser
   ];
 

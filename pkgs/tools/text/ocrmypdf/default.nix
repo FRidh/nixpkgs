@@ -45,7 +45,7 @@ in buildPythonApplication rec {
     setuptools_scm
   ];
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     cffi
     chardet
     img2pdf

@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "1fdb0kr9hzgyh0l8d02khcjpsgyd63nbablhc49ncdsav3dhhr3f";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     six
     clint
     pyyaml

@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "1mvp1mi1k6yqgyj7rxij8mlwclqlyfzq08s67v0qaycw44l68ifg";
   };
 
-  propagatedBuildInputs = [ ];
+  pythonPath = [ ];
 
   meta = with lib; {
     description = "Validator for the Brain Imaging Data Structure";

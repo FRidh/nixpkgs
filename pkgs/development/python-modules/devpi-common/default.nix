@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "1pfl29pnfn120rqv3zwxc22i1hyywwg60rcck9hzxsllbhmfbjqh";
   };
 
-  propagatedBuildInputs = [ requests py ];
+  pythonPath = [ requests py ];
   checkInputs = [ pytest pytest-flake8 ];
 
   checkPhase = ''

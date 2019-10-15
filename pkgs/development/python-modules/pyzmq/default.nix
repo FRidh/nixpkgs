@@ -18,7 +18,7 @@ buildPythonPackage rec {
 
   checkInputs = [  pytest tornado ];
   buildInputs = [ zeromq ];
-  propagatedBuildInputs = [ py ];
+  pythonPath = [ py ];
 
   # test_socket.py seems to be hanging
   # others fail

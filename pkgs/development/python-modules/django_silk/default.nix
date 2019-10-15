@@ -41,7 +41,7 @@ buildPythonPackage rec {
   '';
 
   buildInputs = [ mock ];
-  propagatedBuildInputs = [
+  pythonPath = [
     django pygments simplejson dateutil requests
     sqlparse jinja2 autopep8 pytz pillow gprof2dot
   ];

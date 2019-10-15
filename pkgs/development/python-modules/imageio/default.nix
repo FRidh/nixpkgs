@@ -25,7 +25,7 @@ buildPythonPackage rec {
   checkInputs = [ pytest psutil ] ++ stdenv.lib.optionals isPy3k [
     imageio-ffmpeg ffmpeg
     ];
-  propagatedBuildInputs = [ numpy pillow ] ++ stdenv.lib.optionals (!isPy3k) [
+  pythonPath = [ numpy pillow ] ++ stdenv.lib.optionals (!isPy3k) [
     futures
     enum34
     pathlib

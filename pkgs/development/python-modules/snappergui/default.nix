@@ -18,7 +18,7 @@ buildPythonPackage {
   # no tests available
   doCheck = false;
 
-  propagatedBuildInputs = [ pygobject3 dbus-python ];
+  pythonPath = [ pygobject3 dbus-python ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/ricardomv/snapper-gui;

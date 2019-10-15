@@ -18,7 +18,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [ cssutils ];
+  pythonPath = [ cssutils ];
   nativeBuildInputs = [
     cython
   ];

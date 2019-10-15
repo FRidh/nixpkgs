@@ -51,7 +51,7 @@ buildPythonPackage rec {
     tensorflow
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     sqlalchemy
     numpy
     scipy

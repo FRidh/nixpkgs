@@ -27,7 +27,7 @@ buildPythonPackage rec {
     sphinx
     py3to2
   ];
-  propagatedBuildInputs = [
+  pythonPath = [
     lxml
     isodate
     numpy

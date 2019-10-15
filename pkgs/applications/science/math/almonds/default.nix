@@ -13,7 +13,7 @@ with python3.pkgs; buildPythonApplication rec {
 
   nativeBuildInputs = [ pytest ];
   buildInputs = [ ncurses ];
-  propagatedBuildInputs = [ pillow ];
+  pythonPath = [ pillow ];
 
   checkPhase = "py.test";
 

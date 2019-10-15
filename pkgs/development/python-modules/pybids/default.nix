@@ -23,7 +23,7 @@ buildPythonPackage rec {
     sha256 = "16c0v800yklp043prbrx1357vx1mq5gddxz5zqlcnf4akhzcqrxs";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     num2words
     numpy
     scipy

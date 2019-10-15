@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "6b9ebe5814e9e7091703c4e3bfeae73b46508b4678e2ff403cddaedf8213815d";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     twisted pycrypto pyopenssl pyparsing zope_interface
   ];
 

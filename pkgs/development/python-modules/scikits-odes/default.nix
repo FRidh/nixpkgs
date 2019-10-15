@@ -31,7 +31,7 @@ buildPythonPackage rec {
     cython
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     numpy
     sundials_3
     scipy

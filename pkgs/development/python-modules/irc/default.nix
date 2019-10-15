@@ -17,7 +17,7 @@ buildPythonPackage rec {
   doCheck = false;
 
   buildInputs = [ setuptools_scm ];
-  propagatedBuildInputs = [
+  pythonPath = [
     six
     jaraco_logging
     jaraco_text

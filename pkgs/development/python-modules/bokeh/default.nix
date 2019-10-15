@@ -41,7 +41,7 @@ buildPythonPackage rec {
 
   checkInputs = [ mock pytest pillow selenium ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pillow
     jinja2
     python-dateutil

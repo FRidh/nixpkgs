@@ -59,7 +59,7 @@ buildPythonApplication rec {
     optipng
   ];
 
-  propagatedBuildInputs = stdenv.lib.optional stdenv.isLinux libGL;
+  pythonPath = stdenv.lib.optional stdenv.isLinux libGL;
 
   outputs = [ "out" "terminfo" ];
 

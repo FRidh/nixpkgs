@@ -4,7 +4,7 @@ buildPythonPackage rec {
   pname = "unittest-xml-reporting";
   version = "2.5.1";
 
-  propagatedBuildInputs = [six];
+  pythonPath = [six];
 
   # The tarball from Pypi doesn't actually contain the unit tests
   doCheck = false;

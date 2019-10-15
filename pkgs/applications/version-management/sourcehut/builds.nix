@@ -29,7 +29,7 @@ in buildPythonPackage rec {
 
   nativeBuildInputs = srht.nativeBuildInputs;
 
-  propagatedBuildInputs = [
+  pythonPath = [
     srht
     redis
     celery

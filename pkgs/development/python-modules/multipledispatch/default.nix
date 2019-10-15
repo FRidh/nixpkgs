@@ -16,7 +16,7 @@ buildPythonPackage rec {
   # No tests in archive
   doCheck = false;
 
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   meta = {
     homepage = https://github.com/mrocklin/multipledispatch/;

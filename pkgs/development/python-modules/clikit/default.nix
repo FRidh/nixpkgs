@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "1pvzq3glf4sjgrm0wyxln3s6vicdc9q8r5sgaiqmxdmd9pylw0xm";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pylev pastel
   ] ++ lib.optional (isPy27 || isPy34) typing
     ++ lib.optional isPy27 enum34;

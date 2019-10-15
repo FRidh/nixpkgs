@@ -36,7 +36,7 @@ buildPythonPackage rec {
    runHook postCheck
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     click
     click-completion
     validate-email

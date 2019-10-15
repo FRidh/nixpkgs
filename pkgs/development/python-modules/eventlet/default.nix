@@ -23,7 +23,7 @@ buildPythonPackage rec {
 
   doCheck = false;  # too much transient errors to bother
 
-  propagatedBuildInputs = [ dnspython greenlet monotonic six ] ++ lib.optional (pythonOlder "3.4") enum34;
+  pythonPath = [ dnspython greenlet monotonic six ] ++ lib.optional (pythonOlder "3.4") enum34;
 
   meta = with lib; {
     homepage = https://pypi.python.org/pypi/eventlet/;

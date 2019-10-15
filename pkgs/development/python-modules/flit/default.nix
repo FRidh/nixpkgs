@@ -28,7 +28,7 @@ buildPythonPackage rec {
     sha256 = "6f6f0fb83c51ffa3a150fa41b5ac118df9ea4a87c2c06dff4ebf9adbe7b52b36";
   };
 
-  propagatedBuildInputs = [ docutils requests requests_download pytoml ]
+  pythonPath = [ docutils requests requests_download pytoml ]
     ++ lib.optional (pythonOlder "3.6") zipfile36;
 
   checkInputs = [ pytest_4 testpath responses ];

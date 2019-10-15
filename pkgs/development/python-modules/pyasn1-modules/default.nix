@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "ef721f68f7951fab9b0404d42590f479e30d9005daccb1699b0a51bb4177db96";
   };
 
-  propagatedBuildInputs = [ pyasn1 ];
+  pythonPath = [ pyasn1 ];
 
   checkInputs = [
     pytest

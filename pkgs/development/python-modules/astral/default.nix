@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "d2a67243c4503131c856cafb1b1276de52a86e5b8a1d507b7e08bee51cb67bf1";
   };
 
-  propagatedBuildInputs = [ pytz requests ];
+  pythonPath = [ pytz requests ];
 
   checkInputs = [ pytest ];
   checkPhase = ''

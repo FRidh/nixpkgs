@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "1m5ijc5qmv8hg4yj496ix77hbcf7ylk4sa98ym53sfsyz0mg3kxr";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     nose
     six
   ];

@@ -11,7 +11,7 @@ python3Packages.buildPythonApplication rec {
     sha256 = "6c9bcfb9bcb01246c83ba6f8551cf54c58af3323210755485fc23bb7848512ef";
   };
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     click click-log click-threading
     requests_toolbelt
     requests

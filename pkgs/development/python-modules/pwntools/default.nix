@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "09a7yhsyqxb4xf2r6mbn3p5zx1wp89lxq7lj34y4zbin6ns5929s";
   };
 
-  propagatedBuildInputs = [ Mako packaging pysocks pygments ROPGadget capstone paramiko pip psutil pyelftools pyserial dateutil requests tox unicorn intervaltree ];
+  pythonPath = [ Mako packaging pysocks pygments ROPGadget capstone paramiko pip psutil pyelftools pyserial dateutil requests tox unicorn intervaltree ];
 
   disabled = isPy3k;
   doCheck = false; # no setuptools tests for the package

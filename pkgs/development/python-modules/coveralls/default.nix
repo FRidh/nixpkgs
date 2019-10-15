@@ -42,7 +42,7 @@ buildPythonPackage rec {
     python setup.py test
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     coverage
     docopt
     requests

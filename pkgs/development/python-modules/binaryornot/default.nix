@@ -15,7 +15,7 @@ buildPythonPackage rec {
       --replace "average_size=512" ""
   '';
 
-  propagatedBuildInputs = [ chardet ];
+  pythonPath = [ chardet ];
 
   checkInputs = [ hypothesis ];
 

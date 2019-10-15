@@ -29,7 +29,7 @@ in pythonPackages.buildPythonApplication {
     sed -i s/argparse// requirements.txt
     '';
 
-  propagatedBuildInputs = with pythonPackages; [ cheetah jinja2 prettytable
+  pythonPath = with pythonPackages; [ cheetah jinja2 prettytable
     oauthlib pyserial configobj pyyaml requests jsonpatch ];
 
   checkInputs = with pythonPackages; [ contextlib2 httpretty mock unittest2 ];

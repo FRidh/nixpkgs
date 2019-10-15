@@ -15,7 +15,7 @@ buildPythonPackage rec {
   buildInputs = [ fuse ];
   checkInputs = [ pytest attr which ];
 
-  propagatedBuildInputs = [ contextlib2 ];
+  pythonPath = [ contextlib2 ];
 
   checkPhase = ''
     py.test -k "not test_listdir"

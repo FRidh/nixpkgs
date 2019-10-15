@@ -23,7 +23,7 @@ buildPythonPackage {
     cd ./azure-mgmt-commerce
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     msrestazure
     azure-common
     azure-mgmt-nspkg

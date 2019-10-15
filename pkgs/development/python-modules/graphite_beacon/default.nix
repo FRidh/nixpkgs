@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "03bp4wyfn3xhcqyvs5hnk1n87m4smsmm1p7qp459m7j8hwpbq2ks";
   };
 
-  propagatedBuildInputs = [ tornado pyyaml funcparserlib ];
+  pythonPath = [ tornado pyyaml funcparserlib ];
 
   postPatch = ''
     substituteInPlace requirements.txt --replace "==" ">="

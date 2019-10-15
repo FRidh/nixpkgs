@@ -13,7 +13,7 @@ python2Packages.buildPythonApplication rec {
 
   nativeBuildInputs = [ gettext ];
 
-  propagatedBuildInputs = with python2Packages; [
+  pythonPath = with python2Packages; [
     ConfigArgParse
     argcomplete
     dnspython

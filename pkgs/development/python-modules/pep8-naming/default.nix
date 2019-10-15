@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "1aff4g3i2z08cx7z17nbxbf32ddrnvqlk16h6d8h9s9w5ymivjq1";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     flake8-polyfill
   ];
 

@@ -24,7 +24,7 @@ buildPythonPackage rec {
   '';
 
   checkInputs = [ sympy pexpect symengine pytest ];
-  propagatedBuildInputs = [
+  pythonPath = [
     pytools
     six
   ];

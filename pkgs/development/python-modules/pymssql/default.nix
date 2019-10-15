@@ -10,7 +10,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [cython setuptools-git];
-  propagatedBuildInputs = [freetds];
+  pythonPath = [freetds];
 
   # The tests require a running instance of SQLServer, so we skip them
   doCheck = false;

@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "6f28fb81dcdfa745f423b8f6d0303d97357d775b4128bcc2b3668f1602fd5a0b";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pytest
     pytest-doctestplus
     pytest-remotedata

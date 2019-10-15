@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "80e8e23cafad54fd85811b5d9ba0fc595d933f5727c61c3937945eec09f99e2b";
   };
 
-  propagatedBuildInputs = [ ipaddress ];
+  pythonPath = [ ipaddress ];
 
   meta = with stdenv.lib; {
     description = "RFC 3986 compliant, Unicode-aware, scheme-agnostic replacement for urlparse";

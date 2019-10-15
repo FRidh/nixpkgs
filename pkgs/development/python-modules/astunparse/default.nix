@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "dab3e426715373fd76cd08bb1abe64b550f5aa494cf1e32384f26fd60961eb67";
   };
 
-  propagatedBuildInputs = [ six wheel ];
+  pythonPath = [ six wheel ];
 
   # tests not included with pypi release
   doCheck = false;

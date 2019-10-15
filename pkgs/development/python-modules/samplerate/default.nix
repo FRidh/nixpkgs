@@ -15,7 +15,7 @@ buildPythonPackage {
   };
 
   buildInputs =  [ pkgs.libsamplerate ];
-  propagatedBuildInputs = [ numpy ];
+  pythonPath = [ numpy ];
 
   preConfigure = ''
      cat > site.cfg << END

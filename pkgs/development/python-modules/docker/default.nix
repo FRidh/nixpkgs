@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "0r1i46h8x1vfvadayyvmh5hc6mpzgv3vvp6pv4g1wavamya2wnyc";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     six
     requests
     websocket_client

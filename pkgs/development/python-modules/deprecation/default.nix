@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "1vcjy6flqbzgjh4zhcs0sl83b946wxrlsx5miliz0ik1d9kjyff0";
   };
 
-  propagatedBuildInputs = [ packaging ];
+  pythonPath = [ packaging ];
 
   checkInputs = [ unittest2 ];
 

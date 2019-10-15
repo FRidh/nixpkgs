@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "11lnynspgdi5zp3hd8piy8h9fq0s3ck6lzyl7h0fn2mxxyx83yh2";
   };
 
-  propagatedBuildInputs = [ async-timeout ];
+  pythonPath = [ async-timeout ];
 
   checkInputs = [ pytest pytest-asyncio ];
 

@@ -27,7 +27,7 @@ buildPythonPackage rec {
     })
   ];
 
-  propagatedBuildInputs = [ graphviz ];
+  pythonPath = [ graphviz ];
 
   checkInputs = [ mock ];
 

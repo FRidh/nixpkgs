@@ -17,7 +17,7 @@ buildPythonPackage rec {
     pytest
   '';
 
-  propagatedBuildInputs = [ django ];
+  pythonPath = [ django ];
 
   meta = with stdenv.lib; {
     description = "Show all LogEntry objects in the Django admin site";

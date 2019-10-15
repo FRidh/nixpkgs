@@ -29,7 +29,7 @@ buildPythonApplication rec {
     vcrpy
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     beautifulsoup4
     decorator
     kitchen

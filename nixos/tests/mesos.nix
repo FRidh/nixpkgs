@@ -52,7 +52,7 @@ import ./make-test.nix ({ pkgs, ...} : rec {
 
   testFramework = pkgs.pythonPackages.buildPythonPackage {
     name = "mesos-tests";
-    propagatedBuildInputs = [ pkgs.mesos ];
+    pythonPath = [ pkgs.mesos ];
     catchConflicts = false;
     src = ./mesos_test.py;
     phases = [ "installPhase" "fixupPhase" ];

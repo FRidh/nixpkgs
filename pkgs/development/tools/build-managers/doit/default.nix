@@ -15,7 +15,7 @@ in python3Packages.buildPythonApplication {
 
   buildInputs = with python3Packages; [ mock pytest ];
 
-  propagatedBuildInputs = with python3Packages; [ cloudpickle ]
+  pythonPath = with python3Packages; [ cloudpickle ]
     ++ stdenv.lib.optional stdenv.isLinux pyinotify
     ++ stdenv.lib.optional stdenv.isDarwin macfsevents;
 

@@ -24,7 +24,7 @@ buildPythonPackage rec {
     zetup
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     robotframework
     moretools
     pathpy

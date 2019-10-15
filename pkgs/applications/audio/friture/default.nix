@@ -20,7 +20,7 @@ in py.buildPythonApplication rec {
   nativeBuildInputs = (with py; [ numpy cython scipy ]) ++
     [ wrapQtAppsHook ];
 
-  propagatedBuildInputs = with py; [
+  pythonPath = with py; [
     sounddevice
     pyopengl
     docutils

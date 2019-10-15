@@ -20,7 +20,7 @@ buildPythonPackage rec {
       --replace "pytest-cov>=2.4.0,<2.6" "pytest-cov>=2.4.0"
   '';
 
-  propagatedBuildInputs = [ xmltodict requests ];
+  pythonPath = [ xmltodict requests ];
   checkInputs = [
     pytest pytestcov coveralls pylint flake8 graphviz mock sphinx
     sphinx_rtd_theme

@@ -49,7 +49,7 @@ let
     # The top-level "source" is what fetchFromGitHub gives us. The rest is inside the repo
     sourceRoot = "source/src/monosat/api/python/";
 
-    propagatedBuildInputs = [ core cython ];
+    pythonPath = [ core cython ];
 
     # This tells setup.py to use cython
     MONOSAT_CYTHON = true;

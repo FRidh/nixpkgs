@@ -36,7 +36,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ setuptools_scm ];
 
-  propagatedBuildInputs = [ setuptools pyvcd bitarray jinja2 ];
+  pythonPath = [ setuptools pyvcd bitarray jinja2 ];
 
   checkInputs = [ yosys yices ];
 

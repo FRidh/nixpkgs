@@ -10,7 +10,7 @@ python3Packages.buildPythonApplication rec {
   };
 
   checkInputs = with python3Packages; [ pytest ];
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     jinja2
     markdown
     pillow

@@ -9,7 +9,7 @@ pythonPackages.buildPythonApplication rec {
     sha256 = "0hxxz7kxv9gsrr86ccsc31g7bc2agw1ihbxhd659c2m6nrqq5qaf";
   };
   nativeBuildInputs = [ pythonPackages.setuptools_scm ];
-  propagatedBuildInputs = with pythonPackages; [ pyyaml six jinja2 cerberus11 ];
+  pythonPath = with pythonPackages; [ pyyaml six jinja2 cerberus11 ];
 
   checkPhase = ''
     ${pythonPackages.python.interpreter} -m unittest discover

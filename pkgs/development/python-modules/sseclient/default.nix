@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "1b4c5119b9381cb6ddaf3236f3f7e1437a14e488d1ed61336873a839788481b0";
   };
 
-  propagatedBuildInputs = [ requests six ];
+  pythonPath = [ requests six ];
 
   checkInputs = [ backports_unittest-mock pytest pytestrunner ];
 

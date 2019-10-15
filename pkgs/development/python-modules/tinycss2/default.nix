@@ -14,7 +14,7 @@ buildPythonPackage rec {
 
   patches = [ ./remove-redundant-dependency.patch ];
 
-  propagatedBuildInputs = [ webencodings ];
+  pythonPath = [ webencodings ];
 
   checkInputs = [ pytest pytestrunner pytestcov pytest-flake8 pytest-isort ];
 

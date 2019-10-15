@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "035bc9ce8addb33f7c2ec95a9c0c88926d213a6c2e12b2c57da31a4ec0765f2c";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     requests
     psutil
     pytest

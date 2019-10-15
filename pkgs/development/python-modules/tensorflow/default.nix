@@ -331,7 +331,7 @@ in buildPythonPackage {
   setupPyGlobalFlags = [ "--project_name ${pname}" ];
 
   # tensorflow/tools/pip_package/setup.py
-  propagatedBuildInputs = [
+  pythonPath = [
     absl-py
     astor
     gast

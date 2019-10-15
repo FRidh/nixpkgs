@@ -25,7 +25,7 @@ buildPythonPackage rec {
     sha256 = "098macm0sw54xqijdy1c8cppcgw79wn52qdc71qqb51nibc17gls";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     entrypoints
     jsonschema
     numpy

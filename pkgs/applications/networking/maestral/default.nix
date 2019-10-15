@@ -14,7 +14,7 @@ python3Packages.buildPythonApplication rec {
 
   disabled = python3Packages.pythonOlder "3.6";
 
-  propagatedBuildInputs = (with python3Packages; [
+  pythonPath = (with python3Packages; [
     blinker click dropbox keyring keyrings-alt Pyro4 requests u-msgpack-python watchdog
   ] ++ lib.optionals stdenv.isLinux [
     sdnotify systemd

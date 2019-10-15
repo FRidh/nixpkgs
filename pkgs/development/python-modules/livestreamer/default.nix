@@ -22,7 +22,7 @@ buildPythonPackage rec {
 
   buildInputs = [ pkgs.makeWrapper ];
 
-  propagatedBuildInputs = [ pkgs.rtmpdump pycrypto requests ]
+  pythonPath = [ pkgs.rtmpdump pycrypto requests ]
     ++ stdenv.lib.optionals isPy27 [ singledispatch futures ]
     ++ stdenv.lib.optionals isPy33 [ singledispatch ];
 

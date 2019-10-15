@@ -20,7 +20,7 @@ pythonPackages.buildPythonApplication rec {
     glib-networking gobject-introspection
   ];
 
-  propagatedBuildInputs = with pythonPackages; [
+  pythonPath = with pythonPackages; [
     gst-python pygobject3 pykka tornado_4 requests setuptools
   ] ++ stdenv.lib.optional (!stdenv.isDarwin) dbus-python;
 

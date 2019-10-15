@@ -16,7 +16,7 @@ buildPythonPackage rec {
     sha256 = "0avmxz38bkl6hp3fn1jm31qahsdp76j454mfnpxwx5wlk35iss09";
   };
 
-  propagatedBuildInputs = [ pyusb pyserial ];
+  pythonPath = [ pyusb pyserial ];
 
   meta = {
     description = "User-space driver for modern FTDI devices";

@@ -15,7 +15,7 @@ with pythonPackages; buildPythonApplication rec {
   # Nothing to strip (python files)
   dontStrip = true;
 
-  propagatedBuildInputs = [ pbr six pyyaml dulwich ];
+  pythonPath = [ pbr six pyyaml dulwich ];
   buildInputs = [ Babel ];
 
   meta = with stdenv.lib; {

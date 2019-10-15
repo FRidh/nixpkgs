@@ -11,7 +11,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ pytest ];
-  propagatedBuildInputs = [ tox py eventlet ];
+  pythonPath = [ tox py eventlet ];
 
   checkPhase = ''
     py.test

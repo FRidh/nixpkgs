@@ -17,5 +17,5 @@ buildPythonPackage rec {
     sha256 = "23fbe3415c93b2369ece8ebdfb5faa05540943bef8b941b3118ce769ba95e275";
   };
 
-  propagatedBuildInputs = [ django pillow ];
+  pythonPath = [ django pillow ];
 }

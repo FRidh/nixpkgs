@@ -16,7 +16,7 @@ buildPythonPackage rec {
   # Wants to run pythonin a subprocess
   doCheck = false;
 
-  propagatedBuildInputs = [ ptyprocess ];
+  pythonPath = [ ptyprocess ];
 
   meta = with lib; {
     homepage = http://www.noah.org/wiki/Pexpect;

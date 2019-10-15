@@ -13,7 +13,7 @@ buildPythonPackage rec {
   disabled = !isPy3k;
 
   checkInputs = [ faker mock nose ];
-  propagatedBuildInputs = [ urllib3 python-dateutil pytz ];
+  pythonPath = [ urllib3 python-dateutil pytz ];
 
   meta = with lib; {
     description = "Simple APIs to access any Amazon S3 compatible object storage server";

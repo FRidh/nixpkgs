@@ -47,7 +47,7 @@ python3.pkgs.buildPythonApplication rec {
       --replace "'mysqlclient'," ""
   '';
 
-  propagatedBuildInputs = with python3.pkgs; [
+  pythonPath = with python3.pkgs; [
     dateutil
     lxml
     matplotlibGtk

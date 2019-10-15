@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "0fpxjyr74klnyis3yf6m54askl0h5dchxcwbfjsq92xng0455m8z";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     six
   ] ++ lib.optional isPy27 backports_ssl_match_hostname;
 

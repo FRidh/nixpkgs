@@ -31,7 +31,7 @@ in pythonPackages.buildPythonApplication {
   # pulseaudio-dlna has no tests
   doCheck = false;
 
-  propagatedBuildInputs = with pythonPackages; [
+  pythonPath = with pythonPackages; [
     dbus-python docopt requests setproctitle protobuf psutil futures
     chardet notify2 netifaces pyroute2 pygobject2 lxml ]
     ++ [ zeroconf ]

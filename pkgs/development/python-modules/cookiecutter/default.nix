@@ -15,7 +15,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest pytestcov pytest-mock freezegun ];
-  propagatedBuildInputs = [
+  pythonPath = [
     jinja2 future binaryornot click whichcraft poyo jinja2_time requests
   ];
   

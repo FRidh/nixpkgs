@@ -11,7 +11,7 @@ buildPythonPackage rec {
 
   disabled = isPyPy;
 
-  propagatedBuildInputs = [ dateutil ];
+  pythonPath = [ dateutil ];
 
   checkPhase = "${python.interpreter} tests.py";
 

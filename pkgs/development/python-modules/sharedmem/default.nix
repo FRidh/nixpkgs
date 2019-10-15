@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "c351ab3f6a4fe9fe0c692ab6a8c88013e625845b31a168ff12d16254ed4154d5";
   };
 
-  propagatedBuildInputs = [ numpy ];
+  pythonPath = [ numpy ];
 
   meta = {
     homepage = http://rainwoodman.github.io/sharedmem/;

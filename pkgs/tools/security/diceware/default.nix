@@ -15,7 +15,7 @@ buildPythonApplication rec {
 
   nativeBuildInputs = [ pytestrunner ];
 
-  propagatedBuildInputs = [ setuptools ];
+  pythonPath = [ setuptools ];
 
   checkInputs = [ coverage pytest ];
 

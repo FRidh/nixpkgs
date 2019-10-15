@@ -22,7 +22,7 @@ pythonPackages.buildPythonApplication rec {
 
   installFlags = [ "prefix=${placeholder "out"}" ];
 
-  propagatedBuildInputs = with pythonPackages; [ pygtk ];
+  pythonPath = with pythonPackages; [ pygtk ];
 
   meta = {
     homepage = http://bleachbit.sourceforge.net;

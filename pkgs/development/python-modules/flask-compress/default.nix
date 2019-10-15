@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "1cxdbdiyxkspg7vkchfmaqr7c6q79gwvakna3fjcc6nivps971j6";
   };
 
-  propagatedBuildInputs = [ flask ];
+  pythonPath = [ flask ];
 
   meta = with stdenv.lib; {
     description = "Compress responses in your Flask app with gzip";

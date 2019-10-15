@@ -28,7 +28,7 @@ buildPythonPackage {
 
   checkInputs = stdenv.lib.optionals (pythonOlder "3.3") [ mock ];
 
-  propagatedBuildInputs = [ pytz ];
+  pythonPath = [ pytz ];
 
   postPatch = ''
     substituteInPlace libxmp/exempi.py \

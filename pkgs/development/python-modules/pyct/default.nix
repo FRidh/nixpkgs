@@ -17,7 +17,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [
+  pythonPath = [
     param
     pyyaml
     requests

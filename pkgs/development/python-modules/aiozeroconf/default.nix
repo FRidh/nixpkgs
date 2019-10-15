@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "074plydm7sd113p3k0siihwwz62d3r42q3g83vqaffp569msknqh";
   };
 
-  propagatedBuildInputs = [ netifaces ];
+  pythonPath = [ netifaces ];
 
   meta = with stdenv.lib; {
     description = "A pure python implementation of multicast DNS service discovery";

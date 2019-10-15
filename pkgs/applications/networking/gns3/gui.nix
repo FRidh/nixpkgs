@@ -16,7 +16,7 @@ in pythonPackages.buildPythonPackage rec {
     sha256 = sha256Hash;
   };
 
-  propagatedBuildInputs = with pythonPackages; [
+  pythonPath = with pythonPackages; [
     raven psutil jsonschema # tox for check
     # Runtime dependencies
     sip (pyqt5.override { withWebSockets = true; }) distro setuptools

@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "6d17761e06aca2d9acb588acfdce33fd3d05571338825760622c99fc7210f15a";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
 		pytestrunner
     cached-property
     frozendict

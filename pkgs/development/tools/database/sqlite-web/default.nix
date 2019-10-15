@@ -11,7 +11,7 @@ python3Packages.buildPythonApplication rec {
     sha256 = "9e0c8938434b0129423544162d4ca6975abf7042c131445f79661a4b9c885d47";
   };
 
-  propagatedBuildInputs = with python3Packages; [ flask peewee pygments ];
+  pythonPath = with python3Packages; [ flask peewee pygments ];
 
   # no tests in repository
   doCheck = false;

@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "1w7cay5q6zawjzivqbwz5cqx1qbdjw6kbriccb7l46p7b39fkzzp";
   };
 
-  propagatedBuildInputs = [ requests maxminddb ]
+  pythonPath = [ requests maxminddb ]
     ++ lib.optionals isPy27 [ ipaddress ];
 
   checkInputs = [ requests-mock ];

@@ -21,7 +21,7 @@ buildPythonPackage rec {
       --replace "--isort" ""
   '';
 
-  propagatedBuildInputs = [ tinycss2 ];
+  pythonPath = [ tinycss2 ];
 
   checkInputs = [ pytest pytestrunner ];
 

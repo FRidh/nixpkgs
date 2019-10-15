@@ -21,7 +21,7 @@ buildPythonPackage rec {
   disabled = isPyPy;
 
   checkInputs = [ nose ];
-  propagatedBuildInputs = [ toolz ];
+  pythonPath = [ toolz ];
 
   # Failing test https://github.com/pytoolz/cytoolz/issues/122
   checkPhase = ''

@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "798ac14408593525d1865f608b30f71cce291b1a239f4d63f14bb4dcf79d7528";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     attrs
     audio-metadata
     marshmallow

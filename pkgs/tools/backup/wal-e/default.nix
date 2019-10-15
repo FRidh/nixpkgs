@@ -14,7 +14,7 @@ pythonPackages.buildPythonApplication rec {
   # needs tox
   doCheck = false;
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pythonPackages.boto
     pythonPackages.gevent
     postgresql

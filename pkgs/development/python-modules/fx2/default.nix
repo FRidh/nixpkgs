@@ -20,7 +20,7 @@ buildPythonPackage {
 
   nativeBuildInputs = [ sdcc ];
 
-  propagatedBuildInputs = [ libusb1 crcmod ];
+  pythonPath = [ libusb1 crcmod ];
 
   preBuild = ''
     cd software

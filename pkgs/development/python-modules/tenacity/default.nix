@@ -13,7 +13,7 @@ buildPythonPackage rec {
   };
 
   nativeBuildInputs = [ pbr ];
-  propagatedBuildInputs = [ six ]
+  pythonPath = [ six ]
     ++ lib.optionals isPy27 [ futures monotonic ];
 
   checkInputs = [ pytest sphinx tornado ];

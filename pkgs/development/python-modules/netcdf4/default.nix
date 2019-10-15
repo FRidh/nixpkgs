@@ -18,7 +18,7 @@ buildPythonPackage rec {
     cython
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     cftime
     numpy
     zlib

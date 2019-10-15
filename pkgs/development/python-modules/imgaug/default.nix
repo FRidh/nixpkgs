@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "42b0c4c8cbe197d4f5dbd33960a1140f8a0d9c22c0a8851306ecbbc032092de8";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     numpy
     scipy
     scikitimage

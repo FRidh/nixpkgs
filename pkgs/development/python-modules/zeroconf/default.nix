@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "1xgfs38wv52a73p9gmyz0vxj6c49516isjn9bhp8p3y4cywk7hz0";
   };
 
-  propagatedBuildInputs = [ ifaddr ]
+  pythonPath = [ ifaddr ]
     ++ stdenv.lib.optionals (pythonOlder "3.5") [ typing ];
 
   # tests not included with pypi release

@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "0rmzba8yig426anf8fxiacyvwchlsws746757sgvw748n8lrarbw";
   };
 
-  propagatedBuildInputs = [ requests ];
+  pythonPath = [ requests ];
 
   checkInputs = [ pytest pytestcov pytest-mock pytest_xdist ];
 

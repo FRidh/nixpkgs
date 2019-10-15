@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "25199318e8cc3c25dcb45cbe084cc061051336d5a9ea2a12448d3d8cb748f742";
   };
 
-  propagatedBuildInputs = [ six ] ++ lib.optional (pythonOlder "3.5") scandir;
+  pythonPath = [ six ] ++ lib.optional (pythonOlder "3.5") scandir;
   checkInputs = [ glibcLocales ] ++ lib.optional (pythonOlder "3.3") mock;
 
   preCheck = ''

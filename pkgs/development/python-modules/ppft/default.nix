@@ -17,7 +17,7 @@ buildPythonPackage rec {
     python -m ppft.tests
   '';
 
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   meta = with stdenv.lib; {
     description = "Distributed and parallel python";

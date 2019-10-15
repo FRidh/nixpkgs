@@ -22,7 +22,7 @@ buildPythonPackage rec {
     cython
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     numpy
     scipy
     sympy

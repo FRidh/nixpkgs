@@ -41,7 +41,7 @@ python.pkgs.buildPythonApplication rec {
     ./fix-deadlock-detector-import.patch
   ];
 
-  propagatedBuildInputs = [ python.pkgs.netaddr ];
+  pythonPath = [ python.pkgs.netaddr ];
   nativeBuildInputs = [ makeWrapper cmake flex bison ]
     # libelf is incompatible with elfutils-libelf
     ++ stdenv.lib.filter (x: x != libelf) kernel.moduleBuildDependencies;

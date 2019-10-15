@@ -20,7 +20,7 @@ buildPythonPackage rec {
     sha256 = "99ff773a298bdf0f3185a4c7ac20677a843df818583b368925dcf766cd99f09a";
   };
 
-  propagatedBuildInputs = [ matplotlib scipy pandas requests pillow ];
+  pythonPath = [ matplotlib scipy pandas requests pillow ];
 
   meta = with stdenv.lib; {
     description = "Custom Python plots on a Google Maps background";

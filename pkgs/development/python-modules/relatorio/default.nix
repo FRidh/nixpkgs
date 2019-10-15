@@ -7,7 +7,7 @@ buildPythonPackage rec {
     inherit pname version;
     sha256 = "0q93sl7ppfvjxylgq9m5n4xdgv4af7d69yxd84zszq10vjmpsg6k";
   };
-  propagatedBuildInputs = [
+  pythonPath = [
     genshi
     lxml
     python_magic

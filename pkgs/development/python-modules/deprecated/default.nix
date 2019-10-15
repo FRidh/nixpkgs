@@ -15,7 +15,7 @@ buildPythonPackage rec {
     rm tests/demo_classic_usage*.py
   '';
 
-  propagatedBuildInputs = [ wrapt ];
+  pythonPath = [ wrapt ];
   checkInputs = [ pytest ];
   meta = with stdenv.lib; {
     homepage = "https://github.com/tantale/deprecated";

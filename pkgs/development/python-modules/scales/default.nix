@@ -15,7 +15,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ nose ];
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   # No tests included
   doCheck = false;

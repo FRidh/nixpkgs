@@ -9,7 +9,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ pytest ];
-  propagatedBuildInputs = [ dateutil pyproj pytz requests ];
+  pythonPath = [ dateutil pyproj pytz requests ];
 
   # 'tests' dir not included in pypy distribution archive.
   doCheck = false;

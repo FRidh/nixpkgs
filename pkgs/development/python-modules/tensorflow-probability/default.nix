@@ -69,7 +69,7 @@ in buildPythonPackage {
 
   src = bazel-wheel;
 
-  propagatedBuildInputs = [
+  pythonPath = [
     tensorflow
     six
     numpy

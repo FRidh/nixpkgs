@@ -19,7 +19,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ nose ];
-  propagatedBuildInputs = [ hglib ];
+  pythonPath = [ hglib ];
 
   doCheck = false;  # too many assumptions
 

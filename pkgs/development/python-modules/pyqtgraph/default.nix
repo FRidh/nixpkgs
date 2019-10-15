@@ -16,7 +16,7 @@ buildPythonPackage rec {
     sha256 = "4c08ab34881fae5ecf9ddfe6c1220b9e41e6d3eb1579a7d8ef501abb8e509251";
   };
 
-  propagatedBuildInputs = [ scipy numpy pyqt4 pyopengl ];
+  pythonPath = [ scipy numpy pyqt4 pyopengl ];
 
   doCheck = false;  # "PyQtGraph requires either PyQt4 or PySide; neither package could be imported."
 

@@ -22,7 +22,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [ xmltodict datamodeldict numpy matplotlib scipy pandas cython numericalunits ];
+  pythonPath = [ xmltodict datamodeldict numpy matplotlib scipy pandas cython numericalunits ];
 
   # tests not included with Pypi release
   doCheck = false;

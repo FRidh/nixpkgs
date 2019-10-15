@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "263c7f2c85dafe06eaa15e8d7ab83817204f70a5f08cc25a607f3f01ed130b42";
   };
 
-  propagatedBuildInputs = [ click ];
+  pythonPath = [ click ];
 
   meta = with stdenv.lib; {
     description = "Command-line tool to deduplicate mails from a set of maildir folders";

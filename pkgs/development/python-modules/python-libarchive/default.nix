@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "0j4ibc4mvq64ljya9max8832jafi04jciff9ia9qy0xhhlwkcx8x";
   };
 
-  propagatedBuildInputs = [ pkgs.libarchive.lib ];
+  pythonPath = [ pkgs.libarchive.lib ];
 
   meta = with stdenv.lib; {
     description = "Multi-format archive and compression library";

@@ -16,7 +16,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest pytest-flake8 ];
 
-  propagatedBuildInputs = [ dbus-python entrypoints ] ++ stdenv.lib.optional stdenv.isLinux secretstorage;
+  pythonPath = [ dbus-python entrypoints ] ++ stdenv.lib.optional stdenv.isLinux secretstorage;
 
   # checks try to access a darwin path on linux
   doCheck = false;

@@ -23,7 +23,7 @@ buildPythonPackage rec {
     sha256 = "1k4vr5rfa62yafwpmb4827n50pwb79if0vhg1y4yqbb0bv20jxbd";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     html5lib
     wcwidth
   ];

@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "e980e2aa5a029e2f133d422a9154a21c9cca96c417c230ddde858e41aa43687b";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pytorch
     contextlib2
     # TODO(tom): graphviz pulls in a lot of dependencies - make

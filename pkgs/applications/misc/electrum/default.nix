@@ -56,7 +56,7 @@ python3Packages.buildPythonApplication {
 
   nativeBuildInputs = stdenv.lib.optionals enableQt [ wrapQtAppsHook ];
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     aiorpcx
     aiohttp
     aiohttp-socks

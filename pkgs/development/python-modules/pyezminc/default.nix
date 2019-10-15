@@ -18,7 +18,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ cython ];
   buildInputs = [ netcdf hdf5 libminc ezminc ];
-  propagatedBuildInputs = [ numpy scipy ];
+  pythonPath = [ numpy scipy ];
 
   NIX_CFLAGS_COMPILE = "-fpermissive";
 

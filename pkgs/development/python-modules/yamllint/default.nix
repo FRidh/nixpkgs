@@ -12,7 +12,7 @@ buildPythonPackage rec {
 
   checkInputs = [ nose ];
 
-  propagatedBuildInputs = [  pyyaml pathspec ];
+  pythonPath = [  pyyaml pathspec ];
 
   # Two test failures
   doCheck = false;

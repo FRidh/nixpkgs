@@ -14,7 +14,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ bashInteractive ]; # needed for bash-completion helper
-  propagatedBuildInputs = [ urlgrabber m2crypto ];
+  pythonPath = [ urlgrabber m2crypto ];
 
   doCheck = false;
 

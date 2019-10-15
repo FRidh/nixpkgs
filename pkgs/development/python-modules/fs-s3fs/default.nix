@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "49bfa4572bb11e37324dd43be935ab99376259eff652365aef0e4a747bb11418";
   };
 
-  propagatedBuildInputs = [ fs six boto3 ];
+  pythonPath = [ fs six boto3 ];
 
   # tests try to integrate an s3 bucket which can't be tested properly in an isolated environment.
   doCheck = false;

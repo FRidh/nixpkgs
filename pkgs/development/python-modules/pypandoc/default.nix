@@ -18,7 +18,7 @@ buildPythonPackage rec {
 
   LC_ALL="en_US.UTF-8";
 
-  propagatedBuildInputs = [ pip ];
+  pythonPath = [ pip ];
 
   buildInputs = [ pandoc texlive.combined.scheme-small haskellPackages.pandoc-citeproc glibcLocales ];
 

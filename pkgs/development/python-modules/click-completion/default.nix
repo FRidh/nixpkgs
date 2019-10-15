@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "1ysn6kzv3fgakn0y06i3cxynd8iaybarrygabk9a0pp2spn2w1vq";
   };
 
-  propagatedBuildInputs = [ click jinja2 shellingham six ];
+  pythonPath = [ click jinja2 shellingham six ];
 
   meta = with stdenv.lib; {
     description = "Add or enhance bash, fish, zsh and powershell completion in Click";

@@ -27,7 +27,7 @@ buildPythonPackage rec {
   # The test hangs so we disable it.
   doCheck = false;
 
-  propagatedBuildInputs = [
+  pythonPath = [
     click
     certifi
     requests-aws4auth

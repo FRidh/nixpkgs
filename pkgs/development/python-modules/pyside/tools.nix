@@ -16,7 +16,7 @@ buildPythonPackage rec {
 
   buildInputs = [ qt4 ];
 
-  propagatedBuildInputs = [ pyside pysideShiboken ];
+  pythonPath = [ pyside pysideShiboken ];
 
   meta = with lib; {
     description = "Development tools (pyside-uic/rcc/lupdate) for PySide, the LGPL-licensed Python bindings for the Qt framework";

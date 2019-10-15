@@ -13,7 +13,7 @@ buildPythonPackage rec {
   # No tests included in archive
   doCheck = false;
 
-  propagatedBuildInputs = [ httplib2 google_auth google-auth-httplib2 six uritemplate oauth2client ];
+  pythonPath = [ httplib2 google_auth google-auth-httplib2 six uritemplate oauth2client ];
 
   meta = with lib; {
     description = "The core Python library for accessing Google APIs";

@@ -23,7 +23,7 @@ pythonPackages.buildPythonApplication rec {
     docbook2x libxslt gnome-doc-utils dbus-glib hicolor-icon-theme
   ];
 
-  propagatedBuildInputs = with pythonPackages; [ pygobject2 pygtk pyxdg gnome_python dbus-python ];
+  pythonPath = with pythonPackages; [ pygobject2 pygtk pyxdg gnome_python dbus-python ];
 
   postFixup = ''
     wrapPythonProgramsIn $out/lib/hamster-time-tracker "$out $pythonPath"

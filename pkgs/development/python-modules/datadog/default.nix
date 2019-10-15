@@ -15,7 +15,7 @@ buildPythonPackage rec {
     find . -name '*.pyc' -exec rm {} \;
   '';
 
-  propagatedBuildInputs = [ decorator requests simplejson ];
+  pythonPath = [ decorator requests simplejson ];
 
   checkInputs = [ nose mock ];
 

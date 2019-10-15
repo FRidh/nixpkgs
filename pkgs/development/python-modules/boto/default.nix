@@ -22,7 +22,7 @@ buildPythonPackage rec {
   '';
 
   checkInputs = [ nose mock ];
-  propagatedBuildInputs = [ requests httpretty ];
+  pythonPath = [ requests httpretty ];
 
   meta = with pkgs.lib; {
     homepage = https://github.com/boto/boto;

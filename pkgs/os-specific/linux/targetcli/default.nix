@@ -11,7 +11,7 @@ python.pkgs.buildPythonApplication rec {
     sha256 = "093dmwc5g6yz4cdgpbfszmc97i7nd286w4x447dvg22hvwvjwqhh";
   };
 
-  propagatedBuildInputs = with python.pkgs; [ configshell rtslib ];
+  pythonPath = with python.pkgs; [ configshell rtslib ];
 
   meta = with stdenv.lib; {
     description = "A command shell for managing the Linux LIO kernel target";

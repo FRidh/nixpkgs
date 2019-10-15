@@ -17,7 +17,7 @@ buildPythonPackage rec {
   # vast dependency list
   doCheck = false;
 
-  propagatedBuildInputs = [ django nose ];
+  pythonPath = [ django nose ];
 
   meta = with stdenv.lib; {
     description = "Provides all the goodness of nose in your Django tests";

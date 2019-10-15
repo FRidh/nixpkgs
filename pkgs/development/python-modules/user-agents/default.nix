@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "0ix2yajqdnfj433j50dls90mkmqz8m4fiywxg097zwkkc95wm8s4";
   };
 
-  propagatedBuildInputs = [ ua-parser ];
+  pythonPath = [ ua-parser ];
 
   meta = with stdenv.lib; {
     description = "A Python library to identify devices by parsing user agent strings";

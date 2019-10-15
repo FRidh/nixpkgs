@@ -18,7 +18,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = srht.nativeBuildInputs;
 
-  propagatedBuildInputs = [
+  pythonPath = [
     srht
     pyyaml
   ];

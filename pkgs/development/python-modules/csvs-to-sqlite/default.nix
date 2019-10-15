@@ -23,7 +23,7 @@ buildPythonPackage rec {
     sha256 = "0n80y9a6qhbhhbz64jdpscx0nha9jn9nygp9nkgszmw04ri5j5hm";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     click
     dateparser
     pandas

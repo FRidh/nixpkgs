@@ -18,7 +18,7 @@ python3.pkgs.buildPythonApplication rec {
     sed -i "/^addopts/d" setup.cfg
   '';
 
-  propagatedBuildInputs = with python3.pkgs; [
+  pythonPath = with python3.pkgs; [
     vobject
     python-dateutil
     passlib

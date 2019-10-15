@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "135xvy1nn0x5knc7l05amfs837xkx2gcg3lpp69ya9kqs8j6brgp";
   };
 
-  propagatedBuildInputs = [ srptools aiohttp zeroconf ed25519 cryptography curve25519-donna tox ];
+  pythonPath = [ srptools aiohttp zeroconf ed25519 cryptography curve25519-donna tox ];
 
   checkInputs = [ pytest pytestrunner netifaces asynctest virtualenv toml filelock ];
 

@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "f9f0f8f800798fae83c05dd52dc2f06bd77fb318c784c4b44e3acfba81338881";
   };
 
-  propagatedBuildInputs = [ six click requests pytz tabulate ];
+  pythonPath = [ six click requests pytz tabulate ];
 
   doCheck = false;
 

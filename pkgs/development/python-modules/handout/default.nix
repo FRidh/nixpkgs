@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "16y1wqx8j4kf6fa94x22njrkdfb2cfi0dvc7a4q2qsa8m3ri0b43";
   };
 
-  propagatedBuildInputs = [ imageio imageio-ffmpeg ];
+  pythonPath = [ imageio imageio-ffmpeg ];
 
   meta = with stdenv.lib; {
     description = "Turn Python scripts into handouts with Markdown and figures";

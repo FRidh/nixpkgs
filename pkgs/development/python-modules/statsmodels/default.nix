@@ -21,7 +21,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = with self; [ nose ];
-  propagatedBuildInputs = with self; [numpy scipy pandas patsy cython matplotlib];
+  pythonPath = with self; [numpy scipy pandas patsy cython matplotlib];
 
   # Huge test suites with several test failures
   doCheck = false;

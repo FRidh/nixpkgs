@@ -13,7 +13,7 @@ buildPythonPackage rec {
     substituteInPlace tests/test_integration.py --replace 'static_path=' 'static_url_path='
   '';
 
-  propagatedBuildInputs = [ flask webassets flask_script nose ];
+  pythonPath = [ flask webassets flask_script nose ];
 
   meta = with lib; {
     homepage = https://github.com/miracle2k/flask-assets;

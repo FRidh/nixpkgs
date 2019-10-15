@@ -21,7 +21,7 @@ in python.pkgs.buildPythonPackage {
     sed -iE "s/prompt-toolkit==1.0.15/prompt-toolkit<2.0.0/" requirements.txt
   '';
 
-  propagatedBuildInputs = with python.pkgs; [
+  pythonPath = with python.pkgs; [
     aiohttp-cors yarl aiohttp multidict setuptools
     jinja2 psutil zipstream raven jsonschema distro async_generator aiofiles
     (python.pkgs.callPackage ../../../development/python-modules/prompt_toolkit/1.nix {})

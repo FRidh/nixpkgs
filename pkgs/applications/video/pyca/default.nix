@@ -11,7 +11,7 @@ buildPythonApplication rec {
     sha256 = "0cvkmdlcax9da9iw4ls73vw0pxvm8wvchab5gwdy9w9ibqdpcmwh";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pycurl
     dateutil
     configobj

@@ -11,7 +11,7 @@ python3Packages.buildPythonApplication rec {
     sha256 = "0y30sp0x3nmgzi4dqw1rc3705hnn36ij0zlyyx7g6fqdq8bd8p5q";
   };
 
-  propagatedBuildInputs = with python3Packages; [ pygments requests setuptools ];
+  pythonPath = with python3Packages; [ pygments requests setuptools ];
   dontUseSetuptoolsCheck = true;
 
   disabledTests = [

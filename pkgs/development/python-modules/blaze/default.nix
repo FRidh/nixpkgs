@@ -35,7 +35,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [
+  pythonPath = [
     contextlib2
     cytoolz
     dask

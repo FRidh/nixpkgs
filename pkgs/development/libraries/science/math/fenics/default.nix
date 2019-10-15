@@ -136,7 +136,7 @@ stdenv.mkDerivation {
     url = "https://bitbucket.org/fenics-project/dolfin/downloads/dolfin-${version}.tar.gz";
     sha256 = "14hfb5q6rz79zmy742s2fiqkb9j2cgh5bsg99v76apcr84nklyds";
   };
-  propagatedBuildInputs = [ dijitso fiat numpy six ufl ];
+  pythonPath = [ dijitso fiat numpy six ufl ];
   buildInputs = [
     boost cmake dijitso doxygen eigen ffc fiat gtest hdf5 instant mpi
     numpy pkgconfig six sphinx suitesparse sympy ufl vtk zlib

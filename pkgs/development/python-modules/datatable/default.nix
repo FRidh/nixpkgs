@@ -30,7 +30,7 @@ buildPythonPackage rec {
     })
   ];
 
-  propagatedBuildInputs = [ typesentry blessed ];
+  pythonPath = [ typesentry blessed ];
   buildInputs = [ llvm ] ++ lib.optionals stdenv.isDarwin [ openmp ];
   checkInputs = [ docutils pytest ];
 

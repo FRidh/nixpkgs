@@ -60,7 +60,7 @@ in newPython.pkgs.buildPythonApplication rec {
     webtest
   ]);
 
-  propagatedBuildInputs = with newPython.pkgs; [
+  pythonPath = with newPython.pkgs; [
     colorama deprecation distro fasteners bottle
     future node-semver patch pygments pluginbase
     pyjwt pylint pyyaml requests six tqdm

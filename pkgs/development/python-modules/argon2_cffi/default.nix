@@ -19,7 +19,7 @@ buildPythonPackage rec {
     sha256 = "81548a27b919861040cb928a350733f4f9455dd67c7d1ba92eb5960a1d7f8b26";
   };
 
-  propagatedBuildInputs = [ cffi six ] ++ lib.optional (!isPy3k) enum34;
+  pythonPath = [ cffi six ] ++ lib.optional (!isPy3k) enum34;
   checkInputs = [ hypothesis pytest wheel ];
   checkPhase = ''
     pytest tests

@@ -31,7 +31,7 @@ buildPythonPackage rec {
     sha256 = "1zqlq61zxn732915nznj7pz8zh6kd6inl170fiavwhs32brmv84l";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     tensorflow
     annoy
     pillow

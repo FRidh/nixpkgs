@@ -18,7 +18,7 @@ buildPythonPackage rec {
 
   # Use pytest because its easier to discover tests
   buildInputs = [ pytest ];
-  propagatedBuildInputs = [ numpy ];
+  pythonPath = [ numpy ];
 
   checkPhase = ''
     py.test $out/${python.sitePackages}

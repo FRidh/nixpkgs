@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "5c47dc6dc97bb1c20e5607f3d58eac81e13b16880a284b52d503eea92d7b5fc2";
   };
 
-  propagatedBuildInputs = [ boltons attrs face ];
+  pythonPath = [ boltons attrs face ];
 
   checkInputs = [ pytest pyyaml ];
   checkPhase = "pytest glom/test";

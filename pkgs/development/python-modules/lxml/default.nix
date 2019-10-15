@@ -15,7 +15,7 @@ buildPythonPackage rec {
   };
 
   nativeBuildInputs = [ libxml2.dev libxslt.dev ];
-  propagatedBuildInputs = [ libxml2 libxslt ];
+  pythonPath = [ libxml2 libxslt ];
 
   hardeningDisable = stdenv.lib.optional stdenv.isDarwin "format";
 

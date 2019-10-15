@@ -17,7 +17,7 @@ python2Packages.buildPythonApplication rec {
 
   disabled = python2Packages.isPy3k; # work to support python 3 has not begun
 
-  propagatedBuildInputs = [ chromaprint ] ++ (with python2Packages; [
+  pythonPath = [ chromaprint ] ++ (with python2Packages; [
     configobj
     mutagen
     pyparsing

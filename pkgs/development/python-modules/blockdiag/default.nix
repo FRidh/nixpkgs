@@ -13,7 +13,7 @@ buildPythonPackage rec {
 
   buildInputs = [ pep8 nose unittest2 docutils ];
 
-  propagatedBuildInputs = [ pillow webcolors funcparserlib ];
+  pythonPath = [ pillow webcolors funcparserlib ];
 
   # One test fails:
   #   ...

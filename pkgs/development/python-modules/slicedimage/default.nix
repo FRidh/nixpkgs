@@ -23,7 +23,7 @@ buildPythonPackage rec {
     sha256 = "adab09457e22465f05998fdcf8ea14179185f8e780a4021526ba163dd476cd02";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     boto3
     diskcache
     packaging

@@ -19,7 +19,7 @@ buildPythonPackage rec {
     sha256 = "1mc8ljfk6xyn2cq725s8hgapp62z5mylzw9akvkhwwz3bh8m5a7f";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     uvicorn
     starlette
     pydantic

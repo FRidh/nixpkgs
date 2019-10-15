@@ -11,7 +11,7 @@ buildPythonApplication rec {
     sha256 = "0iksh9081g488yfjzd24bz4lm1nrrjamph1vynx3imrcfgyq7nsb";
   };
 
-  propagatedBuildInputs = [ pandocfilters six ];
+  pythonPath = [ pandocfilters six ];
 
   # No tests in archive
   doCheck = false;

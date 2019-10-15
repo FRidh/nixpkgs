@@ -13,7 +13,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ django_nose ];
-  propagatedBuildInputs = [ django_hijack ];
+  pythonPath = [ django_hijack ];
 
   checkPhase = ''
     runHook preCheck

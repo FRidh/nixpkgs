@@ -25,7 +25,7 @@ buildPythonApplication rec {
 
   checkInputs = [ git ];
 
-  propagatedBuildInputs = [ opentimestamps appdirs GitPython pysocks ];
+  pythonPath = [ opentimestamps appdirs GitPython pysocks ];
 
   meta = {
     description = "Command-line tool to create and verify OpenTimestamps proofs";

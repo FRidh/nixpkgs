@@ -17,7 +17,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ nose ];
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   # iterable = range(10 ** 10)  # Is efficiently reversible
   # OverflowError: Python int too large to convert to C long

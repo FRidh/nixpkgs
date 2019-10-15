@@ -33,7 +33,7 @@ buildPythonPackage rec {
     sha256 = "19bec2a869affbca0a7e3fc0aee1b9978ff7f0f1a2a8551c2d4ae148a7ddc251";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     click
     jsonschema
     matplotlib

@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "1m6b7qipiaj6pz86kjhyq5m5jxxijpk58gpsdkj5bn0wjl6x1pg2";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     lxml
     oath
     pycryptodome

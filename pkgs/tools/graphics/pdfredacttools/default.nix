@@ -17,7 +17,7 @@ python2Packages.buildPythonApplication rec {
     --replace \'file\' \'${file}/bin/file\'
    '';
 
-  propagatedBuildInputs = [ imagemagick exiftool ghostscript ];
+  pythonPath = [ imagemagick exiftool ghostscript ];
 
   meta = with stdenv.lib; {
     description = "Redact and strip metadata from documents before publishing";

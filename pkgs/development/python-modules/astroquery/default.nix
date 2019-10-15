@@ -24,7 +24,7 @@ buildPythonPackage rec {
   # repository.
   patches = [ ./conftest-astropy-3-fix.patch ];
 
-  propagatedBuildInputs = [ astropy requests keyring beautifulsoup4 html5lib ];
+  pythonPath = [ astropy requests keyring beautifulsoup4 html5lib ];
 
   nativeBuildInputs = [ astropy-helpers ];
 

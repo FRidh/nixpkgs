@@ -17,7 +17,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ nose ];
-  propagatedBuildInputs = [ sphinx jinja2 ];
+  pythonPath = [ sphinx jinja2 ];
 
   meta = {
     description = "Sphinx extension to support docstrings in Numpy format";

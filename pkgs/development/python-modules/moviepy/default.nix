@@ -37,7 +37,7 @@ buildPythonPackage rec {
   # No tests, require network connection
   doCheck = false;
 
-  propagatedBuildInputs = [
+  pythonPath = [
     numpy decorator imageio imageio-ffmpeg tqdm requests proglog
   ] ++ (stdenv.lib.optionals advancedProcessing [
     opencv scikitimage scikitlearn scipy matplotlib youtube-dl

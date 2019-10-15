@@ -18,7 +18,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest mock ];
-  propagatedBuildInputs = [ google_resumable_media google_api_core google_cloud_core ];
+  pythonPath = [ google_resumable_media google_api_core google_cloud_core ];
 
   checkPhase = ''
    pytest tests/unit

@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sed -i -e '/alembic>/d' setup.py
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     Mako
     aiohttp
     mautrix-appservice
@@ -38,7 +38,7 @@ buildPythonPackage rec {
   # Hence we need to patch away `alembic` from `mautrix-telegram` and create an `alembic`
   # which has `mautrix-telegram` in its environment.
   passthru.alembic = alembic.overrideAttrs (old: {
-    propagatedBuildInputs = old.propagatedBuildInputs ++ [
+    pythonPath = old.pythonPath ++ [
       mautrix-telegram
     ];
   });

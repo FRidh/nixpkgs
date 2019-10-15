@@ -11,7 +11,7 @@ buildPythonPackage rec {
 
   checkInputs = [ django flask tornado sanic aiohttp bottle rq falcon pyramid celery ];
 
-  propagatedBuildInputs = [ urllib3 certifi ];
+  pythonPath = [ urllib3 certifi ];
 
   meta = with stdenv.lib; {
     homepage = "https://github.com/getsentry/sentry-python";

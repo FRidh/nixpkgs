@@ -26,7 +26,7 @@ buildPythonPackage rec {
     sha256 = "0zf7nwma801a9hvwwq4xy3rrkca9vydj30s3bnngmm4dvkk575c4";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     aiofiles
     graphene
     itsdangerous

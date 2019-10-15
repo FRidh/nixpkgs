@@ -13,7 +13,7 @@ buildPythonPackage rec {
 
   buildInputs = [ pep8 nose unittest2 docutils ];
 
-  propagatedBuildInputs = [ blockdiag ];
+  pythonPath = [ blockdiag ];
 
   # tests fail
   doCheck = false;

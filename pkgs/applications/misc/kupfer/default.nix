@@ -27,7 +27,7 @@ buildPythonApplication rec {
     gobject-introspection wafHook
   ];
   buildInputs = [ docutils libwnck3 keybinder3 ];
-  propagatedBuildInputs = [ pygobject3 gtk3 pyxdg dbus-python pycairo ];
+  pythonPath = [ pygobject3 gtk3 pyxdg dbus-python pycairo ];
 
   # without strictDeps kupfer fails to build: Could not find the python module 'gi.repository.Gtk'
   # see https://github.com/NixOS/nixpkgs/issues/56943 for details
@@ -36,7 +36,7 @@ buildPythonApplication rec {
   postInstall = let
     pythonPath = (stdenv.lib.concatMapStringsSep ":"
       (m: "${m}/lib/${python.libPrefix}/site-packages")
-      propagatedBuildInputs);
+      pythonPath);
   in ''
     gappsWrapperArgs+=(
       "--prefix" "PYTHONPATH" : "${pythonPath}"

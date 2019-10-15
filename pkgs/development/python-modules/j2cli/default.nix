@@ -16,7 +16,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ nose ];
-  propagatedBuildInputs = [ jinja2 pyyaml ];
+  pythonPath = [ jinja2 pyyaml ];
 
   meta = with stdenv.lib; {
     homepage = "https://github.com/kolypto/j2cli";

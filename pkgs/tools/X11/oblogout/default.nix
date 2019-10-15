@@ -15,7 +15,7 @@ pythonPackages.buildPythonApplication {
 
   buildInputs = [ cairo ];
 
-  propagatedBuildInputs = [ pythonPackages.pygtk pythonPackages.pillow pythonPackages.dbus-python ];
+  pythonPath = [ pythonPackages.pygtk pythonPackages.pillow pythonPackages.dbus-python ];
 
   patches = [ ./oblogout-0.3-fixes.patch ];
 

@@ -11,7 +11,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ pytest ];
-  propagatedBuildInputs = [ heapdict ];
+  pythonPath = [ heapdict ];
 
   meta = with stdenv.lib; {
     description = "Mutable mapping tools.";

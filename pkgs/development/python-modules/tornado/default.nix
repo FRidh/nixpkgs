@@ -28,7 +28,7 @@ buildPythonPackage rec {
   pname = "tornado";
   inherit version;
 
-  propagatedBuildInputs = [ backports_abc  certifi singledispatch ]
+  pythonPath = [ backports_abc  certifi singledispatch ]
     ++ lib.optional (pythonOlder "3.5") backports_ssl_match_hostname
     ++ lib.optional (pythonOlder "3.2") futures;
 

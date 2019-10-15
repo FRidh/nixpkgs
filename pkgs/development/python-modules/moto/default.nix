@@ -47,7 +47,7 @@ buildPythonPackage rec {
     sed -i '/datetime/d' setup.py # should be taken care of by std library
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     aws-xray-sdk
     boto
     boto3

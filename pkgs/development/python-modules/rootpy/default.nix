@@ -11,7 +11,7 @@ buildPythonPackage rec {
 
   disabled = isPy3k;
 
-  propagatedBuildInputs = [ matplotlib numpy root root_numpy tables ];
+  pythonPath = [ matplotlib numpy root root_numpy tables ];
 
   checkInputs = [ pytest ];
   checkPhase = ''

@@ -18,7 +18,7 @@ buildPythonPackage rec {
 
   buildInputs = [ pytestrunner ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pytest
     pylint
     six

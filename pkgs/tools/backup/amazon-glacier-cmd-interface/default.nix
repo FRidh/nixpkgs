@@ -16,7 +16,7 @@ python2Packages.buildPythonApplication rec {
     substituteInPlace setup.py --replace "'argparse'," ""
   '';
 
-  propagatedBuildInputs = with python2Packages; [
+  pythonPath = with python2Packages; [
     boto
     dateutil
     prettytable

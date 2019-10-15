@@ -18,7 +18,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ cmake ];
 
-  propagatedBuildInputs = [ sip ];
+  pythonPath = [ sip ];
 
   disabled = pythonOlder "3.4.0";
 

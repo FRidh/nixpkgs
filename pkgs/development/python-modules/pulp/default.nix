@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "1irzpfnnm5f0qf8y9ddxi489nwixyj0q4zlvqafm621bijkxdv6g";
   };
 
-  propagatedBuildInputs = [ pyparsing ];
+  pythonPath = [ pyparsing ];
 
   # only one test that requires an extra
   doCheck = false;

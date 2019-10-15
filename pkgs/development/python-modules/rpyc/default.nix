@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "0rhmwq1jra2cs0j09z2ks4vnv0svi8lj21nq9qq50i52x4ml4yb7";
   };
 
-  propagatedBuildInputs = [ nose plumbum ];
+  pythonPath = [ nose plumbum ];
 
   meta = with stdenv.lib; {
     description = "Remote Python Call (RPyC), a transparent and symmetric RPC library";

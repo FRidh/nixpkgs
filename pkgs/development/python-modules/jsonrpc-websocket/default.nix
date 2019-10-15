@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "e74e490fefa3b8f33620fca98f7cd9a53fb765b9ed6f78360482a3f364230885";
   };
 
-  propagatedBuildInputs = [ aiohttp jsonrpc-base ];
+  pythonPath = [ aiohttp jsonrpc-base ];
 
   meta = with stdenv.lib; {
     description = "A JSON-RPC websocket client library for asyncio";

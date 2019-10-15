@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "13nvrhp85yr0jyxixcjj012iw8l9wynxxlykm9j3alss6waln73x";
   };
 
-  propagatedBuildInputs = [ pyasn1 pyasn1-modules ];
+  pythonPath = [ pyasn1 pyasn1-modules ];
 
   buildInputs = [ openldap cyrus_sasl ];
 

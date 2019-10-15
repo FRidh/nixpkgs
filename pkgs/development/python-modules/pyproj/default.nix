@@ -27,7 +27,7 @@ buildPythonPackage rec {
 
   buildInputs = [ cython pkgs.proj ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     numpy
   ] ++ lib.optional (pythonOlder "3.6") aenum;
 

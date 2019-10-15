@@ -17,7 +17,7 @@ buildPythonPackage rec {
   nativeBuildInputs = [ cython pkgconfig ]
                     ++ stdenv.lib.optional stdenv.isDarwin darwin.cctools;
 
-  propagatedBuildInputs = [ six protobuf ]
+  pythonPath = [ six protobuf ]
                         ++ stdenv.lib.optionals (isPy27) [ enum34 futures ];
 
   preBuild = stdenv.lib.optionalString stdenv.isDarwin "unset AR";

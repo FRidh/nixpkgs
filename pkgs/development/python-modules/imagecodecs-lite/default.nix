@@ -14,7 +14,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [ numpy cython ];
+  pythonPath = [ numpy cython ];
 
   meta = with lib; {
     description = "Block-oriented, in-memory buffer transformation, compression, and decompression functions";

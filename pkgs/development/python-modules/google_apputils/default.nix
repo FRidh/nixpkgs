@@ -21,7 +21,7 @@ buildPythonPackage rec {
     sed -i '/ez_setup/d' setup.py
   '';
 
-  propagatedBuildInputs = [ pytz gflags dateutil mox ];
+  pythonPath = [ pytz gflags dateutil mox ];
 
   checkPhase = ''
     ${python.executable} setup.py google_test

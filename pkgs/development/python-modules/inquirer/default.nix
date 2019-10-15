@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "01lf51y3bxsxkghbdk9hr42yvihpwi2s5zpxnra3bx41r35msvjz";
   };
 
-  propagatedBuildInputs = [ python-editor readchar blessings ];
+  pythonPath = [ python-editor readchar blessings ];
 
   # No real changes in 2.0.0...e0edfa3
   postPatch = ''

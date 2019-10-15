@@ -16,7 +16,7 @@ buildPythonPackage rec {
     sha256 = "47bb9d09ff06c600b446f220f47a742396598ac4828d738d3d85e6490629a71a";
   };
 
-  propagatedBuildInputs = [ zope_interface ];
+  pythonPath = [ zope_interface ];
 
   checkInputs = [ zope_location zope_schema ];
 

@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "0xsrzdrsmfhnxv68zwm1g6awk7in08k6yhkyd27ipn0mq1wjm5jd";
   };
 
-  propagatedBuildInputs = [ six httplib2 ];
+  pythonPath = [ six httplib2 ];
 
   meta = with stdenv.lib; {
     homepage = "http://www.gnu.org/software/mailman/";

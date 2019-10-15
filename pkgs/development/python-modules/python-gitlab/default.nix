@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "1icnf27wrndglhr7h3gbns6dn6a98y3i46cmyrxpnir79446sdgy";
   };
 
-  propagatedBuildInputs = [ requests six ];
+  pythonPath = [ requests six ];
 
   checkInputs = [ mock httmock ];
 

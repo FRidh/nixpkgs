@@ -25,7 +25,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ pytestrunner ];
 
-  propagatedBuildInputs = [ asgiref autobahn twisted ];
+  pythonPath = [ asgiref autobahn twisted ];
 
   checkInputs = [ hypothesis pytest pytest-asyncio ];
 

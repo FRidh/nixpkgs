@@ -19,7 +19,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ requests pytest ];
-  propagatedBuildInputs = [ notebook jsonschema ];
+  pythonPath = [ notebook jsonschema ];
 
   # test_listing test fails
   # this is a new package and not all tests pass

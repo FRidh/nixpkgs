@@ -11,7 +11,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [ markupsafe ];
+  pythonPath = [ markupsafe ];
 
   checkPhase = ''
     pytest -v tests

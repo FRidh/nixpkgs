@@ -23,7 +23,7 @@ buildPythonPackage rec {
 
   buildInputs = [ isl ];
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [
+  pythonPath = [
     cffi
     six
   ];

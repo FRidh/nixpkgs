@@ -22,7 +22,7 @@ buildPythonPackage rec {
     pytest
   '';
 
-  propagatedBuildInputs = [ numpy ]
+  pythonPath = [ numpy ]
     ++ lib.optional isPy27 [ futures enum34 pathlib ];
 
   meta = with lib; {

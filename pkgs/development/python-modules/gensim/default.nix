@@ -19,7 +19,7 @@ buildPythonPackage rec {
     sha256 = "0rjpmxcd4hphq41y7frg6by6gwjjmrdbnim8jvx951ps5gzyfpgc";
   };
 
-  propagatedBuildInputs = [ smart_open numpy six scipy ];
+  pythonPath = [ smart_open numpy six scipy ];
 
   checkInputs = [ scikitlearn testfixtures unittest2 ];
 

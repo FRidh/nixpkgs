@@ -66,7 +66,7 @@ in buildPythonPackage {
 
   src = bazel-build;
 
-  propagatedBuildInputs = [
+  pythonPath = [
     six
     absl-py
     semantic-version

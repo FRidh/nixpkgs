@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "184qncm2ss474prphw0xnf7ifkpgj955dzlb2vqq94z6xvf3xyd9";
   };
 
-  propagatedBuildInputs = [ capstone ];
+  pythonPath = [ capstone ];
 
   meta = with stdenv.lib; {
     description = "Tool to search for gadgets in binaries to facilitate ROP exploitation";

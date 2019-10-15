@@ -17,7 +17,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest ];
 
-  propagatedBuildInputs = lib.optional (!isPy3k) configparser;
+  pythonPath = lib.optional (!isPy3k) configparser;
 
   checkPhase = ''
     py.test tests

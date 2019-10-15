@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "ea6e2699a2e58df834d2c845fb2b076c12d4835daecfcb658c6bd5583ebf4b7d";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     colorama coverage termstyle unidecode
   ] ++ lib.optionals (!isPy3k) [ mock backports_shutil_get_terminal_size ];
 

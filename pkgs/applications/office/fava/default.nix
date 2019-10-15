@@ -13,7 +13,7 @@ buildPythonApplication rec {
   };
 
   checkInputs = [ python3.pkgs.pytest ];
-  propagatedBuildInputs = with python3.pkgs;
+  pythonPath = with python3.pkgs;
     [ 
       Babel
       cheroot

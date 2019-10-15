@@ -11,7 +11,7 @@ pythonPackages.buildPythonApplication rec {
     sha256 = "0kngz2izcqjphbrdkg489p0xmf65xjc8ki1a2szcc8sgwc7z74xy";
   };
 
-  propagatedBuildInputs = with pythonPackages; [
+  pythonPath = with pythonPackages; [
     click
     httpie
     parsimonious

@@ -33,7 +33,7 @@ buildPythonApplication rec {
     gettext yelp-tools itstool gobject-introspection
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pygobject3 pyatspi dbus-python pyxdg brltty liblouis speechd gst-python setproctitle
   ];
 

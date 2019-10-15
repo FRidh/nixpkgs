@@ -17,7 +17,7 @@ python2Packages.buildPythonApplication rec {
   '';
 
   buildInputs = with python2Packages; [ pytest pytestcov mock ];
-  propagatedBuildInputs = with python2Packages; [ atomiclong fusepy pygit2 ];
+  pythonPath = with python2Packages; [ atomiclong fusepy pygit2 ];
 
   checkPhase = "py.test";
   doCheck = false;

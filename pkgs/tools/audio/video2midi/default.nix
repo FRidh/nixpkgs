@@ -19,7 +19,7 @@ in pythonPackages.buildPythonApplication rec {
     sha256 = "1jc50zimc64ilc1as3dyh16lsygwqyvi381mw8si8m9j3pw6may4";
   };
 
-  propagatedBuildInputs = with pythonPackages; [ opencv3_ midiutil pygame pyopengl ];
+  pythonPath = with pythonPackages; [ opencv3_ midiutil pygame pyopengl ];
 
   installPhase = ''
     install -Dm755 v2m.py $out/bin/v2m.py

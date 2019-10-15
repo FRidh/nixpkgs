@@ -17,7 +17,7 @@ buildPythonPackage rec {
       --replace pytest 'tool:pytest'
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     flake8
   ];
 

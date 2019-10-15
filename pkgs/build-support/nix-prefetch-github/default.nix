@@ -14,7 +14,7 @@ python3.pkgs.buildPythonApplication rec {
     sha256 = "13wvq13iiva97a16kahfpxar5ppb015nnbn7d4v9s9jyxdickc2c";
   };
 
-  propagatedBuildInputs = with python3.pkgs; [
+  pythonPath = with python3.pkgs; [
     attrs
     click
     effect

@@ -20,7 +20,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [
+  pythonPath = [
     numpy
     scipy
     numba

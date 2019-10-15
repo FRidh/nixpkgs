@@ -20,7 +20,7 @@ buildPythonPackage rec {
 
   buildInputs = [ cython ];
 
-  propagatedBuildInputs = [ ipython ];
+  pythonPath = [ ipython ];
 
   disabled = isPyPy;
 

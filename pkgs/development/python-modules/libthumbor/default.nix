@@ -16,7 +16,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ django ];
-  propagatedBuildInputs = [ six pycrypto ];
+  pythonPath = [ six pycrypto ];
 
   doCheck = false;
 

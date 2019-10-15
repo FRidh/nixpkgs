@@ -19,7 +19,7 @@ buildPythonPackage rec {
 
   checkInputs = [ nose rednose ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     paramiko lxml selectors2
   ];
 

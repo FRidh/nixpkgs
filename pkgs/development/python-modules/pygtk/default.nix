@@ -15,7 +15,7 @@ buildPythonPackage rec {
   nativeBuildInputs = [ pkgconfig ];
   buildInputs = stdenv.lib.optional (libglade != null) libglade;
 
-  propagatedBuildInputs = [ gtk2 pygobject2 pycairo ];
+  pythonPath = [ gtk2 pygobject2 pycairo ];
 
   configurePhase = "configurePhase";
 

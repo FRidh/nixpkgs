@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "018xhc7cb2crkk27lhl63c7h77w5wa37fg41i7nqr4xclr43cs9z";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     numpy
     cvxopt
   ];

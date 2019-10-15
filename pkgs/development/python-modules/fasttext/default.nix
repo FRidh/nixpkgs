@@ -13,7 +13,7 @@ buildPythonPackage rec {
 
   buildInputs = [ pybind11 ];
 
-  propagatedBuildInputs = [ numpy ];
+  pythonPath = [ numpy ];
 
   preBuild = ''
     HOME=$TMPDIR

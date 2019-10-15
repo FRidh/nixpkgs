@@ -25,7 +25,7 @@ buildPythonPackage rec {
 
   buildInputs = [ cython ];
 
-  propagatedBuildInputs = [ numpy scipy matplotlib networkx six pillow pywavelets dask cloudpickle ];
+  pythonPath = [ numpy scipy matplotlib networkx six pillow pywavelets dask cloudpickle ];
 
   checkInputs = [ pytest ];
 

@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "1yp2jaxg3v86pia0q512dg3hz6s9y5vzdivsgrba1kds05ial14g";
   };
 
-  propagatedBuildInputs = [ requests six ];
+  pythonPath = [ requests six ];
 
   meta = {
     homepage = https://github.com/dashea/requests-file;

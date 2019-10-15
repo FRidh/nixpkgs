@@ -14,7 +14,7 @@ with pythonPackages; buildPythonApplication rec {
   };
 
   buildInputs = with pythonPackages; [ feedparser ];
-  propagatedBuildInputs = buildInputs;
+  pythonPath = buildInputs;
 
   meta = with stdenv.lib; {
     homepage = "https://github.com/manolomartinez/greg";

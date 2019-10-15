@@ -4,7 +4,7 @@ buildPythonPackage rec {
   pname = "bumps";
   version = "0.7.12";
 
-  propagatedBuildInputs = [six];
+  pythonPath = [six];
 
   # Bumps does not provide its own tests.py, so the test
   # always fails

@@ -30,7 +30,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ cmake pkgconfig ];
   buildInputs = stdenv.lib.optionals withMPI [ mpi ];
-  propagatedBuildInputs = [ python.pkgs.numpy ]
+  pythonPath = [ python.pkgs.numpy ]
    ++ stdenv.lib.optionals withMPI [ python.pkgs.mpi4py ];
 
   enableParallelBuilding = true;

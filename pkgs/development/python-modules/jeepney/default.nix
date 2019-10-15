@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "0w1w1rawl9k4lx91w16d19kbmf1349mhy8ph8x3w0qp1blm432b0";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     tornado
   ];
 

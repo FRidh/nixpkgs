@@ -31,7 +31,7 @@ buildPythonApplication rec {
       --replace 'selenium==3.5.0' 'selenium'
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pyyaml lxml grequests flaskbabel flask requests
     gevent speaklater Babel pytz dateutil pygments
     pyasn1 pyasn1-modules ndg-httpsclient certifi pysocks

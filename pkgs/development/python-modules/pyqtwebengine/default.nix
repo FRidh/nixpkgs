@@ -36,7 +36,7 @@ in buildPythonPackage rec {
     qtwebengine
   ];
 
-  propagatedBuildInputs = [ pyqt5 ]
+  pythonPath = [ pyqt5 ]
     ++ lib.optional (!isPy3k) enum34;
 
   configurePhase = ''

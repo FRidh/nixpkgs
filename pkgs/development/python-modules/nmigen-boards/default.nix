@@ -20,7 +20,7 @@ buildPythonPackage rec {
   };
 
   nativeBuildInputs = [ setuptools_scm ];
-  propagatedBuildInputs = [ setuptools nmigen ];
+  pythonPath = [ setuptools nmigen ];
 
   preBuild = ''
     export SETUPTOOLS_SCM_PRETEND_VERSION="${realVersion}"

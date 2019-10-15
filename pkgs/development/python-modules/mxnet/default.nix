@@ -12,7 +12,7 @@ buildPythonPackage {
   inherit (pkgs.mxnet) name version src meta;
 
   buildInputs = [ pkgs.mxnet ];
-  propagatedBuildInputs = [ requests numpy graphviz ];
+  pythonPath = [ requests numpy graphviz ];
 
   LD_LIBRARY_PATH = stdenv.lib.makeLibraryPath [ pkgs.mxnet ];
 

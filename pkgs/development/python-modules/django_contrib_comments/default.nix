@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "61b051d7bc3ff593e86b41a1ed5e969423cf55cc92768598af3315e2528e0890";
   };
 
-  propagatedBuildInputs = [ django ];
+  pythonPath = [ django ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/django/django-contrib-comments;

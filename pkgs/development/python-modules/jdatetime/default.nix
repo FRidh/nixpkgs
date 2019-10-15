@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "42d0d08c0d36dcf1c4e1ddb1d10338d0dffb94105a02d74b6ea655ee8dd93cc2";
   };
 
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   meta = with stdenv.lib; {
     description = "Jalali datetime binding for python";

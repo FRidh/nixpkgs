@@ -13,7 +13,7 @@ buildPythonApplication rec {
     sha256 = "0p0hi5rj873cszx9rpbjjq51vs6xys3rlq9v1rya710i3fnw0hqh";
   };
 
-  propagatedBuildInputs = with python3.pkgs; [
+  pythonPath = with python3.pkgs; [
     jedi
     pyserial
     tkinter

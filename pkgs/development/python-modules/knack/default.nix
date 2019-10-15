@@ -24,7 +24,7 @@ buildPythonPackage rec {
     sha256 = "08g15kwfppdr7vhbsg6qclpqbf11d9k3hwgrmvhh5fa1jrk95b5i";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     argcomplete
     colorama
     jmespath

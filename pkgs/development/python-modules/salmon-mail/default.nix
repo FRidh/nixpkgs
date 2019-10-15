@@ -11,7 +11,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ nose jinja2 mock ];
-  propagatedBuildInputs = [ chardet dnspython lmtpd python-daemon six ];
+  pythonPath = [ chardet dnspython lmtpd python-daemon six ];
 
   # The tests use salmon executable installed by salmon itself so we need to add
   # that to PATH

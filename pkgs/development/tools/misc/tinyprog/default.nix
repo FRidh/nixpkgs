@@ -17,7 +17,7 @@ with python3Packages; buildPythonApplication rec {
 
   sourceRoot = "source/programmer";
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pyserial
     jsonmerge
     intelhex

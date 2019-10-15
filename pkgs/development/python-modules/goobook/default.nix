@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "089a95s6g9izsy1fzpz48p6pz0wpngcbbrvsillm1n53492gfhjg";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     google_api_python_client simplejson oauth2client setuptools
   ];
 

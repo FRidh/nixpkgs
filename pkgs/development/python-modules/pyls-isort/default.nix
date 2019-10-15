@@ -16,7 +16,7 @@ buildPythonPackage rec {
   # no tests
   doCheck = false;
 
-  propagatedBuildInputs = [
+  pythonPath = [
     isort python-language-server
   ];
 

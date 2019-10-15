@@ -17,7 +17,7 @@ buildPythonPackage rec {
   '';
 
   buildInputs = optionals (pythonOlder "3.0") [ twill ];
-  propagatedBuildInputs = [ flask blinker ];
+  pythonPath = [ flask blinker ];
 
   meta = {
     description = "Flask unittest integration.";

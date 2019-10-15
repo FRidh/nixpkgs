@@ -16,7 +16,7 @@ buildPythonPackage rec {
 
   buildInputs = [ pytest ];
 
-  propagatedBuildInputs = [ coverage ];
+  pythonPath = [ coverage ];
 
   checkInputs = [ pytest ];
 

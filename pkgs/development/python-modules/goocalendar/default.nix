@@ -23,7 +23,7 @@ buildPythonPackage rec {
     sha256 = "ca3950c2728916d9fb703c886f3940ac9b76739f99ec840b0e1c2c282510e1ab";
   };
   nativeBuildInputs = [ pkgconfig gobject-introspection ];
-  propagatedBuildInputs = [
+  pythonPath = [
     pygtk
     pygobject3
   ];

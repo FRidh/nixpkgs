@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "5754f639ed1888f47c1185d74e8907ff9af4c0ccc1c8be2ef19339d0a1327f4d";
   };
 
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   checkInputs = [ pytest pytestrunner ];
 

@@ -16,7 +16,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ glibcLocales pytest pytestcov pytestrunner pbr ];
-  propagatedBuildInputs = [ requests requests_oauthlib requests_toolbelt defusedxml pbr ipython ];
+  pythonPath = [ requests requests_oauthlib requests_toolbelt defusedxml pbr ipython ];
 
   # impure tests because of connectivity attempts to jira servers
   doCheck = false;

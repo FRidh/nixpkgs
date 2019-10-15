@@ -15,7 +15,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ coverage mock ];
-  propagatedBuildInputs = [
+  pythonPath = [
     robot-detection django_extensions rjsmin cssmin django-mailman3
     django-haystack lockfile networkx dateutil defusedxml
     django-paintstore djangorestframework django django-q

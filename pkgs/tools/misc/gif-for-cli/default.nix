@@ -13,7 +13,7 @@ python3Packages.buildPythonApplication {
 
   checkInputs = [ python3Packages.coverage ];
   buildInputs = [ ffmpeg zlib libjpeg ];
-  propagatedBuildInputs = with python3Packages; [ pillow requests x256 ];
+  pythonPath = with python3Packages; [ pillow requests x256 ];
 
   meta = with stdenv.lib; {
     description = "Render gifs as ASCII art in your cli";

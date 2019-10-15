@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "0skkmrpvpb1pwyqjf3lh9vq46xagvwdx9kagpdbba2v5dgrk34d1";
   };
 
-  propagatedBuildInputs = [ requests ];
+  pythonPath = [ requests ];
 
   # pypi package missing test_utils and github releases is behind
   doCheck = false;

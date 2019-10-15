@@ -28,7 +28,7 @@ buildPythonPackage rec {
 
   buildInputs = [ glibcLocales ];
   checkInputs = [ nose pyftpdlib mock psutil ];
-  propagatedBuildInputs = [ six appdirs pytz ]
+  pythonPath = [ six appdirs pytz ]
     ++ lib.optionals (!isPy3k) [ backports_os ]
     ++ lib.optionals (!pythonAtLeast "3.6") [ typing ]
     ++ lib.optionals (!pythonAtLeast "3.5") [ scandir ]

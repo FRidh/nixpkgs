@@ -21,7 +21,7 @@ buildPythonPackage rec {
     sha256 = "1dfpp36imddx19yv0kd28gk1l71ckhpqy6jd590wpm2680jw15rq";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     serpent
   ] ++ lib.optionals (isPy27 || isPy33) [ selectors34 ];
 

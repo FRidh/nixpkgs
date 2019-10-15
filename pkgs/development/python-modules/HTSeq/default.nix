@@ -10,7 +10,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ cython numpy pysam ];
-  propagatedBuildInputs = [ numpy pysam matplotlib ];
+  pythonPath = [ numpy pysam matplotlib ];
 
   meta = with stdenv.lib; {
     description = "A framework to work with high-throughput sequencing data";

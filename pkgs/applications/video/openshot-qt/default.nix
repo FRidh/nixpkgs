@@ -26,7 +26,7 @@ mkDerivationWith python3Packages.buildPythonApplication rec {
 
   buildInputs = [ gtk3 ];
 
-  propagatedBuildInputs = with python3Packages; [ libopenshot pyqt5_with_qtwebkit requests sip httplib2 pyzmq ];
+  pythonPath = with python3Packages; [ libopenshot pyqt5_with_qtwebkit requests sip httplib2 pyzmq ];
 
   dontWrapGApps = true;
   dontWrapQtApps = true;

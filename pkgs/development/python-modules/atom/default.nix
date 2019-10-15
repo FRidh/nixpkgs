@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "ce96fb50326a3bfa084463dbde1cf2e02c92735e5bc324d836355c25af87e0ae";
   };
 
-  propagatedBuildInputs = [ future ];
+  pythonPath = [ future ];
 
   # Tests not released to pypi
   doCheck = true;

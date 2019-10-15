@@ -49,7 +49,7 @@ in buildPythonApplication rec {
     "--prefix PATH : ${binPath}"
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     evdev pyyaml pygobject3 requests pillow
   ];
 

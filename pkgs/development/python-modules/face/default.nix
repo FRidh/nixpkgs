@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "0zdp5qlrhxf4dypvvd0zr7zxj2svkz9wblp37vgw01wvcy9b1ds7";
   };
 
-  propagatedBuildInputs = [ boltons ];
+  pythonPath = [ boltons ];
 
   checkInputs = [ pytest ];
   checkPhase = "pytest face/test";

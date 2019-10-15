@@ -8,7 +8,7 @@ buildPythonPackage {
   name = pkgs.subunit.name;
   src = pkgs.subunit.src;
 
-  propagatedBuildInputs = [ testtools ];
+  pythonPath = [ testtools ];
   checkInputs = [ testscenarios ];
   nativeBuildInputs = [ pkgs.pkgconfig ];
   buildInputs = [ pkgs.check pkgs.cppunit ];

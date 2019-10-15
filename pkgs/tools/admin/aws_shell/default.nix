@@ -18,7 +18,7 @@ buildPythonPackage rec {
   };
 
   # Why does it propagate packages that are used for testing?
-  propagatedBuildInputs = [
+  pythonPath = [
     awscli
     prompt_toolkit
     boto3

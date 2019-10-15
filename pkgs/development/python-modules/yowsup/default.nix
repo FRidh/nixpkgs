@@ -24,7 +24,7 @@ buildPythonPackage rec {
 
   patches = [ ./argparse-dependency.patch ];
 
-  propagatedBuildInputs = [ six python-axolotl ];
+  pythonPath = [ six python-axolotl ];
 
   meta = with stdenv.lib; {
     homepage = "https://github.com/tgalal/yowsup";

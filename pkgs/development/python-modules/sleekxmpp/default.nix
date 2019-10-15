@@ -4,7 +4,7 @@ buildPythonPackage rec {
   pname = "sleekxmpp";
   version = "1.3.3";
 
-  propagatedBuildInputs = [ dns pyasn1 ];
+  pythonPath = [ dns pyasn1 ];
 
   patches = [
     ./dnspython-ip6.patch

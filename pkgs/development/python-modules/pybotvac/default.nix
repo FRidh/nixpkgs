@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "f6f147694ee5cbab1dea494454c11bd254e1c214d96d057cba27894a87210f1b";
   };
 
-  propagatedBuildInputs = [ requests ];
+  pythonPath = [ requests ];
 
   meta = with stdenv.lib; {
     description = "Python package for controlling Neato pybotvac Connected vacuum robot";

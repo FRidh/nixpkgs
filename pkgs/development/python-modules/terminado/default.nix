@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "de08e141f83c3a0798b050ecb097ab6259c3f0331b2f7b7750c9075ced2c20c2";
   };
 
-  propagatedBuildInputs = [ ptyprocess tornado ];
+  pythonPath = [ ptyprocess tornado ];
 
   # test_max_terminals fails
   doCheck = false;

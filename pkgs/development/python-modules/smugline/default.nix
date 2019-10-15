@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
   phases = [ "unpackPhase" "installPhase" ];
 
   buildInputs = [ python pkgs.makeWrapper ];
-  propagatedBuildInputs = [ docopt requests smugpy ];
+  pythonPath = [ docopt requests smugpy ];
 
   installPhase = ''
     mkdir -p $out/bin $out/libexec

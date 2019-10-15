@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "1h1j2rfphvfdq6mmfyn5bql45hzrwxkhpc2jcwf0vrl3slzkl5s5";
   };
 
-  propagatedBuildInputs = [ psutil pygit2];
+  pythonPath = [ psutil pygit2];
 
 # error: This is still beta and some tests still fail
   doCheck = false;

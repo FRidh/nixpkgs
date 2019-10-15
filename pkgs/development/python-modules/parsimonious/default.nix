@@ -15,7 +15,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ nose ];
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   meta = with stdenv.lib; {
     homepage = "https://github.com/erikrose/parsimonious";

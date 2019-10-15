@@ -13,7 +13,7 @@ buildPythonPackage {
     sha256 = "1j496sv8pbhby5hkkbp07k6bs3f7mb1l3dijmn2iga3kmix0fn5q";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     libXext
     libXxf86vm
     libX11

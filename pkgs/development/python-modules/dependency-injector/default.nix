@@ -16,7 +16,7 @@ buildPythonPackage rec {
     sha256 = "1c475axh40f8s4n5dqm52qczx9g2g8b8wsy0qvghirk84ikpca5y";
   };
 
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
   checkInputs = [ unittest2 ];
 
   checkPhase = ''

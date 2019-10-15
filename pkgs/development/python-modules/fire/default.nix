@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "1r6cmihafd7mb6j3mvgk251my6ckb0sqqj1l2ny2azklv175b38a";
   };
 
-  propagatedBuildInputs = [ six termcolor ] ++ stdenv.lib.optional isPy27 enum34;
+  pythonPath = [ six termcolor ] ++ stdenv.lib.optional isPy27 enum34;
 
   checkInputs = [ hypothesis mock python-Levenshtein pytest ];
 

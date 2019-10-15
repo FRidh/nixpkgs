@@ -24,7 +24,7 @@ buildPythonPackage rec {
     })
   ];
 
-  propagatedBuildInputs = [ pytz ];
+  pythonPath = [ pytz ];
 
   # too complicated to setup
   doCheck = false;

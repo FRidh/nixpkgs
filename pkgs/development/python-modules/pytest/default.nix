@@ -20,7 +20,7 @@ buildPythonPackage rec {
 
   checkInputs = [ hypothesis mock ];
   nativeBuildInputs = [ setuptools_scm ];
-  propagatedBuildInputs = [ attrs py setuptools six pluggy more-itertools atomicwrites wcwidth packaging ]
+  pythonPath = [ attrs py setuptools six pluggy more-itertools atomicwrites wcwidth packaging ]
     ++ stdenv.lib.optionals (pythonOlder "3.6") [ pathlib2 ];
 
   doCheck = !isPyPy; # https://github.com/pytest-dev/pytest/issues/3460

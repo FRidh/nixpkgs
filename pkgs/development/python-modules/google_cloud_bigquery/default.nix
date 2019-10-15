@@ -21,7 +21,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest mock ipython ];
-  propagatedBuildInputs = [ google_resumable_media google_api_core google_cloud_core pandas pyarrow ];
+  pythonPath = [ google_resumable_media google_api_core google_cloud_core pandas pyarrow ];
 
   checkPhase = ''
     pytest tests/unit

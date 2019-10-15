@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "2eadddde670f5c5f6cf88638a0ac4e5d5fe181292a31063275fa56c7bf22426b";
   };
 
-  propagatedBuildInputs = [ ncurses ];
+  pythonPath = [ ncurses ];
 
   # timestamp need to come after 1980 for zipfiles and nix store is set to epoch
   prePatch = ''

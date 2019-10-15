@@ -11,7 +11,7 @@ buildPythonPackage rec {
 
   # Upstream doesn't run tests from setup.py
   doCheck = false;
-  propagatedBuildInputs = [ tornado ];
+  pythonPath = [ tornado ];
 
   meta = with stdenv.lib; {
     description = "Browser based viewer for profiling data";

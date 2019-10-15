@@ -30,7 +30,7 @@ buildPythonPackage rec {
     sha256 = "0540dmxz90jsmwvd4q06cr1ficixknjk8q06f2dqcp06w92vnl8r";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     requests requests_oauthlib isodate certifi
   ] ++ lib.optionals (!isPy3k) [ enum34 typing ]
     ++ lib.optionals isPy3k [ aiohttp aiodns ];

@@ -27,7 +27,7 @@ buildPythonPackage rec {
     sha256 = "1wzflapyj2j4xsi7d7gfmznmxbgr658n092xyq9nac46rbhpcphg";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     # required
     attrs
     bitstruct

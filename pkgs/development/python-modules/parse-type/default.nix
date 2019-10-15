@@ -14,7 +14,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest pytestrunner ];
-  propagatedBuildInputs = [ parse six ] ++ stdenv.lib.optional (pythonOlder "3.4") enum34;
+  pythonPath = [ parse six ] ++ stdenv.lib.optional (pythonOlder "3.4") enum34;
 
   checkPhase = ''
     py.test tests

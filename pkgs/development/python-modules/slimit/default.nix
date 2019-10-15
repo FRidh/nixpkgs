@@ -22,7 +22,7 @@ buildPythonPackage rec {
     })
   ];
 
-  propagatedBuildInputs = [ ply ];
+  pythonPath = [ ply ];
 
   checkPhase = ''
     ${python.interpreter} -m unittest discover -s src/slimit

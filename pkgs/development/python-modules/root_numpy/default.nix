@@ -16,7 +16,7 @@ buildPythonPackage rec {
     nosetests -s -v root_numpy
   '';
 
-  propagatedBuildInputs = [ numpy root ];
+  pythonPath = [ numpy root ];
 
   meta = with lib; {
     homepage = http://scikit-hep.org/root_numpy;

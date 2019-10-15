@@ -10,7 +10,7 @@ pythonPackages.buildPythonApplication rec {
     sha256 = "1liz0dxcqmchbnl1xhlxkqm3gh76wz9jxdxn9pa7dy77fnrjkl5q";
   };
 
-  propagatedBuildInputs =
+  pythonPath =
     [ gnome2.python_rsvg librsvg pythonPackages.pygtk pythonPackages.xlib ];
 
   doCheck = false;

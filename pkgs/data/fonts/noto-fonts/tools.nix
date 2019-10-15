@@ -11,7 +11,7 @@ pythonPackages.buildPythonPackage rec {
     sha256 = "0z9i23vl6xar4kvbqbc8nznq3s690mqc5zfv280l1c02l5n41smc";
   };
 
-  propagatedBuildInputs = with pythonPackages; [ fonttools numpy ];
+  pythonPath = with pythonPackages; [ fonttools numpy ];
 
   postPatch = ''
     sed -ie "s^join(_DATA_DIR_PATH,^join(\"$out/third_party/ucd\",^" nototools/unicode_data.py

@@ -16,7 +16,7 @@ buildPythonPackage rec {
   version = "3.7.0";
 
   buildInputs = [ setuptools_scm ];
-  propagatedBuildInputs = [ packaging pluggy py six virtualenv toml filelock ];
+  pythonPath = [ packaging pluggy py six virtualenv toml filelock ];
 
   doCheck = false;
 

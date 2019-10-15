@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "8907c510bca3c4d9bc0a157279bdc5e3b739cc68c0f247167279b6fe4becb02f";
   };
 
-  propagatedBuildInputs = [ curtsies greenlet pygments requests urwid ];
+  pythonPath = [ curtsies greenlet pygments requests urwid ];
 
   postInstall = ''
     substituteInPlace "$out/share/applications/bpython.desktop" \

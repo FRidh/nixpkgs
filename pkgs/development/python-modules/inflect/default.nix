@@ -11,5 +11,5 @@ buildPythonPackage rec {
 
   buildInputs = [ setuptools_scm ];
   checkInputs = [ nose ];
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 }

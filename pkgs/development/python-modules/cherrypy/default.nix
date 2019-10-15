@@ -33,7 +33,7 @@ buildPythonPackage rec {
     })
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     # required
     cheroot portend more-itertools zc_lockfile
     # optional

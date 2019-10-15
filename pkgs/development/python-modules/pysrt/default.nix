@@ -21,7 +21,7 @@ buildPythonPackage rec {
     nosetests -v
   '';
 
-  propagatedBuildInputs = [ chardet ];
+  pythonPath = [ chardet ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/byroot/pysrt;

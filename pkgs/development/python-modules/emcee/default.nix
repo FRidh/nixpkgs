@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "b83551e342b37311897906b3b8acf32979f4c5542e0a25786ada862d26241172";
   };
 
-  propagatedBuildInputs = [ numpy ];
+  pythonPath = [ numpy ];
 
   meta = with stdenv.lib; {
     description = "Kick ass affine-invariant ensemble MCMC sampling";

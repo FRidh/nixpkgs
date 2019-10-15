@@ -19,7 +19,7 @@ buildPythonPackage rec {
     sha256 = "00x28z6diw06gakb5isbfha5z2n63yyncv4za303nsgzxvlihmx0";
   };
 
-  propagatedBuildInputs = [ blessings mozterm six ];
+  pythonPath = [ blessings mozterm six ];
 
   checkInputs = [ mozfile ];
 

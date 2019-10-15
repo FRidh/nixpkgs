@@ -21,7 +21,7 @@ buildPythonPackage rec {
   };
 
   # js_snippets extra only works with python2
-  propagatedBuildInputs = [ ]
+  pythonPath = [ ]
     ++ lib.optional pinqSupport sqlalchemy
     ++ lib.optional pyxlSupport pyxl3;
 

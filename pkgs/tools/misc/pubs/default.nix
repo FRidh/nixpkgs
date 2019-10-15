@@ -24,7 +24,7 @@ python3Packages.buildPythonApplication rec {
     })
   ];
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     argcomplete dateutil configobj feedparser bibtexparser pyyaml requests six beautifulsoup4
   ];
 

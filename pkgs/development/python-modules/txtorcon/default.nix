@@ -7,7 +7,7 @@ buildPythonPackage rec {
   version = "19.1.0";
 
   checkInputs = [ pytest mock lsof GeoIP ];
-  propagatedBuildInputs = [
+  pythonPath = [
     incremental twisted automat zope_interface
     # extra dependencies required by twisted[tls]
     idna pyopenssl service-identity

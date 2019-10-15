@@ -19,7 +19,7 @@ buildPythonPackage {
 
   buildInputs = [ cython ];
 
-  propagatedBuildInputs = [ numpy scipy ];
+  pythonPath = [ numpy scipy ];
 
   meta = with lib; {
     description = "A module for calculating and analyzing Voronoi tessellations";

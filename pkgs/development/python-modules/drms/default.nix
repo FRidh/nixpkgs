@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "95cac0e14532893a44eeab8e329ddb76150e6848153d8cb1e4e08ba55569e6af";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     numpy
     pandas
     six

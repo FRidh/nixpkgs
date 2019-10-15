@@ -28,7 +28,7 @@ buildPythonPackage rec {
   # which we cannot add because of circular dependency.
   doCheck = false;
 
-  propagatedBuildInputs = [ msgpack ]
+  pythonPath = [ msgpack ]
     ++ lib.optional (!isPyPy) greenlet
     ++ lib.optional (pythonOlder "3.4") trollius;
 

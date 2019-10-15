@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "7bcbaabef7aa9c176b81d960b20d0f67817ccea5e098968c366d2db4ad76d476";
   };
 
-  propagatedBuildInputs = [ sphinx pyenchant pbr ];
+  pythonPath = [ sphinx pyenchant pbr ];
 
   # No tests included
   doCheck = false;

@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "18shfaxa1vqshnyiqx3jqsri2wxz9ibip3mdxaz8pljmk734r4b1";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     cerberus
     events
     flask

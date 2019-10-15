@@ -41,7 +41,7 @@ buildPythonPackage rec {
     geos proj_5
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     # required
     six pyshp shapely numpy
 

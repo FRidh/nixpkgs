@@ -15,7 +15,7 @@ in pythonPackages.buildPythonApplication rec {
 
   nativeBuildInputs = [ gettext qt5.wrapQtAppsHook qt5.qtbase ];
 
-  propagatedBuildInputs = with pythonPackages; [
+  pythonPath = with pythonPackages; [
     pyqt5
     mutagen
     chromaprint

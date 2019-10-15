@@ -17,7 +17,7 @@ buildPythonPackage rec {
       sed -i -e "s|find_library=None|find_library=lambda _:\"$libusb\"|" usb/backend/libusb1.py
     '';
 
-  propagatedBuildInputs = [ libusb ];
+  pythonPath = [ libusb ];
 
   # No tests included
   doCheck = false;

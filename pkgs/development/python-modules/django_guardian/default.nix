@@ -12,7 +12,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest pytestrunner pytest-django django_environ mock ];
-  propagatedBuildInputs = [ django ];
+  pythonPath = [ django ];
 
   meta = with stdenv.lib; {
     description = "Per object permissions for Django";

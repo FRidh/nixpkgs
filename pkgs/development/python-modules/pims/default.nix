@@ -19,7 +19,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ nose ];
-  propagatedBuildInputs = [ slicerator six numpy tifffile scikitimage ];
+  pythonPath = [ slicerator six numpy tifffile scikitimage ];
 
   # not everything packaged with pypi release
   doCheck = false;

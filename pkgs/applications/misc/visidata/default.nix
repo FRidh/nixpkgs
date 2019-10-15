@@ -12,7 +12,7 @@ buildPythonApplication rec {
     sha256 = "19gs8i6chrrwibz706gib5sixx1cjgfzh7v011kp3izcrn524mc0";
   };
 
-  propagatedBuildInputs = [dateutil pyyaml openpyxl xlrd h5py fonttools
+  pythonPath = [dateutil pyyaml openpyxl xlrd h5py fonttools
     lxml pandas pyshp ];
 
   doCheck = false;

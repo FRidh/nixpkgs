@@ -29,7 +29,7 @@ buildPythonPackage rec {
     nodejs
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pgpy
     flask
     bleach

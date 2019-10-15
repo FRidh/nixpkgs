@@ -12,7 +12,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ unittest2 ];
-  propagatedBuildInputs = [ robotframework lxml ];
+  pythonPath = [ robotframework lxml ];
 
   postPatch = ''
     substituteInPlace setup.py \

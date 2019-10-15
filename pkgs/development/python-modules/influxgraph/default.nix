@@ -17,7 +17,7 @@ buildPythonPackage rec {
       -i ./setup.py
   '';
 
-  propagatedBuildInputs = [ influxdb graphite_api memcached ];
+  pythonPath = [ influxdb graphite_api memcached ];
 
   passthru.moduleName = "influxgraph.InfluxDBFinder";
 

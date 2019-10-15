@@ -30,7 +30,7 @@ buildPythonPackage rec {
   disabled = isPyPy;
 
   buildInputs = [ pyflakes pep8 ];
-  propagatedBuildInputs = [ django django_contrib_comments filebrowser_safe grappelli_safe bleach tzlocal beautifulsoup4 requests requests_oauthlib future pillow chardet ];
+  pythonPath = [ django django_contrib_comments filebrowser_safe grappelli_safe bleach tzlocal beautifulsoup4 requests requests_oauthlib future pillow chardet ];
 
   # Tests Fail Due to Syntax Warning, Fixed for v3.1.11+
   doCheck = false;

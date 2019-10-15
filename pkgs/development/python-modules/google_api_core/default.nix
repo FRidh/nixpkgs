@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "85693e163a1a6faea69a74f8feaf35d54dfa2559fbdbbe389c93ffb3bb4c9a79";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     googleapis_common_protos protobuf
     google_auth requests grpcio
   ] ++ lib.optional (pythonOlder "3.2") futures;

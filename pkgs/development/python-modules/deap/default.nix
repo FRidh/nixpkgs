@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "102r11pxb36xkq5bjv1lpkss77v278f5xdv6lvkbjdvqryydf3yd";
   };
 
-  propagatedBuildInputs = [ numpy matplotlib ];
+  pythonPath = [ numpy matplotlib ];
 
   checkPhase = ''
     ${python.interpreter} setup.py nosetests --verbosity=3

@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "f9baac32aa51c3052d03b86ff30a9856900b8b4a4eb175f7bf2c8722520b8637";
   };
 
-  propagatedBuildInputs = [ ];
+  pythonPath = [ ];
 
   meta = with stdenv.lib; {
     description = "A JSON-RPC client library base interface";

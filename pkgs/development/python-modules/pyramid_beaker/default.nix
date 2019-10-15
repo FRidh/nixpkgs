@@ -16,7 +16,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest ];
 
-  propagatedBuildInputs = [ beaker pyramid ];
+  pythonPath = [ beaker pyramid ];
 
   meta = with stdenv.lib; {
     maintainers = with maintainers; [ domenkozar ];

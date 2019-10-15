@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "ee8e2954ec3ae0abf19f50fce5ec8b7b9ff937c5353c0a72c7e1cfb86df1195d";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     flask
     python-socketio
   ];

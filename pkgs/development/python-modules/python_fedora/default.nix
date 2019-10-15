@@ -9,7 +9,7 @@ buildPythonPackage rec {
     inherit pname version;
     sha256 = "5516b8c066bb2eb5d604ae8e84c3d31e27753795c5d84f6a792979363756405c";
   };
-  propagatedBuildInputs = [ kitchen requests bunch paver lockfile
+  pythonPath = [ kitchen requests bunch paver lockfile
     six munch urllib3 beautifulsoup4 openidc-client ];
   doCheck = false;
 

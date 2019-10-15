@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "fcd6f38fd981e350f9ec754d9671834017accd600e967d6d299a6cfdae5ba4f4";
   };
 
-  propagatedBuildInputs = [ numpy dateutil ];
+  pythonPath = [ numpy dateutil ];
 
   # Some tests fail because they refer to test data files that don't exist
   # (upstream packaging issue)

@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "ba2e750085d9da4d1567932f3f719974fdc3f02649ee0d5c2f85fce592208723";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     base58
     ecdsa
     pycryptodome

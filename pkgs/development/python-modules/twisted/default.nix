@@ -24,7 +24,7 @@ buildPythonPackage rec {
     sha256 = "294be2c6bf84ae776df2fc98e7af7d6537e1c5e60a46d33c3ce2a197677da395";
   };
 
-  propagatedBuildInputs = [ zope_interface incremental automat constantly hyperlink pyhamcrest attrs setuptools ];
+  pythonPath = [ zope_interface incremental automat constantly hyperlink pyhamcrest attrs setuptools ];
 
   passthru.extras.tls = [ pyopenssl service-identity idna ];
 

@@ -10,7 +10,7 @@ buildPythonApplication rec {
     sha256 = "0nzr057dbmgprp4a52ymafdkdd5zp2wcqf42913xc7hhvvdbj338";
   };
 
-  propagatedBuildInputs = [ pyflakes ];
+  pythonPath = [ pyflakes ];
 
   doCheck = true;
 

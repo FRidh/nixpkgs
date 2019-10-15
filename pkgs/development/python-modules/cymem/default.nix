@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "109i67vwgql9za8mfvgbrd6rgraz4djkvpzb4gqvzl13214s6ava";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
    cython
   ];
 

@@ -40,7 +40,7 @@ python3.pkgs.buildPythonApplication rec {
     webkitgtk
   ];
 
-  propagatedBuildInputs = with python3.pkgs; [
+  pythonPath = with python3.pkgs; [
     beautifulsoup4
     pycairo
     pygobject3
@@ -53,7 +53,7 @@ python3.pkgs.buildPythonApplication rec {
   '';
 
   preFixup = ''
-    buildPythonPath "$out $propagatedBuildInputs"
+    buildPythonPath "$out $pythonPath"
     patchPythonScript "$out/libexec/eolie-sp"
   '';
 

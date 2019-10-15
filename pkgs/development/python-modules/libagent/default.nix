@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "b9afa0851f668612702fcd648cee47af4dc7cfe4f86d4c4a84b1a6b4a4960b41";
   };
 
-  propagatedBuildInputs = [ unidecode backports-shutil-which ConfigArgParse
+  pythonPath = [ unidecode backports-shutil-which ConfigArgParse
     python-daemon pymsgbox ecdsa ed25519 mnemonic semver ];
 
   checkInputs = [ mock pytest ];

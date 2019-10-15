@@ -3,7 +3,7 @@
 # Look up dependencies of specified components in component-packages.nix
 , extraComponents ? []
 
-# Additional packages to add to propagatedBuildInputs
+# Additional packages to add to pythonPath
 , extraPackages ? ps: []
 
 # Override Python packages using
@@ -116,7 +116,7 @@ in with py.pkgs; buildPythonApplication rec {
     sha256 = "0qxdsr7zh2yqzignbhi8gcp67ba6gcp2yiyr1rww33a42r4fi0g5";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     # From setup.py
     aiohttp astral async-timeout attrs bcrypt certifi importlib-metadata jinja2
     pyjwt cryptography pip python-slugify pytz pyyaml requests ruamel_yaml

@@ -23,7 +23,7 @@ buildPythonPackage rec {
   '';
 
   checkInputs = [ pytest pathpy nbconvert ];
-  propagatedBuildInputs = [ setuptools_scm ];
+  pythonPath = [ setuptools_scm ];
 
   meta = with stdenv.lib; {
     description = ''

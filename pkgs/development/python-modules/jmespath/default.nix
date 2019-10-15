@@ -15,7 +15,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ nose ];
-  propagatedBuildInputs = [ ply ];
+  pythonPath = [ ply ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/boto/jmespath;

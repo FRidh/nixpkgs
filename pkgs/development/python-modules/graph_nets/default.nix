@@ -25,7 +25,7 @@ buildPythonPackage rec {
     sed -i 's/dm-sonnet==1.23/dm-sonnet/' setup.py
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     tensorflow
     absl-py
     dm-sonnet

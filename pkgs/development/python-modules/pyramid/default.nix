@@ -30,7 +30,7 @@ buildPythonPackage rec {
 
   checkInputs = [ docutils virtualenv webtest zope_component ];
 
-  propagatedBuildInputs = [ hupper PasteDeploy plaster plaster-pastedeploy repoze_lru repoze_sphinx_autointerface translationstring venusian webob zope_deprecation zope_interface ];
+  pythonPath = [ hupper PasteDeploy plaster plaster-pastedeploy repoze_lru repoze_sphinx_autointerface translationstring venusian webob zope_deprecation zope_interface ];
 
   # Failing tests
   # https://github.com/Pylons/pyramid/issues/1899

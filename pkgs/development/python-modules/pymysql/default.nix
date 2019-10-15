@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "1ry8lxgdc1p3k7gbw20r405jqi5lvhi5wk83kxdbiv8xv3f5kh6q";
   };
 
-  propagatedBuildInputs = [ cryptography ];
+  pythonPath = [ cryptography ];
 
   # Wants to connect to MySQL
   doCheck = false;

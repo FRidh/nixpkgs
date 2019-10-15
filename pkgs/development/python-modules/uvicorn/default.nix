@@ -24,7 +24,7 @@ buildPythonPackage rec {
     sha256 = "0z4h04mbkzqgpk698bac6f50jxkf02ils6khzl7zbw7yvi6gkkc8";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     click
     h11
     httptools

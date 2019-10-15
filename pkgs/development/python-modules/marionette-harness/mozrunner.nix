@@ -19,7 +19,7 @@ buildPythonPackage rec {
     sha256 = "8034898a36fece171b52e25792f64011e761e5aa694cd67fb6a19c12cb3fa978";
   };
 
-  propagatedBuildInputs = [ mozdevice mozfile mozinfo mozlog mozprocess
+  pythonPath = [ mozdevice mozfile mozinfo mozlog mozprocess
     mozprofile mozcrash ];
 
   meta = {

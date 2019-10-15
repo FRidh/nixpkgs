@@ -86,7 +86,7 @@ buildPythonApplication rec {
 
     outputs = [ "out" "doc" "man" ];
 
-    propagatedBuildInputs = [
+    pythonPath = [
       pyqtwebengine sqlalchemy beautifulsoup4 send2trash pyaudio requests decorator
       markdown jsonschema setuptools
     ]

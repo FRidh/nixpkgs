@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "04mpilsj76m29id5xfi8mmasdmh27ldn7r0dmh2rj6a8v2y5256z";
   };
 
-  propagatedBuildInputs = [ ipaddress ];
+  pythonPath = [ ipaddress ];
 
   checkInputs = [ nose mock ];
 

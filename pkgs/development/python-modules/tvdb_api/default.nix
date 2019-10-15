@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "b1de28a5100121d91b1f6a8ec7e86f2c4bdf48fb22fab3c6fe21e7fb7346bf8f";
   };
 
-  propagatedBuildInputs = [ requests-cache ];
+  pythonPath = [ requests-cache ];
 
   checkInputs = [ pytest ];
 

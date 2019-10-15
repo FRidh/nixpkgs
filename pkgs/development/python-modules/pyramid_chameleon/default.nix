@@ -21,7 +21,7 @@ buildPythonPackage rec {
     ./test-renderers-pyramid-import.patch
   ];
 
-  propagatedBuildInputs = [ chameleon pyramid zope_interface setuptools ];
+  pythonPath = [ chameleon pyramid zope_interface setuptools ];
 
   meta = with stdenv.lib; {
     description = "Chameleon template compiler for pyramid";

@@ -11,7 +11,7 @@ buildPythonPackage rec {
 
   doCheck = false;
 
-  propagatedBuildInputs = [ pbr setuptools six ];
+  pythonPath = [ pbr setuptools six ];
 
   meta = with stdenv.lib; {
     description = "Manage dynamic plugins for Python applications";

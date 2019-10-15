@@ -11,7 +11,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ nose mock vcversioner ];
-  propagatedBuildInputs = [ functools32 ];
+  pythonPath = [ functools32 ];
 
   postPatch = ''
     substituteInPlace jsonschema/tests/test_jsonschema_test_suite.py \

@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "1lcywabjy7vpm6awl2cw4m6rk6h85qnbql0j33xcfryy2dhfyaxp";
   };
 
-  propagatedBuildInputs = [ requests requests-file idna ];
+  pythonPath = [ requests requests-file idna ];
   checkInputs = [ pytest responses ];
 
   meta = {

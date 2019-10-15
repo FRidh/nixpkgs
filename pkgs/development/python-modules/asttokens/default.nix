@@ -19,7 +19,7 @@ buildPythonPackage rec {
     })
   ];
 
-  propagatedBuildInputs = [ lazy-object-proxy six wrapt astroid ];
+  pythonPath = [ lazy-object-proxy six wrapt astroid ];
 
   checkInputs = [ coverage nose ];
 

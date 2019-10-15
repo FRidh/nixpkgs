@@ -27,7 +27,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ watchdog pytest hypothesis mock ];
-  propagatedBuildInputs = [
+  pythonPath = [
     attrs
     botocore
     click

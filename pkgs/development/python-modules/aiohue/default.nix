@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "3c23aed8e82f398b732279f5f7ee7ed00949ff2db7009f7a2dc705f7c2d16783";
   };
 
-  propagatedBuildInputs = [ aiohttp ];
+  pythonPath = [ aiohttp ];
 
   meta = with lib; {
     description = "asyncio package to talk to Philips Hue";

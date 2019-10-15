@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "1l8ya0cln936x0mx2j5ngl1xwpc0r89hs3wcvb8x8paw3d4dl1ab";
   };
 
-  propagatedBuildInputs = [ requests ];
+  pythonPath = [ requests ];
 
   meta = with stdenv.lib; {
     homepage = https://spotipy.readthedocs.org/;

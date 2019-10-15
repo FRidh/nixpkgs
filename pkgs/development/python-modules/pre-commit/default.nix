@@ -22,7 +22,7 @@ buildPythonApplication rec {
     sha256 = "0gqzx5n5kps7z45rgydciz0sq1m09b4g49vclhvybi57pn3hag0x";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     aspy-yaml
     cached-property
     cfgv

@@ -15,7 +15,7 @@ buildPythonPackage rec {
      pytest
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     flask
     werkzeug
   ];

@@ -41,7 +41,7 @@ buildPythonApplication rec {
     gnome3.adwaita-icon-theme
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pygtk
   ];
 

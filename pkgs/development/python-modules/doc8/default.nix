@@ -19,7 +19,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ pbr ];
-  propagatedBuildInputs = [ docutils six chardet stevedore restructuredtext_lint ];
+  pythonPath = [ docutils six chardet stevedore restructuredtext_lint ];
 
   doCheck = false;
 

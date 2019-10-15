@@ -28,7 +28,7 @@ buildPythonPackage rec {
   # https://github.com/mpdavis/python-jose/issues/149
   PYTEST_ADDOPTS = "-k 'not test_invalid_claims_json and not test_invalid_claims'";
 
-  propagatedBuildInputs = [ future six ecdsa rsa ];
+  pythonPath = [ future six ecdsa rsa ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/mpdavis/python-jose;

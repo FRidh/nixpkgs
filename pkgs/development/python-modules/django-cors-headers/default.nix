@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "0g1vqhc36ay518vs67kkf6w76ay27dc73w145bpwgp9fky81r6z6";
   };
 
-  propagatedBuildInputs = [ django ];
+  pythonPath = [ django ];
 
   # pypi release does not include tests
   doCheck = false;

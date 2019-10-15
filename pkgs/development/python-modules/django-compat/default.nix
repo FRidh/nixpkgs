@@ -26,7 +26,7 @@ buildPythonPackage rec {
     runHook postCheck
   '';
 
-  propagatedBuildInputs = [ django six ];
+  pythonPath = [ django six ];
 
   meta = with stdenv.lib; {
     description = "Forward and backwards compatibility layer for Django 1.4, 1.7, 1.8, 1.9, 1.10 and 1.11";

@@ -12,7 +12,7 @@ buildPythonPackage rec {
   };
 
   nativeBuildInputs = [ pbr ];
-  propagatedBuildInputs = [ requests ];
+  pythonPath = [ requests ];
 
   checkInputs = [ pytest pytestpep8 waitress ];
   checkPhase = ''

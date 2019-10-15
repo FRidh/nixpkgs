@@ -18,7 +18,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ markupsafe nose mock pytest ];
-  propagatedBuildInputs = [ markupsafe ];
+  pythonPath = [ markupsafe ];
 
   doCheck = !isPyPy;  # https://bitbucket.org/zzzeek/mako/issue/238/2-tests-failed-on-pypy-24-25
 

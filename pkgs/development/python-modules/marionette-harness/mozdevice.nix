@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "0026241bff3ad10a73fe24eb4f59c1313c94e5950f397b2f6b8cc4e4dfbfdd73";
   };
 
-  propagatedBuildInputs = [ moznetwork mozprocess ];
+  pythonPath = [ moznetwork mozprocess ];
 
   meta = {
     description = "Mozilla-authored device management";

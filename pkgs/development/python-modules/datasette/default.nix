@@ -31,7 +31,7 @@ buildPythonPackage rec {
 
   buildInputs = [ pytestrunner ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     click
     click-default-group
     jinja2

@@ -17,7 +17,7 @@ python3Packages.buildPythonApplication rec {
   };
 
   buildInputs = [ gtk3 gobject-introspection wrapGAppsHook ];
-  propagatedBuildInputs = with python3Packages; [ pyxdg pygobject3 ];
+  pythonPath = with python3Packages; [ pyxdg pygobject3 ];
 
 
   preFixup = ''

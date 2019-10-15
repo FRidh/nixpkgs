@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "0gs4vlvvmkz627ybswj0l6m3c8dyrqgfqjlawbc8d9rkx88srkr2";
   };
 
-  propagatedBuildInputs = [ requests ];
+  pythonPath = [ requests ];
 
   meta = {
     description = "The official Todoist Python API library";

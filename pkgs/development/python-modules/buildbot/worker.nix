@@ -10,7 +10,7 @@ buildPythonPackage (rec {
     sha256 = "1l2ax9ywrhgrs9f9yyhiq5nhcf34w916ikx6bjcd6f201ixky1xg";
   };
 
-  propagatedBuildInputs = [ twisted future ];
+  pythonPath = [ twisted future ];
 
   checkInputs = [ setuptoolsTrial mock ];
 

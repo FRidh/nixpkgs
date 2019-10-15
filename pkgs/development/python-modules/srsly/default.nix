@@ -19,7 +19,7 @@ buildPythonPackage rec {
     sha256 = "1l9yjp1w2vrkrynxrlrc0v47i2iq9059k4ni44nz23573xbdrh2w";
   };
 
-  propagatedBuildInputs = lib.optional (pythonOlder "3.4") pathlib;
+  pythonPath = lib.optional (pythonOlder "3.4") pathlib;
 
   checkInputs = [
     mock

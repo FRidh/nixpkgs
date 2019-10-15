@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sed -i "s/==.*//g" requirements/test.txt
   '';
 
-  propagatedBuildInputs = [ pyyaml ];
+  pythonPath = [ pyyaml ];
 
   checkInputs = [ pytest ];
 

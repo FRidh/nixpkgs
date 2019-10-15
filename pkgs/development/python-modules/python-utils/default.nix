@@ -20,7 +20,7 @@ buildPythonPackage rec {
     py.test tests
   '';
 
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   meta = with lib; {
     description = "Module with some convenient utilities";

@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "00v5gsshy1rmjd334d2awh0mvri949lmyk8f02wfr20rq6fc3xqd";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     intervaltree
     pyflakes
     requests

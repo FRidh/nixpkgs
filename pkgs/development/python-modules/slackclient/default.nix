@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "073fwf6fm2sqdp5ms3vm1v3ljh0pldi69k048404rp6iy3cfwkp0";
   };
 
-  propagatedBuildInputs = [ websocket_client requests six ];
+  pythonPath = [ websocket_client requests six ];
 
   checkInputs = [ pytest codecov coverage mock pytestcov pytest-mock responses flake8 ];
   # test_server.py fails because it needs connection (I think);

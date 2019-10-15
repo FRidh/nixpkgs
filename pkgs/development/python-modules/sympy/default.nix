@@ -17,7 +17,7 @@ buildPythonPackage rec {
 
   checkInputs = [ glibcLocales ];
 
-  propagatedBuildInputs = [ mpmath ];
+  pythonPath = [ mpmath ];
 
   # tests take ~1h
   doCheck = false;

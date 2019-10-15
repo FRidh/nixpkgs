@@ -43,7 +43,7 @@
     libwnck3
   ];
 
-  propagatedBuildInputs = with python3.pkgs; [
+  pythonPath = with python3.pkgs; [
     ipython
     pyatspi
     pycairo

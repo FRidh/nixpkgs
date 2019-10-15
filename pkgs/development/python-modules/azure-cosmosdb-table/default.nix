@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "4a34c2c792036afc2a3811f4440ab967351e9ceee6542cc96453b63c678c0145";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     cryptography
     azure-common
     azure-storage-common

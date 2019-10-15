@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "651376eba6b049fe270dc0d29d4b2abecb5e998c2013df6735a97875503e2ffe";
   };
 
-  propagatedBuildInputs = [ numpy scipy ];
+  pythonPath = [ numpy scipy ];
   checkInputs = [ matplotlib pytest ];
   doCheck = !isPy3k;  # https://github.com/marinkaz/nimfa/issues/42
 

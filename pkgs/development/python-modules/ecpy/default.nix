@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "8889122d3a8bc1a08b4bda42c073dd22305d770b7876356de806ff91748983bd";
   };
 
-  propagatedBuildInputs = lib.optional (!isPy3k) future;
+  pythonPath = lib.optional (!isPy3k) future;
 
   # No tests implemented
   doCheck = false;

@@ -20,7 +20,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [ CommonMark docutils sphinx ];
+  pythonPath = [ CommonMark docutils sphinx ];
 
   checkPhase = ''
     py.test

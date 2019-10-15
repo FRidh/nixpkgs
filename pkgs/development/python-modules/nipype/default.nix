@@ -57,7 +57,7 @@ buildPythonPackage rec {
       --replace "/usr/bin/env bash" "${bash}/bin/bash"
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     click
     dateutil
     funcsigs

@@ -34,7 +34,7 @@ buildPythonPackage rec {
   ++ lib.optionals (pythonOlder "3.3") [ mock ]
   ++ lib.optionals (pythonOlder "3.0") [ more-itertools ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     dateutil
     six
     text-unidecode

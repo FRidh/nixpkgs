@@ -20,7 +20,7 @@ python3Packages.buildPythonApplication rec {
     libxslt
   ];
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     pygobject3
     pillow
     pywal

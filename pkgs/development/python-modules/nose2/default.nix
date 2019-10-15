@@ -16,7 +16,7 @@ buildPythonPackage rec {
     sha256 = "16drs4bc2wvgwwi1pf6pmk6c00pl16vs1v7djc4a8kwpsxpibphf";
   };
 
-  propagatedBuildInputs = [ six coverage ]
+  pythonPath = [ six coverage ]
     ++ stdenv.lib.optionals (pythonOlder "3.4") [ mock ];
 
   # AttributeError: 'module' object has no attribute 'collector'

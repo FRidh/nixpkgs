@@ -20,7 +20,7 @@ buildPythonPackage rec {
   };
 
   nativeBuildInputs = [ llvm ];
-  propagatedBuildInputs = [ ] ++ stdenv.lib.optional (pythonOlder "3.4") enum34;
+  pythonPath = [ ] ++ stdenv.lib.optional (pythonOlder "3.4") enum34;
 
   # Disable static linking
   # https://github.com/numba/llvmlite/issues/93

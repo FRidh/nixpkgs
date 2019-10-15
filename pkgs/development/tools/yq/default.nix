@@ -4,7 +4,7 @@ buildPythonApplication rec {
   pname = "yq";
   version = "2.7.2";
 
-  propagatedBuildInputs = [ pyyaml xmltodict jq ];
+  pythonPath = [ pyyaml xmltodict jq ];
 
   # ValueError: underlying buffer has been detached
   doCheck = false;

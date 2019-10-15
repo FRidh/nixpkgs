@@ -5,7 +5,7 @@ buildPythonPackage {
   pname = "cozy";
   version = "2.0a1";
 
-  propagatedBuildInputs = [
+  pythonPath = [
     z3 ply python-igraph oset ordered-set dictionaries
   ];
 

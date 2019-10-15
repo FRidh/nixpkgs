@@ -18,7 +18,7 @@ in
 buildPythonPackage {
   name = "mailman-web-0";
 
-  propagatedBuildInputs = [ hyperkitty postorius ];
+  pythonPath = [ hyperkitty postorius ];
 
   unpackPhase = ":";
   buildPhase = ":";

@@ -13,7 +13,7 @@ buildPythonPackage rec {
   doCheck = false;
 
   buildInputs = [ mock testscenarios ];
-  propagatedBuildInputs = [ docutils lockfile ];
+  pythonPath = [ docutils lockfile ];
 
   meta = with lib; {
     description = "Library to implement a well-behaved Unix daemon process";

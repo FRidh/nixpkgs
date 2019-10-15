@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "0q8pl8wnadxhyawcrfzrm2k85xd4mdmdk2xwdial55zmpa8ji4pk";
   };
 
-  propagatedBuildInputs = [ six requests ];
+  pythonPath = [ six requests ];
 
   # requires an active Azure Cosmos service
   doCheck = false;

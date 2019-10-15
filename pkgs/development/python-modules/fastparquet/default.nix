@@ -24,7 +24,7 @@ buildPythonPackage rec {
   '';
 
   nativeBuildInputs = [ pytestrunner ];
-  propagatedBuildInputs = [ numba numpy pandas thrift ];
+  pythonPath = [ numba numpy pandas thrift ];
   checkInputs = [ pytest python-snappy lz4 ];
 
   # test_data/ missing in PyPI tarball

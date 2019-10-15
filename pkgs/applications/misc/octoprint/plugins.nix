@@ -4,7 +4,7 @@ let
   buildPlugin = args: python2Packages.buildPythonPackage (args // {
     pname = "OctoPrintPlugin-${args.pname}";
     inherit (args) version;
-    propagatedBuildInputs = (args.propagatedBuildInputs or []) ++ [ octoprint ];
+    pythonPath = (args.pythonPath or []) ++ [ octoprint ];
     # none of the following have tests
     doCheck = false;
   });
@@ -56,7 +56,7 @@ let
         sha256 = "1318pgwy39gkdqgll3q5lwm7avslgdwyiwb5v8m23cgyh5w8cjq7";
       };
 
-      propagatedBuildInputs = with python2Packages; [ paho-mqtt ];
+      pythonPath = with python2Packages; [ paho-mqtt ];
 
       meta = with stdenv.lib; {
         description = "Publish printer status MQTT";

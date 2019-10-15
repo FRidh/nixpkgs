@@ -11,7 +11,7 @@ buildPythonPackage rec {
 
   buildInputs = [ openmp ];
 
-  propagatedBuildInputs = [ numpy ];
+  pythonPath = [ numpy ];
 
   checkInputs = [ nose ];
 

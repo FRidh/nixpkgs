@@ -29,7 +29,7 @@ in pythonPackages.buildPythonApplication rec {
     wrapGAppsHook
   ];
 
-  propagatedBuildInputs = with pythonPackages; [
+  pythonPath = with pythonPackages; [
     pygobject3 dbus-python pyxdg
   ];
 

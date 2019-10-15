@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "84ba5ee8c70a4924f64aa7edff5764b929f3b7842d53a3197d0b753818ad7089";
   };
 
-  propagatedBuildInputs = [ numpy ];
+  pythonPath = [ numpy ];
 
   meta = with lib; {
     description = "NumPy-based text/binary PLY file reader/writer for Python";

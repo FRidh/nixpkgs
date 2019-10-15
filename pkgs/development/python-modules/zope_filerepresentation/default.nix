@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "c9bff2b2492b2fe716ee54538441a98d6145d1de87dd921eaa44ac834fbb63b6";
   };
 
-  propagatedBuildInputs = [ zope_schema ];
+  pythonPath = [ zope_schema ];
 
   meta = with stdenv.lib; {
     homepage = http://zopefilerepresentation.readthedocs.io/;

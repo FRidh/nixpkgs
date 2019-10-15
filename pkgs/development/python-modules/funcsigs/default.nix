@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "0l4g5818ffyfmfs1a924811azhjj8ax9xd1cffr1mzd3ycn0zfx7";
   };
 
-  buildInputs = [ unittest2 ];
+  pythonPath = [ unittest2 ];
 
   # https://github.com/testing-cabal/funcsigs/issues/10
   patches = stdenv.lib.optional (isPyPy && isPy3k) [ ./fix-pypy3-tests.patch ];

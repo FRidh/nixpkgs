@@ -18,7 +18,7 @@ buildPythonPackage rec {
     mock
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     cudatoolkit
     cudnn
     linuxPackages.nvidia_x11

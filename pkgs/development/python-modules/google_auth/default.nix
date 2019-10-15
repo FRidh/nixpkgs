@@ -18,7 +18,7 @@ buildPythonPackage rec {
   ];
 
   checkInputs = [ pytest mock oauth2client flask requests urllib3 pytest-localserver ];
-  propagatedBuildInputs = [ six pyasn1-modules cachetools rsa ];
+  pythonPath = [ six pyasn1-modules cachetools rsa ];
 
   # The removed test tests the working together of google_auth and google's https://pypi.python.org/pypi/oauth2client
   # but the latter is deprecated. Since it is not currently part of the nixpkgs collection and deprecated it will

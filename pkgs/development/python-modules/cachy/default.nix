@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "0v6mjyhgx6j7ya20bk69cr3gdzdkdf6psay0h090rscclgji65dp";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     redis
     memcached
     msgpack

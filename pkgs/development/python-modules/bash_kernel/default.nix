@@ -26,7 +26,7 @@ buildPythonPackage rec {
     })
   ];
 
-  propagatedBuildInputs = [ ipykernel pexpect ];
+  pythonPath = [ ipykernel pexpect ];
 
   # no tests
   doCheck = false;

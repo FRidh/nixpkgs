@@ -20,7 +20,7 @@ buildPythonPackage rec {
     sha256 = "fe044273539250a99a5b9915843902e40e4e9b32ac5698c1fae89e31200d649f";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pbr
     prettytable
     pyparsing

@@ -22,7 +22,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest pretend freezegun simplejson twisted ]
     ++ lib.optionals (pythonAtLeast "3.6") [ python-rapidjson ];
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   checkPhase = ''
     # rm tests/test_twisted.py*

@@ -37,7 +37,7 @@ buildPythonPackage rec {
     pytest-mock pytestcov trustme brotlipy
   ];
 
-  propagatedBuildInputs = [ attrs chardet multidict async-timeout yarl ]
+  pythonPath = [ attrs chardet multidict async-timeout yarl ]
     ++ lib.optionals (pythonOlder "3.7") [ idna-ssl typing-extensions ];
 
   checkPhase = ''

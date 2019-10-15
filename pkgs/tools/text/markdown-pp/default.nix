@@ -4,7 +4,7 @@ with pythonPackages;
 buildPythonApplication rec {
   pname = "MarkdownPP";
   version = "1.4";
-  propagatedBuildInputs = [ pillow watchdog ];
+  pythonPath = [ pillow watchdog ];
   checkPhase = ''
     cd test
     PATH=$out/bin:$PATH ${python}/bin/${python.executable} test.py

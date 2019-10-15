@@ -28,7 +28,7 @@ buildPythonPackage rec {
 
   # This is needed by setup.py regardless of whether tests are enabled.
   buildInputs = [ nose ];
-  propagatedBuildInputs = [ pillow ];
+  pythonPath = [ pillow ];
 
   meta = with stdenv.lib; {
     description = "Library containing various image processing algorithms";

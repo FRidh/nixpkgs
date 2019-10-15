@@ -22,7 +22,7 @@ buildPythonPackage rec {
     pytest
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     cython
     numpy
     scipy

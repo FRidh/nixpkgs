@@ -16,7 +16,7 @@ buildPythonPackage rec {
     rm fxa/tests/test_core.py
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     requests cryptography pybrowserid hawkauthlib six
   ];
 

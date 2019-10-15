@@ -17,5 +17,5 @@ buildPythonPackage rec {
     sha256 = "0g2vss5hwlk96w0yj42n7ia56mly51n92f2rlbrifhn8hfbxd38s";
   };
 
-  propagatedBuildInputs = [ docopt pillow ];
+  pythonPath = [ docopt pillow ];
 }

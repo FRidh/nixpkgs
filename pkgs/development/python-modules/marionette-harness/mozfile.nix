@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "0mz941np62mg0zncy74d8fbq9fafsxjsxlwdsydl92badhrhzc6k";
   };
 
-  propagatedBuildInputs = [ ];
+  pythonPath = [ ];
 
   # mozhttpd -> moznetwork -> mozinfo -> mozfile
   doCheck = false;

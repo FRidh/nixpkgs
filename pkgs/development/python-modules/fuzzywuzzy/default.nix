@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "6f49de47db00e1c71d40ad16da42284ac357936fa9b66bea1df63fed07122d62";
   };
 
-  propagatedBuildInputs = [ python-Levenshtein ];
+  pythonPath = [ python-Levenshtein ];
   checkInputs = [ pycodestyle hypothesis pytest ];
 
   meta = with stdenv.lib; {

@@ -31,7 +31,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ pkgs.pkgconfig ];
   buildInputs = with pkgs; [ alsaLib ffmpeg libv4l sqlite libvpx ];
-  propagatedBuildInputs = [ cython pkgs.openssl dnspython dateutil xcaplib msrplib lxml python-otr ];
+  pythonPath = [ cython pkgs.openssl dnspython dateutil xcaplib msrplib lxml python-otr ];
 
   meta = with lib; {
     description = "SIP SIMPLE implementation for Python";

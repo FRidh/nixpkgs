@@ -24,7 +24,7 @@ buildPythonPackage rec {
     sha256 = "09swndz57131b8x57mzibnsr1sv0l80pk62p89q99gsd6mvc389c";
   };
 
-  propagatedBuildInputs = [ adal msrest ];
+  pythonPath = [ adal msrest ];
 
   checkInputs = [ httpretty mock pytest ]
                 ++ lib.optional isPy3k [ pytest-asyncio ];

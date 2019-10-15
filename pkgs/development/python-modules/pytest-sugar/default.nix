@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "fcd87a74b2bce5386d244b49ad60549bfbc4602527797fac167da147983f58ab";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     termcolor
     pytest
     packaging

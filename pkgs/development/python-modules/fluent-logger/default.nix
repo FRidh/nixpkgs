@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "09vii0iclfq6vhz37xyybksq9m3538hkr7z40sz2dlpf2rkg98mg";
   };
 
-  propagatedBuildInputs = [ msgpack ];
+  pythonPath = [ msgpack ];
   
   # Tests fail because absent in package
   doCheck = false;

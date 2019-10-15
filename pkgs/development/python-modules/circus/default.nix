@@ -21,7 +21,7 @@ buildPythonPackage rec {
 
   doCheck = false; # weird error
 
-  propagatedBuildInputs = [ iowait psutil pyzmq tornado ];
+  pythonPath = [ iowait psutil pyzmq tornado ];
 
   meta = with stdenv.lib; {
     description = "A process and socket manager";

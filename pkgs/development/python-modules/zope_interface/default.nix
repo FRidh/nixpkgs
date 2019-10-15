@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "1b3d0dcabc7c90b470e59e38a9acaa361be43b3a6ea644c0063951964717f0e5";
   };
 
-  propagatedBuildInputs = [ zope_event ];
+  pythonPath = [ zope_event ];
 
   meta = with stdenv.lib; {
     description = "Zope.Interface";

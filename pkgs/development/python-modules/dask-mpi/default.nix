@@ -18,7 +18,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest requests ];
-  propagatedBuildInputs = [ dask distributed mpi4py ];
+  pythonPath = [ dask distributed mpi4py ];
 
   checkPhase = ''
     py.test dask_mpi

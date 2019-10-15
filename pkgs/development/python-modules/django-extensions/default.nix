@@ -28,7 +28,7 @@ buildPythonPackage rec {
     rm tests/management/commands/test_pipchecker.py
   '';
 
-  propagatedBuildInputs = [ six ] ++ lib.optional (pythonOlder "3.5") typing;
+  pythonPath = [ six ] ++ lib.optional (pythonOlder "3.5") typing;
 
   checkInputs = [
     django shortuuid python-dateutil pytest

@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "98a6e9ce8df1fdd33876e2d8c3ca3d8291612c20bd7e0811dac83b6ce10e984b";
   };
 
-  propagatedBuildInputs = [ six setuptools zope_testing ];
+  pythonPath = [ six setuptools zope_testing ];
 
   # Huge amount of testing dependencies (including Zope2)
   doCheck = false;

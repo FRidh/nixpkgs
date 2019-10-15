@@ -19,7 +19,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ flake8 pytest pytest-expect mock ];
-  propagatedBuildInputs = [
+  pythonPath = [
     six webencodings
   ];
 

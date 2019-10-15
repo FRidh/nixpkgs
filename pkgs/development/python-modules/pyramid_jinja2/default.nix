@@ -16,7 +16,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ webtest ];
-  propagatedBuildInputs = [ jinja2 pyramid ];
+  pythonPath = [ jinja2 pyramid ];
 
   meta = with stdenv.lib; {
     description = "Jinja2 template bindings for the Pyramid web framework";

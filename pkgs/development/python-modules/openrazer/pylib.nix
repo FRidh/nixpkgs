@@ -14,7 +14,7 @@ buildPythonPackage (common // rec {
 
   sourceRoot = "source/pylib";
 
-  propagatedBuildInputs = [
+  pythonPath = [
     dbus-python
     numpy
     openrazer-daemon

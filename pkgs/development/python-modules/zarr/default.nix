@@ -22,7 +22,7 @@ buildPythonPackage rec {
     setuptools_scm
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     asciitree
     numpy
     fasteners

@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "8e137f0b1cd60c47b870011089790d3c8ddb74fcf409a75ddf2c7f2516ff337c";
   };
 
-  propagatedBuildInputs = [ sphinx ];
+  pythonPath = [ sphinx ];
 
   # all tests fail; don't know why:
   # test_absolute_paths_made_relative (hieroglyph.tests.test_path_fixing.PostProcessImageTests) ... ERROR

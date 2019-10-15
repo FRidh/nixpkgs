@@ -15,7 +15,7 @@ python2.pkgs.buildPythonApplication rec {
   buildInputs = [ gtk3 vte libnotify keybinder3
     gobject-introspection # Temporary fix, see https://github.com/NixOS/nixpkgs/issues/56943
   ];
-  propagatedBuildInputs = with python2.pkgs; [ pygobject3 psutil pycairo ];
+  pythonPath = with python2.pkgs; [ pygobject3 psutil pycairo ];
 
   postPatch = ''
     patchShebangs .

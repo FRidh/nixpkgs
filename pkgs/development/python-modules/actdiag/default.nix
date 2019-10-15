@@ -18,7 +18,7 @@ buildPythonPackage rec {
 
   buildInputs = [ pep8 nose unittest2 docutils ];
 
-  propagatedBuildInputs = [ blockdiag ];
+  pythonPath = [ blockdiag ];
 
   checkInputs = [ reportlab ];
 

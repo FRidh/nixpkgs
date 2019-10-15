@@ -16,7 +16,7 @@ buildPythonPackage rec {
     sha256 = "b85b8e551bf47ff157392660f0fc5b9eb3eacb78516a5823f7b774ec61955db5";
   };
 
-  propagatedBuildInputs = [ six requests-cache pygments pyquery ];
+  pythonPath = [ six requests-cache pygments pyquery ];
 
   preCheck = ''
     export HOME=$(mktemp -d)

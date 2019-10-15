@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "153x2clrnigs74jdgnn3qmljdjj4gprmvpdvh49i18ls4m8mbm5y";
   };
 
-  propagatedBuildInputs = [ six ] ++ lib.optional (!isPy3k) singledispatch;
+  pythonPath = [ six ] ++ lib.optional (!isPy3k) singledispatch;
 
   # Tests require some data, the downloading of which is impure. It would
   # probably make sense to make the data another derivation, but then feeding

@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "126c9p8rnnb043w57ah7idqfryczbz4vi9lzsz2cgiaig6fv52b6";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     six
     sqlalchemy
   ];

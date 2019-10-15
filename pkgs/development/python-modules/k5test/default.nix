@@ -27,7 +27,7 @@ buildPythonPackage rec {
     })
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     six
   ];
 

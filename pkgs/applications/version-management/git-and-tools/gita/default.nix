@@ -14,7 +14,7 @@ buildPythonApplication rec {
     sha256 = "1si2f9nyisbrvv8cvrjxj8r4cbrgc97ic0wdlbf34gvp020dsmgv";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pyyaml
     setuptools
   ];

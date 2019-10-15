@@ -22,7 +22,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest pytest-flake8 glibcLocales packaging ];
   buildInputs = [ setuptools_scm ];
-  propagatedBuildInputs = [
+  pythonPath = [
     importlib-metadata
   ] ++ lib.optional isPy27 backports_os
   ;

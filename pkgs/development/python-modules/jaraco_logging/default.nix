@@ -14,7 +14,7 @@ buildPythonPackage rec {
   patches = [ ./0001-Don-t-run-flake8-checks-during-the-build.patch ];
 
   buildInputs = [ setuptools_scm ];
-  propagatedBuildInputs = [ tempora six ];
+  pythonPath = [ tempora six ];
   checkInputs = [ pytest ];
 
   checkPhase = ''

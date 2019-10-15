@@ -32,7 +32,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [
+  pythonPath = [
     appdirs
     dask
     holoviews

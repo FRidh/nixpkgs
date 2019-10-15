@@ -18,7 +18,7 @@ buildPythonPackage rec {
     pytest
     testtools
   ];
-  propagatedBuildInputs = [
+  pythonPath = [
     six
     attrs
   ];

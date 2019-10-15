@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "03l2j1lrcwcp7af4x8agxnkib0ndybfrbhn2gi7mnk6gbxfw1aw3";
   };
 
-  propagatedBuildInputs = [ jsonschema ];
+  pythonPath = [ jsonschema ];
 
   meta = with lib; {
     description = "Merge a series of JSON documents";

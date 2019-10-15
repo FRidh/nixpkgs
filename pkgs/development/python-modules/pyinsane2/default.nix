@@ -17,7 +17,7 @@ buildPythonPackage rec {
 
   # This is needed by setup.py regardless of whether tests are enabled.
   buildInputs = [ nose ];
-  propagatedBuildInputs = [ pillow ];
+  pythonPath = [ pillow ];
 
   postPatch = ''
     # pyinsane2 forks itself, so we need to re-inject the PYTHONPATH.

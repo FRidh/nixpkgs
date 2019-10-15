@@ -11,7 +11,7 @@ with python2Packages; buildPythonApplication rec {
     sha256 = "1hajjgz8r4fjbwqr22p5dvb6k83dpxf8k7mhx20gkbrrx9ivqh79";
   };
 
-  propagatedBuildInputs = [ pc-ble-driver-py six pyserial enum34 click ecdsa
+  pythonPath = [ pc-ble-driver-py six pyserial enum34 click ecdsa
     protobuf tqdm piccata pyspinel intelhex pyyaml crcmod libusb1 ipaddress ];
 
   checkInputs = [ nose behave ];

@@ -19,7 +19,7 @@ buildPythonPackage rec {
   # hocr-tools uses a test framework that requires internet access
   doCheck = false;
 
-  propagatedBuildInputs = [ pillow lxml reportlab ];
+  pythonPath = [ pillow lxml reportlab ];
 
   meta = with stdenv.lib; {
     description = "

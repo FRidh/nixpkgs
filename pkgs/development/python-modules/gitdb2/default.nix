@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "83361131a1836661a155172932a13c08bda2db3674e4caa32368aa6eb02f38c2";
   };
 
-  propagatedBuildInputs = [ smmap2 ];
+  pythonPath = [ smmap2 ];
 
   # Bunch of tests fail because they need an actual git repo
   doCheck = false;

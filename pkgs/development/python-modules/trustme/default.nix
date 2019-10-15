@@ -25,7 +25,7 @@ buildPythonPackage rec {
     service-identity
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     cryptography
     idna
   ] ++ lib.optionals (!isPy3k) [

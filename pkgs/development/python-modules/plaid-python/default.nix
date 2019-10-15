@@ -13,7 +13,7 @@ buildPythonPackage rec {
   # Integration tests require API keys and internet access
   checkPhase = "py.test -rxs ./tests/unit";
 
-  propagatedBuildInputs = [ requests ];
+  pythonPath = [ requests ];
 
   meta = {
     description = "Python client library for the Plaid API and Link";

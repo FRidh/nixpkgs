@@ -32,7 +32,7 @@ buildPythonPackage rec {
     })
   ];
 
-  propagatedBuildInputs = [ brotlipy flask flask-common flask-limiter markupsafe decorator itsdangerous raven six ];
+  pythonPath = [ brotlipy flask flask-common flask-limiter markupsafe decorator itsdangerous raven six ];
 
   # No tests
   doCheck = false;

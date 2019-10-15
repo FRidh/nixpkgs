@@ -18,7 +18,7 @@ buildPythonPackage rec {
 
   checkInputs = [ zope_testrunner manuel ];
 
-  propagatedBuildInputs = [ zope_i18nmessageid zope_schema ];
+  pythonPath = [ zope_i18nmessageid zope_schema ];
 
   # Need to investigate how to run the tests with zope-testrunner
   doCheck = false;

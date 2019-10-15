@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "0sb525wvwcnikjaqzha94xr97r1gjys30csmaj17swlxgyczxvq5";
   };
 
-  propagatedBuildInputs = [ enum-compat ];
+  pythonPath = [ enum-compat ];
 
   checkInputs = [ xorgserver pytest i3 ];
 

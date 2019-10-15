@@ -13,7 +13,7 @@ buildPythonPackage rec {
 
   buildInputs = [ mock ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     django
     redis
     msgpack

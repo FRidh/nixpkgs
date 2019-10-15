@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "06gjvicl5k0qn8xz2gnqd4akxvd81n16gwssr7gwlnmdic5da30g";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     decorator
     nbformat
     pytz

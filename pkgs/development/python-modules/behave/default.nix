@@ -23,7 +23,7 @@ buildPythonApplication rec {
 
   checkInputs = [ mock nose pathpy pyhamcrest pytest ];
   buildInputs = [ glibcLocales ];
-  propagatedBuildInputs = [ parse parse-type six ] ++ stdenv.lib.optional (pythonOlder "3.0") traceback2;
+  pythonPath = [ parse parse-type six ] ++ stdenv.lib.optional (pythonOlder "3.0") traceback2;
 
   postPatch = ''
     patchShebangs bin

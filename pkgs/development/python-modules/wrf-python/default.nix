@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "12mm7x1r5md6x28vmwyh6k655pgsv6knj8ycmjbxxk8bk7qsj74h";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     wrapt
     numpy
     xarray

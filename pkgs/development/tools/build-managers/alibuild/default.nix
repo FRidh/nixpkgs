@@ -10,7 +10,7 @@ python.pkgs.buildPythonApplication rec {
   };
 
   doCheck = false;
-  propagatedBuildInputs = [
+  pythonPath = [
     python.pkgs.requests
     python.pkgs.pyyaml
   ];

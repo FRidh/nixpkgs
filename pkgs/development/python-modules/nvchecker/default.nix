@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "6276ed2a897a30ccd71bfd7cf9e6b7842f37f3d5a86d7a70fe46f437c62b1875";
   };
 
-  propagatedBuildInputs = [ setuptools structlog tornado pycurl ];
+  pythonPath = [ setuptools structlog tornado pycurl ];
   checkInputs = [ pytest pytest-asyncio flaky ];
 
   # requires network access

@@ -52,7 +52,7 @@ buildPythonPackage rec {
     python-xmp-toolkit
   ];
 
-  propagatedBuildInputs = [ defusedxml lxml ];
+  pythonPath = [ defusedxml lxml ];
 
   postPatch = ''
     sed -i \

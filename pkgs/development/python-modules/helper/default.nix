@@ -10,7 +10,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ mock ];
-  propagatedBuildInputs = [ pyyaml ];
+  pythonPath = [ pyyaml ];
 
   # No tests in the pypi tarball
   doCheck = false;

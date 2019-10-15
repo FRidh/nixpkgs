@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "0szn743sbm3cs80982cf4994c1xcg6iz5xkhdbpm1kfv5qn1phja";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     requests
     requests_ntlm
   ];

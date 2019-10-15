@@ -16,7 +16,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest pytestrunner responses ];
 
-  propagatedBuildInputs = [ requests ];
+  pythonPath = [ requests ];
 
   meta = with stdenv.lib; {
     description = "Matrix Client-Server SDK";

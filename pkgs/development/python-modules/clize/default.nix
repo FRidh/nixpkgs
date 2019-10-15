@@ -28,7 +28,7 @@ buildPythonPackage rec {
     unittest2
   ];
   
-  propagatedBuildInputs = [ 
+  pythonPath = [ 
     attrs
     docutils
     od

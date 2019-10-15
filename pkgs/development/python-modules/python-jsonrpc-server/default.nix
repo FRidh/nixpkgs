@@ -26,7 +26,7 @@ buildPythonPackage rec {
     pytest
   '';
 
-  propagatedBuildInputs = [ future ]
+  pythonPath = [ future ]
     ++ stdenv.lib.optional (pythonOlder "3.2") futures;
 
   meta = with stdenv.lib; {

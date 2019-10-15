@@ -17,7 +17,7 @@ buildPythonPackage rec {
     ${python.interpreter} -m unittest discover -s test
   '';
 
-  propagatedBuildInputs = [ postgresql ];
+  pythonPath = [ postgresql ];
 
   meta = with stdenv.lib; {
     homepage = "https://github.com/markdrago/pgsanity";

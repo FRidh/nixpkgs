@@ -16,7 +16,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [ requests msgpack ];
+  pythonPath = [ requests msgpack ];
 
   # tests not included with pypi release
   doCheck = false;

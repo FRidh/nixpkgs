@@ -5,7 +5,7 @@ buildPythonPackage rec {
   pname = "remotecv";
   version = "2.2.2";
 
-  propagatedBuildInputs = [ pillow pyres ];
+  pythonPath = [ pillow pyres ];
 
   checkInputs = [ nose preggy numpy yanc nose-focus mock opencv ];
 

@@ -19,7 +19,7 @@ buildPythonPackage rec {
     sha256 = "6edfd626c3b593b72895a8cfcf79bff41f4619194ce996a85bce31ac02b94e55";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     zope-deferredimport zope_deprecation zope_event zope-hookable zope_interface
     zope_configuration zope_i18nmessageid
   ];

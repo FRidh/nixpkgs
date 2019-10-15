@@ -20,7 +20,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest mock webapp2 django flask ];
-  propagatedBuildInputs = [ google_api_core google_cloud_core ];
+  pythonPath = [ google_api_core google_cloud_core ];
 
   checkPhase = ''
     pytest tests/unit

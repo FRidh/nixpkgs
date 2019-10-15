@@ -19,7 +19,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ mock pytest ];
-  propagatedBuildInputs = [ requests requests_ntlm six xmltodict ];
+  pythonPath = [ requests requests_ntlm six xmltodict ];
 
   meta = with lib; {
     description = "Python library for Windows Remote Management";

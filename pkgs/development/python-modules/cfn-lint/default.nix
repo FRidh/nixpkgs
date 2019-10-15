@@ -19,7 +19,7 @@ buildPythonPackage rec {
     sha256 = "5a723ff791fc23aced78e9cde28f18f9eeae9a24f91db2b7a20f7aa837a613b3";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pyyaml
     six
     requests

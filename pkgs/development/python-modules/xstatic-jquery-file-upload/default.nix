@@ -16,7 +16,7 @@ buildPythonPackage rec {
   # no tests implemented
   doCheck = false;
 
-  propagatedBuildInputs = [ xstatic-jquery ];
+  pythonPath = [ xstatic-jquery ];
 
   meta = with lib;{
     homepage =  http://plugins.jquery.com/project/jQuery-File-Upload;

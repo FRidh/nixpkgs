@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "cf535d36c063575d4752af36df928882b2e0e31541b4482c97d63752785f9fcb";
   };
 
-  propagatedBuildInputs = [ dateutil pytzdata ] ++ lib.optional (pythonOlder "3.5") typing;
+  pythonPath = [ dateutil pytzdata ] ++ lib.optional (pythonOlder "3.5") typing;
 
   # No tests
   doCheck = false;

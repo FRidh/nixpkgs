@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "2c9e2ddb03ee696ed8aa72c2cddfb81280614864e003226141d68b975aa56f6f";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     lxml pycryptodome construct
     argon2_cffi dateutil future
   ];

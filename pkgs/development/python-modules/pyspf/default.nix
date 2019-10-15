@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "16wjj99d2pikz6z1gwnl1jjvad6qjgpsf3a85lh47qqrjpiipp32";
   };
 
-  propagatedBuildInputs = [ pydns ];
+  pythonPath = [ pydns ];
 
   meta = with lib; {
     homepage = http://bmsi.com/python/milter.html;

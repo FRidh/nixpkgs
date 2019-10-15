@@ -45,7 +45,7 @@ buildPythonPackage rec {
   nativeBuildInputs = [ pkgconfig lndir makeWrapper qt4 ];
   buildInputs = [ qt4 dbus ];
 
-  propagatedBuildInputs = [ sip ];
+  pythonPath = [ sip ];
 
   postInstall = ''
     for i in $out/bin/*; do

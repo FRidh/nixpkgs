@@ -18,7 +18,7 @@ buildPythonApplication rec {
   # lots of networking and other fails
   doCheck = false;
   checkInputs = [ mock pytest nose ];
-  propagatedBuildInputs = [
+  pythonPath = [
     pyyaml backports_ssl_match_hostname colorama dockerpty docker
     ipaddress jsonschema requests six texttable websocket_client
     docopt cached-property paramiko

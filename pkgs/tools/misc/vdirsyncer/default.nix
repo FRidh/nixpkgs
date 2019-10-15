@@ -23,7 +23,7 @@ python3Packages.buildPythonApplication rec {
     buildInputs = [ pkgconfig openssl ] ++ stdenv.lib.optional stdenv.isDarwin Security;
   };
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     click click-log click-threading
     requests_toolbelt
     requests

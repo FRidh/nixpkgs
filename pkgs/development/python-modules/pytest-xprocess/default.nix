@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "06w2acg0shy0vxrmnxpqclimhgfjys5ql5kmmzr7r1lai46x1q2h";
   };
 
-  propagatedBuildInputs = [ psutil pytest ];
+  pythonPath = [ psutil pytest ];
 
   # Remove test QoL package from install_requires
   postPatch = ''

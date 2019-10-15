@@ -26,7 +26,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest pyyaml wheel pytestcov ];
-  propagatedBuildInputs = [ pkgs-docker docker traitlets python-json-logger escapism jinja2 ruamel_yaml ];
+  pythonPath = [ pkgs-docker docker traitlets python-json-logger escapism jinja2 ruamel_yaml ];
 
   # tests not packaged with pypi release
   doCheck = false;

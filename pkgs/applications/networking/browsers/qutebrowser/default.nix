@@ -45,7 +45,7 @@ in mkDerivationWith python3Packages.buildPythonApplication rec {
     docbook_xml_dtd_45 docbook_xsl libxml2 libxslt
   ];
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     pyyaml pyqt5 pyqtwebengine jinja2 pygments
     pypeg2 cssutils pyopengl attrs setuptools
     # scripts and userscripts libs
@@ -91,7 +91,7 @@ in mkDerivationWith python3Packages.buildPythonApplication rec {
     install -Dm755 -t "$out/share/qutebrowser/userscripts/" misc/userscripts/*
 
     # Patch python scripts
-    buildPythonPath "$out $propagatedBuildInputs"
+    buildPythonPath "$out $pythonPath"
     scripts=$(grep -rl python "$out"/share/qutebrowser/{user,}scripts/)
     for i in $scripts; do
       patchPythonScript "$i"

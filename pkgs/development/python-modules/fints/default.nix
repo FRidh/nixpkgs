@@ -23,7 +23,7 @@ buildPythonPackage rec {
       --replace 'sepaxml==2.0.*' 'sepaxml~=2.0'
   '';
 
-  propagatedBuildInputs = [ requests mt-940 sepaxml bleach ];
+  pythonPath = [ requests mt-940 sepaxml bleach ];
 
   checkInputs = [ pytest ];
 

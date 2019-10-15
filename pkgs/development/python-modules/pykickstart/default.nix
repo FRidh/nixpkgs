@@ -23,7 +23,7 @@ buildPythonPackage rec {
                key=lambda m: m.__name__)/" tests/baseclass.py
   '';
 
-  propagatedBuildInputs = [ urlgrabber ];
+  pythonPath = [ urlgrabber ];
 
   checkPhase = ''
     ${python.interpreter} tests/baseclass.py -vv

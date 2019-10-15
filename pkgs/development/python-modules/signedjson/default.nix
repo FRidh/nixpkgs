@@ -16,7 +16,7 @@ buildPythonPackage rec {
     sha256 = "0b8xxhc3npd4567kqapfp4gs7m0h057xam3an7424az262ind82n";
   };
 
-  propagatedBuildInputs = [ canonicaljson unpaddedbase64 pynacl ];
+  pythonPath = [ canonicaljson unpaddedbase64 pynacl ];
 
   meta = with stdenv.lib; {
     homepage = https://pypi.org/project/signedjson/;

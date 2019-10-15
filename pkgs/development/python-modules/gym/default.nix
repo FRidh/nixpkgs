@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "027422f59b662748eae3420b804e35bbf953f62d40cd96d2de9f842c08de822e";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     numpy requests six pyglet scipy
   ];
 

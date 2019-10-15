@@ -20,7 +20,7 @@ buildPythonPackage rec {
     sha256 = "6eeaf1301a5f5942bfe8ab2c2eaf03feb793072b56d5fae563638bddd7bb62e6";
   };
 
-  propagatedBuildInputs = [ dateutil simplejson ];
+  pythonPath = [ dateutil simplejson ];
 
   doCheck = false;
 }

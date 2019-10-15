@@ -16,7 +16,7 @@ buildPythonPackage rec {
     sha256 = "15c77ba548847dc05ce1b663a22c3324623f217dce5a859c3aaced31fd16707b";
   };
 
-  propagatedBuildInputs = [ mozversion mozrunner ]; 
+  pythonPath = [ mozversion mozrunner ]; 
 
   meta = {
     description = "Mozilla Marionette driver";

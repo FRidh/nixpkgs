@@ -14,7 +14,7 @@ buildPythonPackage rec {
       -i requests_aws4auth/service_parameters.py
   '';
 
-  propagatedBuildInputs = [ requests ];
+  pythonPath = [ requests ];
 
   # The test fail on Python >= 3 because of module import errors.
   doCheck = !isPy3k;

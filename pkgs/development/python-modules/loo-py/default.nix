@@ -24,7 +24,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [
+  pythonPath = [
     pytools
     pymbolic
     genpy

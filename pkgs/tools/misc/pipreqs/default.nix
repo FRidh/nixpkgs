@@ -10,7 +10,7 @@ python2Packages.buildPythonApplication rec {
     sha256 = "cec6eecc4685967b27eb386037565a737d036045f525b9eb314631a68d60e4bc";
   };
 
-  propagatedBuildInputs = with python2Packages; [ yarg docopt ];
+  pythonPath = with python2Packages; [ yarg docopt ];
 
   # Tests requires network access. Works fine without sandboxing
   doCheck = false;

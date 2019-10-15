@@ -7,7 +7,7 @@ python.buildPythonPackage rec {
   pname = "snakemake";
   version = "5.4.4";
 
-  propagatedBuildInputs = with python; [
+  pythonPath = with python; [
     appdirs
     ConfigArgParse
     datrie

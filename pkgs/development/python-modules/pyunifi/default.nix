@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "1d28ec8204fe3b0eb1043f5ba9b646a2c38e5fd89a0419d760cff8f0df507c83";
   };
 
-  propagatedBuildInputs = [ requests ];
+  pythonPath = [ requests ];
 
   meta = with stdenv.lib; {
     description = "API towards Ubiquity Networks UniFi controller";

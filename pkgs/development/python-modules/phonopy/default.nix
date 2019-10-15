@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "46baf7c4571fe75374071674727c2beb0388cf57073e0623d8457f04b1c54495";
   };
 
-  propagatedBuildInputs = [ numpy pyyaml matplotlib h5py ];
+  pythonPath = [ numpy pyyaml matplotlib h5py ];
 
   checkPhase = ''
     cd test

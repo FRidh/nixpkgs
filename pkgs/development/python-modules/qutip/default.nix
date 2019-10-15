@@ -19,7 +19,7 @@ buildPythonPackage rec {
     sha256 = "a26a639d74b2754b3a1e329d91300e587e8c399d8a81d8f18a4a74c6d6f02ba3";
   };
 
-  propagatedBuildInputs = [ numpy scipy matplotlib pyqt4 cython ];
+  pythonPath = [ numpy scipy matplotlib pyqt4 cython ];
 
   buildInputs = [ pkgs.gcc pkgs.qt4 pkgs.blas nose ];
 

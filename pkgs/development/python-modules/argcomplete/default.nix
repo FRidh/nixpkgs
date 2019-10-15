@@ -15,7 +15,7 @@ buildPythonPackage rec {
   # re-enable if we are able to make testing work
   # buildInputs = [ coverage flake8 ];
 
-  propagatedBuildInputs = [ dicttoxml pexpect prettytable requests_toolbelt ];
+  pythonPath = [ dicttoxml pexpect prettytable requests_toolbelt ];
 
   meta = with lib; {
     description = "Bash tab completion for argparse";

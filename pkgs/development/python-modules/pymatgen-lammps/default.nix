@@ -19,7 +19,7 @@ buildPythonPackage rec {
 
   buildInputs = [ pytestrunner ];
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [ pymatgen ];
+  pythonPath = [ pymatgen ];
 
   meta = {
     description = "A LAMMPS wrapper using pymatgen";

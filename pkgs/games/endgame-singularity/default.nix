@@ -18,7 +18,7 @@ python2.pkgs.buildPythonApplication rec {
   sourceRoot = ".";
 
   nativeBuildInputs = [ unzip ]; # The music is zipped
-  propagatedBuildInputs = with python2.pkgs; [ pygame numpy ];
+  pythonPath = with python2.pkgs; [ pygame numpy ];
 
   # This is not an error: it needs both compilation rounds
   buildPhase = ''

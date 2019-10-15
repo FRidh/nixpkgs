@@ -27,7 +27,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ makeWrapper ];
   buildInputs = [ zip ] ++ lib.optional generateManPage pandoc;
-  propagatedBuildInputs = lib.optional hlsEncryptedSupport pycryptodome;
+  pythonPath = lib.optional hlsEncryptedSupport pycryptodome;
 
   # Ensure these utilities are available in $PATH:
   # - ffmpeg: post-processing & transcoding support

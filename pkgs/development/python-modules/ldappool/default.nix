@@ -18,7 +18,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ pbr ];
 
-  propagatedBuildInputs = [ ldap prettytable ];
+  pythonPath = [ ldap prettytable ];
 
   checkInputs = [ fixtures testresources testtools ];
 

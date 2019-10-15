@@ -10,7 +10,7 @@ buildPythonApplication rec {
     sha256 = "11ilz9i2yxrbipyjzpfkj7drx9wkrn3phvd1a60jivphbqdldpgf";
   };
 
-  propagatedBuildInputs = [ colorama GitPython ];
+  pythonPath = [ colorama GitPython ];
 
   meta = with lib; {
     description = "Easily update multiple Git repositories at once";

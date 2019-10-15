@@ -10,7 +10,7 @@ buildPythonPackage rec {
   version = "4.5.0";
 
   nativeBuildInputs = [ sphinx manuel ];
-  propagatedBuildInputs = [ zope_interface cffi ];
+  pythonPath = [ zope_interface cffi ];
 
   src = fetchPypi {
     inherit pname version;

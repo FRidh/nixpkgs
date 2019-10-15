@@ -27,7 +27,7 @@ buildPythonPackage rec {
     pybind11 eigen
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     mpmath
     numpy
     pipdate

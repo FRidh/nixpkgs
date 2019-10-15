@@ -11,7 +11,7 @@ buildPythonPackage rec {
 
   enableParallelBuilding = true;
 
-  propagatedBuildInputs = [ protobuf grpcio ];
+  pythonPath = [ protobuf grpcio ];
 
   # no tests in the package
   doCheck = false;

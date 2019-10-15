@@ -15,7 +15,7 @@ else buildPythonPackage rec {
     sha256 = "d43945d190f2b3a6d18daa6ace9a1bd3695e93dc593f50cd72c2af420883b99d";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     django django_tagging whisper pycairo cairocffi
     ldap memcached pytz urllib3 scandir
   ];

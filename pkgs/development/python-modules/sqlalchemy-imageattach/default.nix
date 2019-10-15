@@ -20,7 +20,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest Wand.imagemagick webob ];
-  propagatedBuildInputs = [ sqlalchemy Wand ];
+  pythonPath = [ sqlalchemy Wand ];
 
   checkPhase = ''
     cd tests

@@ -30,7 +30,7 @@ buildPythonPackage rec {
 
   checkInputs = [ simplejson ];
 
-  propagatedBuildInputs = [ cython ];
+  pythonPath = [ cython ];
 
   meta = with stdenv.lib; {
     description = "Python Memory Usage Analyzer";

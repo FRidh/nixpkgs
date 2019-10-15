@@ -15,7 +15,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ nose ];
-  propagatedBuildInputs = [ pep8 ];
+  pythonPath = [ pep8 ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/WoLpH/tissue;

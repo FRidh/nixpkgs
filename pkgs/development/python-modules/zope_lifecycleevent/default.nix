@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "7ec39087cc1524e55557e7d9dc6295eb1b95b09b125e293c0e2dd068574f0aee";
   };
 
-  propagatedBuildInputs = [ zope_event zope_component ];
+  pythonPath = [ zope_event zope_component ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/zopefoundation/zope.lifecycleevent;

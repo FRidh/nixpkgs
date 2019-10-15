@@ -12,7 +12,7 @@ let
       sha256 = "1m0akjcdlsgng426rwvzlcl76kjm993icj0pggvha40cizig1yd9";
     };
 
-    propagatedBuildInputs = with pythonPackages; [
+    pythonPath = with pythonPackages; [
       pygtk twisted pycrypto pyasn1 which xpra xmodmap
     ];
 

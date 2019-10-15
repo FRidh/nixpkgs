@@ -26,7 +26,7 @@ buildPythonPackage {
     sha256 = "0grid93yz6i6jb2zggrqncp5awdf7qi88j5y2k7dq0k9r6b8zydw";
   };
 
-  propagatedBuildInputs = [ zlib xz ncompress gzip bzip2 gnutar p7zip cabextract lzma pycrypto ]
+  pythonPath = [ zlib xz ncompress gzip bzip2 gnutar p7zip cabextract lzma pycrypto ]
     ++ stdenv.lib.optional visualizationSupport pyqtgraph;
 
   meta = with stdenv.lib; {

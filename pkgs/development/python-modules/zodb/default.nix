@@ -28,7 +28,7 @@ buildPythonPackage rec {
       rm -vf src/ZODB/tests/testdocumentation.py
     '';
 
-    propagatedBuildInputs = [
+    pythonPath = [
       transaction
       six
       zope_interface

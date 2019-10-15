@@ -14,7 +14,7 @@ let
       sha256 = "0a0d1y9yi0abdkv6chbmxr3vk36gynnqzrjhbg26q4zg06lh9kgn";
     };
 
-    propagatedBuildInputs = [ service-identity ldap3 twisted ];
+    pythonPath = [ service-identity ldap3 twisted ];
 
     # ldaptor is not ready for py3 yet
     doCheck = !isPy3k;
@@ -35,7 +35,7 @@ in buildPythonApplication rec {
     ./homeserver-script.patch
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     setuptools
     bcrypt
     bleach

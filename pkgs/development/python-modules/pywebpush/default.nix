@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "03qkijz56fx7p8405sknw2wji4pfj5knajk2lmj9y58mjxydbpp3";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     http-ece py-vapid requests
   ];
 

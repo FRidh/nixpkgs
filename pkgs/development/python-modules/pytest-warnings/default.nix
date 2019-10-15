@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "18yxh153icmndaw8fkl1va0bk0mwzrbpaa6wxd29w3iwxym5zn2a";
   };
 
-  propagatedBuildInputs = [ pytest ];
+  pythonPath = [ pytest ];
 
   meta = {
     description = "Plugin to list Python warnings in pytest report";

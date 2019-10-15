@@ -59,7 +59,7 @@ in buildPythonPackage rec {
   # https://github.com/NixOS/nixpkgs/issues/47390
   installCheckPhase = "meson test --print-errorlogs";
 
-  propagatedBuildInputs = [ gst-plugins-base pygobject3 ];
+  pythonPath = [ gst-plugins-base pygobject3 ];
 
   meta = {
     homepage = https://gstreamer.freedesktop.org;

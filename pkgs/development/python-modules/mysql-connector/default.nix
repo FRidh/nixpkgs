@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "1by0g7hrbmb1wj2wh3q9y92mjimck2izh1i4fm1xfbp278p2acbd";
   };
 
-  propagatedBuildInputs = [ protobuf ];
+  pythonPath = [ protobuf ];
 
   # Tests are failing (TODO: unknown reason)
   # TypeError: __init__() missing 1 required positional argument: 'string'

@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "c02643cebe23fc8adb5e6becffe201185bf06c40bda5c0b4028a93f1527d011d";
   };
 
-  propagatedBuildInputs = [ simplejson ];
+  pythonPath = [ simplejson ];
 
   checkInputs = [ pytest glibcLocales ];
 

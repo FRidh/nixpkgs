@@ -11,7 +11,7 @@ buildPythonPackage rec  {
     sha256 = "1xcjyp1190z6a226fg0clvhf43gjsbyn60amblsg7w7cw86d033l";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     voluptuous
   ];
 

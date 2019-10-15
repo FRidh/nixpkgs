@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "0d0sxca308ilp73jdny4frn93asr4ih87xxl1d9rxf8m12xssa3c";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     clikit
   ];
 

@@ -23,7 +23,7 @@ buildPythonPackage {
     cd ./azure-mgmt-billing
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     msrestazure
     azure-common
     azure-mgmt-nspkg

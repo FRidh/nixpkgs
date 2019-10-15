@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "0v3g1qcgnkpgjzh6phnv13lnk8qjrcs9sq2qg6k0dk5ik31jfk3d";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     jinja2 markupsafe pagerduty pushbullet python_magic python-simple-hipchat
     pyyaml redis requests six websocket_client
   ];

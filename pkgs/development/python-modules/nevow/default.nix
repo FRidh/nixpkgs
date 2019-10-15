@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "2299a0d2a0c1312040705599d5d571acfea74df82b968c0b9264f6f45266cf6e";
   };
 
-  propagatedBuildInputs = [ twisted ];
+  pythonPath = [ twisted ];
 
   checkInputs = [ twisted ];
 

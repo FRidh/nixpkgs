@@ -20,7 +20,7 @@ buildPythonPackage rec {
     sed -e 's,ffi\.dlopen(,&"${xorg.libxcb.out}/lib/" + ,' -i xcffib/__init__.py
   '';
 
-  propagatedBuildInputs = [ cffi six ];
+  pythonPath = [ cffi six ];
 
   meta = with stdenv.lib; {
     description = "A drop in replacement for xpyb, an XCB python binding";

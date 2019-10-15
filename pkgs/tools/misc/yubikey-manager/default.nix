@@ -10,7 +10,7 @@ python3Packages.buildPythonPackage rec {
     sha256 = "0nb3qzpggyp61lchvprnklby5mf5n0xpn9z8vlhh99pz1k9sqdq1";
   };
 
-  propagatedBuildInputs =
+  pythonPath =
     with python3Packages; [
       click
       cryptography

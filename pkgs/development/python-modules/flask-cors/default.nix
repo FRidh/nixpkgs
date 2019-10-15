@@ -11,7 +11,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ nose ];
-  propagatedBuildInputs = [ flask six ];
+  pythonPath = [ flask six ];
 
   meta = with stdenv.lib; {
     description = "A Flask extension adding a decorator for CORS support";

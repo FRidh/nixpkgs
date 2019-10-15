@@ -27,7 +27,7 @@ buildPythonPackage rec {
     rm tests/test_jalali.py
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     # install_requires
     dateutil pytz regex tzlocal
     # extra_requires

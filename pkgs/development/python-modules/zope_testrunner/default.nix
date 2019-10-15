@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "f2aa89531db6b7546e46be9d6113ac835a075f4dcb26e32c7276f4f30d4b14a5";
   };
 
-  propagatedBuildInputs = [ zope_interface zope_exceptions zope_testing six ];
+  pythonPath = [ zope_interface zope_exceptions zope_testing six ];
 
   doCheck = !stdenv.isDarwin;
 

@@ -9,7 +9,7 @@ buildPythonPackage rec {
       sha256 = "9277490ba8b8e7c747a9ae3671f52fe486784b48d4a14e78ca197fb0e36f281b";
     };
 
-    propagatedBuildInputs = [ agate sqlalchemy ];
+    pythonPath = [ agate sqlalchemy ];
 
     meta = with stdenv.lib; {
       description = "Adds SQL read/write support to agate.";

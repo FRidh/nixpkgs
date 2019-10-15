@@ -34,7 +34,7 @@ buildPythonPackage rec {
     ln -s ${src-data} worldengine-data
   '';
 
-  propagatedBuildInputs = [ noise numpy pyplatec protobuf purepng h5py gdal ];
+  pythonPath = [ noise numpy pyplatec protobuf purepng h5py gdal ];
 
   prePatch = ''
     substituteInPlace setup.py \

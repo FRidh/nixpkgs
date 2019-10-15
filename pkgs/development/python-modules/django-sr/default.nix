@@ -16,5 +16,5 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ django nose ];
-  propagatedBuildInputs = [ django ];
+  pythonPath = [ django ];
 }

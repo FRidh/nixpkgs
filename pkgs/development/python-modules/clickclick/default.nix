@@ -12,7 +12,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytestCheckHook pytestcov ];
-  propagatedBuildInputs = [ flake8 click pyyaml six ];
+  pythonPath = [ flake8 click pyyaml six ];
 
   disabledTests = lib.optionals isPy36 [
     "test_cli"

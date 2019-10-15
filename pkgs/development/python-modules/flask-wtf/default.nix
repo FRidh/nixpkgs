@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "0dncc5as2k61b28k8kal5yh3prmv7zya1jz7kvci7ximzmfda52x";
   };
 
-  propagatedBuildInputs = [ flask wtforms nose ];
+  pythonPath = [ flask wtforms nose ];
 
   doCheck = false; # requires external service
 

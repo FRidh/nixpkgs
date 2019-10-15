@@ -20,7 +20,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest pytestrunner ];
-  propagatedBuildInputs = [ functools32 six w3lib lxml cssselect ];
+  pythonPath = [ functools32 six w3lib lxml cssselect ];
 
   checkPhase = ''
     py.test

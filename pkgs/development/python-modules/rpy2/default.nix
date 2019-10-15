@@ -71,7 +71,7 @@ buildPythonPackage rec {
       substituteInPlace rpy/rinterface/__init__.py --replace '@NIX_R_LIBS_SITE@' "$R_LIBS_SITE"
     '';
 
-    propagatedBuildInputs = [
+    pythonPath = [
       singledispatch
       six
       jinja2

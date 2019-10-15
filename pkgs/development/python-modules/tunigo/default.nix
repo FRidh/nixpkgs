@@ -4,7 +4,7 @@ buildPythonPackage rec {
   pname = "tunigo";
   version = "1.0.0";
 
-  propagatedBuildInputs = [ requests ];
+  pythonPath = [ requests ];
 
   src = fetchFromGitHub {
     owner = "trygveaa";

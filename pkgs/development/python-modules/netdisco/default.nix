@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "2b3aca14a1807712a053f11fd80dc251dd821ee4899aefece515287981817762";
   };
 
-  propagatedBuildInputs = [ requests zeroconf netifaces ];
+  pythonPath = [ requests zeroconf netifaces ];
 
   checkInputs = [ pytest ];
 

@@ -12,7 +12,7 @@ buildPythonPackage rec {
 
   buildInputs = [ fftw fftwFloat fftwLongDouble];
 
-  propagatedBuildInputs = [ numpy scipy cython dask ];
+  pythonPath = [ numpy scipy cython dask ];
 
   # Tests cannot import pyfftw. pyfftw works fine though.
   doCheck = false;

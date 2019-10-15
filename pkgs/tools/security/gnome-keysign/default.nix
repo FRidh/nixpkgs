@@ -39,7 +39,7 @@ python3.pkgs.buildPythonApplication rec {
     gst_all_1.gst-plugins-bad # for zbar plug-in
   ];
 
-  propagatedBuildInputs = with python3.pkgs; [
+  pythonPath = with python3.pkgs; [
     dbus-python
     future
     gpgme

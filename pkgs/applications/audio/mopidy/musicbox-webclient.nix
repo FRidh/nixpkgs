@@ -11,7 +11,7 @@ pythonPackages.buildPythonApplication rec {
     sha256 = "1jcfrwsi7axiph3jplqzmcqia9pc46xb2yf13d8h6lnh3h49rwvz";
   };
 
-  propagatedBuildInputs = [ mopidy ];
+  pythonPath = [ mopidy ];
 
   doCheck = false;
 

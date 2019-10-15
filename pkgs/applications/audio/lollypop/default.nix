@@ -54,7 +54,7 @@ python3.pkgs.buildPythonApplication rec  {
     totem-pl-parser
   ] ++ lib.optional lastFMSupport libsecret;
 
-  propagatedBuildInputs = with python3.pkgs; [
+  pythonPath = with python3.pkgs; [
     beautifulsoup4
     pillow
     pycairo
@@ -70,7 +70,7 @@ python3.pkgs.buildPythonApplication rec  {
   '';
 
   postFixup = ''
-    wrapPythonProgramsIn $out/libexec "$out $propagatedBuildInputs"
+    wrapPythonProgramsIn $out/libexec "$out $pythonPath"
   '';
 
   # Produce only one wrapper using wrap-python passing

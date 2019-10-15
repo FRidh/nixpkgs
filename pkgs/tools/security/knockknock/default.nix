@@ -11,7 +11,7 @@ python2Packages.buildPythonApplication rec {
     sha256 = "1chpfs3w2vkjrgay69pbdr116z1jldv53fi768a1i05fdqhy1px4";
   };
 
-  propagatedBuildInputs = [ python2Packages.pycrypto ];
+  pythonPath = [ python2Packages.pycrypto ];
 
   # No tests
   doCheck = false;

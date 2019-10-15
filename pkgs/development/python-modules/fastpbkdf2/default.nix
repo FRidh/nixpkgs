@@ -15,7 +15,7 @@ buildPythonPackage rec {
 
   buildInputs = [ openssl ];
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [ cffi six ];
+  pythonPath = [ cffi six ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/Ayrx/python-fastpbkdf2;

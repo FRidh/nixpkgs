@@ -9,7 +9,7 @@ python3Packages.buildPythonApplication rec {
     sha256 = "1w1crc32p5rnbah6x9km6yvjiy5qrmpmvzb4ignsprfxjq803r3a";
   };
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     beautifulsoup4
     chardet
     html5lib

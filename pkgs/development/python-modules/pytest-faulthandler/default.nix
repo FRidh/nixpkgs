@@ -19,7 +19,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ setuptools_scm pytest ];
   checkInputs = [ pytest-mock ];
-  propagatedBuildInputs = lib.optional (pythonOlder "3.0") faulthandler;
+  pythonPath = lib.optional (pythonOlder "3.0") faulthandler;
 
   checkPhase = ''
     py.test

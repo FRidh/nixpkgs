@@ -17,7 +17,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ setuptools ];
-  propagatedBuildInputs = [ pyparsing ];
+  pythonPath = [ pyparsing ];
   checkInputs = [ pytest ];
 
   checkPhase = ''

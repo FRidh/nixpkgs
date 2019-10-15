@@ -19,7 +19,7 @@ buildPythonPackage rec {
     sha256 = "25d696d2affbf5fe9b13aebe66271fce545e673e7e1eeaaec2d73599ba639d63";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     azure-nspkg
   ] ++ lib.optionals (!isPy3k) [ setuptools ]; # need for namespace lookup
 

@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "a02e073214e9f3a371f7ec0ff8b34dd82bd4941194dd69c49ad80b321b9d887e";
   };
 
-  propagatedBuildInputs = [ chardet six ];
+  pythonPath = [ chardet six ];
 
   # No tests in archive
   doCheck = false;

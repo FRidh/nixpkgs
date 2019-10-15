@@ -22,7 +22,7 @@ buildPythonPackage rec {
     sha256 = "127rpdjgkcyjifmkqbhmqfbzlgi32n54rybrdxja610qr906y40c";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     tornado
     toolz
     zict

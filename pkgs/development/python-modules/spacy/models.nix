@@ -8,7 +8,7 @@ let
       inherit sha256;
     };
 
-    propagatedBuildInputs = [ spacy ];
+    pythonPath = [ spacy ];
 
     meta = with stdenv.lib; {
       description = "Models for the spaCy NLP library";

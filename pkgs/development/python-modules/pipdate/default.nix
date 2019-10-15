@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "a27f64d13269adfd8594582f5a62c9f2151b426e701afdfc3b4f4019527b4121";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     appdirs
     requests
   ];

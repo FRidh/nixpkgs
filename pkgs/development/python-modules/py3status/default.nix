@@ -31,7 +31,7 @@ buildPythonPackage rec {
   };
 
   doCheck = false;
-  propagatedBuildInputs = [
+  pythonPath = [
     pytz requests tzlocal i3ipc pydbus pygobject3 pyserial setuptools
   ];
   buildInputs = [ file ];

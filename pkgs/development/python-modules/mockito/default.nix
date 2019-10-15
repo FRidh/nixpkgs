@@ -12,7 +12,7 @@ buildPythonPackage rec {
   # Failing tests due 2to3
   doCheck = !isPy3k;
 
-  propagatedBuildInputs = stdenv.lib.optionals (!isPy3k) [ funcsigs ];
+  pythonPath = stdenv.lib.optionals (!isPy3k) [ funcsigs ];
   checkInputs = [ pytest numpy ];
 
   checkPhase = ''

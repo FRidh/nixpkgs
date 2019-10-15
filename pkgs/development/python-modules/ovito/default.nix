@@ -17,7 +17,7 @@ stdenv.mkDerivation {
   };
 
   buildInputs = [ cmake libav netcdf qscintilla zlib boost zlib git fftw hdf5 libssh ];
-  propagatedBuildInputs = with pythonPackages; [ sphinx numpy sip pyqt5 matplotlib ase ];
+  pythonPath = with pythonPackages; [ sphinx numpy sip pyqt5 matplotlib ase ];
 
   enableParallelBuilding = true;
 

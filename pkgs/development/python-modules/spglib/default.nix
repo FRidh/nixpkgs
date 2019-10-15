@@ -18,7 +18,7 @@ buildPythonPackage rec {
     })
   ];
 
-  propagatedBuildInputs = [ numpy ];
+  pythonPath = [ numpy ];
 
   checkInputs = [ nose pyyaml ];
 

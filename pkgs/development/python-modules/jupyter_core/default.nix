@@ -18,7 +18,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest mock glibcLocales ];
-  propagatedBuildInputs = [ ipython traitlets ];
+  pythonPath = [ ipython traitlets ];
 
   patches = [ ./tests_respect_pythonpath.patch ];
 

@@ -10,7 +10,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ docutils ];
-  propagatedBuildInputs = [ boto3 ];
+  pythonPath = [ boto3 ];
 
   # Depends on `moto` which has a long dependency chain with exact
   # version requirements that can't be made to work with current

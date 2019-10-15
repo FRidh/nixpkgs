@@ -20,7 +20,7 @@ buildPythonPackage rec {
     ln -s ${numpy.cfg} site.cfg
   '';
 
-  propagatedBuildInputs = [ numpy ];
+  pythonPath = [ numpy ];
 
   # Run the test suite.
   # It requires the build path to be in the python search path.

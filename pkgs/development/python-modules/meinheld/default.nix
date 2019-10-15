@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "0rg5878njn66cc0x2fwrakikz24946r0cxxl6j8vvz5phd4zygi9";
   };
 
-  propagatedBuildInputs = [ greenlet ];
+  pythonPath = [ greenlet ];
 
   # No tests
   doCheck = false;

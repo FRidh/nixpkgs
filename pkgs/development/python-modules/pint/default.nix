@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "32d8a9a9d63f4f81194c0014b3b742679dce81a26d45127d9810a68a561fe4e2";
   };
 
-  propagatedBuildInputs = lib.optional isPy27 funcsigs;
+  pythonPath = lib.optional isPy27 funcsigs;
 
   meta = with lib; {
     description = "Physical quantities module";

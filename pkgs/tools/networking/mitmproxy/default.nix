@@ -58,7 +58,7 @@ buildPythonPackage rec {
     pytest -k 'not test_find_unclaimed_URLs and not test_tcp'
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     blinker click certifi cryptography
     h2 hyperframe kaitaistruct passlib
     pyasn1 pyopenssl pyparsing pyperclip

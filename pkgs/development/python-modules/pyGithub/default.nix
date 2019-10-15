@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "1625v558xga5mwhl9jqmibywy5qafmg1vqrirqz6zfq1la1d22mw";
   };
 
-  propagatedBuildInputs = [ python-jose pyjwt requests deprecated httpretty ];
+  pythonPath = [ python-jose pyjwt requests deprecated httpretty ];
   doCheck = false;
 
   meta = with stdenv.lib; {

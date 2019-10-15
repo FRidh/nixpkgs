@@ -21,7 +21,7 @@ buildPythonPackage rec {
     rm Tests/test_imagefont.py
   '';
 
-  propagatedBuildInputs = [ olefile ];
+  pythonPath = [ olefile ];
 
   checkInputs = [ pytest pytestrunner ];
 

@@ -25,7 +25,7 @@ buildPythonPackage rec {
   '';
 
   checkInputs = [ case pytest boto3 moto ];
-  propagatedBuildInputs = [ kombu billiard pytz anyjson amqp eventlet ];
+  pythonPath = [ kombu billiard pytz anyjson amqp eventlet ];
 
   meta = with lib; {
     homepage = https://github.com/celery/celery/;

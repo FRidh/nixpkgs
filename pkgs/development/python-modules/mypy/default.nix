@@ -15,7 +15,7 @@ buildPythonPackage rec {
 
   disabled = !isPy3k;
 
-  propagatedBuildInputs = [ typed-ast psutil mypy_extensions ];
+  pythonPath = [ typed-ast psutil mypy_extensions ];
 
   meta = with stdenv.lib; {
     description = "Optional static typing for Python";

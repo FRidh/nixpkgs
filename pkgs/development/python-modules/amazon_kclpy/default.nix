@@ -17,7 +17,7 @@ buildPythonPackage rec {
       --replace "'argparse'," ""
   '';
 
-  propagatedBuildInputs =  [ mock boto ];
+  pythonPath =  [ mock boto ];
 
   checkInputs = [ pytest ];
 

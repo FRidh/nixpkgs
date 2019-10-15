@@ -12,7 +12,7 @@ pythonPackages.buildPythonApplication rec {
 
   nativeBuildInputs = [ intltool ];
   buildInputs = [ intltool gtk3 gobject-introspection ];
-  propagatedBuildInputs =  with pythonPackages; [ stem distutils_extra pygobject3 ];
+  pythonPath =  with pythonPackages; [ stem distutils_extra pygobject3 ];
 
   postFixup = ''
     wrapProgram "$out/bin/onioncircuits" \

@@ -9,7 +9,7 @@ pythonPackages.buildPythonApplication rec {
     sha256 = "1gdbqsirsdxj320wnp7my5awzs1kfs6m4fqmkzbd1zd47qzj0zfi";
   };
 
-  propagatedBuildInputs = with pythonPackages; [
+  pythonPath = with pythonPackages; [
     appdirs
     astor
     clint

@@ -16,7 +16,7 @@ buildPythonPackage rec {
     sha256 = "0nqgywknpj2a69an5yrn0c32fk01v5gi05za7dlf4ivwr9s4np83";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     msrestazure
     azure-common
     azure-mgmt-nspkg

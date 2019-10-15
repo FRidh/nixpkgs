@@ -21,7 +21,7 @@ buildPythonPackage rec {
       --replace "audio-metadata>=0.3,<0.4" "audio-metadata"
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     appdirs
     audio-metadata
     google-music-proto

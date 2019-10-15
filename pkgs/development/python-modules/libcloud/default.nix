@@ -19,7 +19,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ mock pytest pytestrunner requests-mock ];
-  propagatedBuildInputs = [ pycrypto requests ];
+  pythonPath = [ pycrypto requests ];
 
   preConfigure = "cp libcloud/test/secrets.py-dist libcloud/test/secrets.py";
 

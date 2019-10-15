@@ -23,7 +23,7 @@ buildPythonPackage rec {
     ./fix-sftp-chmod-test-nixos.patch
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     bcrypt
     cryptography
     gssapi

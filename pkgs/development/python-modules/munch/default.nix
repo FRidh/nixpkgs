@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "6ae3d26b837feacf732fb8aa5b842130da1daf221f5af9f9d4b2a0a6414b0d51";
   };
 
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   # No tests in archive
   doCheck = false;

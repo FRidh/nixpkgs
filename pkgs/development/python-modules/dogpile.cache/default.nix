@@ -21,7 +21,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest pytestcov mock Mako ];
 
-  propagatedBuildInputs = [ decorator ];
+  pythonPath = [ decorator ];
 
   meta = with stdenv.lib; {
     description = "A caching front-end based on the Dogpile lock";

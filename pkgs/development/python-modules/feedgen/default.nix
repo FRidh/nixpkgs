@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "0551ixbcz2gaala4gi3i8gici3haijj7dhvjsz1a61s050276m96";
   };
 
-  propagatedBuildInputs = [ dateutil lxml ];
+  pythonPath = [ dateutil lxml ];
 
   # No tests in archive
   doCheck = false;

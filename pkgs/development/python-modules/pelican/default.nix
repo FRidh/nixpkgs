@@ -39,7 +39,7 @@ buildPythonPackage rec {
     typogrify
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     jinja2 pygments docutils pytz unidecode six dateutil feedgenerator
     blinker pillow beautifulsoup4 markupsafe lxml
   ];

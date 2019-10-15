@@ -11,5 +11,5 @@ buildPythonPackage rec {
   };
   doCheck = false;
   buildInputs =[ setuptools_scm ];
-  propagatedBuildInputs = [ jaraco_functools ];
+  pythonPath = [ jaraco_functools ];
 }

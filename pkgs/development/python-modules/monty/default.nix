@@ -25,7 +25,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ lsof nose numpy msgpack coverage coveralls pymongo];
-  propagatedBuildInputs = [ six ruamel_yaml ];
+  pythonPath = [ six ruamel_yaml ];
 
   preCheck = ''
     substituteInPlace tests/test_os.py \

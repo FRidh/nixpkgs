@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "1gyabqafq4s2sy0prh3k1m8859shzjmfxr7fimx10liflvki96a9";
   };
 
-  propagatedBuildInputs = [ gevent ];
+  pythonPath = [ gevent ];
 
   postPatch = ''
     sed -i -e 's|/bin/bash|${stdenv.shell}|'          ruffus/test/Makefile

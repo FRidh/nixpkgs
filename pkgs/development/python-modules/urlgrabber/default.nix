@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "0fazs574fgixd525cn2dh027f4qf0c0gbwcfyfkhc6fkblfa1ibr";
   };
 
-  propagatedBuildInputs = [ pycurl six ];
+  pythonPath = [ pycurl six ];
 
   meta = with stdenv.lib; {
     homepage = http://urlgrabber.baseurl.org;

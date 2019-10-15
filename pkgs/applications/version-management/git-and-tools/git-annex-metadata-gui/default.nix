@@ -15,7 +15,7 @@ buildPythonApplication rec {
     substituteInPlace setup.py --replace "'PyQt5', " ""
   '';
 
-  propagatedBuildInputs = [ pyqt5 git-annex-adapter ];
+  pythonPath = [ pyqt5 git-annex-adapter ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/alpernebbi/git-annex-metadata-gui;

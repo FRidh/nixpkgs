@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "0hkg0zh8w6f4krbrv4nl66blrx48yixgc8ikf915415ghlqfsbjj";
   };
 
-  propagatedBuildInputs = [ ply ];
+  pythonPath = [ ply ];
 
   checkInputs = [ django ];
 

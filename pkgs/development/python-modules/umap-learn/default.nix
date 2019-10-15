@@ -23,7 +23,7 @@ buildPythonPackage rec {
     nose
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     numpy
     scikitlearn
     scipy

@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "0jc62jbcqqpjcwcly7l9zk25bg72mrxmjykpvfiscgln00qczfbc";
   };
 
-  propagatedBuildInputs = [ libspatialindex ];
+  pythonPath = [ libspatialindex ];
 
   patchPhase = ''
     substituteInPlace rtree/core.py --replace \

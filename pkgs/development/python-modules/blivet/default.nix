@@ -30,7 +30,7 @@ in buildPythonPackage rec {
     sed -i -r -e 's|"(u?mount)"|"${utillinux}/bin/\1"|' blivet/util.py
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pykickstart pyparted pyblock pyudev selinuxWithPython.py cryptsetupWithPython
     six
   ];

@@ -9,7 +9,7 @@ python3Packages.buildPythonApplication rec {
     sha256 = "1mf2vlq083mzhja449il78zpvjq6fv36pzakwrqmgxdjbsdyvxbd";
   };
 
-  propagatedBuildInputs = with python3Packages; [ lxml pyte wcwidth ];
+  pythonPath = with python3Packages; [ lxml pyte wcwidth ];
 
   meta = with lib; {
     homepage = https://nbedos.github.io/termtosvg/;

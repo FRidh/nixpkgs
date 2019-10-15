@@ -41,7 +41,7 @@ buildPythonPackage rec {
      })
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     appdirs
     attrs
     cached-property

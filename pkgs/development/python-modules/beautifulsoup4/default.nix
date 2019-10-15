@@ -14,7 +14,7 @@ buildPythonPackage rec {
     py.test $out/${python.sitePackages}/bs4/tests
   '';
 
-  propagatedBuildInputs = [ soupsieve ];
+  pythonPath = [ soupsieve ];
 
   meta = with stdenv.lib; {
     homepage = http://crummy.com/software/BeautifulSoup/bs4/;

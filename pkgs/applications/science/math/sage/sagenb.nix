@@ -26,7 +26,7 @@ buildPythonPackage rec {
     sha256 = "0bxvhr03qh2nsjdfc4pyfiqrn9jhp3vf7irsc9gqx0185jlblbxs";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     twisted
     flask
     flask-oldsessions

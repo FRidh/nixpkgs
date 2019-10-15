@@ -17,7 +17,7 @@ buildPythonPackage rec {
   };
 
   nativeBuildInputs = [ setuptools_scm ];
-  propagatedBuildInputs = [
+  pythonPath = [
     attrs
     pyrsistent
     six

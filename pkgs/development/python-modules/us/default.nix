@@ -8,7 +8,7 @@ buildPythonPackage rec {
   pname = "us";
   version = "1.0.0";
 
-  propagatedBuildInputs = [ jellyfish ];
+  pythonPath = [ jellyfish ];
 
   src = fetchPypi {
     inherit pname version;

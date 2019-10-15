@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "76d1f143f8abccf5539029fbef8133db84f377fc7752ac9e7e6d19ac9a277967";
   };
 
-  propagatedBuildInputs = [ numpy pandas ];
+  pythonPath = [ numpy pandas ];
 
   meta = with lib; {
     homepage = https://github.com/scikit-hep/histbook;

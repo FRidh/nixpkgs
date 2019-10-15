@@ -38,7 +38,7 @@ python3Packages.buildPythonApplication rec {
   format = "other"; # using cmake to build
   buildInputs = [ qtbase qtquickcontrols2 ];
   # numpy-stl temporarily disabled due to https://code.alephobjects.com/T8415
-  propagatedBuildInputs = with python3Packages; [ pyserial requests zeroconf ] ++ [ libsavitarLulzbot uraniumLulzbot libarcusLulzbot ]; # numpy-stl
+  pythonPath = with python3Packages; [ pyserial requests zeroconf ] ++ [ libsavitarLulzbot uraniumLulzbot libarcusLulzbot ]; # numpy-stl
   nativeBuildInputs = [ cmake python3Packages.wrapPython ];
 
   cmakeFlags = [

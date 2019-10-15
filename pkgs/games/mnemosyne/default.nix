@@ -11,7 +11,7 @@ python.pkgs.buildPythonApplication rec {
     sha256 = "0xcwikq51abrlqfn5bv7kcw1ccd3ip0w6cjd5vnnzwnaqwdj8cb3";
   };
 
-  propagatedBuildInputs = with python.pkgs; [
+  pythonPath = with python.pkgs; [
     pyqt5
     matplotlib
     cherrypy

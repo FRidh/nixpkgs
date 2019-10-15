@@ -18,7 +18,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ django nose pillow sampledata six versiontools ];
-  propagatedBuildInputs = [ django sampledata ];
+  pythonPath = [ django sampledata ];
 
   # HACK To prevent collision with pythonPackages.sampledata
   preBuild = ''

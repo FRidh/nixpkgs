@@ -22,7 +22,7 @@ buildPythonPackage rec {
     nose
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     arrow
     requests
     units

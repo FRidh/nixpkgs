@@ -24,7 +24,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ btrfs-progs ];
-  propagatedBuildInputs = [ contextlib2 pyxdg pycparser alembic ]
+  pythonPath = [ contextlib2 pyxdg pycparser alembic ]
     ++ stdenv.lib.optionals (!isPyPy) [ cffi ];
 
   meta = with stdenv.lib; {

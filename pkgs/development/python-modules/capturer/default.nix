@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "07zy264xd0g7pz9sxjqcpwmrck334xcbb7wfss26lmvgdr5nhcb9";
   };
 
-  propagatedBuildInputs = [ humanfriendly ];
+  pythonPath = [ humanfriendly ];
 
   checkPhase = ''
     PATH=$PATH:$out/bin pytest .

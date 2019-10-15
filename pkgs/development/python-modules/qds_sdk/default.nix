@@ -21,7 +21,7 @@ buildPythonPackage rec {
     sha256 = "18xhvlcfki8llv7fw2r5yfk20zds3gr78b4klwm9mkvhlhwds9rx";
   };
 
-  propagatedBuildInputs = [ 
+  pythonPath = [ 
     boto
     inflection
     requests

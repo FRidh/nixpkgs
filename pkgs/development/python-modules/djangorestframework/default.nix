@@ -11,7 +11,7 @@ buildPythonPackage rec {
   # Test settings are missing
   doCheck = false;
 
-  propagatedBuildInputs = [ django ];
+  pythonPath = [ django ];
 
   meta = with stdenv.lib; {
     description = "Web APIs for Django, made easy";

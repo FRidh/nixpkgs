@@ -26,7 +26,7 @@ buildPythonPackage rec {
     substituteInPlace setup.py --replace "distribute" "setuptools"
   '';
 
-  propagatedBuildInputs = [ markdown ];
+  pythonPath = [ markdown ];
 
   doCheck = false;
 

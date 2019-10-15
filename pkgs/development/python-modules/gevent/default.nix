@@ -10,7 +10,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ libev ];
-  propagatedBuildInputs = stdenv.lib.optionals (!isPyPy) [ greenlet ];
+  pythonPath = stdenv.lib.optionals (!isPyPy) [ greenlet ];
 
   checkPhase = ''
     cd greentest

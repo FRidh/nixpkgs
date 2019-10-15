@@ -11,7 +11,7 @@ python3.pkgs.buildPythonApplication rec {
 
   patches = [ ./loguru.patch ];
 
-  propagatedBuildInputs = with python3.pkgs; [
+  pythonPath = with python3.pkgs; [
     appdirs
     audio-metadata
     google-music

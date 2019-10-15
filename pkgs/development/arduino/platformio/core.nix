@@ -57,7 +57,7 @@ in buildPythonApplication rec {
     sha256 = "1naaa53cc7n7zyqggqjvvgkcq8cyzngdf904y9ag0x1vvb70f8j9";
   };
 
-  propagatedBuildInputs =  [
+  pythonPath =  [
     bottle click colorama git lockfile
     pyserial requests semantic-version
     tabulate

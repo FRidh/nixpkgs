@@ -18,7 +18,7 @@ buildPythonPackage rec {
     substituteInPlace setup.py --replace "click==6.7" "click"
   '';
 
-  propagatedBuildInputs = [ lxml click ];
+  pythonPath = [ lxml click ];
 
   checkInputs = [ pytest ];
   checkPhase = ''

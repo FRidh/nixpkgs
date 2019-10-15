@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "0axzsigvmb17ha5mnr3xf6c851kwinjpkxksxwprwjakh1m59d1q";
   };
 
-  propagatedBuildInputs = [ django ];
+  pythonPath = [ django ];
 
   # pypi version doesn't include runtest.py, needed to run tests
   doCheck = false;

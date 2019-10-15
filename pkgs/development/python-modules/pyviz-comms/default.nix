@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "c1722a496b08eb20ae3f2fedcc1ebcd207567b62e6453c7198a0b8f78ae96049";
   };
 
-  propagatedBuildInputs = [ param ];
+  pythonPath = [ param ];
 
   # there are not tests with the package
   doCheck = false;

@@ -31,7 +31,7 @@ buildPythonPackage rec {
 
   buildInputs = [ glibcLocales ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     coverage
     ipykernel
     jupyter_client

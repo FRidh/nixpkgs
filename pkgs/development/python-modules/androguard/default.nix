@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "f0655ca3a5add74c550951e79bd0bebbd1c5b239178393d30d8db0bd3202cda2";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     future
     networkx
     pygments

@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "1axdiva2qglsjmnx2ak7i6hm0yhp6kbc4lcsgn8ckwy0nq1z3kr2";
   };
 
-  propagatedBuildInputs = [ marisa-trie ];
+  pythonPath = [ marisa-trie ];
 
   disabled = pythonOlder "3.3";
 

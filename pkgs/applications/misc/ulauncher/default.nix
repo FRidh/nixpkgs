@@ -42,7 +42,7 @@ python27Packages.buildPythonApplication rec  {
     wmctrl
   ];
 
-  propagatedBuildInputs = with python27Packages; [
+  pythonPath = with python27Packages; [
     dbus-python
     notify
     pygobject3

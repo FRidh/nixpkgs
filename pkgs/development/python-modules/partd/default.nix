@@ -20,7 +20,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest ];
 
-  propagatedBuildInputs = [ locket numpy pandas pyzmq toolz ];
+  pythonPath = [ locket numpy pandas pyzmq toolz ];
 
   checkPhase = ''
     rm partd/tests/test_zmq.py # requires network & fails

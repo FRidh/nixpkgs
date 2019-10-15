@@ -14,7 +14,7 @@ python3Packages.buildPythonApplication rec {
 
   nativeBuildInputs = with python3Packages; [ pyqt5 ];
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     pyaes
     ecdsa
     pbkdf2

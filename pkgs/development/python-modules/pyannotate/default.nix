@@ -18,7 +18,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [ six mypy_extensions ]
+  pythonPath = [ six mypy_extensions ]
     ++ stdenv.lib.optionals (pythonOlder "3.5") [ typing ];
 
   checkPhase = ''

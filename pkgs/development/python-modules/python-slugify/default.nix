@@ -9,7 +9,7 @@ buildPythonPackage rec {
       sha256 = "57163ffb345c7e26063435a27add1feae67fa821f1ef4b2f292c25847575d758";
     };
 
-    propagatedBuildInputs = [ text-unidecode ];
+    pythonPath = [ text-unidecode ];
 
     checkPhase = ''
       ${python.interpreter} test.py

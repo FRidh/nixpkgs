@@ -38,7 +38,7 @@ in buildPythonApplication {
     fcgi
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pyqt4
     psutil
     twisted

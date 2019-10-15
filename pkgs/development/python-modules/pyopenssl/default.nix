@@ -85,7 +85,7 @@ buildPythonPackage rec {
   doCheck = !stdenv.isDarwin;
 
   nativeBuildInputs = [ openssl ];
-  propagatedBuildInputs = [ cryptography pyasn1 idna six ];
+  pythonPath = [ cryptography pyasn1 idna six ];
 
   checkInputs = [ pytest pretend flaky glibcLocales ];
 }

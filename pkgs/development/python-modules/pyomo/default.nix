@@ -19,7 +19,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ nose ];
-  propagatedBuildInputs = [
+  pythonPath = [
     pyutilib
     appdirs
     ply

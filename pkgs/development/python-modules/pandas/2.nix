@@ -43,7 +43,7 @@ in buildPythonPackage rec {
 
   nativeBuildInputs = [ cython ];
   buildInputs = optional isDarwin libcxx;
-  propagatedBuildInputs = [
+  pythonPath = [
     dateutil
     scipy
     numexpr

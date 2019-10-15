@@ -18,7 +18,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ unittest2 ];
-  propagatedBuildInputs = [ funcsigs six pbr ];
+  pythonPath = [ funcsigs six pbr ];
 
   # On PyPy for Python 2.7 in particular, Mock's tests have a known failure.
   # Mock upstream has a decoration to disable the failing test and make

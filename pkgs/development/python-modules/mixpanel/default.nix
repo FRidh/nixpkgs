@@ -18,7 +18,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest mock ];
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
   checkPhase = "py.test tests.py";
 
   meta = with stdenv.lib; {

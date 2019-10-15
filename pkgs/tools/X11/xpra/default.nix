@@ -53,7 +53,7 @@ in buildPythonApplication rec {
     pam
     gobject-introspection
   ];
-  propagatedBuildInputs = with python3.pkgs; [
+  pythonPath = with python3.pkgs; [
     pillow rencode pycrypto cryptography pycups lz4 dbus-python
     netifaces numpy pygobject3 pycairo gst-python pam
     pyopengl paramiko opencv4 python-uinput pyxdg

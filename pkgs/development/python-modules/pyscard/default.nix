@@ -30,7 +30,7 @@ buildPythonPackage rec {
   NIX_CFLAGS_COMPILE = optionalString (! withApplePCSC)
     "-I ${getDev pcsclite}/include/PCSC";
 
-  propagatedBuildInputs = if withApplePCSC then [ PCSC ] else [ pcsclite ];
+  pythonPath = if withApplePCSC then [ PCSC ] else [ pcsclite ];
   nativeBuildInputs = [ swig ];
 
   meta = {

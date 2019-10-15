@@ -23,7 +23,7 @@ buildPythonPackage rec {
 
   patchFlags = "irclib.py";
 
-  propagatedBuildInputs = [ paver ];
+  pythonPath = [ paver ];
 
   meta = with stdenv.lib; {
     description = "Python IRC library";

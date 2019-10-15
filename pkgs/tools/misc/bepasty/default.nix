@@ -11,7 +11,7 @@ buildPythonPackage rec {
   pname = "bepasty";
   version = "0.5.0";
 
-  propagatedBuildInputs = [
+  pythonPath = [
     flask
     pygments
     xstatic

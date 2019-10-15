@@ -44,7 +44,7 @@ buildPythonPackage rec {
     HOME=$TEMPDIR pytest
   '';
 
-  propagatedBuildInputs = [ setuptools jedi pluggy future python-jsonrpc-server ]
+  pythonPath = [ setuptools jedi pluggy future python-jsonrpc-server ]
     ++ stdenv.lib.optional (withProvider "autopep8") autopep8
     ++ stdenv.lib.optional (withProvider "mccabe") mccabe
     ++ stdenv.lib.optional (withProvider "pycodestyle") pycodestyle

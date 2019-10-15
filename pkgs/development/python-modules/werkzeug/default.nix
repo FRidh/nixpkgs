@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "a13b74dd3c45f758d4ebdb224be8f1ab8ef58b3c0ffc1783a8c7d9f4f50227e6";
   };
 
-  propagatedBuildInputs = [ itsdangerous ];
+  pythonPath = [ itsdangerous ];
   checkInputs = [ pytest requests hypothesis ];
 
   checkPhase = ''

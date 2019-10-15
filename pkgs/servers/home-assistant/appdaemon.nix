@@ -11,7 +11,7 @@ let
           sha256 = "8adda6583ba438a4c70693374e10b60168663ffa6564c5c75d3c7a9055290964";
         };
         # TODO: remove after pinning aiohttp to a newer version
-        propagatedBuildInputs = with self; [ chardet multidict async-timeout yarl idna-ssl ];
+        pythonPath = with self; [ chardet multidict async-timeout yarl idna-ssl ];
         doCheck = false;
       });
 
@@ -50,7 +50,7 @@ in python.pkgs.buildPythonApplication rec {
     sha256 = "623897ce08dc2efe24d04380df36e4b7fb35c0e4007e882857d4047f0b60349d";
   };
 
-  propagatedBuildInputs = with python.pkgs; [
+  pythonPath = with python.pkgs; [
     daemonize astral requests sseclient websocket_client aiohttp yarl jinja2
     aiohttp-jinja2 pyyaml voluptuous feedparser iso8601 bcrypt paho-mqtt
   ];

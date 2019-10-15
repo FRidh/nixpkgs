@@ -15,7 +15,7 @@ pythonPackages.buildPythonApplication rec {
     sha256 = "1kgn3lway0zwwysyzpphv05j4xgxk92dk4rv1vybr2527wmvp5an";
   };
 
-  propagatedBuildInputs = with pythonPackages; [
+  pythonPath = with pythonPackages; [
     jinja2
     markupsafe
     msgpack

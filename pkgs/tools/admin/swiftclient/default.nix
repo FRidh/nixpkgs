@@ -9,7 +9,7 @@ buildPythonApplication rec {
     sha256 = "0sv6z72zdwzwdjng0djk3l2maryn9pz3khf69yq5ig2ycz8hh0qv";
   };
 
-  propagatedBuildInputs = [ requests six pbr ];
+  pythonPath = [ requests six pbr ];
 
   # For the tests the following requirements are needed:
   # https://github.com/openstack/python-swiftclient/blob/master/test-requirements.txt

@@ -20,7 +20,7 @@ buildPythonPackage rec {
     })
   ];
 
-  propagatedBuildInputs = [ numpy scipy deap scikitlearn ];
+  pythonPath = [ numpy scipy deap scikitlearn ];
 
   checkPhase = ''
     ${python.interpreter} test.py

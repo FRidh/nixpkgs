@@ -22,7 +22,7 @@ buildPythonPackage rec {
     substituteInPlace setup.py --replace "argparse" ""
   '';
 
-  propagatedBuildInputs = [ pyptlib twisted pycrypto pyyaml ];
+  pythonPath = [ pyptlib twisted pycrypto pyyaml ];
 
   # No tests in archive
   doCheck = false;

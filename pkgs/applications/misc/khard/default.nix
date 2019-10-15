@@ -30,7 +30,7 @@ in with python.pkgs; buildPythonApplication rec {
   LC_ALL = "en_US.UTF-8";
   buildInputs = [ glibcLocales ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     atomicwrites
     configobj
     vobject

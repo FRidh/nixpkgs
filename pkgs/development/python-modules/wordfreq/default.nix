@@ -30,7 +30,7 @@ buildPythonPackage {
     pytest tests -k 'not test_japanese and not test_korean and not test_languages and not test_french_and_related'
   '';
    
-  propagatedBuildInputs = [ regex langcodes ftfy msgpack mecab-python3 jieba ];
+  pythonPath = [ regex langcodes ftfy msgpack mecab-python3 jieba ];
   
   # patch to relax version requirements for regex
   # dependency to prevent break in upgrade

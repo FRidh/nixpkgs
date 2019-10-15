@@ -12,7 +12,7 @@ buildPythonApplication rec {
 
   nativeBuildInputs = [ pytestrunner flake8];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     aioh2
     dnspython
     aiohttp-remotes

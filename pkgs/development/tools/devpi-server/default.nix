@@ -9,7 +9,7 @@ python3Packages.buildPythonApplication rec {
     sha256 = "254fceee846532a5fec4e6bf52a59eb8f236efc657678a542b5200da4bb3abbc";
   };
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     py
     appdirs
     devpi-common

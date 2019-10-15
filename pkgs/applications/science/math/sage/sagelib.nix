@@ -77,7 +77,7 @@ buildPythonPackage rec {
     iml
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     cypari2
     jinja2
     numpy

@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "15v2sqm5g12bqa0c7wikfh9ck2nl97ayizy1hpqhmws5gqalq748";
   };
 
-  propagatedBuildInputs = [ docutils ];
+  pythonPath = [ docutils ];
 
   # Circular dependency with sphinx
   doCheck = false;

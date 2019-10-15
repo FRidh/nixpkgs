@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "0ag5xqlki6pjk3f50b8ar8vynx2fmkna7rfampv3kdgwg8z6gjr7";
   };
 
-  propagatedBuildInputs = [ pyasn1 ];
+  pythonPath = [ pyasn1 ];
 
   doCheck = false; # requires network
 

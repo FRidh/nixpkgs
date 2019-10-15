@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "1kkg3x92m40z0mw712z9apnrw08qsx0f9lj7lfgddkdbx4vd8v3w";
   };
 
-  propagatedBuildInputs = [ requests ];
+  pythonPath = [ requests ];
 
   checkInputs = [ pytest pytestcov mock ];
 

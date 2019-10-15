@@ -16,7 +16,7 @@ buildPythonPackage {
   disabled = pythonOlder "3.5.0";
 
   buildInputs = [ python gettext ];
-  propagatedBuildInputs = [ pyqt5 numpy scipy shapely libarcusLulzbot ];
+  pythonPath = [ pyqt5 numpy scipy shapely libarcusLulzbot ];
   nativeBuildInputs = [ cmake doxygen ];
 
   # Qt 5.12+ support; see https://code.alephobjects.com/rU70b73ba0a270799b9eacf78e400aa8b8ab3fb2ee

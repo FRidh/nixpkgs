@@ -29,7 +29,7 @@ in buildPythonPackage rec {
   };
 
   checkInputs = [ pytest mock ];
-  propagatedBuildInputs = [ numpy multipledispatch dateutil ];
+  pythonPath = [ numpy multipledispatch dateutil ];
 
   # Disable several tests
   # https://github.com/blaze/datashape/issues/232

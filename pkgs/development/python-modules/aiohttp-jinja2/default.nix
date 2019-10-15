@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "0g4pqdm2kp2abam0nx0pgs5lk19f8lsfpcgwxpigdwmy1lvblsa5";
   };
 
-  propagatedBuildInputs = [ aiohttp jinja2 ];
+  pythonPath = [ aiohttp jinja2 ];
 
   checkInputs = [ pytest pytest-aiohttp ];
 

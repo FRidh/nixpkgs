@@ -24,7 +24,7 @@ buildPythonPackage rec {
     sha256 = "b5461add4e3f35a7ee377b3d7f72ff13e93f40f3823b3208ab978b29bde936ff";
   };
 
-  propagatedBuildInputs = [ singledispatch logutils ];
+  pythonPath = [ singledispatch logutils ];
   buildInputs = [
     webtest Mako genshi Kajiki sqlalchemy gunicorn jinja2 virtualenv
   ];

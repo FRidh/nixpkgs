@@ -54,7 +54,7 @@ python3Packages.buildPythonApplication rec {
     gst-plugins-base
   ]);
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     gst-python
     pygobject3
     dbus-python

@@ -11,7 +11,7 @@ stdenv.mkDerivation {
   '';
 
   nativeBuildInputs = [ cmake wrapPython ];
-  propagatedBuildInputs = [ shiboken2 pyside2 ];
+  pythonPath = [ shiboken2 pyside2 ];
   buildInputs = [ python qt5.qtbase ];
 
   cmakeFlags = [

@@ -32,7 +32,7 @@ in buildPythonApplication rec {
 
   format = "other";
 
-  propagatedBuildInputs = [ httplib2 netifaces tornado ];
+  pythonPath = [ httplib2 netifaces tornado ];
 
   installPhase = ''
     runHook preInstall

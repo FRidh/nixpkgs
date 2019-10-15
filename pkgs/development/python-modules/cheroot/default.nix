@@ -19,7 +19,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ setuptools_scm setuptools-scm-git-archive ];
 
-  propagatedBuildInputs = [ more-itertools six backports_functools_lru_cache ];
+  pythonPath = [ more-itertools six backports_functools_lru_cache ];
 
   checkInputs = [ pytest pytestcov portend backports_unittest-mock pytest-mock pytest-testmon pyopenssl requests trustme requests-unixsocket ];
 

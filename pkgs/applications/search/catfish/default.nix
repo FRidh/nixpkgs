@@ -32,7 +32,7 @@ pythonPackages.buildPythonApplication rec {
     gobject-introspection # Temporary fix, see https://github.com/NixOS/nixpkgs/issues/56943
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pythonPackages.dbus-python
     pythonPackages.pygobject3
     pythonPackages.pexpect

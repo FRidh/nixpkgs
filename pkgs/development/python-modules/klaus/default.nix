@@ -16,7 +16,7 @@ python.pkgs.buildPythonPackage rec {
       --replace "mkdir -p \$builddir" "mkdir -p \$builddir && pwd"
   '';
 
-  propagatedBuildInputs = with python.pkgs; [
+  pythonPath = with python.pkgs; [
     six flask pygments dulwich httpauth humanize
   ];
 

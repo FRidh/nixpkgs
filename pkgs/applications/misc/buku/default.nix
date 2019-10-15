@@ -21,7 +21,7 @@ with python3.pkgs; buildPythonApplication rec {
     mypy_extensions
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     cryptography
     beautifulsoup4
     requests

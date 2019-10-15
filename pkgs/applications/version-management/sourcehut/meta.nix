@@ -15,7 +15,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = srht.nativeBuildInputs;
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pgpy
     srht
     redis

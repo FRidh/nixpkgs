@@ -36,7 +36,7 @@ buildPythonPackage rec {
     EOF
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     numpy
     scipy
     scikitlearn

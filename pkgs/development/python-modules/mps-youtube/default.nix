@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "1w1jhw9rg3dx7vp97cwrk5fymipkcy2wrbl1jaa38ivcjhqg596y";
   };
 
-  propagatedBuildInputs = [ pafy ];
+  pythonPath = [ pafy ];
 
   # disabled due to error in loading unittest
   # don't know how to make test from: <mps_youtube. ...>

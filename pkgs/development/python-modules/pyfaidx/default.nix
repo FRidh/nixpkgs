@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "1akc8hk8rlw7sv07bv1n2r471acvmxwc57gb69frjpcwggf2phls";
   };
 
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   meta = with lib; {
     homepage = "https://github.com/mdshw5/pyfaidx";

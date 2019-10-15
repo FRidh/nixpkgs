@@ -11,7 +11,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ pytestrunner ];
 
-  propagatedBuildInputs = [ flake8 pycodestyle ];
+  pythonPath = [ flake8 pycodestyle ];
 
   checkInputs = [ pytest ];
 

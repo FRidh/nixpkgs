@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "ec9a71e09ac7f43cc7b6c9d386384eb7b5c331bf6ea0e72ca559d87979397a95";
   };
 
-  propagatedBuildInputs = [ click configobj contexter jinja2 pytest ];
+  pythonPath = [ click configobj contexter jinja2 pytest ];
 
   postPatch = ''
     sed -i "s/'pip>=8,<10'/'pip'/" setup.py

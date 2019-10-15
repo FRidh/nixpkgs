@@ -29,7 +29,7 @@ buildPythonPackage rec {
     substituteInPlace setup.py --replace ", 'pytest-cov'" ""
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     Theano
     pandas
     patsy

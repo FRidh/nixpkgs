@@ -34,7 +34,7 @@ buildPythonPackage rec {
     astropy
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     semantic-version
     pyyaml
     jsonschema

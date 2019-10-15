@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "1gyxkwjnabqf8xxnkj787xh2dpcnm858g369fnahdcz1wn5hdmyp";
   };
 
-  propagatedBuildInputs = [ html5lib ];
+  pythonPath = [ html5lib ];
 
   doCheck = false;
 

@@ -19,7 +19,7 @@ buildPythonPackage rec {
   # Tests require a postgresql + postgis server
   doCheck = false;
 
-  propagatedBuildInputs = [ numpy django_colorful pillow psycopg2
+  pythonPath = [ numpy django_colorful pillow psycopg2
                             pyparsing django celery boto3 ];
 
   meta = with stdenv.lib; {

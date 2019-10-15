@@ -13,7 +13,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ mock unittest2 nose /* jira megaplan */ ];
-  propagatedBuildInputs = [
+  pythonPath = [
     twiggy requests offtrac bugzilla taskw dateutil pytz keyring six
     jinja2 pycurl dogpile_cache lockfile click pyxdg future
   ];

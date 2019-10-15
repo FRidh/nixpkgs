@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "0sf27pcz653h0cnxsg47nndilhqlw9fl019aqbnji2vn967r9rnl";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     applicationinsights
     portalocker
   ];

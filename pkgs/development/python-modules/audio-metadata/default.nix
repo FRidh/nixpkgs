@@ -21,7 +21,7 @@ buildPythonPackage rec {
       --replace "more-itertools>=4.0,<5.0" "more-itertools"
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     attrs
     bidict
     bitstruct

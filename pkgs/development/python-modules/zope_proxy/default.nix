@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "563c2454b2d0f23bca54d2e0e4d781149b7b06cb5df67e253ca3620f37202dd2";
   };
 
-  propagatedBuildInputs = [ zope_interface ];
+  pythonPath = [ zope_interface ];
 
   # circular deps
   doCheck = false;

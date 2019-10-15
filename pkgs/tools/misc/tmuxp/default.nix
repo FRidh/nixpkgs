@@ -23,7 +23,7 @@ buildPythonApplication rec {
   # No tests in archive
   doCheck = false;
 
-  propagatedBuildInputs = [
+  pythonPath = [
     click colorama kaptan libtmux
   ];
 

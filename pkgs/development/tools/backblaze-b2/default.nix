@@ -13,7 +13,7 @@ buildPythonApplication rec {
     sha256 = "1y4z4w6fj92rh9mrjsi0nmnzcmrj5jikarq2vs5qznvjdjm62igw";
   };
 
-  propagatedBuildInputs = [ arrow futures logfury requests six tqdm ];
+  pythonPath = [ arrow futures logfury requests six tqdm ];
 
   checkPhase = ''
     python test_b2_command_line.py test

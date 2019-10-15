@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "1a9vhkgnkiwkicr2s287254mrkpnw9jq5r63q820dp3h74ba4kl1";
   };
 
-  propagatedBuildInputs = [ requests ];
+  pythonPath = [ requests ];
 
   checkInputs = [ pytest pre-commit ];
 

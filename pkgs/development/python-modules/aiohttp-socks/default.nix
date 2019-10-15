@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "0473702jk66xrgpm28wbdgpnak4v0dh2qmdjw7ky7hf3lwwqkggf";
   };
 
-  propagatedBuildInputs = [ aiohttp ];
+  pythonPath = [ aiohttp ];
 
   # Checks needs internet access
   doCheck = false;

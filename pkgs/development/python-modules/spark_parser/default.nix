@@ -15,7 +15,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ nose ];
-  propagatedBuildInputs = [ click ];
+  pythonPath = [ click ];
 
   meta = with stdenv.lib; {
     description = ''An Early-Algorithm Context-free grammar Parser'';

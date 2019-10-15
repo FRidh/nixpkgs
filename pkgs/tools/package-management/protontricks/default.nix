@@ -13,7 +13,7 @@ buildPythonApplication rec {
     sha256 = "1nkhp1mnvah7zkc1s55jji9lxxbph1miw8dfl9kb72khmaqfzsf0";
   };
 
-  propagatedBuildInputs = [ vdf ];
+  pythonPath = [ vdf ];
 
   # The wine install shipped with Proton must run under steam's
   # chrootenv, but winetricks and zenity break when running under

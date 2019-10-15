@@ -15,7 +15,7 @@ buildPythonPackage rec {
   # Many tests fail (using py.test), and some need R
   doCheck = false;
 
-  propagatedBuildInputs = [
+  pythonPath = [
     scipy
     numpy
     matplotlib

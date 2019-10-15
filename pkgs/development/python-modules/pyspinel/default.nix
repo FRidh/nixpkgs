@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "0914a662d57a14bce9df21f22711b5c9b2fef37cf461be54ed35c6e229060fd4";
   };
 
-  propagatedBuildInputs = [ pyserial ipaddress future ];
+  pythonPath = [ pyserial ipaddress future ];
 
   doCheck = false;
 

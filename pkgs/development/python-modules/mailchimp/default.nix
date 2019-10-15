@@ -15,7 +15,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ docopt ];
-  propagatedBuildInputs = [ requests ];
+  pythonPath = [ requests ];
   patchPhase = ''
     sed -i 's/==/>=/' setup.py
   '';

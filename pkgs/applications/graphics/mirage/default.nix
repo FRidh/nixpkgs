@@ -19,7 +19,7 @@ pythonPackages.buildPythonApplication rec {
       sed -i "s@/usr/local/share/locale@$out/share/locale@" mirage.py
     '';
 
-    propagatedBuildInputs = with pythonPackages; [ pygtk pillow ];
+    pythonPath = with pythonPackages; [ pygtk pillow ];
 
     meta = {
       description = "Simple image viewer written in PyGTK";

@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "0znal1hi964acc8bl3z0ikscax7zziks838ld099rjsbffjwmwn5";
   };
 
-  propagatedBuildInputs = [ attrs protobuf zeroconf ];
+  pythonPath = [ attrs protobuf zeroconf ];
 
   # no tests implemented
   doCheck = false;

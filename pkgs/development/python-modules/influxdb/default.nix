@@ -18,7 +18,7 @@ buildPythonPackage rec {
 
   # ImportError: No module named tests
   doCheck = false;
-  propagatedBuildInputs = [ requests dateutil pytz six ];
+  pythonPath = [ requests dateutil pytz six ];
 
   meta = with stdenv.lib; {
     description = "Python client for InfluxDB";

@@ -11,7 +11,7 @@ python3Packages.buildPythonApplication rec {
     sha256 = "0rwjxmkpicyc9a5janvj1lfi430nq6ha94nyfgp11ds9fyydbh1s";
   };
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     ConfigArgParse
     acme
     configobj

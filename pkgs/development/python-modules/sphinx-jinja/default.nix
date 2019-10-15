@@ -10,7 +10,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ pbr ];
-  propagatedBuildInputs = [ sphinx ];
+  pythonPath = [ sphinx ];
 
   checkInputs = [ sphinx-testing nose glibcLocales ];
 

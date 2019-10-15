@@ -18,7 +18,7 @@ buildPythonPackage rec {
 
   buildInputs = [ snappy ];
 
-  propagatedBuildInputs = lib.optional isPyPy cffi;
+  pythonPath = lib.optional isPyPy cffi;
 
   checkInputs = [ nose ];
 

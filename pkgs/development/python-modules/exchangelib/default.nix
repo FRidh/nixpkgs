@@ -19,7 +19,7 @@ buildPythonPackage rec {
   # one test is failing due to it trying to send a request to example.com
   patches = [ ./skip_failing_test.patch ];
   checkInputs = [ psutil requests-mock pyyaml ];
-  propagatedBuildInputs = [
+  pythonPath = [
     lxml tzlocal python-dateutil pygments requests-kerberos
     future defusedxml cached-property isodate requests_ntlm dnspython ];
 

@@ -13,7 +13,7 @@ pythonPackages.buildPythonApplication {
     sha256 = "07ik6rm856q0ic2r7vbg6j3hsdcdgkv44hh5ck0c2y21fqwrck3l";
   };
 
-  propagatedBuildInputs = [ gamin ]
+  pythonPath = [ gamin ]
     ++ (stdenv.lib.optional stdenv.isLinux pythonPackages.systemd);
 
   preConfigure = ''

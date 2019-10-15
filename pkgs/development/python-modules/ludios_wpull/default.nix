@@ -25,7 +25,7 @@ buildPythonPackage rec {
     sha256 = "1j96avm0ynbazypzp766wh26n4qc73y7wgsiqfrdfl6x7rx20wgf";
   };
 
-  propagatedBuildInputs = [ chardet dnspython html5-parser lxml namedlist sqlalchemy tornado_4 Yapsy ];
+  pythonPath = [ chardet dnspython html5-parser lxml namedlist sqlalchemy tornado_4 Yapsy ];
 
   # Test suite has tests that fail on all platforms
   doCheck = false;

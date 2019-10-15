@@ -42,7 +42,7 @@ buildPythonPackage rec {
     gevent
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     six
     pytz
     tzlocal

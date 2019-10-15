@@ -21,7 +21,7 @@ buildPythonPackage rec {
   };
 
   nativeBuildInputs = [ pytestrunner ];
-  propagatedBuildInputs = [ falcon requests ];
+  pythonPath = [ falcon requests ];
 
   checkInputs = [ mock marshmallow pytest numpy ];
   checkPhase = ''

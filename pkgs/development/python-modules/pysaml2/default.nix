@@ -26,7 +26,7 @@ buildPythonPackage rec {
     })
   ];
 
-  propagatedBuildInputs = [ cryptography defusedxml future pyopenssl dateutil pytz requests six ];
+  pythonPath = [ cryptography defusedxml future pyopenssl dateutil pytz requests six ];
 
   checkInputs = [ mock pyasn1 pymongo pytest responses ];
 

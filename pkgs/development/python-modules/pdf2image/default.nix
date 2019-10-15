@@ -4,7 +4,7 @@ buildPythonPackage rec {
   pname = "pdf2image";
   version = "1.9.0";
 
-  propagatedBuildInputs = [ pillow poppler_utils ];
+  pythonPath = [ pillow poppler_utils ];
 
   src = fetchPypi {
     inherit pname version;

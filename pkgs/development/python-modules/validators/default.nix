@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "1bhla1l8gbks572zp4f254acz23822dz2mp122djxvp328i87b7h";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     six
     decorator
   ];

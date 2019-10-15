@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "45bce530ff5fd0ca93703f71bfb66de740a894a3b5dd6122398c6d8f18539725";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     frozendict simplejson six
   ];
 

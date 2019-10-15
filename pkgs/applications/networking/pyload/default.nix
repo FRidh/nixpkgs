@@ -33,7 +33,7 @@ in pythonPackages.buildPythonApplication rec {
     unrar rhino spidermonkey gocr pythonPackages.paver
   ];
 
-  propagatedBuildInputs = with pythonPackages; [
+  pythonPath = with pythonPackages; [
     pycurl jinja2 beaker thrift simplejson pycrypto feedparser tkinter
     beautifulsoup send2trash
   ];

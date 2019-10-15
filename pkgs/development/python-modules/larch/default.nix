@@ -17,7 +17,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ sphinx ];
-  propagatedBuildInputs = [ tracing ttystatus cliapp ];
+  pythonPath = [ tracing ttystatus cliapp ];
 
   # error: invalid command 'test'
   doCheck = false;

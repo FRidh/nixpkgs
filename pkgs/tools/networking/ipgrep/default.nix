@@ -17,7 +17,7 @@ pythonPackages.buildPythonApplication rec {
       --replace "'scripts': []" "'scripts': { '${pname}.py' }"
   '';
 
-  propagatedBuildInputs = with pythonPackages; [
+  pythonPath = with pythonPackages; [
     pycares
     urllib3
     requests

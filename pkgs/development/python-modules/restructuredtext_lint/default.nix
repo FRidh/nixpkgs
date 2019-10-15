@@ -16,7 +16,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ nose testtools ];
-  propagatedBuildInputs = [ docutils ];
+  pythonPath = [ docutils ];
 
   checkPhase = ''
     nosetests --nocapture

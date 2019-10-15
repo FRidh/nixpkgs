@@ -13,7 +13,7 @@ buildPythonPackage {
 
   nativeBuildInputs = [ lndir sip qtbase ];
   buildInputs = [ qscintilla ];
-  propagatedBuildInputs = [ pyqt5 ];
+  pythonPath = [ pyqt5 ];
 
   postPatch = ''
     substituteInPlace Python/configure.py \

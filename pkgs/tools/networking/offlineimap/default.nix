@@ -23,7 +23,7 @@ python2Packages.buildPythonApplication rec {
   doCheck = false;
 
   nativeBuildInputs = [ asciidoc libxml2 libxslt docbook_xsl ];
-  propagatedBuildInputs = with python2Packages; [ six kerberos ];
+  pythonPath = with python2Packages; [ six kerberos ];
 
   postInstall = ''
     make -C docs man

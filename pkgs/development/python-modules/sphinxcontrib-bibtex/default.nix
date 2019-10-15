@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "0af7651hfjh4hv97xns4vpf8n3kqy7ghyjlkfda5wxw56hxgp6hn";
   };
 
-  propagatedBuildInputs = [ oset pybtex pybtex-docutils sphinx ];
+  pythonPath = [ oset pybtex pybtex-docutils sphinx ];
 
   meta = {
     description = "A Sphinx extension for BibTeX style citations";

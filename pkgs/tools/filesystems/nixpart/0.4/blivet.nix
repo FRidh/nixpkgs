@@ -34,7 +34,7 @@ buildPythonApplication rec {
     }' blivet/pyudev.py
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pykickstart pyparted pyblock libselinux.py cryptsetup
   ] ++ stdenv.lib.optional useNixUdev systemd;
 

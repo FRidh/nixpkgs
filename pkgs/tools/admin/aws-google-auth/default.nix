@@ -30,7 +30,7 @@ buildPythonApplication rec {
     sha256 = "0blsvdkb28g1s3c7f8brjjai7lq9ij76xqr5z6zlxxafc4qqwhh3";
   };
 
-  propagatedBuildInputs = [ 
+  pythonPath = [ 
     beautifulsoup4
     boto3
     configparser

@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "1v8pcx43fgidv1g54s92k85anvcss08blkhm4yi1hn1ybl0mmw6c";
   };
 
-  propagatedBuildInputs = [ six pycryptodome chardet sortedcontainers ];
+  pythonPath = [ six pycryptodome chardet sortedcontainers ];
 
   checkInputs = [ nose pytest ];
   checkPhase = ''

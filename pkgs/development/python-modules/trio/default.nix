@@ -29,7 +29,7 @@ buildPythonPackage rec {
   checkPhase = ''
     HOME="$(mktemp -d)" py.test -k 'not test_getnameinfo and not test_SocketType_resolve and not test_getprotobyname and not test_waitpid'
   '';
-  propagatedBuildInputs = [
+  pythonPath = [
     attrs
     sortedcontainers
     async_generator

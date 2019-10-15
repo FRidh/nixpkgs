@@ -21,7 +21,7 @@ buildPythonPackage rec {
     sha256 = "16aj5ryjic1k3qn8xhpw6crczvxcs691vs5kv4pvb1zdx69g1xbv";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     matplotlib
     numpy
     pipdate

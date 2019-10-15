@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "0w53hjgag6ad5i2vmrys8ysk54agsqvgbjy9lg8g0d8pi9h8vx7s";
   };
 
-  propagatedBuildInputs = [ faker ];
+  pythonPath = [ faker ];
 
   # tests not included with pypi release
   doCheck = false;

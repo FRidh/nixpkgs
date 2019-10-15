@@ -33,7 +33,7 @@ buildPythonPackage rec {
     LANG=en_US.utf-8 py.test blessed/tests
   '';
 
-  propagatedBuildInputs = [ wcwidth six ];
+  pythonPath = [ wcwidth six ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/jquast/blessed;

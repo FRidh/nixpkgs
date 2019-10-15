@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "7e124fad5203b748005e952cf33b44695dbb9d92f5e0dc5443e7ca0db817f400";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     cloudpickle
     ipykernel
     wurlitzer

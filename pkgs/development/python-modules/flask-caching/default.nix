@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "17jnnmnpdflv120yhsfbnpick06iias6f2hcxmf1mi1nr35kdqjj";
   };
 
-  propagatedBuildInputs = [ flask ];
+  pythonPath = [ flask ];
 
   checkInputs = [ pytest pytestcov pytest-xprocess ];
 

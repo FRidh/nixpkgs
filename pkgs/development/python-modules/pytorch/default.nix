@@ -90,7 +90,7 @@ in buildPythonPackage rec {
   ] ++ lib.optionals cudaSupport [ cudnn ]
     ++ lib.optionals stdenv.isLinux [ numactl ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     cffi
     numpy
     pyyaml

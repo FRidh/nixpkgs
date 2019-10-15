@@ -19,7 +19,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest mock ];
-  propagatedBuildInputs = [ grpcio-gcp grpc_google_iam_v1 google_api_core google_cloud_core ];
+  pythonPath = [ grpcio-gcp grpc_google_iam_v1 google_api_core google_cloud_core ];
 
   checkPhase = ''
     pytest tests/unit

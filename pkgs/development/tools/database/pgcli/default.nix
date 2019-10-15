@@ -14,7 +14,7 @@ buildPythonApplication rec {
     sha256 = "1jmnb8izsdjmq9cgajhfapr31wlhvcml4lakz2mcmjn355x83q44";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     cli-helpers click configobj humanize prompt_toolkit psycopg2
     pygments sqlparse pgspecial setproctitle keyring
   ];

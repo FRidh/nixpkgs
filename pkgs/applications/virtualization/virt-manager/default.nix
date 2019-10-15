@@ -35,7 +35,7 @@ python3Packages.buildPythonApplication rec {
     gobject-introspection # Temporary fix, see https://github.com/NixOS/nixpkgs/issues/56943
   ] ++ optional spiceSupport spice-gtk;
 
-  propagatedBuildInputs = with python3Packages;
+  pythonPath = with python3Packages;
     [
       pygobject3 ipaddress libvirt libxml2 requests
     ];

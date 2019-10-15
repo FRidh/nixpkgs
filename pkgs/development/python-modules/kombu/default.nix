@@ -15,7 +15,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest case pytz Pyro4 ];
 
-  propagatedBuildInputs = [ amqp ];
+  pythonPath = [ amqp ];
 
   meta = with lib; {
     description = "Messaging library for Python";

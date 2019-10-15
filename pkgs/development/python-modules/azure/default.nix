@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "7d6afa332fccffe1a9390bcfac5122317eec657c6029f144d794603a81cd0e50";
   };
 
-  propagatedBuildInputs = [ dateutil pyopenssl requests ]
+  pythonPath = [ dateutil pyopenssl requests ]
                             ++ pkgs.lib.optionals (!isPy3k) [ futures ];
 
   # depends on futures for python 3 (not necissary)

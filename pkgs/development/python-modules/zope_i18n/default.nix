@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "229de41f751dae36b1ef9fa284bc548ef40169234bf0d2199e41581e16304621";
   };
 
-  propagatedBuildInputs = [ pytz zope_component ];
+  pythonPath = [ pytz zope_component ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/zopefoundation/zope.i18n;

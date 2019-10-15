@@ -22,7 +22,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ nose ] ++ lib.optionals isPy27 [mock];
-  propagatedBuildInputs = [traitlets jupyter_core jupyter_client pygments ipykernel pyqt5];
+  pythonPath = [traitlets jupyter_core jupyter_client pygments ipykernel pyqt5];
 
   # : cannot connect to X server
   doCheck = false;

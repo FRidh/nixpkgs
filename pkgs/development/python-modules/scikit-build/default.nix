@@ -15,7 +15,7 @@ buildPythonPackage rec {
   # Fixes incorrect specified requirement (part of next release)
   patches = [ ./fix_pytestrunner_req.patch ];
 
-  propagatedBuildInputs = [ wheel setuptools packaging ];
+  pythonPath = [ wheel setuptools packaging ];
   checkInputs = [ 
     cmake ninja cython codecov coverage six pathpy
     pytest pytestcov pytest-mock pytest-virtualenv pytestrunner

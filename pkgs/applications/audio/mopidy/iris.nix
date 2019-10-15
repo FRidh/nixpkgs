@@ -9,7 +9,7 @@ pythonPackages.buildPythonApplication rec {
     sha256 = "1cn68zmyvig114dsw7vhx761v9c1za3wnbq4y2z0f0cbl958n49v";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     mopidy
     mopidy-local-images
   ] ++ (with pythonPackages; [

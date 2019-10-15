@@ -17,7 +17,7 @@ buildPythonPackage rec {
   # Tests require files not included in the PyPI archive.
   doCheck = false;
 
-  propagatedBuildInputs = [
+  pythonPath = [
     beautifulsoup4
     bottle
     chardet

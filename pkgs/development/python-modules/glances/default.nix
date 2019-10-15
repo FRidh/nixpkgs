@@ -30,7 +30,7 @@ buildPythonPackage rec {
   doCheck = true;
   checkInputs = [ unittest2 ];
 
-  propagatedBuildInputs = [ psutil setuptools bottle batinfo pysnmp hddtemp future
+  pythonPath = [ psutil setuptools bottle batinfo pysnmp hddtemp future
     netifaces
   ];
 

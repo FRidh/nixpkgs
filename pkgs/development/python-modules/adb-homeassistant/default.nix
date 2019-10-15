@@ -20,7 +20,7 @@ buildPythonPackage {
 
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     libusb1
     rsa
     pycryptodome

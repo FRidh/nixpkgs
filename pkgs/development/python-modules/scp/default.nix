@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "1crlpw9lnn58fs1c1rmh7s7s9y5gkgpgjsqlvg9qa51kq1knx7gg";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     paramiko
   ];
 

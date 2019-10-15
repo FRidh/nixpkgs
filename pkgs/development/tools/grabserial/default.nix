@@ -11,7 +11,7 @@ pythonPackages.buildPythonApplication rec {
     sha256 = "1xmy3js4hzsxlkxc172hkjzxsc34mmg3vfz61h24c7svmfzyhbd5";
   };
 
-  propagatedBuildInputs = [ pythonPackages.pyserial ];
+  pythonPath = [ pythonPackages.pyserial ];
 
   meta = with lib; {
     description = "Python based serial dump and timing program";

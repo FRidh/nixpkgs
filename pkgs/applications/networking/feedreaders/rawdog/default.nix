@@ -9,7 +9,7 @@ python2Packages.buildPythonApplication rec {
     sha256 = "18nyg19mwxyqdnykplkqmzb4n27vvrhvp639zai8f81gg9vdbsjp";
   };
 
-  propagatedBuildInputs = with python2Packages; [ feedparser ];
+  pythonPath = with python2Packages; [ feedparser ];
 
   namePrefix = "";
 

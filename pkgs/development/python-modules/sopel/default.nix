@@ -21,7 +21,7 @@ buildPythonPackage rec {
     sha256 = "1arldn3p2yp09wnn2cw50r5ri303d5jdsjnf6lgfl82jhfmk49a2";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     dnspython
     geoip2
     ipython

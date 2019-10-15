@@ -30,7 +30,7 @@ buildPythonPackage rec {
     setuptools_scm
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     colorama
     pyperclip
     six

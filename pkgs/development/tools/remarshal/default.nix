@@ -9,7 +9,7 @@ python3Packages.buildPythonApplication rec {
     sha256 = "1prpczb8q996i5sf27vfmp0nv85zwsiajnf9jbjkhm0k21wfvmdd";
   };
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     dateutil pytoml pyyaml
   ];
 

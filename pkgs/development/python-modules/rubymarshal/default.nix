@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "0gq344jlb9wkapzpxj7jqwjlc5ccdhhspkw6rfb1d0rammq6hpf6";
   };
 
-  propagatedBuildInputs = [ hypothesis ];
+  pythonPath = [ hypothesis ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/d9pouces/RubyMarshal/;

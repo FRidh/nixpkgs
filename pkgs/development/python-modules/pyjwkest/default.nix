@@ -18,5 +18,5 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ pytest ];
-  propagatedBuildInputs = [ future pycryptodomex requests six ];
+  pythonPath = [ future pycryptodomex requests six ];
 }

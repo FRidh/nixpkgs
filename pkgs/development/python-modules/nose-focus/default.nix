@@ -5,7 +5,7 @@ buildPythonPackage rec {
   pname = "nose-focus";
   version = "0.1.3";
 
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   checkInputs = [ nose nose-of-yeti nose-pattern-exclude which ];
 

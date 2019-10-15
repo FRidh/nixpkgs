@@ -1012,7 +1012,7 @@ in {
   /*
     `pyqt5_with_qtwebkit` should not be used by python libraries in
     pkgs/development/python-modules/*. Putting this attribute in
-    `propagatedBuildInputs` may cause collisions.
+    `pythonPath` may cause collisions.
   */
   pyqt5_with_qtwebkit = self.pyqt5.override { withWebKit = true; };
 
@@ -2970,7 +2970,7 @@ in {
       inherit pname version;
       sha256 = "0617azpmp6jpg3d88v2ir97qrc9aqcs2s9gyvv9bgf2cp55khxhs";
     };
-    propagatedBuildInputs = with self; [ django ];
+    pythonPath = with self; [ django ];
   });
 
   django_classytags = callPackage ../development/python-modules/django_classytags { };

@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "af2cdb34eefe6edbf43ce19200880829e8c2df3598000e75dc63c9b7e3478706";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     flask
     flask-silk
     future

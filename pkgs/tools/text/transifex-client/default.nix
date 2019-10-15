@@ -5,7 +5,7 @@ buildPythonApplication rec {
   pname = "transifex-client";
   version = "0.13.6";
 
-  propagatedBuildInputs = [
+  pythonPath = [
     urllib3 requests python-slugify six setuptools
   ];
 

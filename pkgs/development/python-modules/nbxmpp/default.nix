@@ -14,7 +14,7 @@ in buildPythonPackage {
     sha256 = "1w31a747mj9rvlp3n20z0fnvyvihphkgkyr22sk2kap3migw8vai";
   };
 
-  propagatedBuildInputs = [ pyopenssl ];
+  pythonPath = [ pyopenssl ];
 
   checkPhase = ''
     # Disable tests requiring networking

@@ -32,7 +32,7 @@ buildPythonPackage rec {
     factory_boy
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pandas
     numpy
     requests

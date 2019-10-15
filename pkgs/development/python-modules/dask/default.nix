@@ -25,7 +25,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [
+  pythonPath = [
     bokeh cloudpickle dill fsspec numpy pandas partd toolz ];
 
   checkPhase = ''

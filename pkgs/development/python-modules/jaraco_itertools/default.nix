@@ -14,7 +14,7 @@ buildPythonPackage rec {
   patches = [ ./0001-Don-t-run-flake8-checks-during-the-build.patch ];
 
   buildInputs = [ setuptools_scm ];
-  propagatedBuildInputs = [ inflect more-itertools six ];
+  pythonPath = [ inflect more-itertools six ];
   checkInputs = [ pytest ];
 
   checkPhase = ''

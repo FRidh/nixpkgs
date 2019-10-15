@@ -18,7 +18,7 @@ buildPythonPackage rec {
   doCheck = !(isPy27);
 
   checkInputs = [ six ];
-  propagatedBuildInputs = [ nose colorama termstyle ];
+  pythonPath = [ nose colorama termstyle ];
 
   meta = with stdenv.lib; {
     description = "A python nose plugin adding color to console results";

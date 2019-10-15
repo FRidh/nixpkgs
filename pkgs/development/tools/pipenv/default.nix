@@ -21,7 +21,7 @@ buildPythonApplication rec {
 
   LC_ALL = "en_US.UTF-8";
 
-  propagatedBuildInputs = [
+  pythonPath = [
     flake8
     invoke
     parver

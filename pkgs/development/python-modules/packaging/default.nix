@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "0c98a5d0be38ed775798ece1b9727178c4469d9c3b4ada66e8e6b7849f8732af";
   };
 
-  propagatedBuildInputs = [ pyparsing six ];
+  pythonPath = [ pyparsing six ];
 
   checkInputs = [ pytest pretend ];
 

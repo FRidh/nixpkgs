@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "0h4drpdsmk0b3rlvg6q6cz11k23w0swj1iddk7xdcw4m7r7c52kw";
   };
 
-  propagatedBuildInputs = [ requests jsonpickle ];
+  pythonPath = [ requests jsonpickle ];
 
   # Package doesn't distribute tests.
   doCheck = false;

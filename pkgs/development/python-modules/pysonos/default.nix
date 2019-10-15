@@ -22,7 +22,7 @@ buildPythonPackage rec {
     sha256 = "0kc2j2wl1bblqzay9gd3frd3imvylxjkqrp6jxixc4kmiivbg8h8";
   };
 
-  propagatedBuildInputs = [ xmltodict requests ifaddr ];
+  pythonPath = [ xmltodict requests ifaddr ];
 
   checkInputs = [
     pytest pylint flake8 graphviz

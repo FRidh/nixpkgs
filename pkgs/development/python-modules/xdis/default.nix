@@ -16,7 +16,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [ six click ];
+  pythonPath = [ six click ];
 
   checkPhase = ''
     make check

@@ -24,7 +24,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest pytestrunner glibcLocales ];
-  propagatedBuildInputs = [ cairo cffi ] ++ lib.optional withXcffib xcffib;
+  pythonPath = [ cairo cffi ] ++ lib.optional withXcffib xcffib;
 
   checkPhase = ''
     py.test $out/${python.sitePackages}

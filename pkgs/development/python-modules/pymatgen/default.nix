@@ -10,7 +10,7 @@ buildPythonPackage rec {
   };
 
   nativeBuildInputs = [ glibcLocales ];
-  propagatedBuildInputs = [ numpy pydispatcher sympy requests monty ruamel_yaml six scipy tabulate enum34 matplotlib palettable spglib pandas networkx ];
+  pythonPath = [ numpy pydispatcher sympy requests monty ruamel_yaml six scipy tabulate enum34 matplotlib palettable spglib pandas networkx ];
 
   # No tests in pypi tarball.
   doCheck = false;

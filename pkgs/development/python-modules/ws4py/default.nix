@@ -11,7 +11,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest mock git ];
-  propagatedBuildInputs = [ cherrypy gevent tornado ];
+  pythonPath = [ cherrypy gevent tornado ];
 
   checkPhase = ''
     pytest

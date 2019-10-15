@@ -14,7 +14,7 @@ buildPythonPackage rec {
       --replace "from fritzconnection import" "from .fritzconnection import"
   '';
 
-  propagatedBuildInputs = [ lxml requests tkinter ];
+  pythonPath = [ lxml requests tkinter ];
 
   meta = with stdenv.lib; {
     description = "Python-Tool to communicate with the AVM FritzBox using the TR-064 protocol";

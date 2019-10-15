@@ -37,7 +37,7 @@ buildPythonPackage rec {
     done
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pycrypto paramiko jinja2 pyyaml httplib2 boto
     six netaddr dnspython jmespath dopy
   ] ++ lib.optional windowsSupport pywinrm;

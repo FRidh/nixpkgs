@@ -26,7 +26,7 @@ buildPythonPackage rec {
     sha256 = "3a0b79dae6924be0a79669c881a9a1d4817997ad2f81a0f3b1cd03d70aebb071";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     multipledispatch
     numpy
     pandas

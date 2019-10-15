@@ -20,7 +20,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ pytestrunner ];
   checkInputs = [ pandas pyarrow pytest h5py ];
-  propagatedBuildInputs = [ numpy ];
+  pythonPath = [ numpy ];
 
   checkPhase = ''
     py.test

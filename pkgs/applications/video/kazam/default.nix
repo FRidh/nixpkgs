@@ -17,7 +17,7 @@ python3.pkgs.buildPythonApplication rec {
     keybinder3 libappindicator-gtk3
   ];
 
-  propagatedBuildInputs = with python3.pkgs; [ pygobject3 pyxdg pycairo dbus-python ];
+  pythonPath = with python3.pkgs; [ pygobject3 pyxdg pycairo dbus-python ];
 
   patches = [
     # Fix paths

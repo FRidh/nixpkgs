@@ -54,7 +54,7 @@ buildPythonPackage rec {
     "tesseract:TestTxt.test_japanese"
   ];
 
-  propagatedBuildInputs = [ pillow six ];
+  pythonPath = [ pillow six ];
   checkInputs = [ pytest tox ];
   checkPhase = "pytest";
 

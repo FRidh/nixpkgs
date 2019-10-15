@@ -12,7 +12,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytestpep8 pytest ];
   nativeBuildInputs = [ pytest ];
-  propagatedBuildInputs = [ pyflakes ];
+  pythonPath = [ pyflakes ];
 
   # disable one test case that looks broken
   checkPhase = ''

@@ -21,7 +21,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest ];
 
-  propagatedBuildInputs = [ black toml python-language-server ];
+  pythonPath = [ black toml python-language-server ];
 
   meta = with lib; {
     homepage = https://github.com/rupert/pyls-black;

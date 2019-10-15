@@ -11,7 +11,7 @@ buildPythonPackage rec {
 
   LC_ALL = "en_US.utf-8";
 
-  propagatedBuildInputs = [ numpy spglib future ];
+  pythonPath = [ numpy spglib future ];
 
   nativeBuildInputs = [ glibcLocales ];
 

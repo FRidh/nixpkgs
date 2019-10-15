@@ -28,7 +28,7 @@ buildPythonPackage rec {
   nativeBuildInputs = [ swig2 ];
   buildInputs = [ swig2 openssl ];
 
-  propagatedBuildInputs = [ typing ];
+  pythonPath = [ typing ];
 
   preConfigure = ''
     substituteInPlace setup.py --replace "self.openssl = '/usr'" "self.openssl = '${openssl.dev}'"

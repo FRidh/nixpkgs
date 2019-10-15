@@ -11,7 +11,7 @@ python3Packages.buildPythonApplication rec {
     sha256 = "1865p3yczgpq8gvgh4cpgbx2ibc1fwycd7pagga9sj8r3q0giqyk";
   };
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     appdirs
     cssselect
     keyring

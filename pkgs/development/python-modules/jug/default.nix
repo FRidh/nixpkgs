@@ -7,7 +7,7 @@ buildPythonPackage rec {
   pname = "Jug";
   version = "1.6.9";
   buildInputs = [ nose numpy ];
-  propagatedBuildInputs = [
+  pythonPath = [
     bottle
     pyyaml
     redis

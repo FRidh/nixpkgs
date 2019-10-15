@@ -17,7 +17,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ cmake swig git setuptools ];
   buildInputs = [ boost udev ];
-  propagatedBuildInputs = [ enum34 wrapt future ];
+  pythonPath = [ enum34 wrapt future ];
 
   patches = [
     # build system expects case-insensitive file system

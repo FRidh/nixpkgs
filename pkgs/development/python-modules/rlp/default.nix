@@ -10,7 +10,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest hypothesis ];
-  propagatedBuildInputs = [ eth-utils ];
+  pythonPath = [ eth-utils ];
 
   # setuptools-markdown uses pypandoc which is broken at the moment
   preConfigure = ''

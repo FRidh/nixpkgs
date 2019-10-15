@@ -12,7 +12,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ beautifulsoup4 vcrpy mock ];
-  propagatedBuildInputs = [ django-mailman3 ];
+  pythonPath = [ django-mailman3 ];
 
   checkPhase = ''
     cd $NIX_BUILD_TOP/$sourceRoot

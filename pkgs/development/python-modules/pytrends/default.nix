@@ -17,7 +17,7 @@ buildPythonPackage rec {
 
   doCheck = false;
 
-  propagatedBuildInputs = [ requests lxml pandas ];
+  pythonPath = [ requests lxml pandas ];
 
   meta = with stdenv.lib; {
     description = "Pseudo API for Google Trends";

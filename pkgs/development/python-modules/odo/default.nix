@@ -27,7 +27,7 @@ buildPythonPackage rec {
     dask
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     datashape
     numpy
     pandas

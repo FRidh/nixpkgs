@@ -23,7 +23,7 @@ buildPythonPackage rec {
 
   outputs = [ "out" "dev" ];
 
-  propagatedBuildInputs =
+  pythonPath =
     [ botocore
     ] ++ stdenv.lib.optional (pythonOlder "3") futures;
 

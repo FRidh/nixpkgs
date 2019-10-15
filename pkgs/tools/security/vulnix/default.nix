@@ -19,7 +19,7 @@ pythonPackages.buildPythonApplication rec {
     pytest-flake8
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     nix
   ] ++ (with pythonPackages; [
     click

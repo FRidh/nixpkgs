@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "17fb8814100fbaf7a79468baa432184db6cef3bbea4ad194fe297c7407d50108";
   };
 
-  propagatedBuildInputs = [ aiohttp websockets pynacl ];
+  pythonPath = [ aiohttp websockets pynacl ];
   patchPhase = ''
     substituteInPlace "requirements.txt" \
       --replace "aiohttp>=1.0.0,<1.1.0" "aiohttp"

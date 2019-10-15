@@ -60,7 +60,7 @@ python3Packages.buildPythonApplication rec {
       paperwork-shell chkdeps paperwork
   '';
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     paperwork-backend pypillowfight gtk3 cairo pyxdg dateutil setuptools
   ];
 

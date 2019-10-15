@@ -23,7 +23,7 @@ buildPythonPackage rec {
     setuptools_scm
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pyfiglet
     pillow
     wcwidth

@@ -21,7 +21,7 @@ buildPythonPackage rec {
   };
 
   nativeBuildInputs = [ setuptools_scm ];
-  propagatedBuildInputs = [ sphinx ];
+  pythonPath = [ sphinx ];
 
   checkInputs = [
     hypothesis

@@ -11,7 +11,7 @@ python3Packages.buildPythonApplication rec {
     sha256 = "0pdra1idgas3yl9z9v7b002igwg2c1mv0yw2ffb8rsbx88x4gbai";
   };
 
-  propagatedBuildInputs = with python3Packages; [ mutagen mpd2 ];
+  pythonPath = with python3Packages; [ mutagen mpd2 ];
 
   # upstream doesn't contain a test suite
   doCheck = false;

@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "0a2c00bncf68havs3msra6jkx8frbv3yal56mk85wnkwhzlahj0c";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pyyaml
     nbformat
   ] ++ lib.optionals isPy27 [ mock ]; # why they put it in install_requires, who knows

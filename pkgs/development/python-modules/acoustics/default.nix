@@ -6,7 +6,7 @@ buildPythonPackage rec {
   version = "0.2.1";
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [ numpy scipy matplotlib pandas tabulate ];
+  pythonPath = [ numpy scipy matplotlib pandas tabulate ];
 
   src = fetchPypi {
     inherit pname version;

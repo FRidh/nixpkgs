@@ -41,7 +41,7 @@ python3Packages.buildPythonApplication rec {
 
   doCheck = true;
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     feedparser
     dbus-python
     mygpoclient

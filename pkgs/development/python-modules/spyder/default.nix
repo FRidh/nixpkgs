@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "1z7qw1h3rhca12ycv8xrzw6z2gf81v0j6lfq9kpwh472w4vk75v1";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     jedi pycodestyle psutil pyflakes rope numpy scipy matplotlib pylint keyring
     numpydoc qtconsole qtawesome nbconvert mccabe pyopengl cloudpickle spyder-kernels
     pygments qtpy pyzmq chardet pyqtwebengine

@@ -25,7 +25,7 @@ buildPythonApplication rec {
   '';
 
   buildInputs = [ docutils pygments ];
-  propagatedBuildInputs = [ less patchutils ];
+  pythonPath = [ less patchutils ];
   checkInputs = [ coverage coreutils git subversion which ];
 
   checkTarget = if isPy3k then "test3" else "test";

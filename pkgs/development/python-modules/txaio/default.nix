@@ -11,7 +11,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest mock ];
 
-  propagatedBuildInputs = [ six twisted ];
+  pythonPath = [ six twisted ];
 
   checkPhase = ''
     py.test -k "not test_sdist"

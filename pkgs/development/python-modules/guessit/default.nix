@@ -19,7 +19,7 @@ buildPythonPackage rec {
   # Tests require more packages.
   doCheck = false;
   buildInputs = [ pytestrunner ];
-  propagatedBuildInputs = [
+  pythonPath = [
     dateutil babelfish rebulk
   ];
 

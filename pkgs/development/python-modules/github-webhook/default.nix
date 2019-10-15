@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "04jdf595gv97s4br0ym8izca3i6d1nfwcrpi4s26hkvn3czz84sv";
   };
 
-  propagatedBuildInputs = [ flask six ];
+  pythonPath = [ flask six ];
 
   # touches network
   doCheck = false;

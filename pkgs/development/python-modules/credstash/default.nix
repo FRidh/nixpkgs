@@ -19,7 +19,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ nose ];
 
-  propagatedBuildInputs = [ cryptography boto3 pyyaml docutils ];
+  pythonPath = [ cryptography boto3 pyyaml docutils ];
 
   # No tests in archive
   doCheck = false;

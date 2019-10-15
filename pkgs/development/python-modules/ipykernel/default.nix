@@ -22,7 +22,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest nose ];
-  propagatedBuildInputs = [ ipython jupyter_client traitlets tornado ];
+  pythonPath = [ ipython jupyter_client traitlets tornado ];
 
   # https://github.com/ipython/ipykernel/pull/377
   patches = [

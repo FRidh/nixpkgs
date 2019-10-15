@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "2ec845845d51221e39d0d753884a19342c953f39febf3148a68631bf57ecb774";
   };
 
-  propagatedBuildInputs = [ jupyterlab_server notebook ];
+  pythonPath = [ jupyterlab_server notebook ];
 
   makeWrapperArgs = [
     "--set" "JUPYTERLAB_DIR" "$out/share/jupyter/lab"

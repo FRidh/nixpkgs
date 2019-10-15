@@ -18,7 +18,7 @@ buildPythonPackage rec {
     ./slugify_filename_test.patch # fixes broken test by new unidecode
   ];
 
-  propagatedBuildInputs = [ unidecode regex ];
+  pythonPath = [ unidecode regex ];
 
   checkPhase = ''
       ${python.interpreter} -m unittest discover

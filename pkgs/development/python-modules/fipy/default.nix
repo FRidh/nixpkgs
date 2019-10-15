@@ -29,7 +29,7 @@ in
       sha256 = "11agpg3d6yrns8igkpml1mxy3mkqkjq2yrw1mw12y07dkk12ii19";
     };
 
-    propagatedBuildInputs = [
+    pythonPath = [
       numpy
       scipy
       pyamg

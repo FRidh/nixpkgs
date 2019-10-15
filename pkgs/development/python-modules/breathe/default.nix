@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "08xs1cqpvcv7735j19c35br34gbwzfn89rkg12n2yfz4af0x3xfp";
   };
 
-  propagatedBuildInputs = [ docutils six sphinx ];
+  pythonPath = [ docutils six sphinx ];
 
   doCheck = !isPy3k;
 

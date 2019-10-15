@@ -20,7 +20,7 @@ python2Packages.buildPythonApplication rec {
     sha256 = "43759d22b061a7a392a534d19a045fafd442ce98a0e390ee830127367dcaf4b4";
   };
   nativeBuildInputs = [ pkgconfig gobject-introspection ];
-  propagatedBuildInputs = with python2Packages; [
+  pythonPath = with python2Packages; [
     chardet
     dateutil
     pygtk

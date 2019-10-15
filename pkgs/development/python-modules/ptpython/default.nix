@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "1m34jbwj3j3762mg1vynpgciqw4kqdzdqjvd62mwhbjkly7ddsgb";
   };
 
-  propagatedBuildInputs = [ prompt_toolkit docopt jedi pygments ];
+  pythonPath = [ prompt_toolkit docopt jedi pygments ];
 
   # no tests to run
   doCheck = false;

@@ -17,7 +17,7 @@ buildPythonApplication rec {
     sha256 = "1551knh2f7yarqzcpip16ijmbx8kzdna8cihxlxx49ww55f5sg67";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     click
     colorama
     requests

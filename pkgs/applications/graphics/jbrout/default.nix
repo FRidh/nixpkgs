@@ -31,7 +31,7 @@ in pythonPackages.buildPythonApplication rec {
   '';
 
   buildInputs = [ python makeWrapper which ];
-  propagatedBuildInputs = with pythonPackages; [ pillow lxml pyGtkGlade pyexiv2 fbida ];
+  pythonPath = with pythonPackages; [ pillow lxml pyGtkGlade pyexiv2 fbida ];
 
   meta = {
     homepage = https://manatlan.com/jbrout/;

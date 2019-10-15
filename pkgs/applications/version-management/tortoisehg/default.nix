@@ -28,7 +28,7 @@ in python2Packages.buildPythonApplication {
 
     pythonPath = with python2Packages; [ pyqt4 mercurial qscintilla iniparse ];
 
-    propagatedBuildInputs = with python2Packages; [ qscintilla iniparse ];
+    pythonPath = with python2Packages; [ qscintilla iniparse ];
 
     doCheck = false; # tests fail with "thg: cannot connect to X server"
     dontStrip = true;

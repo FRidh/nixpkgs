@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "5009e831dcec22f3ff00e89405249d6a838d1449a46ac8224907aa5b0e0b1aec";
   };
 
-  propagatedBuildInputs = [ grpcio googleapis_common_protos ];
+  pythonPath = [ grpcio googleapis_common_protos ];
 
   meta = with stdenv.lib; {
     description = "GRPC library for the google-iam-v1 service";

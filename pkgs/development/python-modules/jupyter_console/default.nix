@@ -21,7 +21,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ nose ];
-  propagatedBuildInputs = [
+  pythonPath = [
     jupyter_client
     ipython
     ipykernel

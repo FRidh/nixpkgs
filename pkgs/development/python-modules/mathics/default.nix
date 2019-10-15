@@ -38,7 +38,7 @@ if (stdenv.lib.versionOlder django.version "1.8") ||
     patchPythonScript $out/${python.sitePackages}/mathics/manage.py
   '';
 
-  propagatedBuildInputs = [ cython sympy django ply mpmath dateutil colorama six ];
+  pythonPath = [ cython sympy django ply mpmath dateutil colorama six ];
 
   meta = with stdenv.lib; {
     description = "A general-purpose computer algebra system";

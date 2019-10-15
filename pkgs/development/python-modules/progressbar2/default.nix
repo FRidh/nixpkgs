@@ -28,7 +28,7 @@ buildPythonPackage rec {
     rm tests/*.pyc
   '';
 
-  propagatedBuildInputs = [ python-utils ];
+  pythonPath = [ python-utils ];
   nativeBuildInputs = [ pytestrunner ];
   checkInputs = [
     pytest sphinx flake8 pytestpep8 pytest-flakes pytestcov

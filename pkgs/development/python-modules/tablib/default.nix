@@ -12,7 +12,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest unicodecsv pandas ];
-  propagatedBuildInputs = [ xlwt openpyxl pyyaml xlrd odfpy ];
+  pythonPath = [ xlwt openpyxl pyyaml xlrd odfpy ];
 
   patches = [
     (fetchpatch {

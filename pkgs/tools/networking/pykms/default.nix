@@ -42,7 +42,7 @@ in buildPythonApplication rec {
 
   sourceRoot = "source/py-kms";
 
-  propagatedBuildInputs = [ systemd pytz tzlocal ];
+  pythonPath = [ systemd pytz tzlocal ];
 
   postPatch = ''
     siteDir=$out/${python3.sitePackages}

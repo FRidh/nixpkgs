@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "a8797ad5bfee2b350cfc9b73cbb30fc19c8f73c0db42471e0df1371b1a269edc";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     async_generator
     rsa
     pyaes

@@ -12,7 +12,7 @@ with python2.pkgs; buildPythonApplication rec {
     sha256 = "18v8lzwgl5hcbnawy50lfp3wnlc0rjhrnw9ja9260awkx7jra9ba";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     bleach
     cffi
     configparser

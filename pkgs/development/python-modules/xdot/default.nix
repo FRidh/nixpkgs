@@ -13,7 +13,7 @@ buildPythonPackage rec {
   disabled = !isPy3k;
 
   nativeBuildInputs = [ wrapGAppsHook ];
-  propagatedBuildInputs = [ gobject-introspection pygobject3 graphviz gtk3 ];
+  pythonPath = [ gobject-introspection pygobject3 graphviz gtk3 ];
 
   meta = with lib; {
     description = "xdot.py is an interactive viewer for graphs written in Graphviz's dot";

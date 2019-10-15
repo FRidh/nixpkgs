@@ -4,7 +4,7 @@ buildPythonPackage rec{
   pname = "periodictable";
   version = "1.5.1";
 
-  propagatedBuildInputs = [numpy pyparsing];
+  pythonPath = [numpy pyparsing];
 
   src = fetchPypi {
     inherit pname version;

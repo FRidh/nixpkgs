@@ -13,7 +13,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest pytestrunner pyenchant ];
 
-  propagatedBuildInputs = [ astroid six isort mccabe configparser backports_functools_lru_cache singledispatch ];
+  pythonPath = [ astroid six isort mccabe configparser backports_functools_lru_cache singledispatch ];
 
   postPatch = lib.optionalString stdenv.isDarwin ''
     # Remove broken darwin test

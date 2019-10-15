@@ -28,7 +28,7 @@ buildPythonPackage {
   # test_pdo failure https://github.com/christiansandberg/canopen/issues/58
   doCheck = false;
 
-  propagatedBuildInputs =
+  pythonPath =
     [ can
       canmatrix
     ];

@@ -32,7 +32,7 @@ buildPythonPackage rec {
 
   preCheck = "\"$out/bin/paperwork-shell\" chkdeps paperwork_backend";
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pyenchant simplebayes pillow pycountry whoosh termcolor
     python-Levenshtein pyinsane2 pygobject3 pyocr natsort
     pkgs.poppler_gi pkgs.gtk3

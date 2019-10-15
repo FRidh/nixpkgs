@@ -20,7 +20,7 @@ buildPythonPackage rec {
     sha256 = "7fc5aa76b4f73c697c0ebd2f86c5233e7ca0a5109b80147f4e711bc3de4b3f2c";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     numpy
     scipy
     numba

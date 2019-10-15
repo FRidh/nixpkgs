@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "ca94c337f2d9a70db177ec4330534fad7b2b772beda625c1ec071fbcf1361e22";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     jinja2
   ];
 

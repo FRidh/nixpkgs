@@ -24,7 +24,7 @@ pythonPackages.buildPythonApplication rec {
   doCheck = false;
 
   buildInputs = [ glibcLocales ];
-  propagatedBuildInputs = with pythonPackages; [
+  pythonPath = with pythonPackages; [
     webtest bottle threadpool rocket-errbot requests jinja2
     pyopenssl colorlog Yapsy markdown ansi pygments dnspython pep8
     daemonize pygments-markdown-lexer telegram irc slackclient

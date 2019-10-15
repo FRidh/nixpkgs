@@ -32,7 +32,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ pbr ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     six simplegeneric netaddr pytz webob
   ];
 

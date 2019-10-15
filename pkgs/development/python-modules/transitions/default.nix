@@ -14,7 +14,7 @@ buildPythonPackage rec {
     substituteInPlace setup.py --replace "dill<0.2.7" dill
   '';
 
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   checkInputs = [ nose mock dill pycodestyle ];
 

@@ -22,7 +22,7 @@ buildPythonPackage {
 
   hardeningDisable = [ "all" ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     numpy
     numpy.blas
     liblapack

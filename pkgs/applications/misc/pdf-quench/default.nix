@@ -18,7 +18,7 @@ pythonPackages.buildPythonApplication {
     goocanvas2
     poppler_gi
   ];
-  propagatedBuildInputs = with pythonPackages; [ pygobject3 pypdf2 ];
+  pythonPath = with pythonPackages; [ pygobject3 pypdf2 ];
 
   format = "other";
   doCheck = false;

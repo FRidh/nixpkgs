@@ -20,7 +20,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest mock pytest-relaxed ];
-  propagatedBuildInputs = [ bcrypt cryptography pynacl pyasn1 ];
+  pythonPath = [ bcrypt cryptography pynacl pyasn1 ];
 
   __darwinAllowLocalNetworking = true;
 

@@ -19,7 +19,7 @@ buildPythonPackage rec {
   # error: invalid command 'test'
   doCheck = false;
 
-  propagatedBuildInputs = [ tkinter ];
+  pythonPath = [ tkinter ];
 
   # namebench expects to be run from its own source tree (it uses relative
   # paths to various resources), make it work.

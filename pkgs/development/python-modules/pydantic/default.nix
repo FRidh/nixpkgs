@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "0q565m7d2rapjy6ylbdpd00z9zk99pkqg110191racp1d34kb4va";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     ujson
     email_validator
     typing-extensions

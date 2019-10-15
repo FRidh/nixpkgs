@@ -25,6 +25,6 @@ buildPythonPackage rec {
     py.test
   '';
 
-  propagatedBuildInputs = [ plaster PasteDeploy ];
+  pythonPath = [ plaster PasteDeploy ];
   checkInputs = [ pytest pytestcov ];
 }

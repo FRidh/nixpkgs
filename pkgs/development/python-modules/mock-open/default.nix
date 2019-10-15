@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "0ikhrhlkl5c7qbigpsv44jw89ws1z7j06gzyg5dh1ki533ifbjm2";
   };
 
-  propagatedBuildInputs = lib.optional (pythonOlder "3.3") mock;
+  pythonPath = lib.optional (pythonOlder "3.3") mock;
 
   meta = with lib; {
     homepage = https://github.com/nivbend/mock-open;

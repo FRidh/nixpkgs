@@ -19,7 +19,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest ];
   nativeBuildInputs = [ setuptools_scm ];
-  propagatedBuildInputs = [ apipkg ];
+  pythonPath = [ apipkg ];
 
   # remove vbox tests
   postPatch = ''

@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "09s9p5pb8gff6zblwidyq830yfgcvv50p5drdaxj1qpy8w46lvc6";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     alembic aiosmtpd click dnspython falcon flufl_bounce flufl_i18n flufl_lock
     importlib-resources lazr_config passlib requests zope_configuration
     zope_component

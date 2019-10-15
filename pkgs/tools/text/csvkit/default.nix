@@ -9,7 +9,7 @@ python3.pkgs.buildPythonApplication rec {
     sha256 = "1830lb95rh1iyi3drlwxzb6y3pqkii0qiyzd40c1kvhvaf1s6lqk";
   };
 
-  propagatedBuildInputs = with python3.pkgs; [
+  pythonPath = with python3.pkgs; [
     agate
     agate-excel
     agate-dbf

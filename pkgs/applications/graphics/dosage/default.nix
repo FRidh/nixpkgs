@@ -12,7 +12,7 @@ pythonPackages.buildPythonApplication rec {
     sha256 = "1p6vllqaf9s6crj47xqp97hkglch1kd4y8y4lxvzx3g2shhhk9hh";
   };
   checkInputs = with pythonPackages; [ pytest responses ];
-  propagatedBuildInputs = with pythonPackages; [ colorama lxml requests pbr ];
+  pythonPath = with pythonPackages; [ colorama lxml requests pbr ];
 
   disabled = pythonPackages.pythonOlder "3.3";
 

@@ -18,7 +18,7 @@ buildPythonPackage rec {
   # Tests cannot load the module to test
   doCheck = false;
 
-  propagatedBuildInputs = [ ruamel_base ]
+  pythonPath = [ ruamel_base ]
     ++ stdenv.lib.optional (!isPy3k) ruamel_ordereddict;
 
   meta = with stdenv.lib; {

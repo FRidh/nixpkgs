@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "60192920cff75afdd096eea3a43276e33ec15f4f00bd04d2d1dda616c84f22a5";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     aiohttp
     future-fstrings
   ];

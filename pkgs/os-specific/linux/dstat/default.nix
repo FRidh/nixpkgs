@@ -10,7 +10,7 @@ python2Packages.buildPythonApplication rec {
     sha256 = "16286z3y2lc9nsq8njzjkv6k2vyxrj9xiixj1k3gnsbvhlhkirj6";
   };
 
-  propagatedBuildInputs = with python2Packages; [ python-wifi ];
+  pythonPath = with python2Packages; [ python-wifi ];
 
   makeFlags = [ "prefix=$(out)" ];
 

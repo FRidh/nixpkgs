@@ -18,7 +18,7 @@ buildPythonPackage rec {
     mock
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     filelock
     protobuf
     numpy

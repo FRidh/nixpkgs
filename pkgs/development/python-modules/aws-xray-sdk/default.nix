@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "bb74e1cc2388bd29c45e2e3eb31d0416d0f53d83baafca7b72ca9c945a2e249a";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     jsonpickle wrapt requests future botocore
   ];
 

@@ -49,7 +49,7 @@ buildPythonPackage rec {
     EOF
   '';
 
-  propagatedBuildInputs = [ future ];
+  pythonPath = [ future ];
 
   # needs an X server. Keep an eye on
   # https://bitbucket.org/pyglet/pyglet/issues/219/egl-support-headless-rendering

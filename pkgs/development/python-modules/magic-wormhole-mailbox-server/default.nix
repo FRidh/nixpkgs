@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "1q6zhbx8fcpk7rchclm7yqcxdsc1x97hki2ji61sa544r5xvxv55";
   };
 
-  propagatedBuildInputs = [ six attrs twisted pyopenssl service-identity autobahn ];
+  pythonPath = [ six attrs twisted pyopenssl service-identity autobahn ];
   checkInputs = [ treq mock ];
 
   meta = with stdenv.lib; {

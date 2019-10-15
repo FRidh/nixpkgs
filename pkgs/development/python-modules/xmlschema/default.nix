@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "182439gqhlxhr9rdi9ak33z4ffy1w9syhykkckkl6mq050c80qdr";
   };
 
-  propagatedBuildInputs = [ elementpath ];
+  pythonPath = [ elementpath ];
 
   checkInputs = [ pytest ];
 

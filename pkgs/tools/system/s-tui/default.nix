@@ -9,7 +9,7 @@ pythonPackages.buildPythonPackage rec {
     sha256 = "00lsh2v4i8rwfyjyxx5lijd6rnk9smcfffhzg5sv94ijpcnh216m";
   };
 
-  propagatedBuildInputs = with pythonPackages; [
+  pythonPath = with pythonPackages; [
     urwid
     psutil
   ];

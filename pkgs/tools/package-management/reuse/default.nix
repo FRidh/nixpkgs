@@ -13,7 +13,7 @@ buildPythonApplication rec {
     sha256 = "0gwipwikhxsk0p8wvdl90xm7chfi2jywb1namzznyymifl1vsbgh";
   };
 
-  propagatedBuildInputs = [ debian license-expression requests ];
+  pythonPath = [ debian license-expression requests ];
 
   checkInputs = [ pytest ];
 

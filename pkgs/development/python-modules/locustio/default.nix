@@ -20,7 +20,7 @@ buildPythonPackage rec {
     sha256 = "1645d63ig4ymw716b6h53bhmjqqc13p9r95k1xfx66ck6vdqnisd";
   };
 
-  propagatedBuildInputs = [ msgpack requests flask gevent pyzmq ];
+  pythonPath = [ msgpack requests flask gevent pyzmq ];
   buildInputs = [ mock unittest2 ];
 
   meta = {

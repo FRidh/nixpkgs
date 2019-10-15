@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "0ddv80dv54rraa18lg9v7m9z61wzfwv6ww9ld83mr32gy3a2238p";
   };
 
-  propagatedBuildInputs = [ selenium ];
+  pythonPath = [ selenium ];
 
   checkInputs = [ flask coverage ];
 

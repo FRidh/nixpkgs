@@ -17,7 +17,7 @@ buildPythonPackage rec {
   '';
 
   checkInputs = [ nose chai simplejson pytz ];
-  propagatedBuildInputs = [ dateutil backports_functools_lru_cache ];
+  pythonPath = [ dateutil backports_functools_lru_cache ];
 
   postPatch = ''
     substituteInPlace setup.py --replace "==1.2.1" ""

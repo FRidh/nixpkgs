@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "afa15c137c09e7d937e31c8956fd8092be0251c9869a6b7c1d0f81c0901bc47d";
   };
 
-  propagatedBuildInputs = [ xmltodict ];
+  pythonPath = [ xmltodict ];
 
   # no tests
   doCheck = false;

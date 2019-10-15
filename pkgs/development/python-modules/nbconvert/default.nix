@@ -31,7 +31,7 @@ buildPythonPackage rec {
 
   checkInputs = [ nose pytest glibcLocales ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     entrypoints bleach mistune jinja2 pygments traitlets testpath
     jupyter_core nbformat ipykernel pandocfilters tornado jupyter_client
     defusedxml

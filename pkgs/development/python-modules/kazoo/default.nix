@@ -19,7 +19,7 @@ buildPythonPackage rec {
     sha256 = "4a73c2c62a7163ca1c4aef82aa042d795560497cc81034f212ef13cc037cc783";
   };
 
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
   buildInputs = [ eventlet gevent nose mock coverage pkgs.openjdk8 ];
 
   # not really needed

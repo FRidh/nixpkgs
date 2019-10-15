@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "533389d41a51450e50cc01405ab766550170149c08e1c85b3a1559b0fab4cb25";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     six
     boto3
     pyyaml

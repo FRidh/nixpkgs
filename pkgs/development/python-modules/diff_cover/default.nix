@@ -23,7 +23,7 @@ buildPythonPackage rec {
     })
   ];
 
-  propagatedBuildInputs = [ jinja2 jinja2_pluralize pygments six inflect ];
+  pythonPath = [ jinja2 jinja2_pluralize pygments six inflect ];
 
   checkInputs = [ mock nose coverage pycodestyle flake8 pyflakes pylint pydocstyle git glibcLocales ];
 

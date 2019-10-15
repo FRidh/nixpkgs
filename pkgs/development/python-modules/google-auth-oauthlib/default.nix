@@ -23,7 +23,7 @@ buildPythonPackage rec {
     click mock pytest
   ] ++ lib.optionals (!isPy3k) [ futures ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     google_auth requests_oauthlib
   ];
 

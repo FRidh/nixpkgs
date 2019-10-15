@@ -25,7 +25,7 @@ buildPythonPackage rec {
 
   checkInputs = [ nose ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     scp six pyserial paramiko netaddr ncclient lxml jinja2 pyyaml
   ];
 

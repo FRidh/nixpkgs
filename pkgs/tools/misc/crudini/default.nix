@@ -18,7 +18,7 @@ pypkgs.buildPythonApplication rec {
 
   nativeBuildInputs = [ help2man installShellFiles ];
 
-  propagatedBuildInputs = with pypkgs; [ iniparse ];
+  pythonPath = with pypkgs; [ iniparse ];
 
   postPatch = ''
     substituteInPlace crudini-help \

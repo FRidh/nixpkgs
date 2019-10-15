@@ -15,7 +15,7 @@ buildPythonPackage rec {
   };
 
   # From astroid/__pkginfo__.py
-  propagatedBuildInputs = [ lazy-object-proxy six wrapt ]
+  pythonPath = [ lazy-object-proxy six wrapt ]
     ++ lib.optional (pythonOlder "3.5") typing
     ++ lib.optional (!isPyPy) typed-ast;
 

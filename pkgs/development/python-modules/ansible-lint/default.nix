@@ -19,7 +19,7 @@ buildPythonPackage rec {
   };
 
   nativeBuildInputs = [ setuptools_scm ];
-  propagatedBuildInputs = [ pyyaml six ansible ruamel_yaml ];
+  pythonPath = [ pyyaml six ansible ruamel_yaml ];
   checkInputs = [ nose ];
 
   postPatch = ''

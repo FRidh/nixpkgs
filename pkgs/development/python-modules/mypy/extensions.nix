@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "04h8brrbbx151dfa2cvvlnxgmb5wa00mhd2z7nd20s8kyibfkq1p";
   };
 
-  propagatedBuildInputs = if pythonOlder "3.5" then [ typing ] else [ ];
+  pythonPath = if pythonOlder "3.5" then [ typing ] else [ ];
 
   meta = with stdenv.lib; {
     description = "Experimental type system extensions for programs checked with the mypy typechecker";

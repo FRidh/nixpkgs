@@ -11,7 +11,7 @@ python2Packages.buildPythonApplication rec {
 
   doCheck = false;
 
-  propagatedBuildInputs = with python2Packages; [
+  pythonPath = with python2Packages; [
     ansible
     boto
     cffi

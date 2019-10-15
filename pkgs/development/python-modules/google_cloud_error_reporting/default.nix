@@ -16,7 +16,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest mock ];
-  propagatedBuildInputs = [ google_cloud_logging ];
+  pythonPath = [ google_cloud_logging ];
 
   checkPhase = ''
     pytest tests/unit

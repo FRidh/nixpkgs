@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "4d8eec30cc81bc5617dbf1218201d770dc35629363547f17577c61683ccfb3ee";
   };
 
-  propagatedBuildInputs = [ pycodestyle ];
+  pythonPath = [ pycodestyle ];
 
   # One test fails:
   # FAIL: test_recursive_should_not_crash_on_unicode_filename (test.test_autopep8.CommandLineTests)

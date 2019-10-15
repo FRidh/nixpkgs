@@ -24,7 +24,7 @@ buildPythonPackage rec {
     })
   ;
 
-  propagatedBuildInputs = [ pytz sqlparse ];
+  pythonPath = [ pytz sqlparse ];
 
   # too complicated to setup
   doCheck = false;

@@ -21,7 +21,7 @@ buildPythonPackage rec {
 
   outputs = [ "out" "dev" ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     dateutil
     jmespath
     docutils

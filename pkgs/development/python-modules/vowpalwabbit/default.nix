@@ -24,7 +24,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ clang ];
   buildInputs = [ python.pkgs.boost zlib.dev ncurses pytest docutils pygments ];
-  propagatedBuildInputs = [ numpy scipy scikitlearn ];
+  pythonPath = [ numpy scipy scikitlearn ];
 
   # Python ctypes.find_library uses DYLD_LIBRARY_PATH.
   preConfigure = lib.optionalString stdenv.isDarwin ''

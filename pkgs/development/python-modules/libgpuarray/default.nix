@@ -57,7 +57,7 @@ buildPythonPackage rec {
     fixRunPath $out/lib/libgpuarray.so
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     numpy
     six
     Mako

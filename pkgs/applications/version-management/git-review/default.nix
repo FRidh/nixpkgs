@@ -15,7 +15,7 @@ pythonPackages.buildPythonApplication rec {
     sha256 = "1hgw1dkl94m3idv4izc7wf2j7al2c7nnsqywy7g53nzkv9pfv47s";
   };
 
-  propagatedBuildInputs = with pythonPackages; [ pbr requests setuptools ];
+  pythonPath = with pythonPackages; [ pbr requests setuptools ];
 
   # Don't do tests because they require gerrit which is not packaged
   doCheck = false;

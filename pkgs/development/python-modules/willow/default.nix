@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "818ee11803c90a0a6d49c94b0453d6266be1ef83ae00de72731c45fae4d3e78c";
   };
 
-  propagatedBuildInputs = [ six pillow ];
+  pythonPath = [ six pillow ];
 
   # Test data is not included
   # https://github.com/torchbox/Willow/issues/34

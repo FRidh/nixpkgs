@@ -16,7 +16,7 @@ python2Packages.buildPythonApplication {
 
   format = "other";
 
-  propagatedBuildInputs = with python2Packages; [
+  pythonPath = with python2Packages; [
     broadlink
   ];
 

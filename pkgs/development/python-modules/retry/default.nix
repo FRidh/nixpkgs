@@ -21,7 +21,7 @@ buildPythonPackage rec {
     pbr
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     decorator
     py
   ];

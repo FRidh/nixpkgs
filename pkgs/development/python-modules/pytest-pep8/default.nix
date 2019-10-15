@@ -11,7 +11,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ pytest ];
-  propagatedBuildInputs = [ pytestcache pep8 ];
+  pythonPath = [ pytestcache pep8 ];
 
   checkPhase = ''
     py.test

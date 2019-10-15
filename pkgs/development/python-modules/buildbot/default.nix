@@ -10,7 +10,7 @@ let
     name = "${package.name}-with-plugins";
     phases = [ "installPhase" "fixupPhase" ];
     buildInputs = [ makeWrapper ];
-    propagatedBuildInputs = plugins ++ package.propagatedBuildInputs;
+    pythonPath = plugins ++ package.pythonPath;
 
     installPhase = ''
       makeWrapper ${package}/bin/buildbot $out/bin/buildbot \
@@ -32,7 +32,7 @@ let
       sha256 = "0sqsp7ikmg5v48n1sy7l4913g906hyi1g9sikxd07n8vysp0ncx8";
     };
 
-    propagatedBuildInputs = [
+    pythonPath = [
       # core
       twisted
       jinja2

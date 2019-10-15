@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
   buildInputs = [
     attica giflib libdbusmenu_qt libjpeg openssl
   ];
-  propagatedBuildInputs = [ qt4 phonon ];
+  pythonPath = [ qt4 phonon ];
 
   cmakeFlags = [
     "-DDOCBOOKXML_CURRENTDTD_DIR=${docbook_xml_dtd_42}/xml/dtd/docbook"

@@ -20,7 +20,7 @@ buildPythonApplication rec {
 
   buildInputs = [ gtk3 gobject-introspection libappindicator-gtk3 librsvg ];
 
-  propagatedBuildInputs = [ evdev pygobject3 pylibacl ];
+  pythonPath = [ evdev pygobject3 pylibacl ];
 
   checkInputs = [ pytest ];
 

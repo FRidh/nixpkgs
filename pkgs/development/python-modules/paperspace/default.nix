@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "2216fb31919595ba442077e8028cc05b0598421a74604daeae4d2baa5e8409d9";
   };
 
-  propagatedBuildInputs = [ boto3 requests ];
+  pythonPath = [ boto3 requests ];
 
   # tries to use /homeless-shelter to mimic container usage, etc
   doCheck = false;

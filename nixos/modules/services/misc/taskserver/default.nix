@@ -129,7 +129,7 @@ let
       EOF
     '';
 
-    propagatedBuildInputs = [ pkgs.pythonPackages.click ];
+    pythonPath = [ pkgs.pythonPackages.click ];
   };
 
 in {

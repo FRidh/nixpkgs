@@ -16,7 +16,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ setuptools ];
-  propagatedBuildInputs = [ dateutil pytz ];
+  pythonPath = [ dateutil pytz ];
 
   meta = with stdenv.lib; {
     description = "A parser/generator of iCalendar files";

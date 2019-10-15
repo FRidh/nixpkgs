@@ -17,7 +17,7 @@ buildPythonPackage rec {
   doCheck = isPy3k;
 
   checkInputs = [  glibcLocales ];
-  propagatedBuildInputs = [ future ];
+  pythonPath = [ future ];
 
   meta = with lib; {
     description = "Python parser for the CommonMark Markdown spec";

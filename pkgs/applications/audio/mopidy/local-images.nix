@@ -17,7 +17,7 @@ pythonPackages.buildPythonApplication rec {
     pythonPackages.mock
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     mopidy
     pythonPackages.pykka
     pythonPackages.uritools

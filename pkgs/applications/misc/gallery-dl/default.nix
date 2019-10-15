@@ -10,7 +10,7 @@ python3Packages.buildPythonApplication rec {
   };
 
   doCheck = false;
-  propagatedBuildInputs = with python3Packages; [ requests ];
+  pythonPath = with python3Packages; [ requests ];
 
   meta = {
     description = "Command-line program to download image-galleries and -collections from several image hosting sites";

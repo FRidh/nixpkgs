@@ -9,7 +9,7 @@ python.pkgs.buildPythonPackage rec {
     sha256 = "0figmf80y715zv6viqan2nyzpg9aia5dyl25nskirpm5lh1s99w9";
   };
 
-  propagatedBuildInputs = with python.pkgs; [ six ];
+  pythonPath = with python.pkgs; [ six ];
   checkInputs = with python.pkgs; [ factory_boy faker pytestcov tox pytestCheckHook];
 
   # https://github.com/barseghyanartur/tld/issues/54

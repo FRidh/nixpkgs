@@ -13,7 +13,7 @@ buildPythonApplication rec {
 
   doCheck = false; # needs pdfrw
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pillow
   ];
 

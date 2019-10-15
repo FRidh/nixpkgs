@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "73df9093bc7a2cc8e7018d08d6983dc5bcb2a47d7e7e107b9e8d0711f1702ef8";
   };
 
-  propagatedBuildInputs = [ mock ];
+  pythonPath = [ mock ];
 
   buildInputs = [ setuptools_scm ];
 

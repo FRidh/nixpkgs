@@ -12,7 +12,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ cmdline pytest ];
-  propagatedBuildInputs = [ pytestcov coverage setuptools-git mock pathpy execnet contextlib2 termcolor ];
+  pythonPath = [ pytestcov coverage setuptools-git mock pathpy execnet contextlib2 termcolor ];
   nativeBuildInputs = [ pytest ];
 
   checkPhase = ''

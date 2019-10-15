@@ -16,7 +16,7 @@ buildPythonPackage rec {
     sha256 = "4e7aaf838f298958cf171f220e1d0dc4220338c76c97746a46d0cc389f90b10a";
   };
 
-  propagatedBuildInputs = [ Babel pytz nine ];
+  pythonPath = [ Babel pytz nine ];
   checkInputs = [ nose ];
 
   meta = with stdenv.lib; {

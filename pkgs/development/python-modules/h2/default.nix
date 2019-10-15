@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "1d1svhixk3hr78ph3nx8wi7sagx1xrvm712mmk028i2rhb92p8xq";
   };
 
-  propagatedBuildInputs = [ enum34 hpack hyperframe ];
+  pythonPath = [ enum34 hpack hyperframe ];
 
   meta = with stdenv.lib; {
     description = "HTTP/2 State-Machine based protocol implementation";

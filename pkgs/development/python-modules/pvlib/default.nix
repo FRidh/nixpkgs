@@ -14,7 +14,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest mock pytest-mock ];
-  propagatedBuildInputs = [ numpy pandas pytz six requests ];
+  pythonPath = [ numpy pandas pytz six requests ];
 
   # Skip a few tests that try to access some URLs
   checkPhase = ''

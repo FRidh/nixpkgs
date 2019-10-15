@@ -30,7 +30,7 @@ buildPythonPackage rec {
 
   checkInputs = [ nose mock blinker ];
 
-  propagatedBuildInputs = [ flask six pytz aniso8601 pycrypto ];
+  pythonPath = [ flask six pytz aniso8601 pycrypto ];
 
   meta = with lib; {
     homepage = "https://flask-restful.readthedocs.io/";

@@ -22,7 +22,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest mock ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     bleach cmarkgfm docutils future pygments six
   ];
 

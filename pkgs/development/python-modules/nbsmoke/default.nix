@@ -20,7 +20,7 @@ buildPythonPackage rec {
     sha256 = "eeda6c59b61130b9116a3d935e7c80ec5f617d7db8918d23289b2426efa229eb";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pytest
     jupyter_client
     ipykernel

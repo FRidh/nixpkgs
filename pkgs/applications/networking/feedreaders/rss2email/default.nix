@@ -6,7 +6,7 @@ buildPythonApplication rec {
   pname = "rss2email";
   version = "3.10";
 
-  propagatedBuildInputs = [ feedparser beautifulsoup4 html2text ];
+  pythonPath = [ feedparser beautifulsoup4 html2text ];
 
   src = fetchurl {
     url = "mirror://pypi/r/rss2email/${pname}-${version}.tar.gz";

@@ -18,7 +18,7 @@ buildPythonApplication rec {
     LC_TYPE = "en_US.UTF-8";
 
   buildInputs = [ glibcLocales ];
-  propagatedBuildInputs = with python3.pkgs;
+  pythonPath = with python3.pkgs;
     [ atomicwrites click click-log click-repl configobj humanize icalendar parsedatetime
       python-dateutil pyxdg tabulate urwid ];
 

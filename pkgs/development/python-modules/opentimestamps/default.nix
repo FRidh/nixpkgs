@@ -22,7 +22,7 @@ buildPythonPackage rec {
   '';
 
   checkInputs = [ git ];
-  propagatedBuildInputs = [ bitcoinlib GitPython pysha3 ];
+  pythonPath = [ bitcoinlib GitPython pysha3 ];
 
   meta = {
     description = "Create and verify OpenTimestamps proofs";

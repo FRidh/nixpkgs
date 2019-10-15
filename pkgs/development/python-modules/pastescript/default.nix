@@ -18,7 +18,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ nose ];
-  propagatedBuildInputs = [ six paste PasteDeploy cheetah ];
+  pythonPath = [ six paste PasteDeploy cheetah ];
 
   doCheck = false;
 

@@ -69,7 +69,7 @@ in py.pkgs.buildPythonApplication rec {
     sha256 = "1102ki1819wsmkfg4riz4i0hjlr3w6nsvk8wrzqq0lc0s5ycf4jx";
   };
 
-  propagatedBuildInputs = with py.pkgs; [
+  pythonPath = with py.pkgs; [
     awesome-slugify flask_assets rsa requests pkginfo watchdog
     semantic-version flask_principal werkzeug flaskbabel tornado
     psutil pyserial flask_login netaddr markdown sockjs-tornado

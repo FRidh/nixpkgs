@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "dfed74b5063546a137de99baaaf742b4de4337ad2b3e1df5ec7c8a256adc0847";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     click
   ];
 

@@ -18,7 +18,7 @@ buildPythonApplication rec {
     })
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     requests
   ];
 

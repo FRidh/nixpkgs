@@ -75,7 +75,7 @@ in buildPythonPackage rec {
 
   # keep Nose around since running the tests by hand is possible from Python or bash
   checkInputs = [ nose ];
-  propagatedBuildInputs = [ numpy numpy.blas scipy six libgpuarray_ ];
+  pythonPath = [ numpy numpy.blas scipy six libgpuarray_ ];
 
   meta = with stdenv.lib; {
     homepage = http://deeplearning.net/software/theano/;

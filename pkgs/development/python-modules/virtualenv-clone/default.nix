@@ -15,7 +15,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ pytest ];
-  propagatedBuildInputs = [ virtualenv ];
+  pythonPath = [ virtualenv ];
 
   # needs tox to run the tests
   doCheck = false;

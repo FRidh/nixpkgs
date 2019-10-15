@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "1viq85fsb119w4lmxn2iacxf2w35b8cgzamlrb685z50pp1cdi2d";
   };
 
-  propagatedBuildInputs = [ sqlalchemy shapely ];
+  pythonPath = [ sqlalchemy shapely ];
 
   meta = with stdenv.lib; {
     homepage =  http://geoalchemy.org/;

@@ -39,7 +39,7 @@ buildPythonPackage rec {
     Accelerate CoreFoundation CoreGraphics CoreVideo
   ]);
 
-  propagatedBuildInputs = [
+  pythonPath = [
    blis
    cython
    cymem

@@ -14,7 +14,7 @@ buildPythonPackage rec {
   doCheck = false;
 
   checkInputs = [ nose coverage ];
-  propagatedBuildInputs = [ future ];
+  pythonPath = [ future ];
 
   checkPhase = ''
     ${python.interpreter} setup.py nosetests

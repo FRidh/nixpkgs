@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "09ypx5wif0mly6fk3491nlzg8whg6qw24x7h9w70hykdqindbh2s";
   };
 
-  propagatedBuildInputs = [ mozlog mozinfo ]; 
+  pythonPath = [ mozlog mozinfo ]; 
 
   meta = {
     description = "Network utilities for Mozilla testing";

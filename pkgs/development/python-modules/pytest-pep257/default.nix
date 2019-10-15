@@ -10,7 +10,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ pytest ];
-  propagatedBuildInputs = [ pep257 ];
+  pythonPath = [ pep257 ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/anderslime/pytest-pep257;

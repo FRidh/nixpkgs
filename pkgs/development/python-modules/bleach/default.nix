@@ -18,7 +18,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest pytestrunner ];
-  propagatedBuildInputs = [ six html5lib setuptools ];
+  pythonPath = [ six html5lib setuptools ];
 
   postPatch = ''
     substituteInPlace setup.py --replace ",<3dev" ""

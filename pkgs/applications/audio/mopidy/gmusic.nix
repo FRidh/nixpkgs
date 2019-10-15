@@ -9,7 +9,7 @@ pythonPackages.buildPythonApplication rec {
     sha256 = "0a2s4xrrhnkv85rx4w5bj6ih9xm34jy0q71fdvbzmi827g9dw5sz";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     mopidy
     pythonPackages.requests
     pythonPackages.gmusicapi

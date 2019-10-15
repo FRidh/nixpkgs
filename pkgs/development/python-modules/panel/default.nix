@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "04w8jjlf7yz3k84xnacahczc9mmddqyp756rj3n8hclks9c1ww40";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     bokeh
     param
     pyviz-comms

@@ -13,7 +13,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ mock pytest coverage tox ];
-  propagatedBuildInputs = [ urwid tweepy future ];
+  pythonPath = [ urwid tweepy future ];
 
   patches = [
     (fetchpatch {

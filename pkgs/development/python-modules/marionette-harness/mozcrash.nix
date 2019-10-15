@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "02101v6v2jqlv6cbrmmggj12asz9vz6m50b6mk9mq17b1dr1zik3";
   };
 
-  propagatedBuildInputs = [ mozfile mozlog ];
+  pythonPath = [ mozfile mozlog ];
 
   meta = {
     description = "Minidump stack trace extractor";

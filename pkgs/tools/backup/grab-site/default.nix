@@ -11,7 +11,7 @@ python3Packages.buildPythonApplication rec {
     sha256 = "01n3mi9q593sd2bbmbbp5pn2c3pkwj7iqmy02zbh8ciqskraja4z";
   };
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     click ludios_wpull manhole lmdb autobahn fb-re2 websockets cchardet
   ];
 

@@ -19,7 +19,7 @@ buildPythonPackage rec {
   LC_ALL="en_US.UTF-8";
 
   # TODO: AppIndicator
-  propagatedBuildInputs = [ pkgs.gobject-introspection pygobject3 pkgs.makeWrapper pkgs.gtk3 ];
+  pythonPath = [ pkgs.gobject-introspection pygobject3 pkgs.makeWrapper pkgs.gtk3 ];
 
   checkPhase = ''
     substituteInPlace runtests --replace "/usr/bin/env python" "${python}/bin/${python.executable}"

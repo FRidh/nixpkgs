@@ -12,7 +12,7 @@ buildPythonPackage rec {
 
   buildInputs = [ pytest ];
 
-  propagatedBuildInputs = [ scipy h5py pillow tensorflow ];
+  pythonPath = [ scipy h5py pillow tensorflow ];
 
   doCheck = false;
 

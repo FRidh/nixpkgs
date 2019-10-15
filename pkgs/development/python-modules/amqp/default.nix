@@ -10,7 +10,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest case pytest-sugar ];
-  propagatedBuildInputs = [ vine ];
+  pythonPath = [ vine ];
 
   # Disable because pytest-sugar requires an old version of pytest
   doCheck = false;

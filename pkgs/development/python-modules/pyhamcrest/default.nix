@@ -12,7 +12,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ mock pytest ];
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   doCheck = false;  # pypi tarball does not include tests
 

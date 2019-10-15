@@ -16,7 +16,7 @@ buildPythonPackage rec {
     sha256 = "9416443e219356e3c31f1f918a91badf2e37acf297e2fa13d24d1cc2380f8fbc";
   };
 
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   # see https://github.com/python-greenlet/greenlet/issues/85
   preCheck = ''

@@ -15,7 +15,7 @@ buildPythonApplication rec {
     ./pysolfc-datadir.patch
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     tkinter
   ];
 

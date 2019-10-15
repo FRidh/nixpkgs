@@ -16,5 +16,5 @@ buildPythonPackage rec {
     sed -i "s/'datetime',//" setup.py
   '';
 
-  propagatedBuildInputs = [ semantic-version boto3 flask docutils requests ];
+  pythonPath = [ semantic-version boto3 flask docutils requests ];
 }

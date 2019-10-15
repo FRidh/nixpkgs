@@ -20,7 +20,7 @@ buildPythonPackage rec {
     })
   ];
 
-  propagatedBuildInputs = [ pyusb ];
+  pythonPath = [ pyusb ];
 
   meta = with lib; {
     description = "Python package to control BlinkStick USB devices";

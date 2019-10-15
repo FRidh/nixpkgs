@@ -5,7 +5,7 @@ buildPythonApplication rec {
   pname = "cheat";
   version = "2.5.1";
 
-  propagatedBuildInputs = [ docopt pygments termcolor ];
+  pythonPath = [ docopt pygments termcolor ];
 
   src = fetchFromGitHub {
     owner = "chrisallenlane";

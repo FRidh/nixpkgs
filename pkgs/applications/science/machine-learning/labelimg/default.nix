@@ -9,7 +9,7 @@
     nativeBuildInputs = with python2Packages; [
       pyqt4
     ];
-    propagatedBuildInputs = with python2Packages; [
+    pythonPath = with python2Packages; [
       pyqt4
       lxml
     ];

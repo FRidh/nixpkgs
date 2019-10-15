@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "05c6isg13dslds94kv28v6navxj4bp4c5lsd9df0g3ndsxvpdrxp";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     msrest
     msrestazure
     azure-common

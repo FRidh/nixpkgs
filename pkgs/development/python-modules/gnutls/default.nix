@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "28748e02a8035c31826152944e41217ebcc58ab7793ae5a22850cd23d3cfbbbe";
   };
 
-  propagatedBuildInputs = [ pkgs.gnutls ];
+  pythonPath = [ pkgs.gnutls ];
   patchPhase = ''
     substituteInPlace gnutls/library/__init__.py --replace "/usr/local/lib" "${pkgs.gnutls.out}/lib"
   '';

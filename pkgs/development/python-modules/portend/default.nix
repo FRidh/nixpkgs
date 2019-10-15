@@ -16,7 +16,7 @@ buildPythonPackage rec {
 
   nativeBuildInputs = [ setuptools_scm ];
 
-  propagatedBuildInputs = [ tempora ];
+  pythonPath = [ tempora ];
 
   checkInputs = [ pytest ];
 

@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "16r01ijjwnq06ax5xrv6mq9l00f6sgzw776kr43zjai09xsbwwck";
   };
 
-  propagatedBuildInputs = [ six pyyaml click ];
+  pythonPath = [ six pyyaml click ];
   nativeBuildInputs = [ pytestrunner ];
 
   # No tests in Pypi

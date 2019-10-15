@@ -22,7 +22,7 @@ buildPythonPackage rec {
   LC_ALL = "en_US.UTF-8";
 
   checkInputs = [ glibcLocales pytest pytestrunner pytestcov mock ];
-  propagatedBuildInputs = [ lxml boto3 requests click configparser ];
+  pythonPath = [ lxml boto3 requests click configparser ];
 
   meta = with lib; {
     description = "Command line tool to ease aws cli authentication against ADFS";

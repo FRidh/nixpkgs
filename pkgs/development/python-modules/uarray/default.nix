@@ -28,7 +28,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest nbval pytestcov numba ];
-  propagatedBuildInputs = [ matchpy numpy astunparse typing-extensions black ];
+  pythonPath = [ matchpy numpy astunparse typing-extensions black ];
 
   checkPhase = ''
     ${python.interpreter} extract_readme_tests.py

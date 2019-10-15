@@ -14,7 +14,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest requests-mock ];
-  propagatedBuildInputs = [ requests ];
+  pythonPath = [ requests ];
 
   checkPhase = ''
     py.test tests

@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "07v1gsq1v43v0z06cnp82ij9sqx3972c9bc6vsdj7pa9ddpa2yjw";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     numpy
     six
   ] ++ lib.optional (!isPy3k) bz2file;

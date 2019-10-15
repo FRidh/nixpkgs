@@ -22,7 +22,7 @@ buildPythonApplication rec {
 
   nativeBuildInputs = [ wrapGAppsHook ];
 
-  propagatedBuildInputs = with python3Packages; [
+  pythonPath = with python3Packages; [
     pygobject3
     pycairo
   ];

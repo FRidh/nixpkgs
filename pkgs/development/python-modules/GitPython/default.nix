@@ -17,7 +17,7 @@ buildPythonPackage rec {
   ];
 
   checkInputs = [ nose ] ++ lib.optional isPy27 mock;
-  propagatedBuildInputs = [ gitdb2 ddt ];
+  pythonPath = [ gitdb2 ddt ];
 
   # Tests require a git repo
   doCheck = false;

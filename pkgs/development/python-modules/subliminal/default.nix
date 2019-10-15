@@ -35,7 +35,7 @@ buildPythonPackage rec {
     sha256 = "1dzv5csjcwgz69aimarx2c6606ckm2gbn4x2mzydcqnyai7sayhl";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     guessit babelfish enzyme beautifulsoup4 requests
     click dogpile_cache stevedore chardet pysrt six
     appdirs rarfile pytz

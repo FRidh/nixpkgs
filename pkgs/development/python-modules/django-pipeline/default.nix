@@ -18,7 +18,7 @@ buildPythonPackage rec {
       --replace "/usr/bin/env" ""
   '';
 
-  propagatedBuildInputs = [ django ] ++ lib.optional (!isPy3k) futures;
+  pythonPath = [ django ] ++ lib.optional (!isPy3k) futures;
 
   checkInputs = [ jinja2 jsmin slimit ] ++ lib.optional (!isPy3k) mock;
 

@@ -18,7 +18,7 @@ buildPythonPackage rec {
   patches = stdenv.lib.optional stdenv.hostPlatform.isMusl ./remove-setlocale-test.patch;
 
   buildInputs = [ manuel docutils ];
-  propagatedBuildInputs = [ zope_testrunner ];
+  pythonPath = [ zope_testrunner ];
 
   meta = with stdenv.lib; {
     description = "Structured Configuration Library";

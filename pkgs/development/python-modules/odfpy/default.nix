@@ -14,7 +14,7 @@ buildPythonPackage rec {
     sha256 = "596021f0519623ca8717331951c95e3b8d7b21e86edc7efe8cb650a0d0f59a2b";
   };
 
-  propagatedBuildInputs = [ defusedxml ];
+  pythonPath = [ defusedxml ];
 
   checkInputs = [ pytest ];
 

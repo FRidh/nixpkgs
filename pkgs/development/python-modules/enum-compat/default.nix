@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "14j1i963jic2vncbf9k5nq1vvv8pw2zsg7yvwhm7d9c6h7qyz74k";
   };
 
-  propagatedBuildInputs = [ enum34 ];
+  pythonPath = [ enum34 ];
 
   meta = with lib; {
     homepage = https://github.com/jstasiak/enum-compat;

@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "10yxwlsr99gby338rsnczkfigcy36fiajpkr6f44438qlvbx02fs";
   };
 
-  propagatedBuildInputs = [ hidapi pyscard ecdsa ];
+  pythonPath = [ hidapi pyscard ecdsa ];
 
   # tests requires hardware
   doCheck = false;

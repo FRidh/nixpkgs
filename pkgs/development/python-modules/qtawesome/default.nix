@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "05qypwlzjkw31x7qgn01d4kcf40mbymg5c9h3i7cx2r8sw29akjy";
   };
 
-  propagatedBuildInputs = [ qtpy six ];
+  pythonPath = [ qtpy six ];
 
   checkInputs = [ pyqt5 pytest ];
 

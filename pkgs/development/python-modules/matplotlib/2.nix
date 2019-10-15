@@ -41,7 +41,7 @@ buildPythonPackage rec {
     ++ stdenv.lib.optional enableGhostscript ghostscript
     ++ stdenv.lib.optional stdenv.isDarwin [ Cocoa ];
 
-  propagatedBuildInputs =
+  pythonPath =
     [ cycler dateutil nose numpy pyparsing tornado freetype kiwisolver
       libpng mock pytz ]
     ++ stdenv.lib.optional (pythonOlder "3.3") backports_functools_lru_cache

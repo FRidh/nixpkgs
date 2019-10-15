@@ -15,7 +15,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ setuptools_scm ];
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   checkPhase = ''
     py.test

@@ -20,7 +20,7 @@ buildPythonPackage rec {
 
   buildInputs = [ cython ];
 
-  propagatedBuildInputs = [ numpy ];
+  pythonPath = [ numpy ];
 
   # Somehow nosetests doesn't run the tests, so let's use pytest instead
   checkPhase = ''

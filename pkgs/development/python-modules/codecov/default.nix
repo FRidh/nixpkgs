@@ -11,7 +11,7 @@ buildPythonPackage rec {
 
   checkInputs = [ unittest2 ]; # Tests only
 
-  propagatedBuildInputs = [ requests coverage ];
+  pythonPath = [ requests coverage ];
 
   postPatch = ''
     sed -i 's/, "argparse"//' setup.py

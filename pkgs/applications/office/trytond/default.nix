@@ -17,7 +17,7 @@ python2Packages.buildPythonApplication rec {
   buildInputs = with python2Packages; [
     mock
   ];
-  propagatedBuildInputs = with python2Packages; ([
+  pythonPath = with python2Packages; ([
     dateutil
     lxml
     polib

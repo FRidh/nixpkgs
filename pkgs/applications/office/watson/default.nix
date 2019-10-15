@@ -17,7 +17,7 @@ buildPythonApplication rec {
  '';
 
   checkInputs = [ py pytest pytest-datafiles mock pytest-mock pytestrunner ];
-  propagatedBuildInputs = [ requests click arrow ];
+  pythonPath = [ requests click arrow ];
 
   meta = with stdenv.lib; {
     homepage = https://tailordev.github.io/Watson/;

@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "0rd194l06aw4612j09b44pgh8b8l4cwmz7xgwsgdj9v8m3m25nwq";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     configobj
     terminaltables
     tabulate

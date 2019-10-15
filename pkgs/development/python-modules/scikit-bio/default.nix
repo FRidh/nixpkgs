@@ -30,7 +30,7 @@ buildPythonPackage rec {
 
   buildInputs = [ cython ];
   checkInputs = [ coverage ];
-  propagatedBuildInputs = [ lockfile cachecontrol decorator ipython matplotlib natsort numpy pandas scipy hdmedians scikitlearn ];
+  pythonPath = [ lockfile cachecontrol decorator ipython matplotlib natsort numpy pandas scipy hdmedians scikitlearn ];
 
   # remove on when version > 0.5.4
   postPatch = ''

@@ -17,7 +17,7 @@ python27Packages.buildPythonApplication rec {
       --replace 'qweechat = qweechat.qweechat' 'qweechat = qweechat.qweechat:main'
   '';
 
-  propagatedBuildInputs = with python27Packages; [
+  pythonPath = with python27Packages; [
      pyside
   ];
 

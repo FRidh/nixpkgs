@@ -13,7 +13,7 @@ buildPythonApplication {
 
   phases = [ "unpackPhase" "installPhase" "fixupPhase" ];
 
-  propagatedBuildInputs = [ pyyaml fonttools fontforge ];
+  pythonPath = [ pyyaml fonttools fontforge ];
 
   installPhase = ''
     mkdir -p $out/${python.sitePackages}

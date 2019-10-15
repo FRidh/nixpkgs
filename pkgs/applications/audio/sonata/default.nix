@@ -28,7 +28,7 @@ in buildPythonApplication rec {
     sed -i '/localmpd/d' sonata/consts.py
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     gobject-introspection gtk3 pygobject3
   ];
 

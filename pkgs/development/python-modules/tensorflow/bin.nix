@@ -59,7 +59,7 @@ in buildPythonPackage {
     key = "${platform}_py_${pyver}_${unit}";
   in fetchurl packages.${key};
 
-  propagatedBuildInputs = [
+  pythonPath = [
     protobuf
     numpy
     termcolor

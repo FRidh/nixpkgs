@@ -24,7 +24,7 @@ buildPythonPackage rec {
     flask mock six pytest pytest-localserver
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     google_auth httplib2
   ];
 

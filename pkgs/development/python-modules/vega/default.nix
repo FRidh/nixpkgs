@@ -11,7 +11,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ pytest ];
-  propagatedBuildInputs = [ jupyter_core pandas ];
+  pythonPath = [ jupyter_core pandas ];
 
   meta = with stdenv.lib; {
     description = "An IPython/Jupyter widget for Vega and Vega-Lite";

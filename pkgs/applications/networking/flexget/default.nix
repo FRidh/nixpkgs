@@ -43,7 +43,7 @@ buildPythonApplication rec {
   # ~400 failures
   doCheck = false;
 
-  propagatedBuildInputs = [
+  pythonPath = [
     # See https://github.com/Flexget/Flexget/blob/master/requirements.in
     feedparser sqlalchemy pyyaml
     beautifulsoup4 html5lib

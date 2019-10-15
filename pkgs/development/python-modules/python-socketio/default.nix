@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "aa702157694d55a743fb6f1cc0bd1af58fbfda8a7d71d747d4b12d6dac29cab3";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     six
     python-engineio
   ];

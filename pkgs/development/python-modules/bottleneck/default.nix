@@ -16,7 +16,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest nose ];
-  propagatedBuildInputs = [ numpy ];
+  pythonPath = [ numpy ];
   checkPhase = ''
     py.test -p no:warnings $out/${python.sitePackages}
   '';

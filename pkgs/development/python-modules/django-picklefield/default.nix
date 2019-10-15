@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "f1733a8db1b6046c0d7d738e785f9875aa3c198215de11993463a9339aa4ea24";
   };
 
-  propagatedBuildInputs = [ django ];
+  pythonPath = [ django ];
 
   meta = {
     description = "A pickled object field for Django";

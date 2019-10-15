@@ -16,7 +16,7 @@ buildPythonPackage rec {
     sha256 = "19nzdibjfndzcwvby20p59igqwyzw7skrb45v2mxqsjma5yjv114";
   };
 
-  propagatedBuildInputs = [ invoke paramiko cryptography ];
+  pythonPath = [ invoke paramiko cryptography ];
   checkInputs = [ pytest mock pytest-relaxed ];
 
   checkPhase = ''

@@ -20,7 +20,7 @@ buildPythonPackage {
     cd ./azure-servicemanagement-legacy
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
     azure-common
     requests
   ];

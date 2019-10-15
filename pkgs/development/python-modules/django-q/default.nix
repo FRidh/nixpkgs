@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "17mqxiacsp2yszak6j48fm7vx0w44pcg86flc63r9y5yhx490n5r";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     django-picklefield arrow blessed django future
   ];
 

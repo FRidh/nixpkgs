@@ -16,7 +16,7 @@ buildPythonPackage rec {
     sha256 = "954c5b0a8b257c375e35d311c65fa62a210a3d65269195557de38418ac9f61f9";
   };
 
-  propagatedBuildInputs = [ dill pox ppft multiprocess ];
+  pythonPath = [ dill pox ppft multiprocess ];
 
   # Require network
   doCheck = false;

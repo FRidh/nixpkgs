@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "5e3700117981c2db762e512ed6586638124fac5842170701628088a11aeb51ac";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     # required
     numpy six
     # optional

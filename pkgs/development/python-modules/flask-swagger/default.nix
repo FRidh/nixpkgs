@@ -13,7 +13,7 @@ buildPythonPackage rec {
   # No Tests
   doCheck = false;
 
-  propagatedBuildInputs = [
+  pythonPath = [
     flask
     pyyaml
   ];

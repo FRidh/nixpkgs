@@ -19,7 +19,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest scikitimage ];
-  propagatedBuildInputs = [ dask numpy toolz scipy pims ];
+  pythonPath = [ dask numpy toolz scipy pims ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/dask/dask-image;

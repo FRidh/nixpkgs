@@ -20,7 +20,7 @@ buildPythonPackage rec {
   # Tests are not included in the PyPI package
   doCheck = false;
 
-  propagatedBuildInputs = [
+  pythonPath = [
     boto3
     jsonschema
     six

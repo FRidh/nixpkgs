@@ -41,7 +41,7 @@ buildPythonApplication rec {
 
   buildInputs = [ makeWrapper ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     pulseaudio
     psutil
     pyqt5

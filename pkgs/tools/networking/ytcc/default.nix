@@ -13,7 +13,7 @@ python3Packages.buildPythonApplication rec {
 
   nativeBuildInputs = [ gettext ];
 
-  propagatedBuildInputs = with python3Packages; [ feedparser lxml sqlalchemy youtube-dl ];
+  pythonPath = with python3Packages; [ feedparser lxml sqlalchemy youtube-dl ];
 
   checkInputs = with python3Packages; [ nose pytest ];
 

@@ -11,7 +11,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ pytest ];
-  propagatedBuildInputs = [ execnet ];
+  pythonPath = [ execnet ];
 
   checkPhase = ''
     py.test

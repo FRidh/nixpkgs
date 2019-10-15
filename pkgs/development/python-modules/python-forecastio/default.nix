@@ -16,7 +16,7 @@ buildPythonPackage rec {
 
   checkInputs = [ nose ];
 
-  propagatedBuildInputs = [ requests responses ];
+  pythonPath = [ requests responses ];
 
   checkPhase = ''
     nosetests

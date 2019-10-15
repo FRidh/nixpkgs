@@ -17,7 +17,7 @@ buildPythonPackage rec {
   # Deliberately not in propagated build inputs; users can decide
   # which library they want to include.
   buildInputs = [ SDL2_ttf SDL2_image SDL2_gfx SDL2_mixer ];
-  propagatedBuildInputs = [ SDL2 ];
+  pythonPath = [ SDL2 ];
   patches = [ ./PySDL2-dll.patch ];
   postPatch = ''
     substituteInPlace sdl2/dll.py --replace \

@@ -29,7 +29,7 @@ buildPythonPackage rec {
   '';
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [ certifi future urllib3 tornado ];
+  pythonPath = [ certifi future urllib3 tornado ];
 
   # tests not included with release
   doCheck = false;

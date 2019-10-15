@@ -6,7 +6,7 @@ buildPythonPackage rec {
   pname = "Scrapy";
 
   checkInputs = [ glibcLocales mock pytest botocore testfixtures pillow ];
-  propagatedBuildInputs = [
+  pythonPath = [
     six twisted w3lib lxml cssselect queuelib pyopenssl service-identity parsel pydispatcher
   ];
 

@@ -12,7 +12,7 @@ let
     };
   });
   pyqt4_fixed = pyqt4.overrideAttrs (oldAttrs: {
-    propagatedBuildInputs = [ sip4_19_3 ];
+    pythonPath = [ sip4_19_3 ];
   });
 in stdenv.mkDerivation rec {
   version = "4.14.3";
@@ -31,7 +31,7 @@ in stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ cmake automoc4 ];
 
-  propagatedBuildInputs = [ pyqt4_fixed ];
+  pythonPath = [ pyqt4_fixed ];
 
   enableParallelBuilding = true;
 

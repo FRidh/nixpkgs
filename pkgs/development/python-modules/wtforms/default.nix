@@ -18,7 +18,7 @@ buildPythonPackage rec {
   # This is fixed in master I believe but not yet in 2.1;
   doCheck = false;
 
-  propagatedBuildInputs = [ Babel ];
+  pythonPath = [ Babel ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/wtforms/wtforms;

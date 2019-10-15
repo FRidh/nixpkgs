@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "1zg5bm30lqqd8x0jqbvr4yi8i4rzzk2hdnh280qnj2bwm5nqpghi";
   };
 
-  propagatedBuildInputs = [ gevent ];
+  pythonPath = [ gevent ];
 
   meta = with stdenv.lib; {
     description = "gevent-cooperative child processes and IPC";

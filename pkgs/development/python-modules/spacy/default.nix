@@ -38,7 +38,7 @@ buildPythonPackage rec {
       --replace "plac<1.0.0,>=0.9.6" "plac>=0.9.6"
   '';
 
-  propagatedBuildInputs = [
+  pythonPath = [
    numpy
    murmurhash
    cymem

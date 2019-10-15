@@ -19,7 +19,7 @@ buildPythonPackage rec {
     sha256 = "1skqq36k1dm7mngfg9c93pb1rdvmbapc0cv8zj00hnm63r67hmrj";
   };
 
-  propagatedBuildInputs = [ future requests python-dateutil ];
+  pythonPath = [ future requests python-dateutil ];
 
   checkInputs = [ flake8 isort mock pytest ];
 

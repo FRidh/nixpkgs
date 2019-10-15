@@ -20,7 +20,7 @@ buildPythonPackage rec {
     cython
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
    msgpack
    numpy
   ];

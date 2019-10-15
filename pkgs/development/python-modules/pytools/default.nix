@@ -19,7 +19,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     decorator
     appdirs
     six

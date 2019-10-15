@@ -17,7 +17,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest selenium ];
-  propagatedBuildInputs = [ jinja2 six ];
+  pythonPath = [ jinja2 six ];
 
   # Seems to require a browser
   doCheck = false;

@@ -5,7 +5,7 @@ buildPythonPackage rec {
   pname = "pytest-cram";
 
   checkInputs = [ pytest ];
-  propagatedBuildInputs = [ cram ];
+  pythonPath = [ cram ];
 
   src = fetchPypi {
     inherit pname version;

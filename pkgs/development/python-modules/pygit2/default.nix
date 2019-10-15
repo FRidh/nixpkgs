@@ -19,7 +19,7 @@ buildPythonPackage rec {
     sha256 = "18x1fpmywhjjr4lvakwmy34zpxfqi8pqqj48g1wcib39lh3s7l4f";
   }) ];
 
-  propagatedBuildInputs = [ libgit2 six ] ++ lib.optional (!isPyPy) cffi;
+  pythonPath = [ libgit2 six ] ++ lib.optional (!isPyPy) cffi;
 
   preCheck = ''
     # disable tests that require networking

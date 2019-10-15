@@ -11,7 +11,7 @@ buildPythonPackage rec {
     sha256 = "18820ga5z3if1w8dvykxrfm000akracq01ic402xrbljgbn5grn4";
   };
 
-  propagatedBuildInputs =
+  pythonPath =
     lib.optionals isPy27 [ enum34 functools32 ]
     ++ lib.optional (isPy27 || isPy34) typing;
 

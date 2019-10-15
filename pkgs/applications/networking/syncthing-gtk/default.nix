@@ -29,7 +29,7 @@ buildPythonApplication rec {
     gsettings-desktop-schemas
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     dateutil pyinotify pygobject3 bcrypt
   ];
 

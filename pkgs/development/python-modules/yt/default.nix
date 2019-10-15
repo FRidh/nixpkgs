@@ -27,7 +27,7 @@ buildPythonPackage rec {
     cython
   ];
 
-  propagatedBuildInputs = [
+  pythonPath = [
     matplotlib
     setuptools
     sympy

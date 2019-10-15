@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "038ign7qlavlmvrhb2y8bygbxvy4j7bx2k1zg0i3wblg2ja50w7h";
   };
 
-  propagatedBuildInputs = [ pyramid hawkauthlib tokenlib ];
+  pythonPath = [ pyramid hawkauthlib tokenlib ];
   buildInputs = [ webtest ];
 
   meta = with stdenv.lib; {

@@ -23,7 +23,7 @@ buildPythonPackage rec {
     pytest tests/
   '';
 
-  propagatedBuildInputs = [ redis ]
+  pythonPath = [ redis ]
   ++ stdenv.lib.optional withDjango django_redis;
 
 

@@ -14,7 +14,7 @@ buildPythonApplication rec {
     sha256 = "1qhxwjjgrzpqrqjv7l2847ywpln76lyd6j8bl9gz2r6kl0fx2fqs";
   };
 
-  propagatedBuildInputs = [ colorama decorator psutil pyte six ];
+  pythonPath = [ colorama decorator psutil pyte six ];
 
   checkInputs = [ pytest pytest-mock ];
 

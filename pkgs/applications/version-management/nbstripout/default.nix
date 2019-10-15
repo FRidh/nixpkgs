@@ -10,7 +10,7 @@ buildPythonApplication rec {
   # here, instead add it to PATH when running unit tests
   checkInputs = [ pytest pytest-flake8 pytest-cram git ];
   nativeBuildInputs = [ pytestrunner ];
-  propagatedBuildInputs = [ ipython nbformat ];
+  pythonPath = [ ipython nbformat ];
 
   src = fetchPypi {
     inherit pname version;

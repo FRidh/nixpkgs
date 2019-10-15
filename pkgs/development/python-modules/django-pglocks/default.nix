@@ -16,7 +16,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ django ];
-  propagatedBuildInputs = [ django ];
+  pythonPath = [ django ];
 
   # tests need a postgres database
   doCheck = false;

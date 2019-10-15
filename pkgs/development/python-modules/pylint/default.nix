@@ -16,7 +16,7 @@ buildPythonPackage rec {
 
   checkInputs = [ pytest ];
 
-  propagatedBuildInputs = [ astroid isort mccabe ];
+  pythonPath = [ astroid isort mccabe ];
 
   postPatch = lib.optionalString stdenv.isDarwin ''
     # Remove broken darwin test

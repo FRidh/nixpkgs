@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "7d59ac4fdcb2c58037ebd4a9da5f9a49e3e034bf75b3f26d9fe48ba3d8806e6b";
   };
 
-  propagatedBuildInputs = [ six ];
+  pythonPath = [ six ];
 
   # No tests. Breaks when not disabling.
   doCheck = false;

@@ -11,7 +11,7 @@ python3.pkgs.buildPythonApplication rec {
     sha256 = "0cdp9rpabazyfnks30rsf3qfdi40z1bkspxk4ds9bm82kpq33jxy";
   };
 
-  propagatedBuildInputs = [ python3.pkgs.dns ];
+  pythonPath = [ python3.pkgs.dns ];
 
   meta = with stdenv.lib; {
     homepage = "https://github.com/mschwager/fierce";

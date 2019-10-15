@@ -13,7 +13,7 @@ buildPythonApplication rec {
     sha256 = "06dc59iwxfncz61hs3lcq08c5zrp7x4n4ibk5lpqqx6rk0izzz9b";
   };
 
-  propagatedBuildInputs = [ click ipy pyyaml requests ];
+  pythonPath = [ click ipy pyyaml requests ];
 
   doCheck = false;    # Tests try to contact the actual remote API
 

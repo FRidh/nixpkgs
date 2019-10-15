@@ -11,7 +11,7 @@ pythonPackages.buildPythonApplication rec {
 
   nativeBuildInputs = with pythonPackages; [ sphinx setuptools_scm ];
 
-  propagatedBuildInputs = with pythonPackages; [
+  pythonPath = with pythonPackages; [
     pythonPackages.setuptools pythonPackages.notmuch chardet dkimpy
   ] ++ stdenv.lib.optional (!pythonPackages.isPy3k) subprocess32;
 

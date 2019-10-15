@@ -11,7 +11,7 @@ pythonPackages.buildPythonApplication rec {
     sha256 = "1fjd9ydbfwd1n9b9zw8zjn4l7c5hpam2n0xs51pjkjn82m3zq9zv";
   };
 
-  propagatedBuildInputs = [
+  pythonPath = [
     mopidy
     pythonPackages.uritools
   ];

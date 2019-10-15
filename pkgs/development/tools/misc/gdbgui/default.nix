@@ -15,7 +15,7 @@ buildPythonApplication rec {
   version = "0.13.1.1";
 
   buildInputs = [ gdb ];
-  propagatedBuildInputs = [
+  pythonPath = [
     flask
     flask-socketio
     flask-compress

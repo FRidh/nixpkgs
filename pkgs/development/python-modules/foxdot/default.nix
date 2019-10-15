@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "07ll1rh1bkq1dpb7gxd86jsjhxni73kp9iljiy0d2b86ji8h108p";
   };
 
-  propagatedBuildInputs = [ tkinter supercollider ];
+  pythonPath = [ tkinter supercollider ];
 
   # Requires a running SuperCollider instance
   doCheck = false;

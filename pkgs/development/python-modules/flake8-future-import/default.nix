@@ -20,7 +20,7 @@ buildPythonPackage rec {
     })
   ];
 
-  propagatedBuildInputs = [ flake8 six ];
+  pythonPath = [ flake8 six ];
 
   meta = {
     homepage = https://github.com/xZise/flake8-future-import;

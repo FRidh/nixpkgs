@@ -10,7 +10,7 @@ buildPythonPackage rec {
 
   disabled = !isPy3k;
 
-  propagatedBuildInputs = [ keyring pbkdf2 pyaes ];
+  pythonPath = [ keyring pbkdf2 pyaes ];
 
   # No tests implemented
   doCheck = false;
