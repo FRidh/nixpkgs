@@ -103,15 +103,6 @@ _addToPythonPath() {
     # the effect of calling `export program_X=$dir/...:$program_X`.
     addToSearchPath program_PYTHONPATH $dir/@sitePackages@
     addToSearchPath program_PATH $dir/bin
-
-    # Inspect the propagated inputs (if they exist) and recur on them.
-    local prop="$dir/nix-support/propagated-build-inputs"
-    if [ -e $prop ]; then
-        local new_path
-        for new_path in $(cat $prop); do
-            _addToPythonPath $new_path
-        done
-    fi
 }
 
 createBuildInputsPth() {

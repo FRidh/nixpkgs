@@ -20,6 +20,7 @@
 , setuptoolsBuildHook
 , setuptoolsCheckHook
 , wheelUnpackHook
+, requiredPythonModules
 }:
 
 { name ? "${attrs.pname}-${attrs.version}"
@@ -95,8 +96,10 @@ else
 let
   inherit (python) stdenv;
 
+  pythonPath' = [ python ] ++ (requiredPythonModules pythonPath);
+
   self = toPythonModule (stdenv.mkDerivation ((builtins.removeAttrs attrs [
-    "disabled" "checkPhase" "checkInputs" "doCheck" "doInstallCheck" "dontWrapPythonPrograms" "catchConflicts" "format"
+    "disabled" "checkPhase" "checkInputs" "doCheck" "doInstallCheck" "dontWrapPythonPrograms" "catchConflicts" "format" "pythonPath"
   ]) // {
 
   name = namePrefix + name;
@@ -124,11 +127,12 @@ let
   ] ++ lib.optionals (stdenv.buildPlatform == stdenv.hostPlatform) [
     # This is a test, however, it should be ran independent of the checkPhase and checkInputs
     pythonImportsCheckHook
-  ] ++ nativeBuildInputs;
+  ] ++ (requiredPythonModules nativeBuildInputs) ++ nativeBuildInputs;
 
-  buildInputs = buildInputs ++ pythonPath;
+  buildInputs = buildInputs ++ pythonPath';
 
-  propagatedBuildInputs = propagatedBuildInputs ++ [ python ];
+  # Pass these as environment variable so we can use it when generating wrappers
+  pythonPath = pythonPath';
 
   inherit strictDeps;
 
@@ -143,7 +147,7 @@ let
     # users of this function to set the `installCheckPhase` or
     # pass in a hook that sets it.
     setuptoolsCheckHook
-  ] ++ checkInputs;
+  ] ++ (requiredPythonModules checkInputs) ++ checkInputs;
 
   postFixup = lib.optionalString (!dontWrapPythonPrograms) ''
     wrapPythonPrograms
