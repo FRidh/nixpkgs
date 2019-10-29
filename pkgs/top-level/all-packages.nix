@@ -12727,16 +12727,7 @@ in
     python = if stdenv.isDarwin then python2 else python3;
   };
 
-  libxml2Python = pkgs.buildEnv { # slightly hacky
-    name = "libxml2+py-${res.libxml2.version}";
-    paths = with libxml2; [ dev bin py ];
-    inherit (libxml2) passthru;
-    # the hook to find catalogs is hidden by buildEnv
-    postBuild = ''
-      mkdir "$out/nix-support"
-      cp '${libxml2.dev}/nix-support/propagated-build-inputs' "$out/nix-support/"
-    '';
-  };
+  libxml2Python = python2.withPackages(ps: with ps; [ libxml2 ]);
 
   libxmlb = callPackage ../development/libraries/libxmlb { };
 
