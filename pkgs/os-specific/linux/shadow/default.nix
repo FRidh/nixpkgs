@@ -1,5 +1,5 @@
 { stdenv, fetchpatch, fetchFromGitHub, autoreconfHook, libxslt, libxml2
-, docbook_xml_dtd_45, docbook_xsl, gnome-doc-utils, flex, bison
+, docbook_xml_dtd_45, docbook_xsl, itstool, flex, bison
 , pam ? null, glibcCross ? null
 }:
 
@@ -30,7 +30,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = stdenv.lib.optional (pam != null && stdenv.isLinux) pam;
   nativeBuildInputs = [autoreconfHook libxslt libxml2
-    docbook_xml_dtd_45 docbook_xsl gnome-doc-utils flex bison
+    docbook_xml_dtd_45 docbook_xsl flex bison itstool
     ];
 
   patches =
@@ -38,6 +38,10 @@ stdenv.mkDerivation rec {
       # Obtain XML resources from XML catalog (patch adapted from gtk-doc)
       ./respect-xml-catalog-files-var.patch
       dots_in_usernames
+      (fetchpatch {
+        url = https://github.com/shadow-maint/shadow/commit/f019f8ffcbba5d5b4674a2eced25e869bd0162d3.patch;
+        sha256 = "1cdmpzyyij562g29cnvjbcq8vgvrkhchaz8671vah1r1a6brqjgx";
+      })
     ];
 
   # The nix daemon often forbids even creating set[ug]id files.
