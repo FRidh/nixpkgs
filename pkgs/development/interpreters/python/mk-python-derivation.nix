@@ -128,7 +128,7 @@ let
 
   buildInputs = buildInputs ++ pythonPath;
 
-  propagatedBuildInputs = propagatedBuildInputs ++ [ python ];
+  propagatedBuildInputs = propagatedBuildInputs;
 
   inherit strictDeps;
 
