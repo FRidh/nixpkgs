@@ -22,6 +22,8 @@
 , tomlkit
 , typing
 , virtualenv
+, python
+, writeText
 }:
 
 let
@@ -34,32 +36,44 @@ let
     };
   });
 
-  # used for tests, can't be used directly for install because
-  # it's missing a setup.py
-  githubSrc = fetchFromGitHub {
+  rewriteToml = writeText "update-toml.py" ''
+    import sys
+    print(sys.path)
+    import tomlkit
+    with open("pyproject.toml") as fin:
+        data = tomlkit.parse(fin.read())
+
+    # Get rid of dependencies
+    data["tool"]["poetry"]["dependencies"] = {}
+
+    # Add poetry as build system
+    data["build-system"] = {
+        "requires": [ "poetry" ],
+        "build-backend": "poetry.masonry.api",
+    }
+
+    with open("pyproject.toml", "w") as fout:
+        fout.write(tomlkit.dumps(data))
+  '';
+
+in buildPythonPackage rec {
+  pname = "poetry";
+  format = "pyproject";
+  version = "0.12.17";
+
+  src = fetchFromGitHub {
     owner = "sdispater";
     repo = "poetry";
     rev = version;
     sha256 = "004s747wkil5f00r0vjff73r6vhlrrcnfan2k7pl7gyf62wfp02a";
   };
 
-  version = "0.12.17";
-in buildPythonPackage rec {
-  pname = "poetry";
-  inherit version;
-
-  src = fetchPypi {
-    inherit pname version;
-    sha256 = "0gxwcd65qjmzqzppf53x51sic1rbcd9py6cdzx3aprppipimslvf";
-  };
-
   postPatch = ''
-    substituteInPlace setup.py --replace \
-      "requests-toolbelt>=0.8.0,<0.9.0" \
-      "requests-toolbelt>=0.8.0,<0.10.0" \
-      --replace 'pyrsistent>=0.14.2,<0.15.0' 'pyrsistent>=0.14.2,<0.16.0' \
-      --replace 'glob2>=0.6,<0.7' 'glob2' \
-      --replace 'cachy<0.3,>=0.2' 'cachy'
+    ${python.interpreter} ${rewriteToml}
+  '';
+
+  preBuild = ''
+    export PYTHONPATH=".:$PYTHONPATH"
   '';
 
   propagatedBuildInputs = [
@@ -93,7 +107,6 @@ in buildPythonPackage rec {
   # only do tests on test suites which are pure
   checkInputs = [ pytest httpretty pytest-mock ];
   checkPhase = ''
-    cp -r ${githubSrc}/tests ./tests
     HOME=$TMPDIR pytest tests/{mixology,packages,repositories,semver}
   '';
 
