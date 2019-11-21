@@ -46,6 +46,19 @@ with pkgs;
         inherit hasDistutilsCxxPatch pythonForBuild;
   };
 
+  # Install a _manylinux.py file
+  # Python on Nix is not manylinux1 compatible. https://github.com/NixOS/nixpkgs/issues/18484
+  manylinuxHook = {
+    libPrefix,
+    manylinux ? false,    
+  }: let
+    pythonBool = bool: if bool then "True" else "False";  
+  in writeShellScript "manylinux" ''
+    echo "import os; manylinux1_compatible = os.environ.get('NIX_PYTHON_MANYLINUX', ${pythonBool manylinux})" >> $out/lib/${libPrefix}/_manylinux.py
+    echo "import os; manylinux2010_compatible = os.environ.get('NIX_PYTHON_MANYLINUX', ${pythonBool manylinux})" >> $out/lib/${libPrefix}/_manylinux.py
+    echo "import os; manylinux2014_compatible = os.environ.get('NIX_PYTHON_MANYLINUX', ${pythonBool manylinux})" >> $out/lib/${libPrefix}/_manylinux.py
+  '';
+
 in rec {
 
   python27 = callPackage ./cpython/2.7 {
@@ -58,7 +71,7 @@ in rec {
     };
     sha256 = "0hds28cg226m8j8sr394nm9yc4gxhvlv109w0avsf2mxrlrz0hsd";
     inherit (darwin) CF configd;
-    inherit passthruFun;
+    inherit manylinuxHook passthruFun;
   };
 
   python35 = callPackage ./cpython {
@@ -71,7 +84,7 @@ in rec {
     };
     sha256 = "0jdh9pvx6m6lfz2liwvvhn7vks7qrysqgwn517fkpxb77b33fjn2";
     inherit (darwin) CF configd;
-    inherit passthruFun;
+    inherit manylinuxHook passthruFun;
   };
 
   python36 = callPackage ./cpython {
@@ -84,7 +97,7 @@ in rec {
     };
     sha256 = "1nkh70azbv866aw5a9bbxsxarsf40233vrzpjq17z3rz9ramybsy";
     inherit (darwin) CF configd;
-    inherit passthruFun;
+    inherit manylinuxHook passthruFun;
   };
 
   python37 = callPackage ./cpython {
@@ -97,7 +110,7 @@ in rec {
     };
     sha256 = "154xc6dxww21qkmphg66pfks8987a17cl3vqq5g4hv1xkzm7cnp8";
     inherit (darwin) CF configd;
-    inherit passthruFun;
+    inherit manylinuxHook passthruFun;
   };
 
   python38 = callPackage ./cpython {
@@ -110,7 +123,7 @@ in rec {
     };
     sha256 = "110d0did9rxn7rg85kf2fwli5hqq44xv2d8bi7d92m7v2d728mmk";
     inherit (darwin) CF configd;
-    inherit passthruFun;
+    inherit manylinuxHook passthruFun;
   };
 
   python39 = callPackage ./cpython {
@@ -123,7 +136,7 @@ in rec {
     };
     sha256 = "02b337kvzb6ncqab21xnayh562zpz6bqzjmh35iy9l48zgpkvf1n";
     inherit (darwin) CF configd;
-    inherit passthruFun;
+    inherit manylinuxHook passthruFun;
   };
 
   # Minimal versions of Python (built without optional dependencies)
@@ -159,7 +172,7 @@ in rec {
     pythonVersion = "2.7";
     db = db.override { dbmSupport = true; };
     python = python27;
-    inherit passthruFun;
+    inherit manylinuxHook passthruFun;
   };
 
   pypy36 = callPackage ./pypy {
@@ -173,7 +186,7 @@ in rec {
     pythonVersion = "3.6";
     db = db.override { dbmSupport = true; };
     python = python27;
-    inherit passthruFun;
+    inherit manylinuxHook passthruFun;
   };
 
   pypy27_prebuilt = callPackage ./pypy/prebuilt.nix {
@@ -186,7 +199,7 @@ in rec {
     };
     sha256 = "0rlx4x9xy9h989w6sy4h7lknm00956r30c5gjxwsvf8fhvq9xc3k"; # linux64
     pythonVersion = "2.7";
-    inherit passthruFun;
+    inherit manylinuxHook passthruFun;
     ncurses = ncurses5;
   };
 
@@ -200,7 +213,7 @@ in rec {
     };
     sha256 = "1c1xx6dm1n4xvh1vd3rcvyyixm5jm9rvzisji1a5bc9l38xzc540"; # linux64
     pythonVersion = "3.6";
-    inherit passthruFun;
+    inherit manylinuxHook passthruFun;
     ncurses = ncurses5;
   };
 
