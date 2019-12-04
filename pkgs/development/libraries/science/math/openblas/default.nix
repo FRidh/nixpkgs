@@ -62,6 +62,14 @@ let
       NO_AVX512 = true;
       USE_OPENMP = true;
     };
+
+    x86_64-windows = {
+      BINARY = 64;
+      TARGET = setTarget "ATHLON";
+      DYNAMIC_ARCH = true;
+      NO_AVX512 = true;
+      USE_OPENMP = false;
+    };
   };
 in
 
