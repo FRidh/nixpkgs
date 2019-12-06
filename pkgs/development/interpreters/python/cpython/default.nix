@@ -6,7 +6,7 @@
 , lzma
 , ncurses
 , openssl
-, readline
+, readline ? null
 , sqlite
 , tcl ? null, tk ? null, tix ? null, libX11 ? null, xorgproto ? null, x11Support ? false
 , zlib
@@ -14,6 +14,7 @@
 , CF, configd
 , python-setup-hook
 , nukeReferences
+, autoreconfHook
 # For the Python package set
 , packageOverrides ? (self: super: {})
 , buildPackages
@@ -55,12 +56,16 @@ let
   ] ++ optionals (stdenv.hostPlatform != stdenv.buildPlatform) [
     buildPackages.stdenv.cc
     pythonForBuild
+    autoreconfHook
   ];
 
   buildInputs = filter (p: p != null) [
-    zlib bzip2 expat lzma libffi gdbm sqlite readline ncurses openssl ]
+    zlib bzip2 expat lzma libffi gdbm sqlite ncurses openssl ]
     ++ optionals x11Support [ tcl tk libX11 xorgproto ]
-    ++ optionals stdenv.isDarwin [ CF configd ];
+    ++ optionals stdenv.isDarwin [ CF configd ]
+    ++ optionals (!stdenv.hostPlatform.isWindows) [
+      readline
+  ];
 
   hasDistutilsCxxPatch = !(stdenv.cc.isGNU or false);
 
@@ -76,10 +81,7 @@ in with passthru; stdenv.mkDerivation {
 
   inherit buildInputs nativeBuildInputs;
 
-  src = fetchurl {
-    url = with sourceVersion; "https://www.python.org/ftp/python/${major}.${minor}.${patch}/Python-${version}.tar.xz";
-    inherit sha256;
-  };
+  src = fetchGit /home/freddy/Code/libraries/cpython;
 
   prePatch = optionalString stdenv.isDarwin ''
     substituteInPlace configure --replace '`/usr/bin/arch`' '"i386"'
@@ -89,6 +91,7 @@ in with passthru; stdenv.mkDerivation {
   '';
 
   patches = [
+  ] ++ optionals (!stdenv.hostPlatform.isWindows) [
     # Disable the use of ldconfig in ctypes.util.find_library (since
     # ldconfig doesn't work on NixOS), and don't use
     # ctypes.util.find_library during the loading of the uuid module
@@ -204,7 +207,6 @@ in with passthru; stdenv.mkDerivation {
         echo $item
       fi
     done
-    touch $out/lib/${libPrefix}/test/__init__.py
 
     ln -s "$out/include/${executable}m" "$out/include/${executable}"
 
@@ -262,7 +264,7 @@ in with passthru; stdenv.mkDerivation {
 
   preFixup = stdenv.lib.optionalString (stdenv.hostPlatform != stdenv.buildPlatform) ''
     # Ensure patch-shebangs uses shebangs of host interpreter.
-    export PATH=${stdenv.lib.makeBinPath [ "$out" bash ]}:$PATH
+    export PATH=${stdenv.lib.makeBinPath [ "$out" stdenv.shellPackage ]}:$PATH
   '';
 
   # Enforce that we don't have references to the OpenSSL -dev package, which we
