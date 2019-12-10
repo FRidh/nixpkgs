@@ -28,6 +28,7 @@
 , stripTkinter ? false
 , rebuildBytecode ? true
 , stripBytecode ? false
+, disableLdconfig ? true
 }:
 
 assert x11Support -> tcl != null
@@ -88,7 +89,7 @@ in with passthru; stdenv.mkDerivation {
     substituteInPlace setup.py --replace /Library/Frameworks /no-such-path
   '';
 
-  patches = [
+  patches = [] ++ lib.optionals disableLdconfig [
     # Disable the use of ldconfig in ctypes.util.find_library (since
     # ldconfig doesn't work on NixOS), and don't use
     # ctypes.util.find_library during the loading of the uuid module
