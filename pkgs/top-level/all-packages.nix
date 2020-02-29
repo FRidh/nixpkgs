@@ -23822,6 +23822,15 @@ in
 
   krohnkite = libsForQt5.callPackage ../desktops/plasma-5/kwin/scripts/krohnkite.nix { };
 
+  plasma-mobile =
+    let
+      mkPlasmaMobile = import ../desktops/plasma-mobile;
+      attrs = {
+        inherit libsForQt5 lib fetchgit;
+      };
+    in
+      recurseIntoAttrs (makeOverridable mkPlasmaMobile attrs);
+
   ### SCIENCE
 
   ### SCIENCE/CHEMISTY
