@@ -8,6 +8,7 @@
 , mock
 , nose
 , urllib3
+, pythonModifyDependenciesHook
 }:
 
 buildPythonPackage rec {
@@ -28,15 +29,25 @@ buildPythonPackage rec {
     urllib3
   ];
 
-  postPatch = ''
-    substituteInPlace setup.py --replace ",<0.16" ""
-  '';
+  # postPatch = ''
+  #   substituteInPlace setup.py --replace ",<0.16" ""
+  # '';
+
+  buildInputs = [
+    pythonModifyDependenciesHook
+  ];
+
+  pythonRemoveDependencyConstraints = [
+    "docutils"
+  ];
 
   checkInputs = [ mock nose ];
 
   checkPhase = ''
     nosetests -v
   '';
+
+  preInstall = "exit 1";
 
   # Network access
   doCheck = false;

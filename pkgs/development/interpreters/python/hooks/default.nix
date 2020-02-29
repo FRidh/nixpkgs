@@ -5,6 +5,7 @@
 , disabledIf
 , isPy3k
 , ensureNewerSourcesForZipFilesHook
+, substituteAll
 }:
 
 let
@@ -88,6 +89,21 @@ in rec {
         inherit pythonCheckInterpreter;
       };
     } ./python-imports-check-hook.sh) {};
+
+  pythonModifyDependenciesHook = callPackage ({ wheel }: let
+    script = substituteAll {
+      name = "python-modify-dependencies";
+      src = ./python-modify-dependencies-hook.py;
+      isExecutable = true;
+      inherit pythonInterpreter;
+    };
+  in makeSetupHook {
+      name = "python-modify-dependencies-hook";
+      deps = [ wheel ];
+      substitutions = {
+        inherit script;
+      };
+    } ./python-modify-dependencies-hook.sh) {};
 
   pythonRemoveBinBytecodeHook = callPackage ({ }:
     makeSetupHook {
