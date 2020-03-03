@@ -1,15 +1,18 @@
 { lib, buildPythonPackage, fetchPypi, isPy27, isPy34
-, enum34, functools32, typing
+, enum34, functools32, typing, poetry
 }:
 
 buildPythonPackage rec {
   pname = "tomlkit";
   version = "0.5.8";
+  format = "pyproject";
 
   src = fetchPypi {
     inherit pname version;
     sha256 = "32c10cc16ded7e4101c79f269910658cc2a0be5913f1252121c3cd603051c269";
   };
+
+  nativeBuildInputs = [ poetry ];
 
   propagatedBuildInputs =
     lib.optionals isPy27 [ enum34 functools32 ]

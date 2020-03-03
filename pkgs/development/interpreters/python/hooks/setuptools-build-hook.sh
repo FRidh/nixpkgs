@@ -14,7 +14,13 @@ setuptoolsBuildPhase() {
     if [ -n "$setupPyBuildFlags" ]; then
         args+="build_ext $setupPyBuildFlags"
     fi
-    eval "@pythonInterpreter@ nix_run_setup $args bdist_wheel"
+    if [ -n dontBuildSdist ]; then
+        eval "@pythonInterpreter@ -m pip wheel --no-index --no-deps --no-clean --no-build-isolation --wheel-dir dist ."
+        
+    else
+        eval "@pythonInterpreter@ nix_run_setup $args sdist"
+        eval "@pythonInterpreter@ -m pip wheel --no-index --no-deps --no-clean --no-build-isolation --wheel-dir dist dist/*"
+    fi
 
     runHook postBuild
     echo "Finished executing setuptoolsBuildPhase"

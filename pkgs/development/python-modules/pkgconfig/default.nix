@@ -3,6 +3,7 @@
 buildPythonPackage rec {
   pname = "pkgconfig";
   version = "1.5.1";
+  format = "pyproject";
 
   setupHook = pkgconfig.setupHook;
 
@@ -18,6 +19,9 @@ buildPythonPackage rec {
   checkPhase = ''
     nosetests
   '';
+
+  # Requires poetry
+  dontBuildSdist = true;
 
   patches = [ ./executable.patch ];
   postPatch = ''

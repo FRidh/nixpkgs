@@ -1493,7 +1493,9 @@ in {
 
   toml = callPackage ../development/python-modules/toml { };
 
-  tomlkit = callPackage ../development/python-modules/tomlkit { };
+  tomlkit = callPackage ../development/python-modules/tomlkit { 
+    inherit (pkgs) poetry;
+  };
 
   toggl-cli = callPackage ../development/python-modules/toggl-cli { };
 
