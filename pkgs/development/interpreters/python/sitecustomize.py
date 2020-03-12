@@ -24,3 +24,5 @@ if paths:
 executable = os.environ.pop('NIX_PYTHONEXECUTABLE', None)
 if 'PYTHONEXECUTABLE' not in os.environ and executable:
     sys.executable = executable
+sys.prefix = os.environ.pop('NIX_PYTHONPREFIX', None)
+sys.exec_prefix = sys.prefix
