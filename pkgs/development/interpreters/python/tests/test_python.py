@@ -37,10 +37,7 @@ class TestCasePython(unittest.TestCase):
 
     @unittest.skipIf(sys.version_info.major==2, "Python 2 does not have base_prefix")
     def test_base_prefix(self):
-        if IS_VENV or IS_NIXENV:
-            self.assertNotEqual(sys.prefix, sys.base_prefix)
-        else:
-            self.assertEqual(sys.prefix, sys.base_prefix)
+        self.assertEqual(sys.prefix, sys.base_prefix)
 
     def test_python_version(self):
         self.assertTrue(platform.python_version().startswith(PYTHON_VERSION))
