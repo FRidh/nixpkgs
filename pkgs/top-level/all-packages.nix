@@ -32,6 +32,10 @@ in
 
   stdenvNoCC = stdenv.override { cc = null; extraAttrs.noCC = true; };
 
+  buildDerivation = callPackage ../stdenv/python-based {};
+
+  stdenv-python-tests = callPackages ../stdenv/python-based/tests { };
+
   mkStdenvNoLibs = stdenv: let
     bintools = stdenv.cc.bintools.override {
       libc = null;

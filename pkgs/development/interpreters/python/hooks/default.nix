@@ -36,10 +36,10 @@ in rec {
       deps = [ ];
     } ./egg-unpack-hook.sh) {};
 
-  flitBuildHook = callPackage ({ flit }:
+  flitBuildHook = callPackage ({ flit-core }:
     makeSetupHook {
       name = "flit-build-hook";
-      deps = [ flit ];
+      deps = [ flit-core ];
       substitutions = {
         inherit pythonInterpreter;
       };
