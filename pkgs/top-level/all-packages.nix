@@ -9720,6 +9720,10 @@ in
   pythonInterpreters = callPackage ./../development/interpreters/python {};
   inherit (pythonInterpreters) python27 python35 python36 python37 python38 python39 python3Minimal pypy27 pypy36;
 
+  # Overrides applied to all Python package sets
+  pythonPackagesOverrides = [
+    (self: super: { })
+  ];
   # Python package sets.
   python27Packages = lib.hiPrioSet (recurseIntoAttrs python27.pkgs);
   python35Packages = python35.pkgs;

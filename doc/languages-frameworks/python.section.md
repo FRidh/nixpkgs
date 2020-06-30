@@ -1413,6 +1413,28 @@ self: super: {
 }
 ```
 
+### How to override a Python package for all Python versions using overlays?
+
+The following overlay overrides the `zerobin` package for all interpreters.
+
+```nix
+self: super: {
+  pythonPackagesOverrides = super.pythonPackagesOverrides ++ [
+    (
+      python-self: python-super: {
+        zerobin = python-super.zerobin.overrideAttrs (oldAttrs: {
+          src = super.fetchgit {
+            url = "https://github.com/sametmax/0bin";
+            rev = "a344dbb18fe7a855d0742b9a1cede7ce423b34ec";
+            sha256 = "16d769kmnrpbdr0ph0whyf4yff5df6zi4kmwx7sz1d3r6c8p6xji";
+          };
+        });
+      }
+    )
+  ];
+}
+```
+
 ### How to use Intel's MKL with numpy and scipy?
 
 MKL can be configured using an overlay. See the section "[Using overlays to

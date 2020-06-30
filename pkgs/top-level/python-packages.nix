@@ -7545,4 +7545,6 @@ in {
 
 });
 
-in fix' (extends overrides packages)
+  composeOverlays = foldl' composeExtensions (self: super: {});
+
+in fix' (extends (composeOverlays (pkgs.pythonPackagesOverrides ++ [ overrides ])) packages)
