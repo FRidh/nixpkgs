@@ -3,7 +3,7 @@
 , fetchFromGitHub
 , ConfigArgParse, acme, configobj, cryptography, distro, josepy, parsedatetime, pyRFC3339, pyopenssl, pytz, requests, six, zope_component, zope_interface
 , dialog, mock, gnureadline
-, pytest_xdist, pytest, dateutil
+, pytest_xdist, pytest, pytestCheckHook, dateutil
 }:
 
 buildPythonApplication rec {
@@ -16,6 +16,8 @@ buildPythonApplication rec {
     rev = "v${version}";
     sha256 = "1y0m5qm853i6pcpb2mrf8kjkr9wr80mdrx1qmck38ayvr2v2p5lc";
   };
+
+  sourceRoot = "source/${pname}";
 
   propagatedBuildInputs = [
     ConfigArgParse
@@ -36,20 +38,23 @@ buildPythonApplication rec {
 
   buildInputs = [ dialog mock gnureadline ];
 
-  checkInputs = [ pytest_xdist pytest dateutil ];
+  checkInputs = [
+    dateutil
+    pytest
+    pytestCheckHook
+    pytest_xdist
+  ];
 
-  preBuild = ''
-    cd certbot
-  '';
+  pytestFlagsArray = [ "-o cache_dir=$(mktemp -d)" ];
+
+  doCheck = true;
+
 
   postInstall = ''
     for i in $out/bin/*; do
-      wrapProgram "$i" --prefix PYTHONPATH : "$PYTHONPATH" \
-                       --prefix PATH : "${dialog}/bin:$PATH"
+      wrapProgram "$i" --prefix PATH : "${dialog}/bin:$PATH"
     done
   '';
-
-  doCheck = true;
 
   meta = with lib; {
     homepage = src.meta.homepage;
