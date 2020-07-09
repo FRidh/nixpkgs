@@ -1,5 +1,7 @@
 { lib
 , buildPythonApplication
+, python
+, certbot, runCommand, makeWrapper
 , fetchFromGitHub
 , ConfigArgParse, acme, configobj, cryptography, distro, josepy, parsedatetime, pyRFC3339, pyopenssl, pytz, requests, six, zope_component, zope_interface
 , dialog, mock, gnureadline
@@ -49,11 +51,29 @@ buildPythonApplication rec {
 
   doCheck = true;
 
-
   postInstall = ''
     for i in $out/bin/*; do
       wrapProgram "$i" --prefix PATH : "${dialog}/bin:$PATH"
     done
+  '';
+
+  # certbot.withPlugins has a similar calling convention as python*.withPackages
+  # it gets invoked with a lambda, and invokes that lambda with the python package set matching certbot's:
+  # certbot.withPlugins (cp: [ cp.certbot-dns-foo ])
+  passthru.withPlugins = f: let
+    # call the lambda with python.pkgs, get back a list of plugins
+    plugins = (f python.pkgs);
+    # combine all required python modules
+    runtimeClosure = lib.flatten (map (p: [p] ++ p.passthru.requiredPythonModules) plugins);
+    # convert them to a list of python paths
+    pythonPaths = (map (p: "${p}/" + python.sitePackages) runtimeClosure);
+    pythonPath = lib.concatStringsSep ":" pythonPaths;
+  in runCommand "${certbot.name}-with-plugins" {
+    nativeBuildInputs = [ makeWrapper ];
+  } ''
+    mkdir -p $out/bin
+    makeWrapper ${certbot}/bin/certbot $out/bin/certbot \
+      --prefix PYTHONPATH : ${pythonPath}
   '';
 
   meta = with lib; {
