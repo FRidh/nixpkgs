@@ -36,6 +36,7 @@ py.pkgs.toPythonApplication (py.pkgs.buildAzureCliPackage {
   nativeBuildInputs = [ installShellFiles ];
 
   propagatedBuildInputs = with py.pkgs; [
+    azure-batch
     colorama
     cryptography
     Fabric
