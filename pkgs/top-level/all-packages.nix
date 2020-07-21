@@ -11592,7 +11592,7 @@ in
     ogre = ogre1_10;
   };
 
-  certbot = python3.pkgs.certbot;
+  certbot = with python3.pkgs; toPythonApplication python3.pkgs.certbot;
 
   certbot-full = certbot.withPlugins (cp: with cp; [
     certbot-dns-cloudflare

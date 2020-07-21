@@ -1,6 +1,6 @@
 { lib
-, buildPythonApplication, toPythonApplication
 , python
+, buildPythonPackage
 , certbot, runCommand, makeWrapper
 , fetchFromGitHub
 , ConfigArgParse, acme, configobj, cryptography, distro, josepy, parsedatetime, pyRFC3339, pyopenssl, pytz, requests, six, zope_component, zope_interface
@@ -8,7 +8,7 @@
 , pytest_xdist, pytest, pytestCheckHook, dateutil
 }:
 
-buildPythonApplication rec {
+buildPythonPackage rec {
   pname = "certbot";
   version = "1.6.0";
 
