@@ -58,13 +58,14 @@ buildPythonPackage rec {
   # it gets invoked with a lambda, and invokes that lambda with the python package set matching certbot's:
   # certbot.withPlugins (cp: [ cp.certbot-dns-foo ])
   passthru.withPlugins = f: let
-    # call the lambda with python.pkgs, get back a list of plugins
-    plugins = (f python.pkgs);
+    pythonEnv = python.withPackages f;
 
-  in toPythonApplication (certbot.overridePythonAttrs (old: {
-    pname = old.pname + "-with-plugins";
-    propagatedBuildInputs = old.propagatedBuildInputs or [] ++ plugins;
-  }));
+  in runCommand "certbot-with-plugins" {
+  } ''
+    mkdir -p $out/bin
+    cd $out/bin
+    ln -s ${pythonEnv}/bin/certbot
+  '';
 
   meta = with lib; {
     homepage = src.meta.homepage;
