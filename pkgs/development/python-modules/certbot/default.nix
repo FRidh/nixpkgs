@@ -1,5 +1,5 @@
 { lib
-, buildPythonApplication
+, buildPythonApplication, toPythonApplication
 , python
 , certbot, runCommand, makeWrapper
 , fetchFromGitHub
@@ -63,18 +63,11 @@ buildPythonApplication rec {
   passthru.withPlugins = f: let
     # call the lambda with python.pkgs, get back a list of plugins
     plugins = (f python.pkgs);
-    # combine all required python modules
-    runtimeClosure = lib.flatten (map (p: [p] ++ p.passthru.requiredPythonModules) plugins);
-    # convert them to a list of python paths
-    pythonPaths = (map (p: "${p}/" + python.sitePackages) runtimeClosure);
-    pythonPath = lib.concatStringsSep ":" pythonPaths;
-  in runCommand "${certbot.name}-with-plugins" {
-    nativeBuildInputs = [ makeWrapper ];
-  } ''
-    mkdir -p $out/bin
-    makeWrapper ${certbot}/bin/certbot $out/bin/certbot \
-      --prefix PYTHONPATH : ${pythonPath}
-  '';
+
+  in toPythonApplication (certbot.overridePythonAttrs (old: {
+    pname = old.pname + "-with-plugins";
+    propagatedBuildInputs = old.propagatedBuildInputs or [] ++ plugins;
+  }));
 
   meta = with lib; {
     homepage = src.meta.homepage;
