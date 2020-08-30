@@ -33,7 +33,7 @@ with pkgs;
         isPy3k = isPy3;
         isPyPy = lib.hasInfix "pypy" interpreter;
 
-        buildEnv = callPackage ./wrapper.nix { python = self; inherit (pythonPackages) requiredPythonModules; };
+        buildEnv = callPackage ./wrapper.nix { python = self; inherit (pythonPackages) requiredPythonModules makeWrapperArgsLoadHook; };
         withPackages = import ./with-packages.nix { inherit buildEnv pythonPackages; };
 
         pkgs = pythonPackages;

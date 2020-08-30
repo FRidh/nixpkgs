@@ -1,11 +1,11 @@
 # Hook that propagates wrapper arguments up to the
 # python interpreter buildEnv environment.
-echo "Sourcing propagate-wrapper-args.sh"
+echo "Sourcing makewrapperargs-save-hook.sh"
 
-storeWrapperArgsHook() {
+makeWrapperArgsSavePhase() {
     # Store the arguments for use by other derivations
     # and the python interpreter derivation.
-    echo "Executing propagateWrapperArgsHook"
+    echo "Executing makeWrapperArgsSavePhase"
 
     mkdir -p "$out/nix-support"
     if [ ${#qtWrapperArgs[@]} -ne 0 ]; then
@@ -19,15 +19,4 @@ storeWrapperArgsHook() {
     fi
 }
 
-loadWrapperArgsHook() {
-    # Load the arguments from all the dependencies.
-    # Note: this hook *must* run after storeWrapperArgsHook to
-    # avoid an exponential duplication of the wrapper arguments.
-    for path in $propagatedBuildInputs "$@"; do
-        if [ -f "$path/nix-support/make-wrapper-args" ]; then
-            makeWrapperArgs+=$(cat "$path/nix-support/make-wrapper-args")
-        fi
-    done
-}
-
-postFixupHooks+=(storeWrapperArgsHook loadWrapperArgsHook)
+postFixupHooks+=(makeWrapperArgsSavePhase)

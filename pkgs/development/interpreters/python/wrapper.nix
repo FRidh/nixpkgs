@@ -5,6 +5,7 @@
 , ignoreCollisions ? false
 , permitUserSite ? false
 , requiredPythonModules
+, makeWrapperArgsLoadHook
 # Wrap executables with the given argument.
 , makeWrapperArgs ? []
 , }:
@@ -22,14 +23,18 @@ let
     inherit ignoreCollisions;
     extraOutputsToInstall = [ "out" ] ++ extraOutputsToInstall;
 
-    buildInputs = [ python.pkgs.propagateWrapperArgsHook ];
+    buildInputs = [
+      makeWrapper
+      makeWrapperArgsLoadHook
+    ];
 
     postBuild = with stdenv.lib; ''
       . "${makeWrapper}/nix-support/setup-hook"
+      . "${makeWrapperArgsLoadHook}/nix-support/setup-hook"
 
       # Load propagated wrapper arguments from each
       # path in the environment.
-      loadWrapperArgsHook ${concatStringsSep " " paths}
+      makeWrapperArgsLoadPhase ${concatStringsSep " " paths}
 
       if [ -L "$out/bin" ]; then
           unlink "$out/bin"
@@ -44,6 +49,7 @@ let
               rm -f "$out/bin/$prg"
               if [ -x "$prg" ]; then
                 makeWrapper "$path/bin/$prg" "$out/bin/$prg" \
+                  --set NIX_PYTHONPREFIX "$out" \
                   --set NIX_PYTHONEXECUTABLE ${pythonExecutable} \
                   --set NIX_PYTHONPATH \
                     ${pythonPath} \

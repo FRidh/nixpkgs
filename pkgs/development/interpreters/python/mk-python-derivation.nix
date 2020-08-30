@@ -14,7 +14,7 @@
 , flitBuildHook
 , pipBuildHook
 , pipInstallHook
-, propagateWrapperArgsHook
+, makeWrapperArgsSaveHook
 , pythonCatchConflictsHook
 , pythonImportsCheckHook
 , pythonNamespacesHook
@@ -114,7 +114,7 @@ let
       ensureNewerSourcesForZipFilesHook  # move to wheel installer (pip) or builder (setuptools, flit, ...)?
       pythonRecompileBytecodeHook  # Remove when solved https://github.com/NixOS/nixpkgs/issues/81441
       pythonRemoveTestsDirHook
-      propagateWrapperArgsHook
+      makeWrapperArgsSaveHook
     ] ++ lib.optionals catchConflicts [
       setuptools pythonCatchConflictsHook
     ] ++ lib.optionals removeBinBytecode [

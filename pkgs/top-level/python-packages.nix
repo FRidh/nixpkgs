@@ -112,9 +112,9 @@ in {
     eggBuildHook
     eggInstallHook
     flitBuildHook
+    makeWrapperArgsLoadHook
     pipBuildHook
     pipInstallHook
-    propagateWrapperArgsHook
     pytestCheckHook
     pythonCatchConflictsHook
     pythonImportsCheckHook
@@ -122,6 +122,7 @@ in {
     pythonRecompileBytecodeHook
     pythonRemoveBinBytecodeHook
     pythonRemoveTestsDirHook
+    makeWrapperArgsSaveHook
     setuptoolsBuildHook
     setuptoolsCheckHook
     venvShellHook

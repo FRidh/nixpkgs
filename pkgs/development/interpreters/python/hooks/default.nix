@@ -45,6 +45,18 @@ in rec {
       };
     } ./flit-build-hook.sh) {};
 
+  makeWrapperArgsLoadHook = callPackage ({ }:
+    makeSetupHook {
+      name = "makewrapperargs-load-hook";
+      deps = [ ];
+    } ./makewrapperargs-load-hook.sh) {};
+
+  makeWrapperArgsSaveHook = callPackage ({ }:
+    makeSetupHook {
+      name = "makewrapperargs-save-hook";
+      deps = [ ];
+    } ./makewrapperargs-save-hook.sh) {};
+
   pipBuildHook = callPackage ({ pip, wheel }:
     makeSetupHook {
       name = "pip-build-hook.sh";
@@ -62,12 +74,6 @@ in rec {
         inherit pythonInterpreter pythonSitePackages;
       };
     } ./pip-install-hook.sh) {};
-
-  propagateWrapperArgsHook = callPackage ({ }:
-    makeSetupHook {
-      name = "propagate-wrapper-args";
-      deps = [ ];
-    } ./propagate-wrapper-args.sh) {};
 
   pytestCheckHook = callPackage ({ pytest }:
     makeSetupHook {
