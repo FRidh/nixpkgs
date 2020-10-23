@@ -754,7 +754,7 @@ mapAliases ({
   between mixed versions of qt. See:
   https://github.com/NixOS/nixpkgs/pull/101369 */
 
-  inherit (kdeFrameworks) breeze-icons;
+  inherit (kdeFrameworks) breeze-icons oxygen-icons5;
   inherit (kdeApplications)
     akonadi akregator ark
     bomber bovo
