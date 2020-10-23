@@ -15087,7 +15087,7 @@ in
       kwidgetsaddons kwindowsystem kxmlgui kxmlrpcclient modemmanager-qt
       networkmanager-qt plasma-framework prison qqc2-desktop-style solid sonnet
       syntax-highlighting syndication threadweaver kirigami2 kholidays kpurpose
-      kcontacts kquickcharts kdoctools kapidox;
+      kcontacts kquickcharts kdoctools kapidox kdesu;
 
     ### KDE PLASMA 5
 
@@ -21627,8 +21627,6 @@ in
   k4dirstat = libsForQt5.callPackage ../applications/misc/k4dirstat { };
 
   kdeconnect = libsForQt512.callPackage ../applications/misc/kdeconnect { };
-
-  inherit (kdeFrameworks) kdesu;
 
   kdevelop-pg-qt = libsForQt514.callPackage ../applications/editors/kdevelop5/kdevelop-pg-qt.nix { };
 
