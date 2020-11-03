@@ -112,14 +112,10 @@ _addToPythonPath() {
     addToSearchPath program_PYTHONPATH $dir/@sitePackages@
     addToSearchPath program_PATH $dir/bin
 
-    # Inspect the propagated inputs (if they exist) and recur on them.
-    local prop="$dir/nix-support/propagated-build-inputs"
-    if [ -e $prop ]; then
-        local new_path
-        for new_path in $(cat $prop); do
-            _addToPythonPath $new_path
-        done
-    fi
+    # Traverse the `requiredPythonModules`.
+    for new_path in ${requiredPythonModules-}; do
+        _addToPythonPath $new_path
+    done
 }
 
 createBuildInputsPth() {

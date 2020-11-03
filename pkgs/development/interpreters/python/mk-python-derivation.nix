@@ -8,6 +8,7 @@
 , ensureNewerSourcesForZipFilesHook
 # Whether the derivation provides a Python module or not.
 , toPythonModule
+, computeRequiredPythonModules
 , namePrefix
 , update-python-libraries
 , setuptools
@@ -46,6 +47,9 @@
 
 # DEPRECATED: use propagatedBuildInputs
 , pythonPath ? []
+
+# Required Python modules
+, requiredPythonModules ? []
 
 # Enabled to detect some (native)BuildInputs mistakes
 , strictDeps ? true
@@ -103,8 +107,10 @@ else
 let
   inherit (python) stdenv;
 
+  requiredPythonModules_ = computeRequiredPythonModules requiredPythonModules;
+
   self = toPythonModule (stdenv.mkDerivation ((builtins.removeAttrs attrs [
-    "disabled" "checkPhase" "checkInputs" "doCheck" "doInstallCheck" "dontWrapPythonPrograms" "catchConflicts" "format"
+    "disabled" "checkPhase" "checkInputs" "doCheck" "doInstallCheck" "dontWrapPythonPrograms" "catchConflicts" "format" "requiredPythonModules"
   ]) // {
 
     name = namePrefix + name;
@@ -143,7 +149,10 @@ let
 
     buildInputs = buildInputs ++ pythonPath;
 
-    propagatedBuildInputs = propagatedBuildInputs ++ [ python ];
+    propagatedBuildInputs = propagatedBuildInputs ++ requiredPythonModules_;
+
+    # requiredPythonModules is also set
+    requiredPythonModules = requiredPythonModules_;
 
     inherit strictDeps;
 
