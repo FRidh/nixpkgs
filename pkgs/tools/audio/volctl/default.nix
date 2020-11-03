@@ -22,7 +22,7 @@ pythonPackages.buildPythonApplication rec {
     libpulseaudio
   ];
 
-  pythonPath = with pythonPackages; [
+  requiredPythonModules = with pythonPackages; [
     pygobject3
   ];
 

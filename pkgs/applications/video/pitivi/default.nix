@@ -130,7 +130,7 @@ in python3Packages.buildPythonApplication rec {
     gst-validate
   ]);
 
-  pythonPath = with python3Packages; [
+  requiredPythonModules = with python3Packages; [
     pygobject3
     gst-python
     pyxdg
