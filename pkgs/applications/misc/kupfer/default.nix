@@ -34,12 +34,12 @@ buildPythonApplication rec {
   strictDeps = false;
 
   postInstall = let
-    pythonPath = (stdenv.lib.concatMapStringsSep ":"
+    requiredPythonModules = (stdenv.lib.concatMapStringsSep ":"
       (m: "${m}/lib/${python.libPrefix}/site-packages")
       requiredPythonModules);
   in ''
     gappsWrapperArgs+=(
-      "--prefix" "PYTHONPATH" : "${pythonPath}"
+      "--prefix" "PYTHONPATH" : "${requiredPythonModules}"
       "--set" "PYTHONNOUSERSITE" "1"
     )
   '';
