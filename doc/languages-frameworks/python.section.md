@@ -898,8 +898,6 @@ following are specific to `buildPythonPackage`:
 * `pipInstallFlags ? []`: A list of strings. Arguments to be passed to `pip
   install`. To pass options to `python setup.py install`, use
   `--install-option`. E.g., `pipInstallFlags=["--install-option='--cpp_implementation'"]`.
-* `pythonPath ? []`: List of packages to be added into `$PYTHONPATH`. Packages
-  in `pythonPath` are not propagated (contrary to `requiredPythonModules`).
 * `preShellHook`: Hook to execute commands before `shellHook`.
 * `postShellHook`: Hook to execute commands after `shellHook`.
 * `removeBinByteCode ? true`: Remove bytecode from `/bin`. Bytecode is only

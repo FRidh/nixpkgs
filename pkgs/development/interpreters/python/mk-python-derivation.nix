@@ -45,9 +45,6 @@
 # C can import package A propagated by B
 , propagatedBuildInputs ? []
 
-# DEPRECATED: use propagatedBuildInputs
-, pythonPath ? []
-
 # Required Python modules
 , requiredPythonModules ? []
 
@@ -147,7 +144,7 @@ let
       pythonNamespacesHook
     ] ++ nativeBuildInputs;
 
-    buildInputs = buildInputs ++ pythonPath;
+    inherit buildInputs;
 
     propagatedBuildInputs = propagatedBuildInputs ++ requiredPythonModules_;
 

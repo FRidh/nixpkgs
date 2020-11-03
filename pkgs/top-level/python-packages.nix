@@ -78,7 +78,6 @@ let
       # Use passthru in order to prevent rebuilds when possible.
       passthru = (oldAttrs.passthru or {})// {
         pythonModule = python;
-        pythonPath = [ ]; # Deprecated, for compatibility.
         requiredPythonModules = computeRequiredPythonModules [ drv ] ++ drv.requiredPythonModules;
       };
     });
