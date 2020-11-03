@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "ce28bf9abe6c6b00c5d10343a68c1325f8409ebfb9bf1c1d863a31afa3983cd7";
   };
 
-  propagatedBuildInputs = [ paramiko ];
+  requiredPythonModules = [ paramiko ];
 
   checkInputs = [ pytest mock ];
 

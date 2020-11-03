@@ -22,7 +22,7 @@ buildPythonPackage rec {
     sha256 = "0x3xq6ni9rl5k3vi0ydqafdzvza785ycnlgyikgqbkppbh3j33ig";
   };
 
-  propagatedBuildInputs = [ oauthlib requests requests_oauthlib ];
+  requiredPythonModules = [ oauthlib requests requests_oauthlib ];
 
   checkInputs = [
     freezegun

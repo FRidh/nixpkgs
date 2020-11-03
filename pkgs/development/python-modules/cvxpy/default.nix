@@ -26,7 +26,7 @@ buildPythonPackage rec {
     sha256 = "36527573c937cedd270f46c77b50bb5e16b96ca7b05a7a480bdc8c9052595723";
   };
 
-  propagatedBuildInputs = [
+  requiredPythonModules = [
     cvxopt
     ecos
     multiprocess

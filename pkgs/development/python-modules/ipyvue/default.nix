@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "3253727e8e12e3c157550e3e8d6986edf61ad0d68299992fbf3fa6acec41a12e";
   };
 
-  propagatedBuildInputs = [ ipywidgets ];
+  requiredPythonModules = [ ipywidgets ];
 
   doCheck = false;  # No tests in package or GitHub
   pythonImportsCheck = [ "ipyvue" ];

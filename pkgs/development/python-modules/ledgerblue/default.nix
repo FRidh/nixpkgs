@@ -12,7 +12,7 @@ buildPythonPackage rec {
     sha256 = "f1fc7ab685780309a7220c6ee517d88072cc594a9615bcc18e68ed5f149fa432";
   };
 
-  propagatedBuildInputs = [
+  requiredPythonModules = [
     hidapi pycrypto pillow protobuf future ecpy python-u2flib-host pycryptodomex websocket_client
   ];
 

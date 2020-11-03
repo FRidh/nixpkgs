@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "c08dbb90c116626cb6c5f19ebd14cd4846cffe7151f338c19215e6938d334980";
   };
 
-  propagatedBuildInputs = [ ifaddr ]
+  requiredPythonModules = [ ifaddr ]
     ++ lib.optionals (pythonOlder "3.5") [ typing ];
 
   checkInputs = [ pytestCheckHook ];

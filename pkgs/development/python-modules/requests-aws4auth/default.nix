@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "2950f6ff686b5a452a269076d990e4821d959b61cfac319c3d3c6daaa5db55ce";
   };
 
-  propagatedBuildInputs = [ requests ];
+  requiredPythonModules = [ requests ];
 
   checkPhase = ''
     cd requests_aws4auth

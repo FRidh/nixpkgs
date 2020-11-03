@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "613e56f164b6bee487dd34f606083a0130f66f42f7b10f99730afdf1630df507";
   };
 
-  propagatedBuildInputs = [ google_api_core grpcio setuptools ];
+  requiredPythonModules = [ google_api_core grpcio setuptools ];
   checkInputs = [ pytest mock ];
 
   checkPhase = ''

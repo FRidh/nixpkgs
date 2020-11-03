@@ -16,7 +16,7 @@ buildPythonPackage rec {
     sha256 = "8fb7a201eb3e5763bb8f9d6e096ceed9e5f1baecd784c9fadbe0fb3d59174c0e";
   };
 
-  propagatedBuildInputs = [
+  requiredPythonModules = [
     lml
   ];
 

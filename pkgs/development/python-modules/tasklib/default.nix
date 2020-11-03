@@ -15,7 +15,7 @@ in buildPythonPackage rec {
     sha256 = "da66e84614b09443aa67c4dc2922213417329c39511dc5b384d8a5671e29115e";
   };
 
-  propagatedBuildInputs = [
+  requiredPythonModules = [
     six
     pytz
     tzlocal

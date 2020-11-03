@@ -18,7 +18,7 @@ buildPythonPackage rec {
   };
 
   nativeBuildInputs = [ setuptools_scm ];
-  propagatedBuildInputs = [ pyyaml jsonschema m2r sphinxcontrib_httpdomain ];
+  requiredPythonModules = [ pyyaml jsonschema m2r sphinxcontrib_httpdomain ];
 
   doCheck = false;
 

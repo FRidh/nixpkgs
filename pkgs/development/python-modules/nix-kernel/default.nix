@@ -26,7 +26,7 @@ buildPythonPackage rec {
       --replace "cmdclass={'install': install_with_kernelspec}," ""
   '';
 
-  propagatedBuildInputs = [
+  requiredPythonModules = [
     pexpect
     notebook
   ];

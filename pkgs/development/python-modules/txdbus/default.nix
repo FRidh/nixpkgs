@@ -9,7 +9,7 @@ buildPythonPackage rec {
     sha256 = "eefcffa4efbf82ba11222f17f5989fe1b2b6ef57226ef896c4a7084c990ba217";
   };
 
-  propagatedBuildInputs = [ six twisted ];
+  requiredPythonModules = [ six twisted ];
   pythonImportsCheck = [ "txdbus" ];
 
   meta = with stdenv.lib; {

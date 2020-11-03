@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "0n8ia51jg2dkab2sf0qnh39bssqhz65ybcqr78f3zzf7ja923lkr";
   };
 
-  propagatedBuildInputs = [ protobuf ];
+  requiredPythonModules = [ protobuf ];
 
   checkInputs = [ pytestCheckHook google_api_core ];
 

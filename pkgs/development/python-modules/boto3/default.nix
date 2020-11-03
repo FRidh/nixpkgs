@@ -20,7 +20,7 @@ buildPythonPackage rec {
     sha256 = "0zrsrz7c8aqj3n06piybwf7vy026rflr0ky362q615rln6iggx82";
   };
 
-  propagatedBuildInputs = [ botocore jmespath s3transfer ] ++ lib.optionals (!isPy3k) [ futures ];
+  requiredPythonModules = [ botocore jmespath s3transfer ] ++ lib.optionals (!isPy3k) [ futures ];
   checkInputs = [ docutils nose mock ];
 
   checkPhase = ''

@@ -13,7 +13,7 @@ buildPythonPackage rec {
     sha256 = "35cba563034d668ae90ffe1f03193a84e745b38f09592f60258358b5e5ee6238";
   };
 
-  propagatedBuildInputs = [
+  requiredPythonModules = [
     googleapis_common_protos protobuf
     google_auth requests setuptools grpcio
   ];

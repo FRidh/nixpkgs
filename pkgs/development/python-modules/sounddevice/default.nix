@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "007cfef077c447eebbdbca3d510ca4365c211c2c6c4d2912d6eec43c8cbcbc02";
   };
 
-  propagatedBuildInputs = [ cffi numpy portaudio ];
+  requiredPythonModules = [ cffi numpy portaudio ];
 
   # No tests included nor upstream available.
   doCheck = false;

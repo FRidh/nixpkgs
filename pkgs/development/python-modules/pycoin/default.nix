@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "301dd6df9d9d580701d7325c4d1c341233ba1a94cb805305ea3a43c31bdaaa4c";
   };
 
-  propagatedBuildInputs = [ setuptools ];
+  requiredPythonModules = [ setuptools ];
 
   postPatch = ''
     substituteInPlace ./pycoin/cmds/tx.py --replace '"gpg"' '"${gnupg}/bin/gpg"'

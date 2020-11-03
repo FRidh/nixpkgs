@@ -15,7 +15,7 @@ buildPythonPackage rec {
     sha256 = "99e02c28cfa18a0a9af0cd151dddf0eca373279b9bac808733746f7ed7030ecc";
   };
 
-  propagatedBuildInputs = [
+  requiredPythonModules = [
     pytest
     aiohttp
     async_generator

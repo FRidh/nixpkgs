@@ -14,7 +14,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytest requests-mock ];
-  propagatedBuildInputs = [ requests ];
+  requiredPythonModules = [ requests ];
 
   checkPhase = ''
     py.test tests

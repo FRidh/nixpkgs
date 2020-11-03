@@ -13,7 +13,7 @@ buildPythonPackage rec {
   };
 
   checkInputs = [ pytestpep8 pytest ];
-  propagatedBuildInputs = [ pytest pyflakes ];
+  requiredPythonModules = [ pytest pyflakes ];
 
   # no longer passes
   doCheck = false;

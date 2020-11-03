@@ -16,7 +16,7 @@ buildPythonPackage rec {
     sha256 = "6e06eac722676797e8fce4adb8ad3dc57a1bb3adfb0dd3fdf8306c055a38456c";
   };
 
-  propagatedBuildInputs = [ six ];
+  requiredPythonModules = [ six ];
 
   # see https://github.com/python-greenlet/greenlet/issues/85
   preCheck = ''

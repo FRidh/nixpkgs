@@ -16,7 +16,7 @@ buildPythonPackage rec {
   };
 
   buildInputs = [ setuptools_scm ];
-  propagatedBuildInputs = [
+  requiredPythonModules = [
     docutils
     pyparsing
   ];

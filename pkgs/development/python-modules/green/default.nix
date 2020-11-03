@@ -17,7 +17,7 @@ buildPythonPackage rec {
     sha256 = "c5a90e247237ac7e320120961608cf65191134fa400d327cbd4d09864c880935";
   };
 
-  propagatedBuildInputs = [
+  requiredPythonModules = [
     colorama coverage termstyle unidecode lxml
   ];
 

@@ -22,7 +22,7 @@ buildPythonPackage rec {
     sha256 = "787ade4796c5b2e79af2aac678841ba3748a65a3adce150697dcdd31c4f80365";
   };
 
-  propagatedBuildInputs = [
+  requiredPythonModules = [
     networkx
     tornado
     toolz

@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "64bac180274c52efe970c664d3e8bb12402c9d10e0734d9fe87655646a876c45";
   };
 
-  propagatedBuildInputs = [
+  requiredPythonModules = [
     pyexcel-io
     xlrd
     xlwt

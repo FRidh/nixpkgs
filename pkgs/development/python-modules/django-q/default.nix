@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "de7077660ede36bfdd89ab9405d6393b598bb3e0bfed61f59a0a9074cc4942bb";
   };
 
-  propagatedBuildInputs = [
+  requiredPythonModules = [
     django-picklefield arrow blessed django future
   ];
 

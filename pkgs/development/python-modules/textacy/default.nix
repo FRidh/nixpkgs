@@ -25,7 +25,7 @@ buildPythonPackage rec {
     sha256 = "0a824333f53d19d24ca864c92da52f3fecd412f4ef3e1448864c45f06189fd6d";
   };
 
-  propagatedBuildInputs = [
+  requiredPythonModules = [
     cachetools
     cytoolz
     jellyfish

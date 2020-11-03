@@ -25,7 +25,7 @@ buildPythonPackage rec {
     sha256 = "117268cbeb225e0aca4c59381b7bdf5333bf95ca85c1db410a326a887a74f3da";
   };
 
-  propagatedBuildInputs = [ numpy wxPython matplotlib pycairo python-gnupg xlrd xlwt jedi pyenchant basemap pygtk ];
+  requiredPythonModules = [ numpy wxPython matplotlib pycairo python-gnupg xlrd xlwt jedi pyenchant basemap pygtk ];
   # Could also (optionally) add pyrsvg and python bindings for libvlc
 
   # Tests try to access X Display

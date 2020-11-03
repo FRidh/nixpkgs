@@ -22,7 +22,7 @@ buildPythonPackage rec {
     sha256 = "0fmrvxs6ixfwjlp96b69db7fpvyqfy2n3c23kdz8yr0vhnp82l93";
   };
 
-  propagatedBuildInputs = [
+  requiredPythonModules = [
     requests filetype pyparsing configparser arxiv2bib
     pyyaml chardet beautifulsoup4 colorama bibtexparser
     click python-slugify habanero isbnlib

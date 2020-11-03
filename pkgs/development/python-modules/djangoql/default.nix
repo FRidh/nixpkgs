@@ -10,7 +10,7 @@ buildPythonPackage rec {
     sha256 = "1b1f80940bb15982e06208b97d7b3d08e1d5f8fb62aa07e5e33599c7ce4c0334";
   };
 
-  propagatedBuildInputs = [ ply ];
+  requiredPythonModules = [ ply ];
 
   checkInputs = [ django ];
 
