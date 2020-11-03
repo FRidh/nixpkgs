@@ -52,13 +52,17 @@ let
 
 in with passthru; stdenv.mkDerivation {
   inherit pname version;
+  inherit sitePackages;
 
   src = fetchurl {
     url = "https://bitbucket.org/pypy/pypy/downloads/pypy${pythonVersion}-v${version}-linux64.tar.bz2";
     inherit sha256;
   };
 
-  buildInputs = [ which ];
+  nativeBuildInputs = [
+    which
+    python-setup-hook
+  ];
 
   installPhase = ''
     mkdir -p $out/lib
@@ -107,8 +111,6 @@ in with passthru; stdenv.mkDerivation {
     echo "Testing whether we can import modules"
     $out/bin/${executable} -c '${imports}'
   '';
-
-  setupHook = python-setup-hook sitePackages;
 
   donPatchElf = true;
   dontStrip = true;

@@ -67,6 +67,7 @@ let
 
   nativeBuildInputs = optionals (!stdenv.isDarwin) [
     autoreconfHook
+    python-setup-hook
   ] ++ [
     nukeReferences
   ] ++ optionals (stdenv.hostPlatform != stdenv.buildPlatform) [
@@ -93,6 +94,7 @@ in with passthru; stdenv.mkDerivation {
   inherit version;
 
   inherit buildInputs nativeBuildInputs;
+  inherit sitePackages;
 
   src = fetchurl {
     url = with sourceVersion; "https://www.python.org/ftp/python/${major}.${minor}.${patch}/Python-${version}.tar.xz";
@@ -224,8 +226,6 @@ in with passthru; stdenv.mkDerivation {
   '' + optionalString stdenv.hostPlatform.isMusl ''
     export NIX_CFLAGS_COMPILE+=" -DTHREAD_STACK_SIZE=0x100000"
   '';
-
-  setupHook = python-setup-hook sitePackages;
 
   postInstall = ''
     # needed for some packages, especially packages that backport functionality

@@ -7,6 +7,7 @@
 }:
 
 let
+  # TODO Python setup hook should be added
   passthru = passthruFun {
     inherit self packageOverrides;
     implementation = "graal";

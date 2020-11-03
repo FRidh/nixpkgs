@@ -32,13 +32,17 @@ let
 
 in with passthru; stdenv.mkDerivation rec {
   inherit pname version;
+  inherit sitePackages;
 
   src = fetchurl {
     url = "https://bitbucket.org/pypy/pypy/downloads/pypy${pythonVersion}-v${version}-src.tar.bz2";
     inherit sha256;
   };
 
-  nativeBuildInputs = [ pkgconfig ];
+  nativeBuildInputs = [
+    pkgconfig
+    python-setup-hook
+  ];
   buildInputs = [
     bzip2 openssl pythonForPypy libffi ncurses expat sqlite tk tcl xlibsWrapper libX11 gdbm db
   ]  ++ optionals isPy3k [
@@ -84,8 +88,6 @@ in with passthru; stdenv.mkDerivation rec {
       -Ojit \
       --batch pypy/goal/targetpypystandalone.py
   '';
-
-  setupHook = python-setup-hook sitePackages;
 
   # TODO: A bunch of tests are failing as of 7.1.1, please feel free to
   # fix and re-enable if you have the patience and tenacity.

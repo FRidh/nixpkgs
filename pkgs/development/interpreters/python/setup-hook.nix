@@ -1,13 +1,9 @@
-{ runCommand }:
+{ makeSetupHook }:
 
-sitePackages:
-
-let
-  hook = ./setup-hook.sh;
-in runCommand "python-setup-hook.sh" {
-  inherit sitePackages;
-} ''
-  cp ${hook} hook.sh
-  substituteAllInPlace hook.sh
-  mv hook.sh $out
-''
+# This setup hook creates the setup hook each Python interpreter should have.
+makeSetupHook {
+  name = "create-python-interpreter-hook.sh";
+  substitutions = {
+    setupHook = ./setup-hook.sh;
+  };
+} ./create-python-interpreter-hook.sh

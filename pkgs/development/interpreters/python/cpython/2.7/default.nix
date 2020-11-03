@@ -191,8 +191,10 @@ let
     ++ [ db gdbm ncurses sqlite readline ]
     ++ optionals x11Support [ tcl tk xlibsWrapper libX11 ]
     ++ optional (stdenv.isDarwin && configd != null) configd;
-  nativeBuildInputs =
-    [ autoreconfHook ]
+  nativeBuildInputs = [
+    autoreconfHook
+    python-setup-hook
+  ]
     ++ optionals (stdenv.hostPlatform != stdenv.buildPlatform)
       [ buildPackages.stdenv.cc buildPackages.python ];
 
@@ -213,6 +215,7 @@ in with passthru; stdenv.mkDerivation ({
     inherit version;
 
     inherit src patches buildInputs nativeBuildInputs preConfigure configureFlags;
+    inherit sitePackages;
 
     LDFLAGS = stdenv.lib.optionalString (!stdenv.isDarwin) "-lgcc_s";
     inherit (mkPaths buildInputs) C_INCLUDE_PATH LIBRARY_PATH;
@@ -220,8 +223,6 @@ in with passthru; stdenv.mkDerivation ({
     NIX_CFLAGS_COMPILE = optionalString stdenv.isDarwin "-msse2"
       + optionalString stdenv.hostPlatform.isMusl " -DTHREAD_STACK_SIZE=0x100000";
     DETERMINISTIC_BUILD = 1;
-
-    setupHook = python-setup-hook sitePackages;
 
     postPatch = optionalString (x11Support && (tix != null)) ''
           substituteInPlace "Lib/lib-tk/Tix.py" --replace "os.environ.get('TIX_LIBRARY')" "os.environ.get('TIX_LIBRARY') or '${tix}/lib'"
