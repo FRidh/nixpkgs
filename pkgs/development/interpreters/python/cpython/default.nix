@@ -11,6 +11,7 @@
 , tcl ? null, tk ? null, tix ? null, libX11 ? null, xorgproto ? null, x11Support ? false
 , bluez ? null, bluezSupport ? false
 , zlib
+, tzdata ? null
 , self
 , configd
 , autoreconfHook
@@ -54,6 +55,8 @@ with stdenv.lib;
 
 let
 
+  tzdataSupport = tzdata != null && passthru.pythonAtLeast "3.9";
+
   passthru = passthruFun rec {
     inherit self sourceVersion packageOverrides;
     implementation = "cpython";
@@ -81,7 +84,8 @@ let
     zlib bzip2 expat lzma libffi gdbm sqlite readline ncurses openssl ]
     ++ optionals x11Support [ tcl tk libX11 xorgproto ]
     ++ optionals (bluezSupport && stdenv.isLinux) [ bluez ]
-    ++ optionals stdenv.isDarwin [ configd ]);
+    ++ optionals stdenv.isDarwin [ configd ])
+    ++ optionals tzdataSupport [ tzdata ];  # `zoneinfo` module
 
   hasDistutilsCxxPatch = !(stdenv.cc.isGNU or false);
 
@@ -211,6 +215,8 @@ in with passthru; stdenv.mkDerivation {
     # Never even try to use lchmod on linux,
     # don't rely on detecting glibc-isms.
     "ac_cv_func_lchmod=no"
+  ] ++ optionals tzdataSupport [
+    "--with-tzpath=${tzdata}/share/zoneinfo"
   ] ++ optional static "LDFLAGS=-static";
 
   preConfigure = ''
