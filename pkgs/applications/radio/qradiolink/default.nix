@@ -3,41 +3,41 @@
 , fetchFromGitHub
 , libpulseaudio
 , libconfig
+# Needs a gnuradio built with qt gui support
 , gnuradio
 , gnuradioPackages
 , gsm
 , libopus
 , libjpeg
+, libsndfile
+, libftdi
 , protobuf
 , speex
-, qmake4Hook
-} :
+, speexdsp
+}:
 
-let
-  version = "0.5.0";
-
-in mkDerivation {
+mkDerivation rec {
   pname = "qradiolink";
-  inherit version;
+  version = "0.8.5-rc5";
 
   src = fetchFromGitHub {
-    owner = "kantooon";
+    owner = "qradiolink";
     repo = "qradiolink";
     rev = version;
-    sha256 = "0xhg5zhjznmls5m3rhpk1qx0dipxmca12s85w15d0i7qwva2f1gi";
+    sha256 = "gChAN5Vs57oSZfUdKGKWEmhRueY1ftVKWVpuFqUOKC0=";
   };
 
   preBuild = ''
-    cd ext
+    cd src/ext
     protoc --cpp_out=. Mumble.proto
     protoc --cpp_out=. QRadioLink.proto
-    cd ..
+    cd ../..
     qmake
   '';
 
   installPhase = ''
-    mkdir -p $out/bin
-    cp qradiolink $out/bin
+    install -D qradiolink $out/bin/qradiolink
+    install -Dm644 qradiolink.desktop $out/share/applications/qradiolinl.desktop
   '';
 
   buildInputs = [
@@ -48,10 +48,17 @@ in mkDerivation {
     libopus
     libjpeg
     speex
+    speexdsp
+    gnuradio.qt.qtbase
+    gnuradio.qt.qtmultimedia
+    libftdi
+    libsndfile
+    gnuradio.qwt
   ];
   nativeBuildInputs = [
     protobuf
-    qmake4Hook
+    gnuradio.qt.qmake
+    gnuradio.qt.wrapQtAppsHook
   ];
 
   enableParallelBuilding = true;

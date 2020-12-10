@@ -15810,7 +15810,7 @@ in
 
   qm-dsp = callPackage ../development/libraries/audio/qm-dsp { };
 
-  qradiolink = gnuradio3_7.callPackage ../applications/radio/qradiolink { };
+  qradiolink = gnuradio.callPackage ../applications/radio/qradiolink { };
 
   qrupdate = callPackage ../development/libraries/qrupdate { };
 
