@@ -1,24 +1,24 @@
-{ stdenv, fetchFromGitHub
+{ stdenv
+, mkDerivation
+, fetchFromGitHub
 , armadillo
-, boost
 , cmake
 , glog
 , gmock
 , openssl
 , gflags
-, gnuradio
+, gnuradioPackages
+, libpcap
 , orc
 , pkgconfig
-, pythonPackages
 , uhd
-, log4cpp
 , blas, lapack
 , matio
 , pugixml
 , protobuf
 }:
 
-stdenv.mkDerivation rec {
+mkDerivation rec {
   pname = "gnss-sdr";
   version = "0.0.13";
 
@@ -29,28 +29,23 @@ stdenv.mkDerivation rec {
     sha256 = "0a3k47fl5dizzhbqbrbmckl636lznyjby2d2nz6fz21637hvrnby";
   };
 
+  nativeBuildInputs = [
+    cmake
+  ];
+
   buildInputs = [
     armadillo
-    boost.dev
-    cmake
     glog
     gmock
-    openssl.dev
     gflags
-    gnuradio
+    openssl
     orc
-    pkgconfig
-    pythonPackages.Mako
-    pythonPackages.six
-
-    # UHD support is optional, but gnuradio is built with it, so there's
-    # nothing to be gained by leaving it out.
-    uhd
-    log4cpp
     blas lapack
     matio
     pugixml
     protobuf
+    gnuradioPackages.osmosdr
+    libpcap
   ];
 
   enableParallelBuilding = true;
