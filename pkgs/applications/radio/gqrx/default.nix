@@ -1,11 +1,14 @@
-{ stdenv, fetchFromGitHub, cmake, qtbase, qtsvg, gnuradio, boost, gr-osmosdr
+{ stdenv
+, fetchFromGitHub
+# Because we use gnuradioMinimal.callPackage to build this package, qt is not
+# added automatically to the buildInputs, so we use whatever qt5 is defined in
+# all-packages.nix
+, qt5
+, gnuradioPackages
 , mkDerivation
 # drivers (optional):
 , rtl-sdr, hackrf
-, pulseaudioSupport ? true, libpulseaudio
 }:
-
-assert pulseaudioSupport -> libpulseaudio != null;
 
 mkDerivation rec {
   pname = "gqrx";
@@ -18,10 +21,10 @@ mkDerivation rec {
     sha256 = "10pmd2jqmw77gybjfzrch6qi8jil1g6nsjzabbd6gnbsq7320axj";
   };
 
-  nativeBuildInputs = [ cmake ];
+  nativeBuildInputs = [ qt5.wrapQtAppsHook ];
   buildInputs = [
-    qtbase qtsvg gnuradio boost gr-osmosdr rtl-sdr hackrf
-  ] ++ stdenv.lib.optionals pulseaudioSupport [ libpulseaudio ];
+    qt5.qtbase qt5.qtsvg gnuradioPackages.osmosdr rtl-sdr hackrf
+  ];
 
   enableParallelBuilding = true;
 
