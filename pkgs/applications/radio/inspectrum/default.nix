@@ -1,14 +1,11 @@
 { lib
 , mkDerivation
 , fetchFromGitHub
-, pkgconfig
-, cmake
-, boost
-, fftwFloat
-, gnuradio
+# Because we use gnuradioMinimal.callPackage to build this package, qt is not
+# added automatically to the buildInputs, so we use whatever qt5 is defined in
+# all-packages.nix
+, qt5
 , liquid-dsp
-, qtbase
-, wrapQtAppsHook
 }:
 
 mkDerivation rec {
@@ -22,13 +19,10 @@ mkDerivation rec {
     sha256 = "1x6nyn429pk0f7lqzskrgsbq09mq5787xd4piic95add6n1cc355";
   };
 
-  nativeBuildInputs = [ cmake pkgconfig wrapQtAppsHook ];
+  nativeBuildInputs = [ qt5.wrapQtAppsHook ];
   buildInputs = [
-    fftwFloat
-    boost
-    gnuradio
     liquid-dsp
-    qtbase
+    qt5.qtbase
   ];
 
   meta = with lib; {
