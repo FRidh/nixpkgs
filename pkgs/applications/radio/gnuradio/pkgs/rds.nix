@@ -1,10 +1,24 @@
 { stdenv
 , mkDerivation
-, version
-, src
+, fetchFromGitHub
+, gnuradio
 }:
 
-mkDerivation {
+let
+  version = {
+    "3.7" = "1.1.0";
+    "3.8" = "3.8.0";
+  }.${gnuradio.versionAttr.major};
+  src = fetchFromGitHub {
+    owner = "bastibl";
+    repo = "gr-rds";
+    rev = "v${version}";
+    sha256 = {
+      "3.7" = "0jkzchvw0ivcxsjhi1h0mf7k13araxf5m4wi5v9xdgqxvipjzqfy";
+      "3.8" = "+yKLJu2bo7I2jkAiOdjvdhZwxFz9NFgTmzcLthH9Y5o=";
+    }.${gnuradio.versionAttr.major};
+  };
+in mkDerivation {
   pname = "gr-rds";
   inherit version src;
 

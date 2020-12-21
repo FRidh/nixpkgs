@@ -1,14 +1,20 @@
 { stdenv
 , mkDerivation
-, version
-, src
+, fetchFromGitHub
 , libosmocore
 , gnuradioPackages
 }:
 
 mkDerivation {
   pname = "gr-gsm";
-  inherit version src;
+  version = "2016-08-25";
+  src = fetchFromGitHub {
+    owner = "ptrkrysik";
+    repo = "gr-gsm";
+    rev = "3ca05e6914ef29eb536da5dbec323701fbc2050d";
+    sha256 = "13nnq927kpf91iqccr8db9ripy5czjl5jiyivizn6bia0bam2pvx";
+  };
+  disabled = ["3.8"];
 
   buildInputs = [
     libosmocore gnuradioPackages.osmosdr

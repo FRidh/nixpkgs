@@ -6,7 +6,6 @@
 , wrap ? true
 # To define gnuradio packages in ./packages.nix
 , newScope
-, pkgs
 # For the wrapper
 , makeWrapper
 # For lndir
@@ -130,20 +129,15 @@ let
     inherit stdenv unwrapped;
   };
   mkDerivation = mkDerivationWith stdenv.mkDerivation;
-  packages = import ./pkgs {
-    inherit
-      mkDerivation
-      mkDerivationWith
-      callPackage
-      unwrapped
-      pkgs # Nixpkgs' - needed for pkgs.fetchgit and pkgs.fetchFromGitHub and alike in ./pkgs/srcs.nix
-    ;
-    inherit (stdenv) lib;
-  };
   callPackage = newScope {
     gnuradio = unwrapped;
     gnuradioPackages = packages;
     inherit mkDerivation mkDerivationWith;
+  };
+  packages = import ./pkgs {
+    inherit
+      callPackage
+    ;
   };
   passthru = unwrapped.passthru // {
     inherit
