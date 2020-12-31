@@ -125,7 +125,7 @@ let
     ++ extraMakeWrapperArgs
   );
 
-  packages = import ./pkgs {
+  packages = import ./pkgs/gnuradio-packages.nix {
     inherit pkgs;
     gnuradio = unwrapped;
   };
