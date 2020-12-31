@@ -5,7 +5,7 @@
 # wrapProgram..
 , wrap ? true
 # To define gnuradio packages in ./packages.nix
-, newScope
+, pkgs
 # For the wrapper
 , makeWrapper
 # For lndir
@@ -124,29 +124,16 @@ let
       )
     ++ extraMakeWrapperArgs
   );
-  # Modeled after qt's
-  mkDerivationWith = import ./mkDerivation.nix {
-    inherit stdenv unwrapped;
-  };
-  mkDerivation = mkDerivationWith stdenv.mkDerivation;
-  callPackage = newScope {
-    gnuradio = unwrapped;
-    gnuradioPackages = packages;
-    inherit mkDerivation mkDerivationWith;
-  };
+
   packages = import ./pkgs {
-    inherit
-      callPackage
-    ;
+    inherit pkgs;
+    gnuradio = unwrapped;
   };
   passthru = unwrapped.passthru // {
     inherit
       pythonEnv
       pythonPkgs
       unwrapped
-      mkDerivation
-      mkDerivationWith
-      callPackage
     ;
     pkgs = packages;
   };

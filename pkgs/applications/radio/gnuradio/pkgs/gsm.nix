@@ -2,7 +2,7 @@
 , mkDerivation
 , fetchFromGitHub
 , libosmocore
-, gnuradioPackages
+, osmosdr
 }:
 
 mkDerivation {
@@ -17,7 +17,8 @@ mkDerivation {
   disabled = ["3.8"];
 
   buildInputs = [
-    libosmocore gnuradioPackages.osmosdr
+    libosmocore
+    osmosdr
   ];
 
   meta = with stdenv.lib; {

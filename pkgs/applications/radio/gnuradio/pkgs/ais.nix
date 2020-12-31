@@ -1,8 +1,7 @@
 { stdenv
 , mkDerivation
 , fetchFromGitHub
-, gnuradio
-, gnuradioPackages
+, osmosdr
 }:
 
 mkDerivation rec {
@@ -18,7 +17,7 @@ mkDerivation rec {
   disabled = ["3.8"];
 
   buildInputs = [
-    gnuradioPackages.osmosdr
+    osmosdr
   ];
 
   enableParallelBuilding = true;
