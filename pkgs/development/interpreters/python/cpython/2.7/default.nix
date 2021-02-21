@@ -27,7 +27,10 @@
 , sha256
 , passthruFun
 , static ? false
-, enableOptimizations ? (!stdenv.isDarwin)
+, stripBytecode ? reproducible
+, rebuildBytecode ? true #stdenv.hostPlatform == stdenv.buildPlatform
+, reproducible ? true
+, enableOptimizations ? false
 , pythonAttr ? "python${sourceVersion.major}${sourceVersion.minor}"
 }:
 
@@ -38,9 +41,22 @@ assert x11Support -> tcl != null
 
 with lib;
 
+assert assertMsg (enableOptimizations -> (!stdenv.isDarwin))
+  "Optimizations on darwin are not supported. configure: error: llvm-profdata is required for a --enable-optimizations build but could not be found.";
+
+assert assertMsg (reproducible -> stripBytecode)
+  "Deterministic builds require stripping bytecode.";
+
+assert assertMsg (reproducible -> (!enableOptimizations))
+  "Deterministic builds are not achieved when optimizations are enabled.";
+
 let
   buildPackages = pkgsBuildHost;
   inherit (passthru) pythonForBuild;
+
+  pythonForBuildInterpreter = if stdenv.hostPlatform == stdenv.buildPlatform then
+    "$out/bin/python"
+  else pythonForBuild.interpreter;
 
   passthru = passthruFun rec {
     inherit self sourceVersion packageOverrides;
@@ -263,14 +279,18 @@ in with passthru; stdenv.mkDerivation ({
         # Determinism: Windows installers were not deterministic.
         # We're also not interested in building Windows installers.
         find "$out" -name 'wininst*.exe' | xargs -r rm -f
-      '' + optionalString (stdenv.hostPlatform == stdenv.buildPlatform)
-      ''
-        # Determinism: rebuild all bytecode
+      '' + optionalString stripBytecode ''
+        # Determinism: deterministic bytecode
+        # First we delete all old bytecode.
+        find $out -name "*.pyc" -delete
+        '' + optionalString rebuildBytecode ''
+        # Then, we build for the two optimization levels.
+        # We do not build unoptimized bytecode, because its not entirely deterministic yet.
+        # Python 3.7 implements PEP 552, introducing support for deterministic bytecode.
+        # compileall by used this checked-hash method by default when `SOURCE_DATE_EPOCH` is set.
         # We exclude lib2to3 because that's Python 2 code which fails
-        # We rebuild three times, once for each optimization level
-        find $out -name "*.py" | $out/bin/python -m compileall -q -f -x "lib2to3" -i -
-        find $out -name "*.py" | $out/bin/python -O -m compileall -q -f -x "lib2to3" -i -
-        find $out -name "*.py" | $out/bin/python -OO -m compileall -q -f -x "lib2to3" -i -
+        find $out -name "*.py" | ${pythonForBuildInterpreter} -O  -m compileall -q -f -x "lib2to3" -i -
+        find $out -name "*.py" | ${pythonForBuildInterpreter} -OO -m compileall -q -f -x "lib2to3" -i -
       '' + optionalString stdenv.hostPlatform.isCygwin ''
         cp libpython2.7.dll.a $out/lib
       '';
