@@ -33,9 +33,10 @@
 , stripTests ? false
 , stripTkinter ? false
 , rebuildBytecode ? true
-, stripBytecode ? false
+, stripBytecode ? reproducible
 , includeSiteCustomize ? true
 , static ? stdenv.hostPlatform.isStatic
+, reproducible ? true
 # Not using optimizations on Darwin
 # configure: error: llvm-profdata is required for a --enable-optimizations build but could not be found.
 , enableOptimizations ? (!stdenv.isDarwin)
@@ -55,6 +56,15 @@ assert x11Support -> tcl != null
 assert bluezSupport -> bluez != null;
 
 with lib;
+
+assert assertMsg (enableOptimizations -> (!stdenv.isDarwin))
+  "Optimizations on darwin are not supported. configure: error: llvm-profdata is required for a --enable-optimizations build but could not be found.";
+
+assert assertMsg (reproducible -> stripBytecode)
+  "Deterministic builds require stripping bytecode.";
+
+assert assertMsg (reproducible -> (!enableOptimizations))
+  "Deterministic builds are not achieved when optimizations are enabled.";
 
 let
   buildPackages = pkgsBuildHost;
@@ -355,18 +365,19 @@ in with passthru; stdenv.mkDerivation {
     '' + optionalString includeSiteCustomize ''
     # Include a sitecustomize.py file
     cp ${../sitecustomize.py} $out/${sitePackages}/sitecustomize.py
-    '' + optionalString rebuildBytecode ''
 
-    # Determinism: rebuild all bytecode
-    # We exclude lib2to3 because that's Python 2 code which fails
-    # We rebuild three times, once for each optimization level
+    '' + optionalString stripBytecode ''
+    # Determinism: deterministic bytecode
+    # First we delete all old bytecode.
+    find $out -type d -name __pycache__ -print0 | xargs -0 -I {} rm -rf "{}"
+    '' + optionalString rebuildBytecode ''
+    # Then, we build for the two optimization levels.
+    # We do not build unoptimized bytecode, because its not entirely deterministic yet.
     # Python 3.7 implements PEP 552, introducing support for deterministic bytecode.
-    # This is automatically used when `SOURCE_DATE_EPOCH` is set.
-    find $out -name "*.py" | ${pythonForBuildInterpreter}     -m compileall -q -f -x "lib2to3" -i -
+    # compileall by used this checked-hash method by default when `SOURCE_DATE_EPOCH` is set.
+    # We exclude lib2to3 because that's Python 2 code which fails
     find $out -name "*.py" | ${pythonForBuildInterpreter} -O  -m compileall -q -f -x "lib2to3" -i -
     find $out -name "*.py" | ${pythonForBuildInterpreter} -OO -m compileall -q -f -x "lib2to3" -i -
-    '' + optionalString stripBytecode ''
-    find $out -type d -name __pycache__ -print0 | xargs -0 -I {} rm -rf "{}"
   '';
 
   preFixup = lib.optionalString (stdenv.hostPlatform != stdenv.buildPlatform) ''
