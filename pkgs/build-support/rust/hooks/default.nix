@@ -85,7 +85,7 @@ in {
   maturinBuildHook = callPackage ({ }:
     makeSetupHook {
       name = "maturin-build-hook.sh";
-      deps = [ cargo maturin ];
+      deps = with buildPackages; [ cargo maturin ];
       substitutions = {
         inherit ccForBuild ccForHost cxxForBuild cxxForHost
           rustBuildPlatform rustTargetPlatform rustTargetPlatformSpec;
