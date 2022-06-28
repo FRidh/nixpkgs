@@ -9749,6 +9749,8 @@ in {
 
   sklearn-deap = callPackage ../development/python-modules/sklearn-deap { };
 
+  sklearn-xarray = callPackage ../development/python-modules/sklearn-xarray { };
+
   skodaconnect = callPackage ../development/python-modules/skodaconnect { };
 
   skorch = callPackage ../development/python-modules/skorch { };
