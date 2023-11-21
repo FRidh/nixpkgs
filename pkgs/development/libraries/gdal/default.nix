@@ -221,6 +221,9 @@ stdenv.mkDerivation (finalAttrs: {
     "gcore/vsis3.py"
     "gdrivers/gdalhttp.py"
     "gdrivers/wms.py"
+
+    # disable benchmarks
+    "benchmark/*"
   ];
   disabledTests = [
     # tests that attempt to make network requests
