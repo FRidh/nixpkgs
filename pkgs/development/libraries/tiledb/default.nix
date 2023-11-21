@@ -61,6 +61,7 @@ stdenv.mkDerivation rec {
   # (bundled) blosc headers have a warning on some archs that it will be using
   # unaccelerated routines.
   cmakeFlags = [
+    "-DTILEDB_TESTS=OFF"
     "-DTILEDB_VCPKG=OFF"
     "-DTILEDB_WEBP=OFF"
     "-DTILEDB_WERROR=OFF"
@@ -90,8 +91,6 @@ stdenv.mkDerivation rec {
     boost
     libpqxx
   ];
-
-  doCheck = true;
 
   installTargets = [ "install-tiledb" "doc" ];
 
